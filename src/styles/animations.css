@@ -1,0 +1,157 @@
+/* ── Annotation bar ──────────────────────────────────────────────────────── */
+@keyframes annotationFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.annotation-enter {
+  animation: annotationFadeIn 160ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes annotationFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(4px); }
+}
+.annotation-exit {
+  animation: annotationFadeOut 130ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ── Unified panel: snap transition (transform with overshoot spring) ──── */
+.unified-panel.is-snapped {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Unified panel: expanded (hover) — smooth upward shift ─────────────── */
+.unified-panel.is-expanded {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Unified panel: collapse (no is-expanded, not snapped, not dragging) ─ */
+.unified-panel:not(.is-expanded):not(.is-snapped):not(.is-dragging) {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Unified panel: unsnapping — animate from docked to floating ──────── */
+.unified-panel.is-unsnapping {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.unified-panel.is-unsnapping .panel-box {
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              border-radius 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease-out,
+              background 0.3s ease;
+}
+
+/* ── Unified panel: drag — no transition, instant cursor following ─────── */
+.unified-panel.is-dragging {
+  transition: none !important;
+}
+
+/* ── Box transitions: height + border-radius + shadow during snap ──────── */
+.unified-panel.is-snapped .panel-box {
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease-out,
+              background 0.3s ease;
+}
+/* ── Box transitions: height expansion/collapse on hover ───────────────── */
+.unified-panel.is-expanded .panel-box,
+.unified-panel:not(.is-expanded):not(.is-snapped):not(.is-dragging) .panel-box {
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease-out,
+              background 0.3s ease;
+}
+.unified-panel.is-dragging .panel-box {
+  transition: box-shadow 0.15s ease-out,
+              background 0.3s ease;
+}
+
+/* ── Enter/exit on inner scaler (separated from translate3d) ───────────── */
+@keyframes panelScaleIn {
+  from { transform: scale(0.95); }
+  to   { transform: scale(1); }
+}
+.panel-scaler.is-entering {
+  animation: panelScaleIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes panelScaleOut {
+  from { transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.95); }
+}
+.panel-scaler.is-exiting {
+  animation: panelScaleOut 180ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* ── Address bar dropdown — instant open, quick fade-out on close ─────────── */
+@keyframes dropdownFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.dropdown-enter {
+  animation: dropdownFadeIn 80ms ease-out forwards;
+}
+
+@keyframes dropdownFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.dropdown-exit {
+  animation: dropdownFadeOut 100ms ease-in forwards;
+}
+
+/* ── Add Block button — fades in 22px downward to rest ──────────────────────── */
+@keyframes addBlockEnter {
+  from { opacity: 0; transform: translateY(-22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.add-block-enter {
+  animation: addBlockEnter 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Header scrim — dissolve in ─────────────────────────────────────────────── */
+@keyframes scrimFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.header-scrim-enter {
+  animation: scrimFadeIn 300ms ease forwards;
+}
+
+/* ── Header edit button — slide up from below ──────────────────────────────── */
+@keyframes headerBtnEnter {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.header-btn-enter {
+  animation: headerBtnEnter 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Add Block button — return after picker closes (rise from below) ────────── */
+@keyframes addBlockReturn {
+  from { opacity: 0; transform: translateY(11px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.add-block-return {
+  animation: addBlockReturn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Block picker — soft drop-in from above ─────────────────────────────────── */
+@keyframes blockPickerEnter {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.block-picker-enter {
+  animation: blockPickerEnter 160ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Hero image — entrance reveal (scaleX 0 → 1) ────────────────────────────── */
+@keyframes heroRevealIn {
+  0%   { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+.hero-mask-entrance {
+  animation: heroRevealIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}

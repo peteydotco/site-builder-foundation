@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="xMidYMid meet" width="16" height="16" overflow="visible" style="display: block;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Vector">
+<path d="M11 13C12.1046 13 13 12.1046 13 11C13 9.89543 12.1046 9 11 9C9.89543 9 9 9.89543 9 11C9 12.1046 9.89543 13 11 13Z" fill="var(--fill-0, #0E0E0E)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H16V16H0V0ZM14 2V4H2V2H14ZM2 14V6H14V14H2Z" fill="var(--fill-0, #0E0E0E)"/>
+</g>
+</svg>

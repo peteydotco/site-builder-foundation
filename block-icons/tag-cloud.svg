@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="xMidYMid meet" width="20" height="14" overflow="visible" style="display: block;" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Vector">
+<path d="M9 0H3V2H9V0Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M9 14V12H3V14H9Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M17 12V14H11V12H17Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M17 0H11V2H17V0Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M14 10V8H20V10H14Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M0 10H12V8H0V10Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M20 4H8V6H20V4Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M0 6V4H6V6H0Z" fill="var(--fill-0, #0E0E0E)"/>
+</g>
+</svg>

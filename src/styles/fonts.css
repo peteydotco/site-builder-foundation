@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Clarkson';
+  src: url('../fonts/Clarkson-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Clarkson';
+  src: url('../fonts/Clarkson-BookProduct.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Clarkson';
+  src: url('../fonts/Clarkson-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Apply Clarkson globally — replaces system-ui fallback */
+*, *::before, *::after {
+  font-family: 'Clarkson', -apple-system, BlinkMacSystemFont, sans-serif;
+}

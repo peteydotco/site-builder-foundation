@@ -1,0 +1,86 @@
+/* ── Rosetta Design Tokens (local emulation) ─────────────────────────────────
+ *
+ * Mirrors the official Rosetta color system so the prototype stays in sync
+ * with the design system. When Rosetta ships as a package, replace this file
+ * with the real import.
+ *
+ * Source: Rosetta docs — Colors / Foreground & Background
+ *
+ * Dark mode activates via [data-theme="dark"] on the chrome container,
+ * keeping the website preview unaffected.
+ */
+
+:root {
+  /* ── Foreground ── */
+  --rosetta-fg-default:    #0E0E0E;
+  --rosetta-fg-muted:      #666666;
+  --rosetta-fg-disabled:   #B7B7B7;
+  --rosetta-fg-accent:     #0862D1;
+  --rosetta-fg-success:    #1B754F;
+  --rosetta-fg-warning:    #925B20;
+  --rosetta-fg-danger:     #C32D38;
+  --rosetta-fg-onStrong:   #FFFFFF;
+
+  /* ── Background ── */
+  --rosetta-bg-base:              #FFFFFF;
+  --rosetta-bg-default:           #F2F2F2;
+  --rosetta-bg-inset:             #F9F9F9;
+  --rosetta-bg-muted:             #E7E7E7;
+  --rosetta-bg-strong:            #0E0E0E;
+  --rosetta-bg-accent-default:    #F4F5FD;
+  --rosetta-bg-accent-strong:     #0072F0;
+  --rosetta-bg-success-default:   #EDF8F2;
+  --rosetta-bg-success-strong:    #15865B;
+  --rosetta-bg-warning-default:   #FEF5D3;
+  --rosetta-bg-warning-strong:    #AB6500;
+  --rosetta-bg-danger-default:    #FEF3F2;
+  --rosetta-bg-danger-strong:     #DB3642;
+
+  /* ── Border ── */
+  --rosetta-border-default:       #E7E7E7;
+
+  /* ── Shadows ── */
+  --shadows-100: 0px 4px 8px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+  --shadows-200: 0px 4px 16px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+  --shadows-300: 0px 4px 24px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+  --shadows-400: 0px 4px 32px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+  --shadows-500: 0px 4px 64px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Dark mode — triggered by data attribute on chrome container ── */
+[data-theme="dark"] {
+  /* ── Foreground ── */
+  --rosetta-fg-default:    #FFFFFF;
+  --rosetta-fg-muted:      #9B9B9B;
+  --rosetta-fg-disabled:   #4A4A4A;
+  --rosetta-fg-accent:     #4389EC;
+  --rosetta-fg-success:    #439A71;
+  --rosetta-fg-warning:    #B97F1F;
+  --rosetta-fg-danger:     #DD6363;
+  --rosetta-fg-onStrong:   #0E0E0E;
+
+  /* ── Background ── */
+  --rosetta-bg-base:              #0E0E0E;
+  --rosetta-bg-default:           #202020;
+  --rosetta-bg-inset:             #171717;
+  --rosetta-bg-muted:             #3A3A3A;
+  --rosetta-bg-strong:            #FFFFFF;
+  --rosetta-bg-accent-default:    #131B30;
+  --rosetta-bg-accent-strong:     #287AE7;
+  --rosetta-bg-success-default:   #041E11;
+  --rosetta-bg-success-strong:    #208C60;
+  --rosetta-bg-warning-default:   #281803;
+  --rosetta-bg-warning-strong:    #A87012;
+  --rosetta-bg-danger-default:    #321112;
+  --rosetta-bg-danger-strong:     #D8484D;
+
+  /* ── Border ── */
+  --rosetta-border-default:       #3A3A3A;
+
+  /* ── Shadows ── */
+  --shadows-100: 0px 4px 8px 0px rgba(0, 0, 0, 0.88), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+  --shadows-200: 0px 4px 16px 0px rgba(0, 0, 0, 0.88), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+  --shadows-300: 0px 4px 24px 0px rgba(0, 0, 0, 0.88), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+  --shadows-400: 0px 4px 32px 0px rgba(0, 0, 0, 0.88), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+  --shadows-500: 0px 4px 64px 0px rgba(0, 0, 0, 0.88), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+}

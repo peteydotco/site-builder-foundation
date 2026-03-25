@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="xMidYMid meet" width="17.8008" height="15.6" overflow="visible" style="display: block;" viewBox="0 0 17.8008 15.6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Vector">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.8 3.6C2.79411 3.6 3.6 2.79411 3.6 1.8C3.6 0.805887 2.79411 0 1.8 0C0.805887 0 0 0.805887 0 1.8C0 2.79411 0.805887 3.6 1.8 3.6Z" fill="#0E0E0E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.8 9.60005C2.79411 9.60005 3.6 8.79416 3.6 7.80005C3.6 6.80594 2.79411 6.00005 1.8 6.00005C0.805887 6.00005 0 6.80594 0 7.80005C0 8.79416 0.805887 9.60005 1.8 9.60005Z" fill="#0E0E0E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.8 15.6C2.79411 15.6 3.6 14.7942 3.6 13.8C3.6 12.8059 2.79411 12 1.8 12C0.805887 12 0 12.8059 0 13.8C0 14.7942 0.805887 15.6 1.8 15.6Z" fill="#0E0E0E"/>
+<path d="M5.80078 0.800049H17.8008V2.80005H5.80078V0.800049Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M5.80078 6.80005H17.8008V8.80005H5.80078V6.80005Z" fill="var(--fill-0, #0E0E0E)"/>
+<path d="M5.80078 12.8H17.8008V14.8H5.80078V12.8Z" fill="var(--fill-0, #0E0E0E)"/>
+</g>
+</svg>
