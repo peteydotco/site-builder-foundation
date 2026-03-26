@@ -7,7 +7,7 @@
   flex-direction: column;
   flex-shrink: 0;
   overflow: hidden;
-  background: var(--rosetta-bg-base);
+  background: var(--rosetta-bg-inset);
   transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
