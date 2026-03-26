@@ -1823,14 +1823,14 @@ function As({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         /* @__PURE__ */ o(
           "div",
           {
-            className: c ? "section-glow-line" : void 0,
             style: {
               position: "absolute",
-              left: 0,
-              right: 0,
-              top: -1,
-              height: 3,
-              background: c ? "linear-gradient(90deg, transparent, hsl(270deg 60% 60% / 0.8) 20%, hsl(195deg 50% 55%) 50%, hsl(290deg 55% 55% / 0.8) 80%, transparent)" : "transparent",
+              left: "calc(50% - 700px)",
+              width: 1400,
+              top: -11,
+              height: 0,
+              border: "11px solid #E7E7E7",
+              boxShadow: "inset 0px 0px 4px rgba(0, 0, 0, 0.11)",
               opacity: c ? 1 : 0,
               transition: "opacity 0.4s ease",
               pointerEvents: "none"
@@ -1990,7 +1990,7 @@ function As({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                 height: 45,
                 borderRadius: 33,
                 background: "linear-gradient(0deg, rgba(250,250,250,0.88) 0%, rgba(250,250,250,0.88) 100%), radial-gradient(54.96% 47.34% at 97.34% 33.88%, rgba(74,143,159,0.85) 0%, rgba(74,143,159,0) 100%)",
-                border: "1px solid #7D7194",
+                border: "1px solid var(--rosetta-border-default, #E7E7E7)",
                 boxShadow: rr,
                 overflow: "hidden",
                 animation: "sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards"
@@ -2356,7 +2356,7 @@ function hr({ children: e, title: t, description: n, depth: r = 0, isActive: i =
     e
   ] }) });
 }
-const fr = N(hr), gr = "_container_1wora_1", br = "_wrap_1wora_7", vr = "_content_1wora_7", yr = "_fadeup_1wora_13", xr = "_fadeoutdown_1wora_19", wr = "_label_1wora_46", _r = "_buttonBox_1wora_66", kr = "_active_1wora_109", Fr = "_disclosure_1wora_119", Rr = "_disclosureWrapper_1wora_133", ee = {
+const fr = N(hr), gr = "_container_q041b_1", br = "_wrap_q041b_7", vr = "_content_q041b_7", yr = "_fadeup_q041b_13", xr = "_fadeoutdown_q041b_19", wr = "_label_q041b_46", _r = "_buttonBox_q041b_66", kr = "_active_q041b_109", Fr = "_disclosure_q041b_119", Rr = "_disclosureWrapper_q041b_133", ee = {
   container: gr,
   wrap: br,
   content: vr,

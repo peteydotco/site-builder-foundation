@@ -144,18 +144,16 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     >
       <GooeyFilter id={filterId} />
 
-      {/* Glowing line — activates when prompt is open */}
+      {/* Section border — activates when prompt is open */}
       <div
-        className={expanded ? 'section-glow-line' : undefined}
         style={{
           position: 'absolute',
-          left: 0,
-          right: 0,
-          top: -1,
-          height: 3,
-          background: expanded
-            ? 'linear-gradient(90deg, transparent, hsl(270deg 60% 60% / 0.8) 20%, hsl(195deg 50% 55%) 50%, hsl(290deg 55% 55% / 0.8) 80%, transparent)'
-            : 'transparent',
+          left: 'calc(50% - 700px)',
+          width: 1400,
+          top: -11,
+          height: 0,
+          border: '11px solid #E7E7E7',
+          boxShadow: 'inset 0px 0px 4px rgba(0, 0, 0, 0.11)',
           opacity: expanded ? 1 : 0,
           transition: 'opacity 0.4s ease',
           pointerEvents: 'none',
@@ -321,7 +319,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               height: 45,
               borderRadius: 33,
               background: 'linear-gradient(0deg, rgba(250,250,250,0.88) 0%, rgba(250,250,250,0.88) 100%), radial-gradient(54.96% 47.34% at 97.34% 33.88%, rgba(74,143,159,0.85) 0%, rgba(74,143,159,0) 100%)',
-              border: '1px solid #7D7194',
+              border: '1px solid var(--rosetta-border-default, #E7E7E7)',
               boxShadow: PROMPT_SHADOW,
               overflow: 'hidden',
               animation: 'sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
