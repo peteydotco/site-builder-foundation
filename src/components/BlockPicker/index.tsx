@@ -5,6 +5,16 @@ import { PlusIcon, EditIcon } from '../../icons'
 // ── Rosetta spacing ──────────────────────────────────────────────────────────
 
 const SP2 = 11
+const SP8 = 44
+
+// ── Aurora pill button background (Figma spec: #FAFAFA base, subtle aurora) ──
+const AURORA_PILL_BG = [
+  'radial-gradient(ellipse at -4% 68%, rgba(61,48,65,0.22) 0%, transparent 60%)',
+  'radial-gradient(ellipse at 67% 97%, rgba(92,71,99,0.20) 0%, transparent 55%)',
+  'radial-gradient(ellipse at 97% 34%, rgba(74,143,159,0.21) 0%, transparent 60%)',
+  'radial-gradient(ellipse at 34% 16%, rgba(125,113,148,0.22) 0%, transparent 50%)',
+  'linear-gradient(90deg, #FAFAFA 0%, #FAFAFA 100%)',
+].join(', ')
 
 // ── Rosetta text styles (from Figma) ─────────────────────────────────────────
 //
@@ -314,7 +324,6 @@ interface AddBlockToolbarProps {
 }
 
 export function AddBlockToolbar({ onAddBlock }: AddBlockToolbarProps) {
-  const [hovered, setHovered] = useState(false)
   return (
     <div style={{
       display: 'flex',
@@ -323,46 +332,39 @@ export function AddBlockToolbar({ onAddBlock }: AddBlockToolbarProps) {
     }}>
       <button
         onClick={onAddBlock}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         style={{
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: SP2,
-          padding: '11px 22px 11px 16px',
-          background: 'var(--rosetta-bg-base)',
-          border: 'none',
-          borderRadius: 8,
-          boxShadow: 'var(--shadows-100)',
+          gap: 6,
+          height: 40,
+          padding: '0 18px 0 14px',
+          background: '#FAFAFA',
+          border: '1px solid var(--rosetta-border-default, #E7E7E7)',
+          borderRadius: 88,
           cursor: 'pointer',
+          overflow: 'hidden',
         }}
       >
-        {/* Inset hover shade — full lockup */}
-        {hovered && (
-          <div style={{
-            position: 'absolute',
-            inset: 4,
-            background: 'var(--rosetta-bg-default)',
-            borderRadius: 6,
-          }} />
-        )}
         <div style={{
-          width: 22, height: 22, flexShrink: 0,
+          width: 16, height: 16, flexShrink: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          position: 'relative', zIndex: 1,
+          color: '#FFFFFF',
+          mixBlendMode: 'difference',
         }}>
-          <PlusIcon style={{ width: 16, height: 16, display: 'block' }} />
+          <PlusIcon style={{ width: 12, height: 12, display: 'block' }} />
         </div>
         <span style={{
-          ...TEXT_ACTION,
+          fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontWeight: 500,
+          fontSize: 12,
+          lineHeight: '22px',
+          letterSpacing: 0.5,
           textTransform: 'uppercase',
-          color: 'var(--rosetta-fg-default)',
+          color: '#FFFFFF',
+          mixBlendMode: 'difference',
           whiteSpace: 'nowrap',
-          position: 'relative',
-          top: 1,
-          zIndex: 1,
         }}>
           Add Block
         </span>
