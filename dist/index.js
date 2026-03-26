@@ -1830,7 +1830,7 @@ function Ns({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
               right: 0,
               top: -1,
               height: 2,
-              background: c ? "linear-gradient(90deg, transparent, #3D3041 20%, #4A8F9F 50%, #7D7194 80%, transparent)" : "transparent",
+              background: c ? "#027AFF" : "transparent",
               opacity: c ? 1 : 0,
               transition: "opacity 0.4s ease",
               pointerEvents: "none"
@@ -4503,7 +4503,7 @@ function ns() {
   }, [e, t, n]);
   return /* @__PURE__ */ o("div", { className: ft.container, children: /* @__PURE__ */ o(oe, { directionIn: "left", directionOut: "left", children: r }) });
 }
-const rs = N(ns), os = "_container_1lyay_3", as = "_open_1lyay_17", is = "_header_1lyay_21", ss = "_bar_1lyay_28", ls = "_body_1lyay_34", cs = "_panels_1lyay_42", Ce = {
+const rs = N(ns), os = "_container_1yvuj_3", as = "_open_1yvuj_16", is = "_header_1yvuj_21", ss = "_bar_1yvuj_28", ls = "_body_1yvuj_34", cs = "_panels_1yvuj_42", Ce = {
   container: os,
   open: as,
   header: is,
