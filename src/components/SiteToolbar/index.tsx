@@ -215,7 +215,7 @@ function IconBtn({
         background: active ? 'var(--rosetta-bg-default)' : 'var(--rosetta-bg-base)',
         color: undefined,
         border: 'none',
-        borderRadius: 4,
+        borderRadius: 6,
         cursor: disabled ? 'default' : 'pointer',
         display: 'flex',
         alignItems: 'center',

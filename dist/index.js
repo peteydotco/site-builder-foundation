@@ -1311,7 +1311,7 @@ function ct({
         background: i ? "var(--rosetta-bg-default)" : "var(--rosetta-bg-base)",
         color: void 0,
         border: "none",
-        borderRadius: 4,
+        borderRadius: 6,
         cursor: r ? "default" : "pointer",
         display: "flex",
         alignItems: "center",
