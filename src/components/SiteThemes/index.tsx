@@ -31,9 +31,10 @@ interface SiteThemesProps {
   isOpen: boolean
   themeState: SiteThemesState
   className?: string
+  onClose?: () => void
 }
 
-function SiteThemes({ isOpen, themeState, className }: SiteThemesProps) {
+function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isRendered = useDelayedActiveState(isOpen, 0.01, 0.5)
   const { route, depth, onBack } = useSiteThemesNavigation(ref, isOpen)
@@ -66,6 +67,26 @@ function SiteThemes({ isOpen, themeState, className }: SiteThemesProps) {
           <>
             <div className={styles.header}>
               <div className={styles.bar}>
+                {onClose && (
+                  <button
+                    onClick={onClose}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '0 4px',
+                      fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                      fontWeight: 500,
+                      fontSize: 12,
+                      lineHeight: '22px',
+                      letterSpacing: '0.5px',
+                      textTransform: 'uppercase',
+                      color: 'var(--rosetta-fg-muted)',
+                    }}
+                  >
+                    Close
+                  </button>
+                )}
                 <NavBar />
               </div>
             </div>

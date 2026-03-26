@@ -4511,27 +4511,49 @@ const ns = N(ts), rs = "_container_16w5d_3", os = "_open_16w5d_14", as = "_heade
 }, cs = (...e) => e.filter(Boolean).join(" "), hn = Xt(
   {}
 ), Fe = () => kn(hn);
-function ds({ isOpen: e, themeState: t, className: n }) {
-  const r = k(null), i = rt(e, 0.01, 0.5), { route: a, depth: l, onBack: c } = lr(r, e), s = _(
+function ds({ isOpen: e, themeState: t, className: n, onClose: r }) {
+  const i = k(null), a = rt(e, 0.01, 0.5), { route: l, depth: c, onBack: s } = lr(i, e), d = _(
     () => cs(n, Se.container, e && Se.open),
     [n, e]
-  ), d = _(
+  ), u = _(
     () => ({
       ...t,
-      route: a,
-      depth: l,
-      onBack: c
+      route: l,
+      depth: c,
+      onBack: s
     }),
-    [t, a, l, c]
-  ), u = _(() => a.map((p, m) => /* @__PURE__ */ o(Xi, { depth: m, isActive: l === m && e }, m)), [a, l, e]);
-  return /* @__PURE__ */ o(hn.Provider, { value: d, children: /* @__PURE__ */ o("div", { ref: r, className: s, children: i && /* @__PURE__ */ g(Oe, { children: [
-    /* @__PURE__ */ o("div", { className: Se.header, children: /* @__PURE__ */ o("div", { className: Se.bar, children: /* @__PURE__ */ o(ns, {}) }) }),
+    [t, l, c, s]
+  ), p = _(() => l.map((m, b) => /* @__PURE__ */ o(Xi, { depth: b, isActive: c === b && e }, b)), [l, c, e]);
+  return /* @__PURE__ */ o(hn.Provider, { value: u, children: /* @__PURE__ */ o("div", { ref: i, className: d, children: a && /* @__PURE__ */ g(Oe, { children: [
+    /* @__PURE__ */ o("div", { className: Se.header, children: /* @__PURE__ */ g("div", { className: Se.bar, children: [
+      r && /* @__PURE__ */ o(
+        "button",
+        {
+          onClick: r,
+          style: {
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "0 4px",
+            fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontWeight: 500,
+            fontSize: 12,
+            lineHeight: "22px",
+            letterSpacing: "0.5px",
+            textTransform: "uppercase",
+            color: "var(--rosetta-fg-muted)"
+          },
+          children: "Close"
+        }
+      ),
+      /* @__PURE__ */ o(ns, {})
+    ] }) }),
     /* @__PURE__ */ o("div", { className: Se.body, children: /* @__PURE__ */ o(
       "div",
       {
         className: Se.panels,
-        style: { "--depth": l },
-        children: u
+        style: { "--depth": c },
+        children: p
       }
     ) })
   ] }) }) });
