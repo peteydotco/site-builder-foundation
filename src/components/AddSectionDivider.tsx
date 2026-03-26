@@ -4,20 +4,7 @@ import FlashGlyphIcon from '../icons/FlashGlyphIcon'
 import ArrowUpGlyphIcon from '../icons/ArrowUpGlyphIcon'
 import BeaconBgIcon from '../icons/BeaconBgIcon'
 
-// ── Aurora gradient backgrounds ──────────────────────────────────────────────
-
-// Add Section pill: dark base, subtle aurora
-const AURORA_PILL = [
-  'radial-gradient(ellipse at -4% 68%, rgba(61,48,65,0.22) 0%, transparent 60%)',
-  'radial-gradient(ellipse at 67% 97%, rgba(92,71,99,0.20) 0%, transparent 55%)',
-  'radial-gradient(ellipse at 97% 34%, rgba(74,143,159,0.21) 0%, transparent 60%)',
-  'radial-gradient(ellipse at 34% 16%, rgba(125,113,148,0.22) 0%, transparent 50%)',
-  'linear-gradient(90deg, #0E0E0E 0%, #0E0E0E 100%)',
-].join(', ')
-
 // ── Shared styles ────────────────────────────────────────────────────────────
-
-const PROMPT_SHADOW = '0px 6px 14px rgba(176,103,222,0.22)'
 
 const BLOB_SPRING = '0.8s cubic-bezier(0.22, 1, 0.36, 1)'
 const BLOB_RETRACT = '0.45s cubic-bezier(0.4, 0, 1, 1)'
@@ -29,11 +16,11 @@ function GooeyFilter({ id }: { id: string }) {
     <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
       <defs>
         <filter id={id} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
           <feColorMatrix
             in="blur"
             type="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 8 -4"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -15"
             result="goo"
           />
           <feComposite in="SourceGraphic" in2="goo" operator="atop" />
@@ -61,6 +48,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const [promptValue, setPromptValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const dividerRef = useRef<HTMLDivElement>(null)
   const filterId = useRef(`goo-section-${++instanceCounter}`).current
 
   const visible = hovered || expanded
@@ -79,6 +67,35 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       const t = setTimeout(() => inputRef.current?.focus(), 80)
       return () => clearTimeout(t)
     }
+  }, [expanded])
+
+  // Scroll parent by half the gap, synced to the same easing as the height transition
+  useEffect(() => {
+    if (!dividerRef.current) return
+    const el = dividerRef.current
+    let scrollParent: HTMLElement | null = el.parentElement
+    while (scrollParent) {
+      const { overflow, overflowY } = getComputedStyle(scrollParent)
+      if (overflow === 'auto' || overflow === 'scroll' || overflowY === 'auto' || overflowY === 'scroll') break
+      scrollParent = scrollParent.parentElement
+    }
+    if (!scrollParent) return
+    const distance = expanded ? 110 : -110
+    const duration = 600
+    const start = scrollParent.scrollTop
+    const startTime = performance.now()
+    // Smooth ease matching cubic-bezier(0.25, 0.1, 0.25, 1)
+    function ease(t: number) {
+      return t < 0.5
+        ? 2 * t * t
+        : 1 - Math.pow(-2 * t + 2, 2) / 2
+    }
+    function step(now: number) {
+      const elapsed = Math.min((now - startTime) / duration, 1)
+      scrollParent!.scrollTop = start + distance * ease(elapsed)
+      if (elapsed < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
   }, [expanded])
 
   useEffect(() => {
@@ -136,29 +153,42 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      ref={dividerRef}
       style={{
         position: 'relative',
-        height: 0,
+        height: expanded ? 220 : 0,
         zIndex: 10,
+        background: expanded ? '#E7E7E7' : 'transparent',
+        transition: 'height 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
       }}
     >
       <GooeyFilter id={filterId} />
 
-      {/* Section border — activates when prompt is open */}
-      <div
-        style={{
-          position: 'absolute',
-          left: 'calc(50% - 700px)',
-          width: 1400,
-          top: -11,
-          height: 0,
-          border: '11px solid #E7E7E7',
-          boxShadow: 'inset 0px 0px 4px rgba(0, 0, 0, 0.11)',
-          opacity: expanded ? 1 : 0,
-          transition: 'opacity 0.4s ease',
-          pointerEvents: 'none',
-        }}
-      />
+      {/* Top shadow — sections cast down onto the gray layer */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 40,
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)',
+        pointerEvents: 'none',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
+
+      {/* Bottom shadow — sections cast up onto the gray layer */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 40,
+        background: 'linear-gradient(to top, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)',
+        pointerEvents: 'none',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
 
       {/* Hit area */}
       <div style={{
@@ -199,11 +229,10 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
                 style={{
                   position: 'relative',
-                  width: 132,
-                  height: 40,
+                  width: 140,
+                  height: 48,
                   borderRadius: 88,
                   background: '#0E0E0E',
-                  backgroundImage: AURORA_PILL,
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
@@ -213,19 +242,28 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   justifyContent: 'center',
                 }}
               >
-                <span style={{
-                  fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                  fontWeight: 600,
-                  fontSize: 12,
-                  lineHeight: '22px',
-                  letterSpacing: 0.5,
-                  textTransform: 'uppercase',
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 6,
                   color: '#FFFFFF',
                   mixBlendMode: 'difference',
-                  whiteSpace: 'nowrap',
                 }}>
-                  Add Section
-                </span>
+                  <div style={{ width: 12, height: 12, flexShrink: 0 }}>
+                    <PlusIcon />
+                  </div>
+                  <span style={{
+                    fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                    fontWeight: 500,
+                    fontSize: 12,
+                    lineHeight: '22px',
+                    letterSpacing: 0.5,
+                    textTransform: 'uppercase',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    Add Section
+                  </span>
+                </div>
               </button>
 
               {/* AI circle — emerges from pill */}
@@ -234,8 +272,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 onMouseEnter={() => setIconHovered(true)}
                 onMouseLeave={() => setIconHovered(false)}
                 style={{
-                  width: 42,
-                  height: 42,
+                  width: 50,
+                  height: 50,
                   borderRadius: 30,
                   background: '#0E0E0E',
                   flexShrink: 0,
@@ -318,9 +356,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               width: 330,
               height: 45,
               borderRadius: 33,
-              background: 'linear-gradient(0deg, rgba(250,250,250,0.88) 0%, rgba(250,250,250,0.88) 100%), radial-gradient(54.96% 47.34% at 97.34% 33.88%, rgba(74,143,159,0.85) 0%, rgba(74,143,159,0) 100%)',
-              border: '1px solid var(--rosetta-border-default, #E7E7E7)',
-              boxShadow: PROMPT_SHADOW,
+              background: '#FAFAFA',
+              border: '1px solid rgba(0,0,0,0.11)',
+              boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
               overflow: 'hidden',
               animation: 'sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
             }}>
