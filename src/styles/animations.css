@@ -178,7 +178,13 @@
   position: absolute;
   inset: -4px 0;
   border-radius: 2px;
-  background: #027AFF;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(270deg 60% 60% / 0.6) 15%,
+    hsl(195deg 50% 55% / 0.8) 50%,
+    hsl(290deg 55% 55% / 0.6) 85%,
+    transparent 100%
+  );
   filter: blur(6px);
 }
 .section-glow-line::after {
@@ -186,6 +192,12 @@
   position: absolute;
   inset: -8px -20px;
   border-radius: 4px;
-  background: rgba(2, 122, 255, 0.4);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(270deg 60% 60% / 0.3) 20%,
+    hsl(195deg 50% 55% / 0.4) 50%,
+    hsl(290deg 55% 55% / 0.3) 80%,
+    transparent 100%
+  );
   filter: blur(16px);
 }

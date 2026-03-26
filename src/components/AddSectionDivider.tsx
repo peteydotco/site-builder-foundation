@@ -152,9 +152,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           left: 0,
           right: 0,
           top: -1,
-          height: 2,
+          height: 3,
           background: expanded
-            ? '#027AFF'
+            ? 'linear-gradient(90deg, transparent, hsl(270deg 60% 60% / 0.8) 20%, hsl(195deg 50% 55%) 50%, hsl(290deg 55% 55% / 0.8) 80%, transparent)'
             : 'transparent',
           opacity: expanded ? 1 : 0,
           transition: 'opacity 0.4s ease',

@@ -33,13 +33,7 @@ function NavBar() {
   const { route, depth, onBack } = useSiteThemesContext()
 
   const output = useMemo(() => {
-    if (depth === 0) {
-      return (
-        <span key="title" className={styles.title}>
-          Site Styles
-        </span>
-      )
-    }
+    if (depth === 0) return null
 
     const label = capitalize(route[depth] ?? 'Back')
 
