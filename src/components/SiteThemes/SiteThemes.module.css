@@ -19,10 +19,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 342px;
+  left: 0;
   height: 88px;
   box-sizing: content-box;
-  display: block;
+  display: flex;
+  align-items: flex-end;
   z-index: 110;
   padding: 0 27px;
 }
