@@ -1,0 +1,144 @@
+.container {
+  --card-background-color: var(--c-bg-muted);
+  --card-background-color-transition-duration: 0.25s;
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 11px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--card-background-color);
+  cursor: pointer;
+  gap: 18px;
+  outline: 0;
+  text-align: left;
+  transition: background-color var(--card-background-color-transition-duration) var(--ease-out);
+  user-select: none;
+}
+
+.container::after {
+  position: absolute;
+  border: solid 2px var(--c-border-strong);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out);
+}
+
+.container:focus-visible::after {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .container:hover {
+    --card-background-color: var(--c-bg-active);
+  }
+
+  .container:hover .shimmer {
+    opacity: 1;
+  }
+}
+
+.container.hover .shimmer::before {
+  animation: shimmer 1.5s ease-out;
+}
+
+.container.active {
+  --card-background-color: var(--c-bg-active);
+}
+
+.container.active::after {
+  opacity: 1;
+}
+
+/* Fade-up reveal animation */
+.container.fadeup {
+  animation: fadeup 0.4s var(--ease-out) both;
+  animation-delay: var(--animation-delay, 0s);
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translate3d(-150%, -50%, 0) rotate(45deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(150%, -50%, 0) rotate(45deg);
+  }
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out);
+}
+
+.shimmer::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  height: 300%;
+  aspect-ratio: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 30%,
+    rgb(255 255 255 / 15%),
+    transparent 70%,
+    transparent
+  );
+  content: "";
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 66px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 2px 2px 24px 0 var(--c-shadow-highlight), 0 0 1px 0 var(--c-shadow-subtle);
+}

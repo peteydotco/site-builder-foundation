@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+  padding: 4px 0;
+  border: none;
+  background-color: transparent;
+  color: var(--c-text);
+  cursor: pointer;
+  font-size: var(--s-font-base);
+  font-weight: 400;
+  gap: 11px;
+  line-height: 22px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.label {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.suffix {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.chevron {
+  display: flex;
+  width: 36px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.chevron svg {
+  width: 8px;
+  height: auto;
+  fill: currentcolor;
+}

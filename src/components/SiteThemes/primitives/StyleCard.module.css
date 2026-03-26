@@ -1,0 +1,137 @@
+.container {
+  display: flex;
+  gap: 6px;
+  user-select: none;
+}
+
+.container.wrap .content {
+  overflow: hidden;
+  box-shadow: 2px 2px 24px 0 var(--c-shadow-highlight), 0 0 1px 0 var(--c-shadow-subtle);
+}
+
+/* Fade-up reveal animation */
+.container.fadeup {
+  animation: fadeup 0.4s var(--ease-out) both;
+  animation-delay: var(--animation-delay, 0s);
+}
+
+/* Fade-out-down exit animation */
+.container.fadeoutdown {
+  animation: fadeoutdown 0.3s var(--ease-out) both;
+  animation-delay: var(--animation-delay, 0s);
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeoutdown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.label {
+  position: relative;
+  color: var(--c-text-tertiary);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 55px;
+  border-radius: 4px;
+}
+
+/* ButtonBox — inline since it's only used here */
+
+.buttonBox {
+  --card-background-color: var(--c-bg-muted);
+  --card-background-color-transition-duration: 0.25s;
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  padding: 11px 11px 18px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--card-background-color);
+  cursor: pointer;
+  gap: 18px;
+  outline: 0;
+  text-align: left;
+  transition: background-color var(--card-background-color-transition-duration) var(--ease-out);
+}
+
+.buttonBox::after {
+  position: absolute;
+  border: solid 2px var(--c-border-strong);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out);
+}
+
+.buttonBox:focus-visible::after {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .buttonBox:hover {
+    --card-background-color: var(--c-bg-active);
+  }
+}
+
+.buttonBox.active {
+  --card-background-color: var(--c-bg-active);
+}
+
+.buttonBox.active::after {
+  opacity: 1;
+}
+
+/* Disclosure arrow box */
+
+.disclosure {
+  width: 44px;
+  flex-grow: 0;
+  align-items: center;
+  padding: 11px;
+}
+
+.disclosure svg {
+  position: relative;
+  width: 8px;
+  height: auto;
+  fill: var(--c-text-tertiary);
+}
+
+.disclosureWrapper {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
