@@ -7,7 +7,7 @@
   display: block;
   flex-shrink: 0;
   overflow: hidden;
-  background: var(--rosetta-bg-inset);
+  background: transparent;
   transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
