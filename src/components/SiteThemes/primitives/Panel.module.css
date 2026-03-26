@@ -35,7 +35,7 @@
   display: block;
   padding-top: 11px;
   padding-bottom: 11px;
-  background-color: var(--c-bg);
+  background-color: transparent;
 }
 
 .header h1 {
