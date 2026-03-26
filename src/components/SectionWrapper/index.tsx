@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
 import BlockPicker, { AddBlockToolbar, EditHeaderButton } from '../BlockPicker'
 
 // ── Constants ────────────────────────────────────────────────────────────────
@@ -83,6 +83,39 @@ export default function SectionWrapper({
 
   const showOutline = (isHovered || isPickerOpen) && !disabled
 
+  // Fade Add Block button in the last 10% of section height
+  const toolbarFadeRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!showOutline) return
+    const section = wrapperRef.current
+    const toolbar = toolbarFadeRef.current
+    if (!section || !toolbar) return
+
+    // Find the scroll parent
+    let scrollParent: HTMLElement | null = section.parentElement
+    while (scrollParent) {
+      const { overflow, overflowY } = getComputedStyle(scrollParent)
+      if (overflow === 'auto' || overflow === 'scroll' || overflowY === 'auto' || overflowY === 'scroll') break
+      scrollParent = scrollParent.parentElement
+    }
+    const scroller = scrollParent || window
+
+    const update = () => {
+      const rect = section.getBoundingClientRect()
+      const sectionH = rect.height
+      const fadeZone = sectionH * 0.1
+      const distFromBottom = rect.bottom - 16 - 40 // 16px sticky top + ~40px button height
+      if (distFromBottom < fadeZone) {
+        toolbar.style.opacity = `${Math.max(0, distFromBottom / fadeZone)}`
+      } else {
+        toolbar.style.opacity = '1'
+      }
+    }
+    scroller.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => scroller.removeEventListener('scroll', update)
+  }, [showOutline])
+
   return (
     <div
       ref={wrapperRef}
@@ -114,9 +147,21 @@ export default function SectionWrapper({
         <div
           style={{
             position: 'absolute',
-            top: SECTION_OUTLINE_WIDTH + TOOLBAR_INSET,
+            top: 0,
             left: SECTION_OUTLINE_WIDTH + TOOLBAR_INSET,
+            bottom: 0,
             zIndex: 102,
+            pointerEvents: 'none',
+            paddingTop: SECTION_OUTLINE_WIDTH + TOOLBAR_INSET,
+          }}
+        >
+         <div
+          ref={toolbarFadeRef}
+          style={{
+            position: 'sticky',
+            top: 16,
+            pointerEvents: 'auto',
+            transition: 'opacity 0.15s ease',
           }}
         >
           {/* Add Block button — crossfades with picker */}
@@ -141,6 +186,7 @@ export default function SectionWrapper({
               onClose={handleClosePicker}
             />
           )}
+        </div>
         </div>
       )}
     </div>

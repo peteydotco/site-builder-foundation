@@ -4,29 +4,153 @@ import FlashGlyphIcon from '../icons/FlashGlyphIcon'
 import ArrowUpGlyphIcon from '../icons/ArrowUpGlyphIcon'
 import BeaconBgIcon from '../icons/BeaconBgIcon'
 
-// ── Shared styles ────────────────────────────────────────────────────────────
+// ── Cubic-bezier evaluator (matches CSS transition curve exactly) ─────────────
 
-const BLOB_SPRING = '0.8s cubic-bezier(0.22, 1, 0.36, 1)'
-const BLOB_RETRACT = '0.45s cubic-bezier(0.4, 0, 1, 1)'
+function cubicBezier(p1x: number, p1y: number, p2x: number, p2y: number) {
+  return function (x: number) {
+    let t = x
+    for (let i = 0; i < 8; i++) {
+      const ct = 3 * p1x * (1 - t) * (1 - t) * t + 3 * p2x * (1 - t) * t * t + t * t * t - x
+      const dt = 3 * p1x * (1 - 2 * t + t * t) + 6 * (p2x - p1x) * t * (1 - t) + 3 * (1 - p2x) * t * t
+      if (Math.abs(dt) < 1e-6) break
+      t -= ct / (dt || 1e-6)
+    }
+    t = Math.max(0, Math.min(1, t))
+    return 3 * p1y * (1 - t) * (1 - t) * t + 3 * p2y * (1 - t) * t * t + t * t * t
+  }
+}
 
-// ── SVG Gooey filter (always on, no toggling = no snap) ──────────────────────
+const SPLIT_EASE = cubicBezier(0.25, 0.1, 0.25, 1)
 
-function GooeyFilter({ id }: { id: string }) {
+const PILL_SHADOW = '0px 0px 1px 0px rgba(0,0,0,0.08), 0px 4px 16px 0px rgba(0,0,0,0.12)'
+
+// ── Warp dithering shader (WebGL2) ───────────────────────────────────────────
+
+const VERT = `#version 300 es
+precision mediump float;
+layout(location=0) in vec2 a_pos;
+void main(){ gl_Position=vec4(a_pos,0,1); }
+`
+
+const FRAG = `#version 300 es
+precision mediump float;
+uniform float u_t;
+uniform vec2 u_res;
+uniform vec4 u_bg;
+uniform vec4 u_fg;
+uniform float u_px;
+out vec4 o;
+
+const int B[64]=int[64](
+  0,32,8,40,2,34,10,42,48,16,56,24,50,18,58,26,
+  12,44,4,36,14,46,6,38,60,28,52,20,62,30,54,22,
+  3,35,11,43,1,33,9,41,51,19,59,27,49,17,57,25,
+  15,47,7,39,13,45,5,37,63,31,55,23,61,29,53,21
+);
+
+void main(){
+  float t=.5*u_t;
+  vec2 puv=floor((gl_FragCoord.xy-.5*u_res)/u_px);
+  vec2 suv=puv*u_px/u_res;
+  suv*=.003;
+
+  // Warp: iterative sine/cosine distortion
+  for(float i=1.;i<6.;i++){
+    suv.x+=.6/i*cos(i*2.5*suv.y+t);
+    suv.y+=.6/i*cos(i*1.5*suv.x+t);
+  }
+  float shape=.15/abs(sin(t-suv.y-suv.x));
+  shape=smoothstep(.02,1.,shape);
+
+  // 8x8 Bayer dithering
+  ivec2 bp=ivec2(mod(puv,8.));
+  float d=float(B[bp.y*8+bp.x])/64.-.5;
+  float r=step(.5,shape+d);
+
+  vec3 c=u_fg.rgb*r+u_bg.rgb*(1.-r);
+  float a=u_fg.a*r+u_bg.a*(1.-r);
+  o=vec4(c,a);
+}
+`
+
+function WarpShader({ active }: { active: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const rafRef = useRef<number>(0)
+
+  useEffect(() => {
+    if (!active) return
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const gl = canvas.getContext('webgl2', { alpha: true })
+    if (!gl) return
+
+    const mk = (type: number, src: string) => {
+      const s = gl.createShader(type)!
+      gl.shaderSource(s, src)
+      gl.compileShader(s)
+      return s
+    }
+    const prog = gl.createProgram()!
+    gl.attachShader(prog, mk(gl.VERTEX_SHADER, VERT))
+    gl.attachShader(prog, mk(gl.FRAGMENT_SHADER, FRAG))
+    gl.linkProgram(prog)
+
+    const buf = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf)
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(0)
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
+
+    const uT = gl.getUniformLocation(prog, 'u_t')
+    const uRes = gl.getUniformLocation(prog, 'u_res')
+    const uBg = gl.getUniformLocation(prog, 'u_bg')
+    const uFg = gl.getUniformLocation(prog, 'u_fg')
+    const uPx = gl.getUniformLocation(prog, 'u_px')
+
+    const resize = () => {
+      const r = canvas.parentElement?.getBoundingClientRect()
+      if (!r) return
+      const dpr = Math.min(window.devicePixelRatio, 2)
+      canvas.width = r.width * dpr
+      canvas.height = r.height * dpr
+      gl.viewport(0, 0, canvas.width, canvas.height)
+    }
+    resize()
+    const ro = new ResizeObserver(resize)
+    ro.observe(canvas.parentElement!)
+
+    const t0 = performance.now()
+    const draw = () => {
+      gl.useProgram(prog)
+      gl.uniform1f(uT, (performance.now() - t0) * 0.001)
+      gl.uniform2f(uRes, canvas.width, canvas.height)
+      gl.uniform4f(uBg, 0.906, 0.906, 0.906, 1) // #E7E7E7
+      gl.uniform4f(uFg, 0.824, 0.824, 0.824, 1) // #D2D2D2
+      gl.uniform1f(uPx, 4.0)
+      gl.drawArrays(gl.TRIANGLES, 0, 6)
+      rafRef.current = requestAnimationFrame(draw)
+    }
+    draw()
+
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      ro.disconnect()
+      gl.deleteProgram(prog)
+    }
+  }, [active])
+
+  if (!active) return null
   return (
-    <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
-      <defs>
-        <filter id={id} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-          <feColorMatrix
-            in="blur"
-            type="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -15"
-            result="goo"
-          />
-          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-        </filter>
-      </defs>
-    </svg>
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+      }}
+    />
   )
 }
 
@@ -38,29 +162,18 @@ interface AddSectionDividerProps {
   aiStatesPath?: string
 }
 
-let instanceCounter = 0
-
 function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states' }: AddSectionDividerProps) {
   const [iconHovered, setIconHovered] = useState(false)
+  const [buttonHovered, setButtonHovered] = useState(false)
   const [hovered, setHovered] = useState(false)
+  const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
-  const [blobReady, setBlobReady] = useState(false)
   const [promptValue, setPromptValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const dividerRef = useRef<HTMLDivElement>(null)
-  const filterId = useRef(`goo-section-${++instanceCounter}`).current
 
   const visible = hovered || expanded
-
-  // Delay blob until pill is fully opaque
-  useEffect(() => {
-    if (visible && !expanded) {
-      const t = setTimeout(() => setBlobReady(true), 150)
-      return () => clearTimeout(t)
-    }
-    setBlobReady(false)
-  }, [visible, expanded])
 
   useEffect(() => {
     if (expanded) {
@@ -81,20 +194,16 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
     if (!scrollParent) return
     const distance = expanded ? 110 : -110
-    const duration = 600
+    const duration = 400
     const start = scrollParent.scrollTop
+    // Start on the same frame as the CSS transition (no rAF delay)
     const startTime = performance.now()
-    // Smooth ease matching cubic-bezier(0.25, 0.1, 0.25, 1)
-    function ease(t: number) {
-      return t < 0.5
-        ? 2 * t * t
-        : 1 - Math.pow(-2 * t + 2, 2) / 2
-    }
     function step(now: number) {
       const elapsed = Math.min((now - startTime) / duration, 1)
-      scrollParent!.scrollTop = start + distance * ease(elapsed)
+      scrollParent!.scrollTop = start + distance * SPLIT_EASE(elapsed)
       if (elapsed < 1) requestAnimationFrame(step)
     }
+    // Kick off immediately — first rAF fires on the same frame as the CSS transition
     requestAnimationFrame(step)
   }, [expanded])
 
@@ -119,6 +228,23 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [expanded])
+
+  // Cursor-follow: document-level listener when lockup is visible
+  useEffect(() => {
+    if (!visible) {
+      const el = lockupRef.current
+      if (el) el.style.transform = ''
+      return
+    }
+    const onMove = (e: MouseEvent) => {
+      const el = lockupRef.current
+      if (!el) return
+      const normalized = ((e.clientX / window.innerWidth) - 0.5) * 2
+      el.style.transform = `translateX(${normalized * 3}px)`
+    }
+    document.addEventListener('mousemove', onMove)
+    return () => document.removeEventListener('mousemove', onMove)
+  }, [visible])
 
   const handleExpand = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
@@ -147,22 +273,46 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [onPromptSubmit, promptValue])
 
-  const blobOut = blobReady && !expanded
-
   return (
     <div
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={() => { setHovered(false) }}
       ref={dividerRef}
       style={{
         position: 'relative',
         height: expanded ? 220 : 0,
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
-        transition: 'height 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
+        transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
       }}
     >
-      <GooeyFilter id={filterId} />
+      {/* Shader removed */}
+
+      {/* Top stroke — inside bottom edge of upper section */}
+      <div style={{
+        position: 'absolute',
+        top: -1,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: 'rgba(14,14,14,0.08)',
+        pointerEvents: 'none',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
+
+      {/* Bottom stroke — inside top edge of lower section */}
+      <div style={{
+        position: 'absolute',
+        bottom: -1,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: 'rgba(14,14,14,0.08)',
+        pointerEvents: 'none',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
 
       {/* Top shadow — sections cast down onto the gray layer */}
       <div style={{
@@ -214,94 +364,94 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             transition: 'opacity 0.15s ease',
           }}
         >
-          {/* ── Collapsed state ── */}
+          {/* ── Collapsed state — pill + standalone AI circle ── */}
           {!expanded && (
             <div
+              ref={lockupRef}
               className={visible ? 'section-divider-enter' : undefined}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                filter: `url(#${filterId})`,
+                gap: 16,
+                transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
               }}
             >
               {/* Add Section pill */}
               <button
                 onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                onMouseEnter={() => setButtonHovered(true)}
+                onMouseLeave={() => setButtonHovered(false)}
                 style={{
                   position: 'relative',
-                  width: 140,
-                  height: 48,
-                  borderRadius: 88,
-                  background: '#0E0E0E',
-                  border: 'none',
+                  height: 40,
+                  borderRadius: 11,
+                  background: '#FAFAFA',
+                  border: '1px solid #E7E7E7',
+                  boxShadow: PILL_SHADOW,
                   cursor: 'pointer',
-                  padding: 0,
-                  flexShrink: 0,
+                  padding: '0 20px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  overflow: 'hidden',
                 }}
               >
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  color: '#FFFFFF',
-                  mixBlendMode: 'difference',
+                  position: 'absolute',
+                  inset: 3,
+                  borderRadius: 8,
+                  background: 'rgba(0,0,0,0.05)',
+                  opacity: buttonHovered ? 1 : 0,
+                  transition: 'opacity 0.15s ease',
+                  pointerEvents: 'none',
+                }} />
+                <div style={{ position: 'relative', width: 14, height: 14, marginRight: 10, color: '#0E0E0E' }}><PlusIcon /></div>
+                <span style={{
+                  position: 'relative',
+                  fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                  fontWeight: 600,
+                  fontSize: 12,
+                  lineHeight: '22px',
+                  letterSpacing: 0.5,
+                  textTransform: 'uppercase',
+                  color: '#0E0E0E',
+                  whiteSpace: 'nowrap',
                 }}>
-                  <div style={{ width: 12, height: 12, flexShrink: 0 }}>
-                    <PlusIcon />
-                  </div>
-                  <span style={{
-                    fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                    fontWeight: 500,
-                    fontSize: 12,
-                    lineHeight: '22px',
-                    letterSpacing: 0.5,
-                    textTransform: 'uppercase',
-                    whiteSpace: 'nowrap',
-                  }}>
-                    Add Section
-                  </span>
-                </div>
+                  Add Section
+                </span>
               </button>
 
-              {/* AI circle — emerges from pill */}
+              {/* AI circle */}
               <div
                 onClick={handleExpand}
                 onMouseEnter={() => setIconHovered(true)}
                 onMouseLeave={() => setIconHovered(false)}
                 style={{
-                  width: 50,
-                  height: 50,
+                  width: 42,
+                  height: 42,
                   borderRadius: 30,
                   background: '#0E0E0E',
+                  border: '1px solid #000',
+                  boxShadow: PILL_SHADOW,
                   flexShrink: 0,
                   position: 'relative',
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  marginLeft: blobOut ? 11 : -30,
-                  transform: blobOut ? 'scale(1)' : 'scale(0.857)',
-                  transition: blobOut
-                    ? `margin-left ${BLOB_SPRING}, transform ${BLOB_SPRING}`
-                    : `margin-left ${BLOB_RETRACT}, transform ${BLOB_RETRACT}`,
+                  transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
+                  transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                 }}
               >
-                {/* Beacon background — dissolves in during travel */}
                 <div style={{
                   position: 'absolute',
-                  width: 54,
-                  height: 54,
+                  width: 49,
+                  height: 49,
                   left: '50%',
                   top: '50%',
                   transform: 'translate(-50%, -50%)',
                   pointerEvents: 'none',
-                  opacity: blobOut ? 1 : 0,
-                  transition: 'opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
                 }}>
                   <BeaconBgIcon />
                 </div>
-                {/* Animated beacon icon — visible during travel */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -309,18 +459,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   alignItems: 'center',
                   justifyContent: 'center',
                   mixBlendMode: 'difference',
-                  opacity: blobOut ? 1 : 0,
-                  transition: 'opacity 0.15s ease',
                 }}>
                   <div style={{
                     width: 27,
                     height: 27,
                     borderRadius: 34,
-                    background: 'transparent',
                     overflow: 'hidden',
                     transform: 'rotate(45deg)',
                     position: 'relative',
-                    marginTop: -1,
                   }}>
                     <video
                       key={iconHovered ? 'error' : 'awake'}
@@ -353,15 +499,22 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           {/* ── Expanded prompt ── */}
           {expanded && (
             <div style={{
-              width: 330,
+              width: 495,
               height: 45,
               borderRadius: 33,
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
               overflow: 'hidden',
-              animation: 'sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              animation: 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
             }}>
+              <style>{`
+                @keyframes promptUnfurl {
+                  from { width: 50px; opacity: 0; }
+                  15%  { opacity: 1; }
+                  to   { width: 495px; opacity: 1; }
+                }
+              `}</style>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',

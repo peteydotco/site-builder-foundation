@@ -1,20 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import AnimatedSearchIcon from '../AnimatedSearchIcon'
-import { PlusIcon, EditIcon } from '../../icons'
+import { EditIcon } from '../../icons'
+import PlusIcon from '../../icons/PlusIcon'
 
 // ── Rosetta spacing ──────────────────────────────────────────────────────────
 
 const SP2 = 11
 const SP8 = 44
-
-// ── Aurora pill button background (Figma spec: #FAFAFA base, subtle aurora) ──
-const AURORA_PILL_BG = [
-  'radial-gradient(ellipse at -4% 68%, rgba(61,48,65,0.22) 0%, transparent 60%)',
-  'radial-gradient(ellipse at 67% 97%, rgba(92,71,99,0.20) 0%, transparent 55%)',
-  'radial-gradient(ellipse at 97% 34%, rgba(74,143,159,0.21) 0%, transparent 60%)',
-  'radial-gradient(ellipse at 34% 16%, rgba(125,113,148,0.22) 0%, transparent 50%)',
-  'linear-gradient(90deg, #FAFAFA 0%, #FAFAFA 100%)',
-].join(', ')
 
 // ── Rosetta text styles (from Figma) ─────────────────────────────────────────
 //
@@ -324,46 +316,66 @@ interface AddBlockToolbarProps {
 }
 
 export function AddBlockToolbar({ onAddBlock }: AddBlockToolbarProps) {
+  const [hovered, setHovered] = useState(false)
+  const [offsetX, setOffsetX] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const handleMove = useCallback((e: React.MouseEvent) => {
+    const el = containerRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const normalized = ((e.clientX - rect.left) / rect.width - 0.5) * 2
+    setOffsetX(normalized * 3)
+  }, [])
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: 6,
-    }}>
+    <div
+      ref={containerRef}
+      onMouseMove={handleMove}
+      onMouseLeave={() => { setHovered(false); setOffsetX(0) }}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
       <button
         onClick={onAddBlock}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 6,
           height: 40,
-          padding: '0 18px 0 14px',
+          padding: '0 20px',
           background: '#FAFAFA',
-          border: '1px solid var(--rosetta-border-default, #E7E7E7)',
-          borderRadius: 88,
+          border: '1px solid #E7E7E7',
+          borderRadius: 11,
+          boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.08), 0px 4px 16px 0px rgba(0,0,0,0.12)',
           cursor: 'pointer',
           overflow: 'hidden',
+          transform: `translateX(${offsetX}px)`,
+          transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
         <div style={{
-          width: 16, height: 16, flexShrink: 0,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: '#FFFFFF',
-          mixBlendMode: 'difference',
-        }}>
-          <PlusIcon style={{ width: 12, height: 12, display: 'block' }} />
-        </div>
+          position: 'absolute',
+          inset: 3,
+          borderRadius: 8,
+          background: 'rgba(0,0,0,0.05)',
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.15s ease',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ position: 'relative', width: 14, height: 14, marginRight: 10, color: '#0E0E0E' }}><PlusIcon /></div>
         <span style={{
+          position: 'relative',
           fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-          fontWeight: 500,
+          fontWeight: 600,
           fontSize: 12,
           lineHeight: '22px',
           letterSpacing: 0.5,
           textTransform: 'uppercase',
-          color: '#FFFFFF',
-          mixBlendMode: 'difference',
+          color: '#0E0E0E',
           whiteSpace: 'nowrap',
         }}>
           Add Block
