@@ -4525,8 +4525,8 @@ function ds({ isOpen: e, themeState: t, className: n, onClose: r }) {
     [t, l, c, s]
   ), p = _(() => l.map((m, b) => /* @__PURE__ */ o(Xi, { depth: b, isActive: c === b && e }, b)), [l, c, e]);
   return /* @__PURE__ */ o(hn.Provider, { value: u, children: /* @__PURE__ */ o("div", { ref: i, className: d, children: a && /* @__PURE__ */ g(Oe, { children: [
-    /* @__PURE__ */ o("div", { className: Se.header, children: /* @__PURE__ */ g("div", { className: Se.bar, children: [
-      r && /* @__PURE__ */ o(
+    /* @__PURE__ */ o("div", { className: Se.header, children: /* @__PURE__ */ g("div", { className: Se.bar, style: { justifyContent: "flex-start" }, children: [
+      r ? /* @__PURE__ */ o(
         "button",
         {
           onClick: r,
@@ -4534,7 +4534,7 @@ function ds({ isOpen: e, themeState: t, className: n, onClose: r }) {
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: "0 4px",
+            padding: 0,
             fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
             fontWeight: 500,
             fontSize: 12,
@@ -4545,7 +4545,7 @@ function ds({ isOpen: e, themeState: t, className: n, onClose: r }) {
           },
           children: "Close"
         }
-      ),
+      ) : /* @__PURE__ */ o("span", {}),
       /* @__PURE__ */ o(ns, {})
     ] }) }),
     /* @__PURE__ */ o("div", { className: Se.body, children: /* @__PURE__ */ o(

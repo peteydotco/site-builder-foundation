@@ -66,15 +66,15 @@ function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps)
         {isRendered && (
           <>
             <div className={styles.header}>
-              <div className={styles.bar}>
-                {onClose && (
+              <div className={styles.bar} style={{ justifyContent: 'flex-start' }}>
+                {onClose ? (
                   <button
                     onClick={onClose}
                     style={{
                       background: 'none',
                       border: 'none',
                       cursor: 'pointer',
-                      padding: '0 4px',
+                      padding: 0,
                       fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                       fontWeight: 500,
                       fontSize: 12,
@@ -86,7 +86,7 @@ function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps)
                   >
                     Close
                   </button>
-                )}
+                ) : <span />}
                 <NavBar />
               </div>
             </div>
