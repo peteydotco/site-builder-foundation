@@ -19,7 +19,7 @@ interface SiteThemesContextValue extends SiteThemesState {
   onBack: () => void
 }
 
-const SiteThemesContext = createContext<SiteThemesContextValue>(
+export const SiteThemesContext = createContext<SiteThemesContextValue>(
   {} as SiteThemesContextValue,
 )
 

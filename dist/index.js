@@ -1,60 +1,60 @@
-import { jsxs as u, jsx as e, Fragment as Ve } from "react/jsx-runtime";
-import { useState as p, useRef as h, useEffect as A, useCallback as y, useMemo as De } from "react";
-import { createPortal as He } from "react-dom";
-function ze({
-  expanded: t = !1,
-  size: o = 16,
-  color: i = "var(--rosetta-fg-muted)"
+import { jsxs as g, jsx as o, Fragment as Oe } from "react/jsx-runtime";
+import { useState as w, useRef as k, useEffect as I, useCallback as F, useMemo as _, memo as N, createContext as Xt, Children as wn, useLayoutEffect as _n, useContext as kn } from "react";
+import { createPortal as vt } from "react-dom";
+function Fn({
+  expanded: e = !1,
+  size: t = 16,
+  color: n = "var(--rosetta-fg-muted)"
 }) {
-  const n = "0.28s cubic-bezier(0.22, 1, 0.36, 1)";
-  return /* @__PURE__ */ u(
+  const r = "0.28s cubic-bezier(0.22, 1, 0.36, 1)";
+  return /* @__PURE__ */ g(
     "svg",
     {
-      width: o,
-      height: o,
+      width: t,
+      height: t,
       viewBox: "0 0 24 24",
-      fill: i,
+      fill: n,
       xmlns: "http://www.w3.org/2000/svg",
       children: [
-        /* @__PURE__ */ e(
+        /* @__PURE__ */ o(
           "rect",
           {
             x: 3,
             y: 4,
-            width: t ? 0 : 5,
+            width: e ? 0 : 5,
             height: 2,
-            style: { transition: `width ${n}` }
+            style: { transition: `width ${r}` }
           }
         ),
-        /* @__PURE__ */ e(
+        /* @__PURE__ */ o(
           "rect",
           {
             x: 3,
             y: 11,
-            width: t ? 0 : 5,
+            width: e ? 0 : 5,
             height: 2,
-            style: { transition: `width ${n}` }
+            style: { transition: `width ${r}` }
           }
         ),
-        /* @__PURE__ */ e(
+        /* @__PURE__ */ o(
           "rect",
           {
             x: 3,
             y: 18,
-            width: t ? 0 : 18,
+            width: e ? 0 : 18,
             height: 2,
-            style: { transition: `width ${n}` }
+            style: { transition: `width ${r}` }
           }
         ),
-        /* @__PURE__ */ e(
+        /* @__PURE__ */ o(
           "g",
           {
             style: {
               transformOrigin: "15.5px 8.5px",
-              transform: t ? "translate(-4px, 2.5px) scale(1.4)" : "translate(0, 0) scale(1)",
-              transition: `transform ${n}`
+              transform: e ? "translate(-4px, 2.5px) scale(1.4)" : "translate(0, 0) scale(1)",
+              transition: `transform ${r}`
             },
-            children: /* @__PURE__ */ e(
+            children: /* @__PURE__ */ o(
               "path",
               {
                 d: "M15.5 5C13.567 5 12 6.567 12 8.5C12 10.433 13.567 12 15.5 12C17.433 12 19 10.433 19 8.5C19 6.567 17.433 5 15.5 5ZM10 8.5C10 5.46243 12.4624 3 15.5 3C18.5376 3 21 5.46243 21 8.5C21 9.6575 20.6424 10.7315 20.0317 11.6175L22.7071 14.2929L21.2929 15.7071L18.6175 13.0317C17.7315 13.6424 16.6575 14 15.5 14C12.4624 14 10 11.5376 10 8.5Z",
@@ -75,8 +75,8 @@ function ze({
     }
   );
 }
-function Oe(t) {
-  return /* @__PURE__ */ e(
+function Rn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -87,10 +87,10 @@ function Oe(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ u("g", { id: "Icon", children: [
-        /* @__PURE__ */ e("path", { d: "M14.55 0L9.55001 18H7.45001L12.45 0H14.55Z", fill: "currentColor" }),
-        /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ g("g", { id: "Icon", children: [
+        /* @__PURE__ */ o("path", { d: "M14.55 0L9.55001 18H7.45001L12.45 0H14.55Z", fill: "currentColor" }),
+        /* @__PURE__ */ o(
           "path",
           {
             fillRule: "evenodd",
@@ -99,7 +99,7 @@ function Oe(t) {
             fill: "currentColor"
           }
         ),
-        /* @__PURE__ */ e(
+        /* @__PURE__ */ o(
           "path",
           {
             fillRule: "evenodd",
@@ -112,8 +112,8 @@ function Oe(t) {
     }
   );
 }
-function Ie(t) {
-  return /* @__PURE__ */ e(
+function Kt(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -124,8 +124,8 @@ function Ie(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -138,8 +138,8 @@ function Ie(t) {
     }
   );
 }
-function Ze(t) {
-  return /* @__PURE__ */ e(
+function Sn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -150,8 +150,8 @@ function Ze(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -164,8 +164,8 @@ function Ze(t) {
     }
   );
 }
-function _e(t) {
-  return /* @__PURE__ */ e(
+function Cn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -176,10 +176,10 @@ function _e(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ u("g", { id: "Icon", children: [
-        /* @__PURE__ */ e("path", { d: "M18 0H0V2H18V0Z", fill: "currentColor" }),
-        /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ g("g", { id: "Icon", children: [
+        /* @__PURE__ */ o("path", { d: "M18 0H0V2H18V0Z", fill: "currentColor" }),
+        /* @__PURE__ */ o(
           "path",
           {
             d: "M8 14V7.32838L5 10.3284V7.49995L8.99995 3.5L13 7.50004V10.3285L10 7.32847V14H8Z",
@@ -190,8 +190,8 @@ function _e(t) {
     }
   );
 }
-function Pe(t) {
-  return /* @__PURE__ */ e(
+function En(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -202,8 +202,8 @@ function Pe(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -216,8 +216,8 @@ function Pe(t) {
     }
   );
 }
-function Ne(t) {
-  return /* @__PURE__ */ e(
+function Mn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -228,8 +228,8 @@ function Ne(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -240,8 +240,8 @@ function Ne(t) {
     }
   );
 }
-function We(t) {
-  return /* @__PURE__ */ e(
+function Ln(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -252,8 +252,8 @@ function We(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -264,8 +264,8 @@ function We(t) {
     }
   );
 }
-function Xe(t) {
-  return /* @__PURE__ */ e(
+function An(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -276,8 +276,8 @@ function Xe(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -290,8 +290,8 @@ function Xe(t) {
     }
   );
 }
-function Ye(t) {
-  return /* @__PURE__ */ e(
+function Nn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -302,10 +302,10 @@ function Ye(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ u("g", { id: "Icon", children: [
-        /* @__PURE__ */ e("path", { d: "M9 15H3V17H9V15Z", fill: "currentColor" }),
-        /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ g("g", { id: "Icon", children: [
+        /* @__PURE__ */ o("path", { d: "M9 15H3V17H9V15Z", fill: "currentColor" }),
+        /* @__PURE__ */ o(
           "path",
           {
             fillRule: "evenodd",
@@ -318,8 +318,8 @@ function Ye(t) {
     }
   );
 }
-function je(t) {
-  return /* @__PURE__ */ e(
+function In(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -330,8 +330,8 @@ function je(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -344,8 +344,8 @@ function je(t) {
     }
   );
 }
-function xt(t) {
-  return /* @__PURE__ */ e(
+function ws(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -356,8 +356,8 @@ function xt(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -368,8 +368,8 @@ function xt(t) {
     }
   );
 }
-function $e(t) {
-  return /* @__PURE__ */ e(
+function Tn(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -380,8 +380,8 @@ function $e(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -392,8 +392,8 @@ function $e(t) {
     }
   );
 }
-function Ge(t) {
-  return /* @__PURE__ */ e(
+function Jt(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -404,8 +404,8 @@ function Ge(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -416,8 +416,8 @@ function Ge(t) {
     }
   );
 }
-function bt(t) {
-  return /* @__PURE__ */ e(
+function _s(e) {
+  return /* @__PURE__ */ o(
     "svg",
     {
       width: "100%",
@@ -428,8 +428,8 @@ function bt(t) {
       overflow: "visible",
       preserveAspectRatio: "none",
       style: { display: "block" },
-      ...t,
-      children: /* @__PURE__ */ e(
+      ...e,
+      children: /* @__PURE__ */ o(
         "path",
         {
           id: "Icon",
@@ -442,28 +442,28 @@ function bt(t) {
     }
   );
 }
-const G = 11, Ue = {
+const xe = 11, Bn = {
   fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontSize: 14,
   fontWeight: 500,
   lineHeight: "22px"
-}, ye = {
+}, _t = {
   fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontSize: 14,
   fontWeight: 400,
   lineHeight: "22px"
-}, Ke = {
+}, Hn = {
   fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontSize: 12,
   fontWeight: 400,
   lineHeight: "16px"
-}, Se = {
+}, Qt = {
   fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontSize: 12,
   fontWeight: 500,
   lineHeight: "22px",
   letterSpacing: 0.5
-}, qe = "/assets/block-icons", Le = [
+}, Dn = "/assets/block-icons", kt = [
   {
     label: "Essentials",
     blocks: [
@@ -528,111 +528,111 @@ const G = 11, Ue = {
     ]
   }
 ];
-function Qe({ onSelect: t, onClose: o, blockIconBasePath: i = qe }) {
-  const [n, s] = p(""), d = h(null), a = h(null);
-  A(() => {
-    const r = setTimeout(() => {
-      var f;
-      return (f = d.current) == null ? void 0 : f.focus();
+function On({ onSelect: e, onClose: t, blockIconBasePath: n = Dn }) {
+  const [r, i] = w(""), a = k(null), l = k(null);
+  I(() => {
+    const s = setTimeout(() => {
+      var d;
+      return (d = a.current) == null ? void 0 : d.focus();
     }, 50);
-    return () => clearTimeout(r);
-  }, []), A(() => {
-    function r(f) {
-      a.current && !a.current.contains(f.target) && o();
+    return () => clearTimeout(s);
+  }, []), I(() => {
+    function s(d) {
+      l.current && !l.current.contains(d.target) && t();
     }
-    return document.addEventListener("mousedown", r), () => document.removeEventListener("mousedown", r);
-  }, [o]);
-  const l = n ? Le.map((r) => ({
-    ...r,
-    blocks: r.blocks.filter((f) => f.name.toLowerCase().includes(n.toLowerCase()))
-  })).filter((r) => r.blocks.length > 0) : Le;
-  return /* @__PURE__ */ u(
+    return document.addEventListener("mousedown", s), () => document.removeEventListener("mousedown", s);
+  }, [t]);
+  const c = r ? kt.map((s) => ({
+    ...s,
+    blocks: s.blocks.filter((d) => d.name.toLowerCase().includes(r.toLowerCase()))
+  })).filter((s) => s.blocks.length > 0) : kt;
+  return /* @__PURE__ */ g(
     "div",
     {
-      ref: a,
+      ref: l,
       className: "block-picker-enter",
       style: {
         width: 320,
         background: "var(--rosetta-bg-base)",
-        borderRadius: G,
+        borderRadius: xe,
         boxShadow: "var(--shadows-200)",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column"
       },
-      onClick: (r) => r.stopPropagation(),
+      onClick: (s) => s.stopPropagation(),
       children: [
-        /* @__PURE__ */ u("div", { style: {
+        /* @__PURE__ */ g("div", { style: {
           height: 50,
           display: "flex",
           alignItems: "center",
-          gap: G,
+          gap: xe,
           padding: "0 12px",
           borderBottom: "1px solid var(--rosetta-border-default)",
           flexShrink: 0
         }, children: [
-          /* @__PURE__ */ e("div", { style: { width: 22, height: 22, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: /* @__PURE__ */ e(ze, { expanded: !0, size: 16, color: "var(--rosetta-fg-muted)" }) }),
-          /* @__PURE__ */ e(
+          /* @__PURE__ */ o("div", { style: { width: 22, height: 22, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: /* @__PURE__ */ o(Fn, { expanded: !0, size: 16, color: "var(--rosetta-fg-muted)" }) }),
+          /* @__PURE__ */ o(
             "input",
             {
-              ref: d,
+              ref: a,
               type: "text",
               placeholder: "Search blocks",
-              value: n,
-              onChange: (r) => s(r.target.value),
-              onKeyDown: (r) => {
-                r.key === "Escape" && o();
+              value: r,
+              onChange: (s) => i(s.target.value),
+              onKeyDown: (s) => {
+                s.key === "Escape" && t();
               },
               style: {
-                ...ye,
+                ..._t,
                 flex: 1,
                 border: "none",
                 outline: "none",
                 background: "transparent",
                 padding: 0,
-                color: n ? "var(--rosetta-fg-default)" : "#6E6E6E",
+                color: r ? "var(--rosetta-fg-default)" : "#6E6E6E",
                 minWidth: 0
               }
             }
           )
         ] }),
-        /* @__PURE__ */ u("div", { style: {
+        /* @__PURE__ */ g("div", { style: {
           overflow: "auto",
           maxHeight: "min(480px, calc(100vh - 200px))",
-          padding: `${G}px`
+          padding: `${xe}px`
         }, children: [
-          l.length === 0 && /* @__PURE__ */ u("p", { style: {
-            ...ye,
+          c.length === 0 && /* @__PURE__ */ g("p", { style: {
+            ..._t,
             color: "var(--rosetta-fg-muted)",
-            padding: `${G}px 0`,
+            padding: `${xe}px 0`,
             textAlign: "center"
           }, children: [
             'No blocks matching "',
-            n,
+            r,
             '"'
           ] }),
-          l.map((r, f) => /* @__PURE__ */ u("div", { style: { marginTop: f > 0 ? 16 : 0 }, children: [
-            /* @__PURE__ */ e("p", { style: {
-              ...Ue,
+          c.map((s, d) => /* @__PURE__ */ g("div", { style: { marginTop: d > 0 ? 16 : 0 }, children: [
+            /* @__PURE__ */ o("p", { style: {
+              ...Bn,
               color: "var(--rosetta-fg-default)",
               marginBottom: 6
-            }, children: r.label }),
-            /* @__PURE__ */ e("div", { style: {
+            }, children: s.label }),
+            /* @__PURE__ */ o("div", { style: {
               display: "flex",
               flexWrap: "wrap",
               gap: 6
-            }, children: r.blocks.map((g) => /* @__PURE__ */ e(Je, { block: g, onSelect: t, blockIconBasePath: i }, g.name)) })
-          ] }, r.label))
+            }, children: s.blocks.map((p) => /* @__PURE__ */ o(Pn, { block: p, onSelect: e, blockIconBasePath: n }, p.name)) })
+          ] }, s.label))
         ] })
       ]
     }
   );
 }
-function Je({ block: t, onSelect: o, blockIconBasePath: i }) {
-  return /* @__PURE__ */ u(
+function Pn({ block: e, onSelect: t, blockIconBasePath: n }) {
+  return /* @__PURE__ */ g(
     "button",
     {
-      onClick: () => o(t.name),
+      onClick: () => t(e.name),
       style: {
         // Spec: 146px wide, 44px tall, #F9F9F9 bg, 6px radius
         width: "calc(50% - 3px)",
@@ -641,7 +641,7 @@ function Je({ block: t, onSelect: o, blockIconBasePath: i }) {
         flexDirection: "row",
         alignItems: "center",
         padding: "0 11px",
-        gap: G,
+        gap: xe,
         background: "var(--rosetta-bg-inset)",
         border: "none",
         borderRadius: 6,
@@ -649,10 +649,10 @@ function Je({ block: t, onSelect: o, blockIconBasePath: i }) {
         overflow: "hidden",
         textAlign: "left"
       },
-      onMouseEnter: (n) => n.currentTarget.style.background = "var(--rosetta-bg-default)",
-      onMouseLeave: (n) => n.currentTarget.style.background = "var(--rosetta-bg-inset)",
+      onMouseEnter: (r) => r.currentTarget.style.background = "var(--rosetta-bg-default)",
+      onMouseLeave: (r) => r.currentTarget.style.background = "var(--rosetta-bg-inset)",
       children: [
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           width: 16,
           height: 16,
           flexShrink: 0,
@@ -660,10 +660,10 @@ function Je({ block: t, onSelect: o, blockIconBasePath: i }) {
           alignItems: "center",
           justifyContent: "center",
           overflow: "visible"
-        }, children: /* @__PURE__ */ e(
+        }, children: /* @__PURE__ */ o(
           "img",
           {
-            src: `${i}/${t.icon}.svg`,
+            src: `${n}/${e.icon}.svg`,
             alt: "",
             style: {
               maxWidth: 16,
@@ -672,35 +672,35 @@ function Je({ block: t, onSelect: o, blockIconBasePath: i }) {
             }
           }
         ) }),
-        /* @__PURE__ */ e("span", { style: {
-          ...Ke,
+        /* @__PURE__ */ o("span", { style: {
+          ...Hn,
           color: "var(--rosetta-fg-default)",
           overflow: "hidden",
           textOverflow: "ellipsis",
           whiteSpace: "nowrap"
-        }, children: t.name })
+        }, children: e.name })
       ]
     }
   );
 }
-function et({ onAddBlock: t }) {
-  const [o, i] = p(!1);
-  return /* @__PURE__ */ e("div", { style: {
+function $n({ onAddBlock: e }) {
+  const [t, n] = w(!1);
+  return /* @__PURE__ */ o("div", { style: {
     display: "flex",
     alignItems: "center",
     gap: 6
-  }, children: /* @__PURE__ */ u(
+  }, children: /* @__PURE__ */ g(
     "button",
     {
-      onClick: t,
-      onMouseEnter: () => i(!0),
-      onMouseLeave: () => i(!1),
+      onClick: e,
+      onMouseEnter: () => n(!0),
+      onMouseLeave: () => n(!1),
       style: {
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: G,
+        gap: xe,
         padding: "11px 22px 11px 16px",
         background: "var(--rosetta-bg-base)",
         border: "none",
@@ -709,13 +709,13 @@ function et({ onAddBlock: t }) {
         cursor: "pointer"
       },
       children: [
-        o && /* @__PURE__ */ e("div", { style: {
+        t && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           inset: 4,
           background: "var(--rosetta-bg-default)",
           borderRadius: 6
         } }),
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           width: 22,
           height: 22,
           flexShrink: 0,
@@ -724,9 +724,9 @@ function et({ onAddBlock: t }) {
           justifyContent: "center",
           position: "relative",
           zIndex: 1
-        }, children: /* @__PURE__ */ e(Ge, { style: { width: 16, height: 16, display: "block" } }) }),
-        /* @__PURE__ */ e("span", { style: {
-          ...Se,
+        }, children: /* @__PURE__ */ o(Jt, { style: { width: 16, height: 16, display: "block" } }) }),
+        /* @__PURE__ */ o("span", { style: {
+          ...Qt,
           textTransform: "uppercase",
           color: "var(--rosetta-fg-default)",
           whiteSpace: "nowrap",
@@ -738,20 +738,20 @@ function et({ onAddBlock: t }) {
     }
   ) });
 }
-function tt({ onClick: t }) {
-  const [o, i] = p(!1);
-  return /* @__PURE__ */ u(
+function zn({ onClick: e }) {
+  const [t, n] = w(!1);
+  return /* @__PURE__ */ g(
     "button",
     {
-      onClick: t,
-      onMouseEnter: () => i(!0),
-      onMouseLeave: () => i(!1),
+      onClick: e,
+      onMouseEnter: () => n(!0),
+      onMouseLeave: () => n(!1),
       style: {
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: G,
+        gap: xe,
         padding: "11px 22px 11px 16px",
         background: "var(--rosetta-bg-base)",
         border: "none",
@@ -760,13 +760,13 @@ function tt({ onClick: t }) {
         cursor: "pointer"
       },
       children: [
-        o && /* @__PURE__ */ e("div", { style: {
+        t && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           inset: 4,
           background: "var(--rosetta-bg-default)",
           borderRadius: 6
         } }),
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           width: 22,
           height: 22,
           flexShrink: 0,
@@ -775,9 +775,9 @@ function tt({ onClick: t }) {
           justifyContent: "center",
           position: "relative",
           zIndex: 1
-        }, children: /* @__PURE__ */ e(Ie, { style: { width: 16, height: 16, display: "block" } }) }),
-        /* @__PURE__ */ e("span", { style: {
-          ...Se,
+        }, children: /* @__PURE__ */ o(Kt, { style: { width: 16, height: 16, display: "block" } }) }),
+        /* @__PURE__ */ o("span", { style: {
+          ...Qt,
           textTransform: "uppercase",
           color: "var(--rosetta-fg-default)",
           whiteSpace: "nowrap",
@@ -789,90 +789,90 @@ function tt({ onClick: t }) {
     }
   );
 }
-const nt = "#4894FF", ge = 3, ke = 11;
-function yt({
-  sectionId: t,
-  sectionLabel: o,
-  children: i,
-  onBlockPicked: n,
-  disabled: s = !1,
-  style: d
+const jn = "#4894FF", lt = 3, Ft = 11;
+function ks({
+  sectionId: e,
+  sectionLabel: t,
+  children: n,
+  onBlockPicked: r,
+  disabled: i = !1,
+  style: a
 }) {
-  const [a, l] = p(!1), [r, f] = p(!1), [g, b] = p(!1), w = h(null), L = y(() => {
-    s || (l(!0), b(!1));
-  }, [s]), c = y(() => {
-    r || (l(!1), b(!1));
-  }, [r]), V = y(() => {
-    f(!0), b(!1);
-  }, []), S = y(() => {
-    if (f(!1), b(!0), w.current) {
-      const v = w.current.getBoundingClientRect(), k = R.current;
-      k && (k.x < v.left || k.x > v.right || k.y < v.top || k.y > v.bottom) && l(!1);
+  const [l, c] = w(!1), [s, d] = w(!1), [p, u] = w(!1), m = k(null), b = F(() => {
+    i || (c(!0), u(!1));
+  }, [i]), f = F(() => {
+    s || (c(!1), u(!1));
+  }, [s]), M = F(() => {
+    d(!0), u(!1);
+  }, []), R = F(() => {
+    if (d(!1), u(!0), m.current) {
+      const v = m.current.getBoundingClientRect(), E = A.current;
+      E && (E.x < v.left || E.x > v.right || E.y < v.top || E.y > v.bottom) && c(!1);
     }
-  }, []), M = y((v) => {
-    f(!1), l(!1), n(t, v);
-  }, [t, n]), R = h(null), m = y((v) => {
-    R.current = { x: v.clientX, y: v.clientY };
-  }, []), E = (a || r) && !s;
-  return /* @__PURE__ */ u(
+  }, []), L = F((v) => {
+    d(!1), c(!1), r(e, v);
+  }, [e, r]), A = k(null), x = F((v) => {
+    A.current = { x: v.clientX, y: v.clientY };
+  }, []), S = (l || s) && !i;
+  return /* @__PURE__ */ g(
     "div",
     {
-      ref: w,
-      onMouseEnter: L,
-      onMouseLeave: c,
-      onMouseMove: m,
+      ref: m,
+      onMouseEnter: b,
+      onMouseLeave: f,
+      onMouseMove: x,
       style: {
         position: "relative",
-        ...d
+        ...a
       },
       children: [
-        i,
-        /* @__PURE__ */ e(
+        n,
+        /* @__PURE__ */ o(
           "div",
           {
             style: {
               position: "absolute",
               inset: 0,
-              border: `${ge}px solid ${E ? nt : "transparent"}`,
+              border: `${lt}px solid ${S ? jn : "transparent"}`,
               zIndex: 101,
               pointerEvents: "none",
               transition: "border-color 0.15s ease"
             }
           }
         ),
-        E && /* @__PURE__ */ u(
+        S && /* @__PURE__ */ g(
           "div",
           {
             style: {
               position: "absolute",
-              top: ge + ke,
-              left: ge + ke,
+              top: lt + Ft,
+              left: lt + Ft,
               zIndex: 102
             },
             children: [
-              /* @__PURE__ */ e(
+              /* @__PURE__ */ o(
                 "div",
                 {
-                  className: g ? "add-block-return" : r ? "" : "add-block-enter",
+                  className: p ? "add-block-return" : s ? "" : "add-block-enter",
                   style: {
-                    opacity: r ? 0 : 1,
-                    pointerEvents: r ? "none" : "auto",
+                    opacity: s ? 0 : 1,
+                    pointerEvents: s ? "none" : "auto",
                     transition: "opacity 200ms ease",
-                    position: r ? "absolute" : "relative"
+                    position: s ? "absolute" : "relative"
                   },
-                  children: /* @__PURE__ */ e(
-                    et,
+                  children: /* @__PURE__ */ o(
+                    $n,
                     {
-                      onAddBlock: V
+                      onAddBlock: M
                     }
                   )
                 }
               ),
-              r && /* @__PURE__ */ e(
-                Qe,
+              s && /* @__PURE__ */ o(
+                On,
                 {
-                  onSelect: M,
-                  onClose: S
+                  onSelect: L,
+                  onClose: R
                 }
               )
             ]
@@ -882,28 +882,28 @@ function yt({
     }
   );
 }
-function Lt({
-  children: t,
-  disabled: o = !1,
-  style: i
+function Fs({
+  children: e,
+  disabled: t = !1,
+  style: n
 }) {
-  const [n, s] = p(!1), d = y(() => {
-    o || s(!0);
-  }, [o]), a = y(() => {
-    s(!1);
-  }, []), l = n && !o;
-  return /* @__PURE__ */ u(
+  const [r, i] = w(!1), a = F(() => {
+    t || i(!0);
+  }, [t]), l = F(() => {
+    i(!1);
+  }, []), c = r && !t;
+  return /* @__PURE__ */ g(
     "div",
     {
-      onMouseEnter: d,
-      onMouseLeave: a,
+      onMouseEnter: a,
+      onMouseLeave: l,
       style: {
         position: "relative",
-        ...i
+        ...n
       },
       children: [
-        t,
-        l && /* @__PURE__ */ e(
+        e,
+        c && /* @__PURE__ */ o(
           "div",
           {
             className: "header-scrim-enter",
@@ -916,16 +916,16 @@ function Lt({
               justifyContent: "center",
               zIndex: 101
             },
-            children: /* @__PURE__ */ e("div", { className: "header-btn-enter", children: /* @__PURE__ */ e(tt, { onClick: (r) => {
-              const f = r.clientX, g = r.clientY;
-              for (let b = 0; b < 14; b++) {
-                const w = document.createElement("div");
-                w.style.cssText = `position:fixed;width:6px;height:6px;pointer-events:none;z-index:99999;background:#0E0E0E;left:${f}px;top:${g}px;`;
-                const L = Math.random() * Math.PI * 2, c = 60 + Math.random() * 100;
-                w.animate([
+            children: /* @__PURE__ */ o("div", { className: "header-btn-enter", children: /* @__PURE__ */ o(zn, { onClick: (s) => {
+              const d = s.clientX, p = s.clientY;
+              for (let u = 0; u < 14; u++) {
+                const m = document.createElement("div");
+                m.style.cssText = `position:fixed;width:6px;height:6px;pointer-events:none;z-index:99999;background:#0E0E0E;left:${d}px;top:${p}px;`;
+                const b = Math.random() * Math.PI * 2, f = 60 + Math.random() * 100;
+                m.animate([
                   { transform: "translate(0,0) scale(1)", opacity: 1 },
-                  { transform: `translate(${Math.cos(L) * c}px,${Math.sin(L) * c}px) scale(0)`, opacity: 0 }
-                ], { duration: 500 + Math.random() * 300, easing: "cubic-bezier(0,0.5,0.5,1)", fill: "forwards" }), document.body.appendChild(w), setTimeout(() => w.remove(), 900);
+                  { transform: `translate(${Math.cos(b) * f}px,${Math.sin(b) * f}px) scale(0)`, opacity: 0 }
+                ], { duration: 500 + Math.random() * 300, easing: "cubic-bezier(0,0.5,0.5,1)", fill: "forwards" }), document.body.appendChild(m), setTimeout(() => m.remove(), 900);
               }
             } }) })
           }
@@ -934,37 +934,37 @@ function Lt({
     }
   );
 }
-const te = 8;
-function Re({
-  text: t,
-  anchorRef: o,
-  visible: i
+const Ne = 8;
+function en({
+  text: e,
+  anchorRef: t,
+  visible: n
 }) {
-  const n = h(null), [s, d] = p(null);
-  return A(() => {
-    if (!i || !o.current) {
-      d(null);
+  const r = k(null), [i, a] = w(null);
+  return I(() => {
+    if (!n || !t.current) {
+      a(null);
       return;
     }
-    d({ top: -9999, left: -9999 });
-    const a = requestAnimationFrame(() => {
-      if (!o.current || !n.current) return;
-      const l = o.current.getBoundingClientRect(), r = n.current.getBoundingClientRect(), f = window.innerWidth;
-      let g = l.left + l.width / 2 - r.width / 2;
-      const b = window.innerHeight;
-      let w = l.bottom + 6;
-      w + r.height > b - te && (w = l.top - r.height - 6), g < te && (g = te), g + r.width > f - te && (g = f - te - r.width), d({ top: w, left: g });
+    a({ top: -9999, left: -9999 });
+    const l = requestAnimationFrame(() => {
+      if (!t.current || !r.current) return;
+      const c = t.current.getBoundingClientRect(), s = r.current.getBoundingClientRect(), d = window.innerWidth;
+      let p = c.left + c.width / 2 - s.width / 2;
+      const u = window.innerHeight;
+      let m = c.bottom + 6;
+      m + s.height > u - Ne && (m = c.top - s.height - 6), p < Ne && (p = Ne), p + s.width > d - Ne && (p = d - Ne - s.width), a({ top: m, left: p });
     });
-    return () => cancelAnimationFrame(a);
-  }, [i, o]), i ? He(
-    /* @__PURE__ */ e(
+    return () => cancelAnimationFrame(l);
+  }, [n, t]), n ? vt(
+    /* @__PURE__ */ o(
       "div",
       {
-        ref: n,
+        ref: r,
         style: {
           position: "fixed",
-          top: (s == null ? void 0 : s.top) ?? -9999,
-          left: (s == null ? void 0 : s.left) ?? -9999,
+          top: (i == null ? void 0 : i.top) ?? -9999,
+          left: (i == null ? void 0 : i.left) ?? -9999,
           background: "#0E0E0E",
           color: "#fff",
           fontSize: 14,
@@ -978,23 +978,23 @@ function Re({
           zIndex: 1e4,
           pointerEvents: "none"
         },
-        children: t
+        children: e
       }
     ),
     document.body
   ) : null;
 }
-function Fe(t = 600) {
-  const o = h(null), [i, n] = p(!1), [s, d] = p(!1), a = h(null), l = y(() => {
-    n(!0), a.current = setTimeout(() => d(!0), t);
-  }, [t]), r = y(() => {
-    n(!1), d(!1), a.current && (clearTimeout(a.current), a.current = null);
+function tn(e = 600) {
+  const t = k(null), [n, r] = w(!1), [i, a] = w(!1), l = k(null), c = F(() => {
+    r(!0), l.current = setTimeout(() => a(!0), e);
+  }, [e]), s = F(() => {
+    r(!1), a(!1), l.current && (clearTimeout(l.current), l.current = null);
   }, []);
-  return A(() => () => {
-    a.current && clearTimeout(a.current);
-  }, []), { ref: o, hovered: i, showTooltip: s, onMouseEnter: l, onMouseLeave: r };
+  return I(() => () => {
+    l.current && clearTimeout(l.current);
+  }, []), { ref: t, hovered: n, showTooltip: i, onMouseEnter: c, onMouseLeave: s };
 }
-const Ce = {
+const Rt = {
   background: "var(--rosetta-bg-base)",
   borderRadius: 11,
   height: 44,
@@ -1003,183 +1003,183 @@ const Ce = {
   padding: "0 4px",
   boxShadow: "var(--shadows-200)"
 };
-function kt({
-  onOpenIDE: t,
-  onOpenDesignPanel: o,
-  onDelete: i,
-  isExiting: n
+function Rs({
+  onOpenIDE: e,
+  onOpenDesignPanel: t,
+  onDelete: n,
+  isExiting: r
 }) {
-  return /* @__PURE__ */ u("div", { className: n ? "annotation-exit" : "annotation-enter", style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-    /* @__PURE__ */ e("div", { style: Ce, children: /* @__PURE__ */ e(X, { onClick: t, title: "Open code editor", children: /* @__PURE__ */ e(Oe, { style: { width: 22, height: 18 } }) }) }),
-    /* @__PURE__ */ u("div", { style: { ...Ce, gap: 4 }, children: [
-      /* @__PURE__ */ e(X, { onClick: o, title: "Edit", children: /* @__PURE__ */ e(Ie, { style: { width: 18.5, height: 18.5 } }) }),
-      /* @__PURE__ */ e(Me, {}),
-      /* @__PURE__ */ e(X, { title: "Pin", children: /* @__PURE__ */ e(Ze, { style: { width: 17.7, height: 17.7 } }) }),
-      /* @__PURE__ */ e(X, { title: "Align top", children: /* @__PURE__ */ e(_e, { style: { width: 18, height: 14 } }) }),
-      /* @__PURE__ */ e(X, { title: "Move forward", children: /* @__PURE__ */ e(ot, {}) }),
-      /* @__PURE__ */ e(X, { title: "Move backward", children: /* @__PURE__ */ e(rt, {}) }),
-      /* @__PURE__ */ e(Me, {}),
-      /* @__PURE__ */ e(X, { title: "Duplicate", children: /* @__PURE__ */ e(Pe, { style: { width: 18, height: 18 } }) }),
-      /* @__PURE__ */ e(X, { onClick: i, title: "Delete", danger: !0, children: /* @__PURE__ */ e(it, {}) })
+  return /* @__PURE__ */ g("div", { className: r ? "annotation-exit" : "annotation-enter", style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+    /* @__PURE__ */ o("div", { style: Rt, children: /* @__PURE__ */ o(he, { onClick: e, title: "Open code editor", children: /* @__PURE__ */ o(Rn, { style: { width: 22, height: 18 } }) }) }),
+    /* @__PURE__ */ g("div", { style: { ...Rt, gap: 4 }, children: [
+      /* @__PURE__ */ o(he, { onClick: t, title: "Edit", children: /* @__PURE__ */ o(Kt, { style: { width: 18.5, height: 18.5 } }) }),
+      /* @__PURE__ */ o(St, {}),
+      /* @__PURE__ */ o(he, { title: "Pin", children: /* @__PURE__ */ o(Sn, { style: { width: 17.7, height: 17.7 } }) }),
+      /* @__PURE__ */ o(he, { title: "Align top", children: /* @__PURE__ */ o(Cn, { style: { width: 18, height: 14 } }) }),
+      /* @__PURE__ */ o(he, { title: "Move forward", children: /* @__PURE__ */ o(Un, {}) }),
+      /* @__PURE__ */ o(he, { title: "Move backward", children: /* @__PURE__ */ o(Wn, {}) }),
+      /* @__PURE__ */ o(St, {}),
+      /* @__PURE__ */ o(he, { title: "Duplicate", children: /* @__PURE__ */ o(En, { style: { width: 18, height: 18 } }) }),
+      /* @__PURE__ */ o(he, { onClick: n, title: "Delete", danger: !0, children: /* @__PURE__ */ o(Vn, {}) })
     ] })
   ] });
 }
-function X({
-  children: t,
-  onClick: o,
-  title: i,
-  danger: n
+function he({
+  children: e,
+  onClick: t,
+  title: n,
+  danger: r
 }) {
-  const { ref: s, hovered: d, showTooltip: a, onMouseEnter: l, onMouseLeave: r } = Fe();
-  return /* @__PURE__ */ u(
+  const { ref: i, hovered: a, showTooltip: l, onMouseEnter: c, onMouseLeave: s } = tn();
+  return /* @__PURE__ */ g(
     "button",
     {
-      ref: s,
-      onClick: o,
-      onMouseEnter: l,
-      onMouseLeave: r,
+      ref: i,
+      onClick: t,
+      onMouseEnter: c,
+      onMouseLeave: s,
       style: {
         position: "relative",
         width: 36,
         height: 44,
         background: "transparent",
         border: "none",
-        cursor: o ? "pointer" : "default",
+        cursor: t ? "pointer" : "default",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        color: n ? "var(--rosetta-fg-danger)" : "var(--rosetta-fg-default)"
+        color: r ? "var(--rosetta-fg-danger)" : "var(--rosetta-fg-default)"
       },
       children: [
-        d && /* @__PURE__ */ e("div", { style: {
+        a && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           top: 4,
           left: 0,
           width: 36,
           height: 36,
-          background: n ? "var(--rosetta-bg-danger-default)" : "var(--rosetta-bg-default)",
+          background: r ? "var(--rosetta-bg-danger-default)" : "var(--rosetta-bg-default)",
           borderRadius: 6
         } }),
-        /* @__PURE__ */ e("div", { style: { position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }, children: t }),
-        i && /* @__PURE__ */ e(Re, { text: i, anchorRef: s, visible: a })
+        /* @__PURE__ */ o("div", { style: { position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }, children: e }),
+        n && /* @__PURE__ */ o(en, { text: n, anchorRef: i, visible: l })
       ]
     }
   );
 }
-function Me() {
-  return /* @__PURE__ */ e("div", { style: { width: 1, height: 20, background: "var(--rosetta-border-default)", flexShrink: 0 } });
+function St() {
+  return /* @__PURE__ */ o("div", { style: { width: 1, height: 20, background: "var(--rosetta-border-default)", flexShrink: 0 } });
 }
-function ot() {
-  return /* @__PURE__ */ u("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", children: [
-    /* @__PURE__ */ e("rect", { x: "7", y: "7", width: "13", height: "13", stroke: "currentColor", strokeWidth: "1.5", strokeDasharray: "3 2" }),
-    /* @__PURE__ */ e("rect", { x: "2", y: "2", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5" })
+function Un() {
+  return /* @__PURE__ */ g("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", children: [
+    /* @__PURE__ */ o("rect", { x: "7", y: "7", width: "13", height: "13", stroke: "currentColor", strokeWidth: "1.5", strokeDasharray: "3 2" }),
+    /* @__PURE__ */ o("rect", { x: "2", y: "2", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5" })
   ] });
 }
-function rt() {
-  return /* @__PURE__ */ u("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", children: [
-    /* @__PURE__ */ e("rect", { x: "7", y: "7", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5" }),
-    /* @__PURE__ */ e("rect", { x: "2", y: "2", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5", strokeDasharray: "3 2" })
+function Wn() {
+  return /* @__PURE__ */ g("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", children: [
+    /* @__PURE__ */ o("rect", { x: "7", y: "7", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5" }),
+    /* @__PURE__ */ o("rect", { x: "2", y: "2", width: "13", height: "13", fill: "var(--rosetta-bg-base, white)", stroke: "currentColor", strokeWidth: "1.5", strokeDasharray: "3 2" })
   ] });
 }
-function it() {
-  return /* @__PURE__ */ u("svg", { width: "22", height: "22", viewBox: "0 0 18 18", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
-    /* @__PURE__ */ e("path", { d: "M3 5h12" }),
-    /* @__PURE__ */ e("path", { d: "M7 5V3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V5" }),
-    /* @__PURE__ */ e("path", { d: "M4.5 5l.5 9.5a1 1 0 0 0 1 .5h6a1 1 0 0 0 1-.5L14 5" }),
-    /* @__PURE__ */ e("path", { d: "M7.5 8v4.5" }),
-    /* @__PURE__ */ e("path", { d: "M10.5 8v4.5" })
+function Vn() {
+  return /* @__PURE__ */ g("svg", { width: "22", height: "22", viewBox: "0 0 18 18", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+    /* @__PURE__ */ o("path", { d: "M3 5h12" }),
+    /* @__PURE__ */ o("path", { d: "M7 5V3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V5" }),
+    /* @__PURE__ */ o("path", { d: "M4.5 5l.5 9.5a1 1 0 0 0 1 .5h6a1 1 0 0 0 1-.5L14 5" }),
+    /* @__PURE__ */ o("path", { d: "M7.5 8v4.5" }),
+    /* @__PURE__ */ o("path", { d: "M10.5 8v4.5" })
   ] });
 }
-const de = 12, we = 33, U = 16, ue = 33, st = 3;
-function xe(t) {
-  return (t - ue * 2 - we * (de - 1)) / de;
+const Qe = 12, yt = 33, _e = 16, et = 33, Gn = 3;
+function xt(e) {
+  return (e - et * 2 - yt * (Qe - 1)) / Qe;
 }
-function fe(t) {
-  return xe(t) / 2;
+function nt(e) {
+  return xt(e) / 2;
 }
-function lt(t, o) {
-  const i = fe(o);
-  return t * i + (t - 1) * U;
+function Zn(e, t) {
+  const n = nt(t);
+  return e * n + (e - 1) * _e;
 }
-function Ct(t, o) {
-  const n = fe(o) + U, s = Math.ceil((t + U) / n);
-  return lt(s, o);
+function Ss(e, t) {
+  const r = nt(t) + _e, i = Math.ceil((e + _e) / r);
+  return Zn(i, t);
 }
-function at(t, o) {
-  const n = fe(o) + U;
-  return Math.round(t / n) * n;
+function qn(e, t) {
+  const r = nt(t) + _e;
+  return Math.round(e / r) * r;
 }
-function ct(t, o) {
-  const n = xe(o) + we;
-  return ue + Math.round((t - ue) / n) * n;
+function Yn(e, t) {
+  const r = xt(t) + yt;
+  return et + Math.round((e - et) / r) * r;
 }
-function Mt({ fadeIn: t = !1 }) {
-  const o = h(null), [i, n] = p({ width: 0, height: 0 });
-  A(() => {
-    const f = o.current;
-    if (!f) return;
-    const g = new ResizeObserver(([b]) => {
-      const { width: w, height: L } = b.contentRect;
-      n({ width: w, height: L });
+function Cs({ fadeIn: e = !1 }) {
+  const t = k(null), [n, r] = w({ width: 0, height: 0 });
+  I(() => {
+    const d = t.current;
+    if (!d) return;
+    const p = new ResizeObserver(([u]) => {
+      const { width: m, height: b } = u.contentRect;
+      r({ width: m, height: b });
     });
-    return g.observe(f), () => g.disconnect();
+    return p.observe(d), () => p.disconnect();
   }, []);
-  const s = i.width > 0 ? xe(i.width) : 0, d = s / 2, a = d > 0 ? Math.round((i.height + U) / (d + U)) : 0, l = de * a, r = De(() => l <= 0 ? null : Array.from({ length: l }, (f, g) => /* @__PURE__ */ e(
+  const i = n.width > 0 ? xt(n.width) : 0, a = i / 2, l = a > 0 ? Math.round((n.height + _e) / (a + _e)) : 0, c = Qe * l, s = _(() => c <= 0 ? null : Array.from({ length: c }, (d, p) => /* @__PURE__ */ o(
     "div",
     {
       style: {
-        borderRadius: st,
+        borderRadius: Gn,
         background: "rgba(242, 242, 242, 0.3)",
         border: "1px solid var(--rosetta-border-default)"
       }
     },
-    g
-  )), [l]);
-  return /* @__PURE__ */ e(
+    p
+  )), [c]);
+  return /* @__PURE__ */ o(
     "div",
     {
-      ref: o,
+      ref: t,
       style: {
         position: "absolute",
         inset: 0,
         pointerEvents: "none",
         zIndex: 1,
         overflow: "hidden",
-        opacity: t ? 1 : void 0,
-        transition: t ? "opacity 0.15s ease" : void 0
+        opacity: e ? 1 : void 0,
+        transition: e ? "opacity 0.15s ease" : void 0
       },
-      children: s > 0 && /* @__PURE__ */ e(
+      children: i > 0 && /* @__PURE__ */ o(
         "div",
         {
           style: {
             display: "grid",
-            gridTemplateColumns: `repeat(${de}, 1fr)`,
-            gridTemplateRows: `repeat(${a}, 1fr)`,
-            columnGap: we,
-            rowGap: U,
-            padding: `0 ${ue}px`,
+            gridTemplateColumns: `repeat(${Qe}, 1fr)`,
+            gridTemplateRows: `repeat(${l}, 1fr)`,
+            columnGap: yt,
+            rowGap: _e,
+            padding: `0 ${et}px`,
             width: "100%",
             height: "100%",
             boxSizing: "border-box"
           },
-          children: r
+          children: s
         }
       )
     }
   );
 }
-function Et({
-  onSave: t,
-  onExit: o,
-  onUndo: i,
-  onRedo: n,
-  activeBreakpoint: s = "desktop",
-  onBreakpointChange: d,
-  onRun: a,
-  componentName: l
+function Es({
+  onSave: e,
+  onExit: t,
+  onUndo: n,
+  onRedo: r,
+  activeBreakpoint: i = "desktop",
+  onBreakpointChange: a,
+  onRun: l,
+  componentName: c
 }) {
-  return /* @__PURE__ */ u("header", { "data-theme": "light", style: {
+  return /* @__PURE__ */ g("header", { "data-theme": "light", style: {
     position: "relative",
     height: 56,
     background: "var(--rosetta-bg-base)",
@@ -1187,7 +1187,7 @@ function Et({
     flexShrink: 0,
     transition: "background 0.3s ease, border-color 0.3s ease"
   }, children: [
-    /* @__PURE__ */ u("div", { style: {
+    /* @__PURE__ */ g("div", { style: {
       position: "absolute",
       left: 11,
       top: "50%",
@@ -1196,14 +1196,14 @@ function Et({
       alignItems: "center",
       gap: 12
     }, children: [
-      /* @__PURE__ */ e("button", { onClick: t, style: dt, children: "Save" }),
-      /* @__PURE__ */ e(ut, { onClick: o, label: "Exit" }),
-      /* @__PURE__ */ u("div", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
-        /* @__PURE__ */ e(ve, { onClick: i, title: "Undo", children: /* @__PURE__ */ e(Ne, { style: { width: 18, height: 15 } }) }),
-        /* @__PURE__ */ e(ve, { onClick: void 0, title: "Redo", disabled: !0, children: /* @__PURE__ */ e(We, { style: { width: 18, height: 15, opacity: 0.28 } }) })
+      /* @__PURE__ */ o("button", { onClick: e, style: Xn, children: "Save" }),
+      /* @__PURE__ */ o(Kn, { onClick: t, label: "Exit" }),
+      /* @__PURE__ */ g("div", { style: { display: "flex", alignItems: "center", gap: 6 }, children: [
+        /* @__PURE__ */ o(ct, { onClick: n, title: "Undo", children: /* @__PURE__ */ o(Mn, { style: { width: 18, height: 15 } }) }),
+        /* @__PURE__ */ o(ct, { onClick: void 0, title: "Redo", disabled: !0, children: /* @__PURE__ */ o(Ln, { style: { width: 18, height: 15, opacity: 0.28 } }) })
       ] })
     ] }),
-    /* @__PURE__ */ e("div", { style: {
+    /* @__PURE__ */ o("div", { style: {
       position: "absolute",
       left: "50%",
       top: 0,
@@ -1211,27 +1211,27 @@ function Et({
       textAlign: "center",
       overflow: "hidden",
       height: 56
-    }, children: /* @__PURE__ */ u("div", { style: {
-      transform: l ? "translateY(-56px)" : "translateY(0)",
+    }, children: /* @__PURE__ */ g("div", { style: {
+      transform: c ? "translateY(-56px)" : "translateY(0)",
       transition: "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)"
     }, children: [
-      /* @__PURE__ */ e(ft, { title: "Adrienne", subtitle: "Page · Published" }),
-      /* @__PURE__ */ u("div", { style: {
+      /* @__PURE__ */ o(Jn, { title: "Adrienne", subtitle: "Page · Published" }),
+      /* @__PURE__ */ g("div", { style: {
         height: 56,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center"
       }, children: [
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           fontSize: 13,
           fontWeight: 500,
           letterSpacing: 0.25,
           color: "var(--rosetta-fg-default)",
           lineHeight: "18px",
           transition: "color 0.3s ease"
-        }, children: l ?? "Component" }),
-        /* @__PURE__ */ e("div", { style: {
+        }, children: c ?? "Component" }),
+        /* @__PURE__ */ o("div", { style: {
           fontSize: 12,
           fontWeight: 400,
           color: "var(--rosetta-fg-muted)",
@@ -1240,7 +1240,7 @@ function Et({
         }, children: "Editing global component" })
       ] })
     ] }) }),
-    /* @__PURE__ */ u("div", { style: {
+    /* @__PURE__ */ g("div", { style: {
       position: "absolute",
       right: 11,
       top: "50%",
@@ -1249,7 +1249,7 @@ function Et({
       alignItems: "center",
       gap: 11
     }, children: [
-      /* @__PURE__ */ e("div", { style: {
+      /* @__PURE__ */ o("div", { style: {
         width: 96,
         height: 36,
         background: "var(--rosetta-bg-default)",
@@ -1258,49 +1258,49 @@ function Et({
         alignItems: "center",
         padding: 2,
         transition: "background 0.3s ease, opacity 0.3s ease",
-        opacity: l ? 0.35 : 1,
-        pointerEvents: l ? "none" : void 0
-      }, children: ["desktop", "mobile"].map((r) => /* @__PURE__ */ e(
+        opacity: c ? 0.35 : 1,
+        pointerEvents: c ? "none" : void 0
+      }, children: ["desktop", "mobile"].map((s) => /* @__PURE__ */ o(
         "button",
         {
-          onClick: () => d == null ? void 0 : d(r),
-          title: r,
-          disabled: !!l,
+          onClick: () => a == null ? void 0 : a(s),
+          title: s,
+          disabled: !!c,
           style: {
             flex: 1,
             height: 32,
-            background: s === r ? "var(--rosetta-bg-base)" : "transparent",
+            background: i === s ? "var(--rosetta-bg-base)" : "transparent",
             border: "none",
             borderRadius: 4,
-            cursor: l ? "default" : "pointer",
+            cursor: c ? "default" : "pointer",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             transition: "background 0.3s ease"
           },
-          children: r === "desktop" ? /* @__PURE__ */ e(Xe, { style: { width: 18, height: 17 } }) : /* @__PURE__ */ e(Ye, { style: { width: 12, height: 20 } })
+          children: s === "desktop" ? /* @__PURE__ */ o(An, { style: { width: 18, height: 17 } }) : /* @__PURE__ */ o(Nn, { style: { width: 12, height: 20 } })
         },
-        r
+        s
       )) }),
-      /* @__PURE__ */ e(ve, { onClick: a, title: "Preview", disabled: !!l, children: /* @__PURE__ */ e(je, { style: { width: 20, height: 20, opacity: l ? 0.28 : 1, transition: "opacity 0.3s ease" } }) })
+      /* @__PURE__ */ o(ct, { onClick: l, title: "Preview", disabled: !!c, children: /* @__PURE__ */ o(In, { style: { width: 20, height: 20, opacity: c ? 0.28 : 1, transition: "opacity 0.3s ease" } }) })
     ] })
   ] });
 }
-function ve({
-  children: t,
-  onClick: o,
-  title: i,
-  disabled: n
+function ct({
+  children: e,
+  onClick: t,
+  title: n,
+  disabled: r
 }) {
-  const { ref: s, hovered: d, showTooltip: a, onMouseEnter: l, onMouseLeave: r } = Fe();
-  return /* @__PURE__ */ u(
+  const { ref: i, hovered: a, showTooltip: l, onMouseEnter: c, onMouseLeave: s } = tn();
+  return /* @__PURE__ */ g(
     "button",
     {
-      ref: s,
-      onClick: o,
-      onMouseEnter: l,
-      onMouseLeave: r,
-      disabled: n,
+      ref: i,
+      onClick: t,
+      onMouseEnter: c,
+      onMouseLeave: s,
+      disabled: r,
       style: {
         position: "relative",
         width: 36,
@@ -1308,27 +1308,27 @@ function ve({
         background: "var(--rosetta-bg-base)",
         border: "none",
         borderRadius: 4,
-        cursor: n ? "default" : "pointer",
+        cursor: r ? "default" : "pointer",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        pointerEvents: n ? "none" : void 0
+        pointerEvents: r ? "none" : void 0
       },
       children: [
-        d && !n && /* @__PURE__ */ e("div", { style: {
+        a && !r && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           inset: 0,
           background: "var(--rosetta-bg-default)",
           borderRadius: 4
         } }),
-        /* @__PURE__ */ e("div", { style: { position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }, children: t }),
-        i && /* @__PURE__ */ e(Re, { text: i, anchorRef: s, visible: a })
+        /* @__PURE__ */ o("div", { style: { position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }, children: e }),
+        n && /* @__PURE__ */ o(en, { text: n, anchorRef: i, visible: l })
       ]
     }
   );
 }
-const dt = {
+const Xn = {
   height: 36,
   background: "var(--rosetta-bg-strong)",
   color: "var(--rosetta-fg-onStrong)",
@@ -1342,14 +1342,14 @@ const dt = {
   cursor: "pointer",
   flexShrink: 0
 };
-function ut({ onClick: t, label: o }) {
-  const [i, n] = p(!1);
-  return /* @__PURE__ */ u(
+function Kn({ onClick: e, label: t }) {
+  const [n, r] = w(!1);
+  return /* @__PURE__ */ g(
     "button",
     {
-      onClick: t,
-      onMouseEnter: () => n(!0),
-      onMouseLeave: () => n(!1),
+      onClick: e,
+      onMouseEnter: () => r(!0),
+      onMouseLeave: () => r(!1),
       style: {
         position: "relative",
         height: 36,
@@ -1366,24 +1366,24 @@ function ut({ onClick: t, label: o }) {
         flexShrink: 0
       },
       children: [
-        i && /* @__PURE__ */ e("div", { style: {
+        n && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           inset: 0,
           background: "var(--rosetta-bg-default)",
           borderRadius: 4
         } }),
-        /* @__PURE__ */ e("span", { style: { position: "relative", zIndex: 1 }, children: o })
+        /* @__PURE__ */ o("span", { style: { position: "relative", zIndex: 1 }, children: t })
       ]
     }
   );
 }
-function ft({ title: t, subtitle: o }) {
-  const [i, n] = p(!1);
-  return /* @__PURE__ */ u(
+function Jn({ title: e, subtitle: t }) {
+  const [n, r] = w(!1);
+  return /* @__PURE__ */ g(
     "button",
     {
-      onMouseEnter: () => n(!0),
-      onMouseLeave: () => n(!1),
+      onMouseEnter: () => r(!0),
+      onMouseLeave: () => r(!1),
       style: {
         position: "relative",
         background: "none",
@@ -1399,7 +1399,7 @@ function ft({ title: t, subtitle: o }) {
         justifyContent: "center"
       },
       children: [
-        i && /* @__PURE__ */ e("div", { style: {
+        n && /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           top: 8,
           bottom: 8,
@@ -1408,7 +1408,7 @@ function ft({ title: t, subtitle: o }) {
           background: "var(--rosetta-bg-default)",
           borderRadius: 4
         } }),
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           position: "relative",
           zIndex: 1,
           fontSize: 13,
@@ -1416,195 +1416,195 @@ function ft({ title: t, subtitle: o }) {
           letterSpacing: 0.25,
           color: "var(--rosetta-fg-default)",
           lineHeight: "18px"
-        }, children: t }),
-        /* @__PURE__ */ e("div", { style: {
+        }, children: e }),
+        /* @__PURE__ */ o("div", { style: {
           position: "relative",
           zIndex: 1,
           fontSize: 12,
           fontWeight: 400,
           color: "var(--rosetta-fg-muted)",
           lineHeight: "16px"
-        }, children: o })
+        }, children: t })
       ]
     }
   );
 }
-function Ht({ cssString: t, children: o }) {
-  return /* @__PURE__ */ e(
+function Ms({ cssString: e, children: t }) {
+  return /* @__PURE__ */ o(
     "div",
     {
       style: {
         width: "100%",
         height: "100%"
       },
-      ref: (i) => {
-        i && t.split(";").forEach((n) => {
-          const [s, d] = n.split(":").map((a) => a.trim());
-          s && d && s.startsWith("--") && i.style.setProperty(s, d);
+      ref: (n) => {
+        n && e.split(";").forEach((r) => {
+          const [i, a] = r.split(":").map((l) => l.trim());
+          i && a && i.startsWith("--") && n.style.setProperty(i, a);
         });
       },
-      children: o
+      children: t
     }
   );
 }
-function ht({
-  initialLeft: t,
-  initialTop: o,
-  width: i,
-  height: n,
-  containerWidth: s,
-  sectionHeight: d,
-  enabled: a = !0,
-  onDrop: l
+function Qn({
+  initialLeft: e,
+  initialTop: t,
+  width: n,
+  height: r,
+  containerWidth: i,
+  sectionHeight: a,
+  enabled: l = !0,
+  onDrop: c
 }) {
-  const [r, f] = p(!1), [g, b] = p(!1), [w, L] = p({ x: 0, y: 0 }), [c, V] = p({ left: t, top: o }), S = h({ x: 0, y: 0 }), M = h({ left: t, top: o }), R = h({ x: 0, y: 0 }), m = h({ left: t, top: o });
-  A(() => {
-    !r && !g && V({ left: t, top: o });
-  }, [t, o, r, g]);
-  const E = y((v) => {
-    if (!a || v.button !== 0) return;
-    v.preventDefault(), S.current = { x: v.clientX, y: v.clientY }, M.current = { left: t, top: o }, R.current = { x: 0, y: 0 }, m.current = { left: t, top: o };
-    let k = !1;
-    const P = 4, D = (H) => {
-      const I = H.clientX - S.current.x, B = H.clientY - S.current.y;
-      if (!k) {
-        if (Math.abs(I) < P && Math.abs(B) < P) return;
-        k = !0, f(!0), b(!1), L({ x: 0, y: 0 }), V({ left: t, top: o });
+  const [s, d] = w(!1), [p, u] = w(!1), [m, b] = w({ x: 0, y: 0 }), [f, M] = w({ left: e, top: t }), R = k({ x: 0, y: 0 }), L = k({ left: e, top: t }), A = k({ x: 0, y: 0 }), x = k({ left: e, top: t });
+  I(() => {
+    !s && !p && M({ left: e, top: t });
+  }, [e, t, s, p]);
+  const S = F((v) => {
+    if (!l || v.button !== 0) return;
+    v.preventDefault(), R.current = { x: v.clientX, y: v.clientY }, L.current = { left: e, top: t }, A.current = { x: 0, y: 0 }, x.current = { left: e, top: t };
+    let E = !1;
+    const D = 4, X = (P) => {
+      const $ = P.clientX - R.current.x, ne = P.clientY - R.current.y;
+      if (!E) {
+        if (Math.abs($) < D && Math.abs(ne) < D) return;
+        E = !0, d(!0), u(!1), b({ x: 0, y: 0 }), M({ left: e, top: t });
       }
-      let z = B;
-      if (d != null && s > 0) {
-        const j = fe(s), ne = 0, oe = d - j, re = M.current.top + B;
-        re < ne && (z = ne - M.current.top), re > oe && (z = oe - M.current.top);
+      let ie = ne;
+      if (a != null && i > 0) {
+        const ge = nt(i), ze = 0, je = a - ge, Ue = L.current.top + ne;
+        Ue < ze && (ie = ze - L.current.top), Ue > je && (ie = je - L.current.top);
       }
-      R.current = { x: I, y: z }, L({ x: I, y: z });
-      const C = M.current.left + I, F = M.current.top + z, T = ct(C, s), Q = at(F, s);
-      m.current = { left: T, top: Q }, V({ left: T, top: Q });
-    }, Y = () => {
-      if (document.removeEventListener("mousemove", D), document.removeEventListener("mouseup", Y), !k) return;
-      const H = m.current;
-      l == null || l(H.left, H.top), f(!1), b(!0), L({ x: 0, y: 0 }), setTimeout(() => {
-        b(!1);
+      A.current = { x: $, y: ie }, b({ x: $, y: ie });
+      const z = L.current.left + $, K = L.current.top + ie, J = Yn(z, i), Me = qn(K, i);
+      x.current = { left: J, top: Me }, M({ left: J, top: Me });
+    }, ae = () => {
+      if (document.removeEventListener("mousemove", X), document.removeEventListener("mouseup", ae), !E) return;
+      const P = x.current;
+      c == null || c(P.left, P.top), d(!1), u(!0), b({ x: 0, y: 0 }), setTimeout(() => {
+        u(!1);
       }, 300);
     };
-    document.addEventListener("mousemove", D), document.addEventListener("mouseup", Y);
-  }, [a, t, o, i, n, s, d, l]);
+    document.addEventListener("mousemove", X), document.addEventListener("mouseup", ae);
+  }, [l, e, t, n, r, i, a, c]);
   return {
-    isDragging: r,
-    naturalOffset: w,
-    snappedPosition: c,
-    isSettling: g,
-    dragHandleProps: { onMouseDown: E }
+    isDragging: s,
+    naturalOffset: m,
+    snappedPosition: f,
+    isSettling: p,
+    dragHandleProps: { onMouseDown: S }
   };
 }
-function It({
-  label: t,
-  disabled: o = !1,
-  children: i,
-  style: n,
-  canvasWidth: s,
-  sectionHeight: d,
-  blockId: a,
-  draggedPosition: l,
-  onBlockDrop: r,
-  onDragStateChange: f
+function Ls({
+  label: e,
+  disabled: t = !1,
+  children: n,
+  style: r,
+  canvasWidth: i,
+  sectionHeight: a,
+  blockId: l,
+  draggedPosition: c,
+  onBlockDrop: s,
+  onDragStateChange: d
 }) {
-  const [g, b] = p(!1), w = h(null), L = h(!1), [c, V] = p(null);
-  A(() => {
-    const C = w.current;
-    if (!C || !C.offsetParent) return;
-    const F = () => {
-      C.offsetParent && V({
-        left: C.offsetLeft,
-        top: C.offsetTop,
-        width: C.offsetWidth,
-        height: C.offsetHeight
+  const [p, u] = w(!1), m = k(null), b = k(!1), [f, M] = w(null);
+  I(() => {
+    const z = m.current;
+    if (!z || !z.offsetParent) return;
+    const K = () => {
+      z.offsetParent && M({
+        left: z.offsetLeft,
+        top: z.offsetTop,
+        width: z.offsetWidth,
+        height: z.offsetHeight
       });
     };
-    F();
-    const T = new ResizeObserver(F);
-    return T.observe(C), () => T.disconnect();
-  }, [n, s, l]);
-  const S = s ?? 0, M = !o && S > 0 && c !== null, R = y((C, F) => {
-    a && r && r(a, C, F);
-  }, [a, r]), {
-    isDragging: m,
-    naturalOffset: E,
+    K();
+    const J = new ResizeObserver(K);
+    return J.observe(z), () => J.disconnect();
+  }, [r, i, c]);
+  const R = i ?? 0, L = !t && R > 0 && f !== null, A = F((z, K) => {
+    l && s && s(l, z, K);
+  }, [l, s]), {
+    isDragging: x,
+    naturalOffset: S,
     snappedPosition: v,
-    isSettling: k,
-    dragHandleProps: P
-  } = ht({
-    initialLeft: (c == null ? void 0 : c.left) ?? 0,
-    initialTop: (c == null ? void 0 : c.top) ?? 0,
-    width: (c == null ? void 0 : c.width) ?? 0,
-    height: (c == null ? void 0 : c.height) ?? 0,
-    containerWidth: S,
-    sectionHeight: d,
-    enabled: M,
-    onDrop: R
+    isSettling: E,
+    dragHandleProps: D
+  } = Qn({
+    initialLeft: (f == null ? void 0 : f.left) ?? 0,
+    initialTop: (f == null ? void 0 : f.top) ?? 0,
+    width: (f == null ? void 0 : f.width) ?? 0,
+    height: (f == null ? void 0 : f.height) ?? 0,
+    containerWidth: R,
+    sectionHeight: a,
+    enabled: L,
+    onDrop: A
   });
-  A(() => {
-    m !== L.current && (L.current = m, f == null || f(m));
-  }, [m, f]);
-  const D = (g || m) && !o, Y = D && !m, H = l ? { ...n, left: l.left, top: l.top } : { ...n }, I = m ? {
-    ...H,
+  I(() => {
+    x !== b.current && (b.current = x, d == null || d(x));
+  }, [x, d]);
+  const X = (p || x) && !t, ae = X && !x, P = c ? { ...r, left: c.left, top: c.top } : { ...r }, $ = x ? {
+    ...P,
     position: "absolute",
     left: v.left,
     top: v.top,
-    width: c == null ? void 0 : c.width,
-    height: (n == null ? void 0 : n.height) ?? (c == null ? void 0 : c.height),
+    width: f == null ? void 0 : f.width,
+    height: (r == null ? void 0 : r.height) ?? (f == null ? void 0 : f.height),
     zIndex: 1e3,
     cursor: "grabbing",
     right: void 0,
     bottom: void 0
-  } : { position: "relative", cursor: M ? "grab" : "default", zIndex: 2, ...H }, B = m ? `translate(${E.x - (v.left - ((c == null ? void 0 : c.left) ?? 0))}px, ${E.y - (v.top - ((c == null ? void 0 : c.top) ?? 0))}px)` : void 0;
-  return /* @__PURE__ */ u(
+  } : { position: "relative", cursor: L ? "grab" : "default", zIndex: 2, ...P }, ne = x ? `translate(${S.x - (v.left - ((f == null ? void 0 : f.left) ?? 0))}px, ${S.y - (v.top - ((f == null ? void 0 : f.top) ?? 0))}px)` : void 0;
+  return /* @__PURE__ */ g(
     "div",
     {
-      ref: w,
+      ref: m,
       onMouseEnter: () => {
-        o || b(!0);
+        t || u(!0);
       },
       onMouseLeave: () => {
-        m || b(!1);
+        x || u(!1);
       },
-      ...M ? P : {},
-      style: I,
+      ...L ? D : {},
+      style: $,
       children: [
-        /* @__PURE__ */ e("div", { style: {
-          transform: B,
-          transition: k ? "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)" : m ? "none" : void 0,
+        /* @__PURE__ */ o("div", { style: {
+          transform: ne,
+          transition: E ? "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)" : x ? "none" : void 0,
           position: "relative",
           zIndex: 1,
           width: "100%",
           height: "100%",
-          overflow: n == null ? void 0 : n.overflow,
-          display: n == null ? void 0 : n.display,
-          flexDirection: n == null ? void 0 : n.flexDirection,
-          alignItems: n == null ? void 0 : n.alignItems,
-          justifyContent: n == null ? void 0 : n.justifyContent
-        }, children: i }),
-        D && /* @__PURE__ */ u(Ve, { children: [
-          /* @__PURE__ */ e("div", { style: {
+          overflow: r == null ? void 0 : r.overflow,
+          display: r == null ? void 0 : r.display,
+          flexDirection: r == null ? void 0 : r.flexDirection,
+          alignItems: r == null ? void 0 : r.alignItems,
+          justifyContent: r == null ? void 0 : r.justifyContent
+        }, children: n }),
+        X && /* @__PURE__ */ g(Oe, { children: [
+          /* @__PURE__ */ o("div", { style: {
             position: "absolute",
             inset: 0,
             border: "2px solid #0072f0",
             zIndex: 2,
             pointerEvents: "none"
           } }),
-          /* @__PURE__ */ e("div", { style: {
+          /* @__PURE__ */ o("div", { style: {
             position: "absolute",
             inset: -1,
             border: "1px solid #6ca4f4",
             zIndex: 2,
             pointerEvents: "none"
           } }),
-          Y && /* @__PURE__ */ e("div", { style: {
+          ae && /* @__PURE__ */ o("div", { style: {
             position: "absolute",
             left: 0,
             top: -22,
             zIndex: 100,
             pointerEvents: "none"
-          }, children: /* @__PURE__ */ u("div", { style: {
+          }, children: /* @__PURE__ */ g("div", { style: {
             background: "#0072f0",
             borderRadius: 9999,
             display: "flex",
@@ -1613,8 +1613,8 @@ function It({
             height: 16,
             padding: "0.25px 6px 0.75px"
           }, children: [
-            t !== "Text" && /* @__PURE__ */ e($e, { style: { width: 10, height: 10 } }),
-            /* @__PURE__ */ e("span", { style: {
+            e !== "Text" && /* @__PURE__ */ o(Tn, { style: { width: 10, height: 10 } }),
+            /* @__PURE__ */ o("span", { style: {
               fontSize: 9.75,
               fontWeight: 500,
               fontFamily: "Clarkson, Helvetica, sans-serif",
@@ -1623,114 +1623,474 @@ function It({
               lineHeight: "16px",
               color: "#fff",
               whiteSpace: "nowrap"
-            }, children: t })
+            }, children: e })
           ] }) })
         ] })
       ]
     }
   );
 }
-function St({
-  blockRef: t,
-  children: o
+function As({
+  blockRef: e,
+  children: t
 }) {
-  const [i, n] = p(null);
-  return A(() => {
-    const s = t.current;
-    if (!s) return;
-    const d = () => {
-      const a = s.getBoundingClientRect();
-      n({ top: a.top - 12, left: a.left });
+  const [n, r] = w(null);
+  return I(() => {
+    const i = e.current;
+    if (!i) return;
+    const a = () => {
+      const l = i.getBoundingClientRect();
+      r({ top: l.top - 12, left: l.left });
     };
-    return d(), window.addEventListener("scroll", d, !0), window.addEventListener("resize", d), () => {
-      window.removeEventListener("scroll", d, !0), window.removeEventListener("resize", d);
+    return a(), window.addEventListener("scroll", a, !0), window.addEventListener("resize", a), () => {
+      window.removeEventListener("scroll", a, !0), window.removeEventListener("resize", a);
     };
-  }, [t]), i ? He(
-    /* @__PURE__ */ e("div", { style: {
+  }, [e]), n ? vt(
+    /* @__PURE__ */ o("div", { style: {
       position: "fixed",
-      top: i.top,
-      left: i.left,
+      top: n.top,
+      left: n.left,
       transform: "translateY(-100%)",
       zIndex: 1e4,
       pointerEvents: "auto"
-    }, children: o }),
+    }, children: t }),
     document.body
   ) : null;
 }
-function Rt({ onClick: t }) {
-  const [o, i] = p(!1);
-  return /* @__PURE__ */ u(
+function er(e) {
+  return /* @__PURE__ */ o(
+    "svg",
+    {
+      width: "100%",
+      height: "100%",
+      viewBox: "0 0 9 16",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      overflow: "visible",
+      preserveAspectRatio: "none",
+      style: { display: "block" },
+      ...e,
+      children: /* @__PURE__ */ o(
+        "path",
+        {
+          d: "M5.5 0H4.49645L0 10H3.5V16H4.49645L9 6H5.5V0Z",
+          fill: "currentColor"
+        }
+      )
+    }
+  );
+}
+function tr(e) {
+  return /* @__PURE__ */ o(
+    "svg",
+    {
+      width: "100%",
+      height: "100%",
+      viewBox: "0 0 10 12.634",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      overflow: "visible",
+      preserveAspectRatio: "none",
+      style: { display: "block" },
+      ...e,
+      children: /* @__PURE__ */ o(
+        "path",
+        {
+          d: "M5.75 2.86303L10 7.09719V4.97982L5.00155 0L0 4.98063V7.09752L4.25 2.8653L4.25 12.6339H5.75L5.75 2.86303Z",
+          fill: "currentColor"
+        }
+      )
+    }
+  );
+}
+function Ct(e) {
+  return /* @__PURE__ */ g(
+    "svg",
+    {
+      width: "100%",
+      height: "100%",
+      viewBox: "0 0 49.2049 49.2049",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      overflow: "visible",
+      style: { display: "block" },
+      ...e,
+      children: [
+        /* @__PURE__ */ g("g", { children: [
+          /* @__PURE__ */ o("path", { d: "M49.2049 24.6025C49.2049 38.19 38.19 49.2049 24.6025 49.2049C11.0149 49.2049 0 38.19 0 24.6025C0 11.0149 11.0149 0 24.6025 0C38.19 0 49.2049 11.0149 49.2049 24.6025Z", fill: "#081939" }),
+          /* @__PURE__ */ o("path", { d: "M49.2049 24.6025C49.2049 38.19 38.19 49.2049 24.6025 49.2049C11.0149 49.2049 0 38.19 0 24.6025C0 11.0149 11.0149 0 24.6025 0C38.19 0 49.2049 11.0149 49.2049 24.6025Z", fill: "url(#beacon-grad-0)", fillOpacity: "0.9" }),
+          /* @__PURE__ */ o("path", { d: "M49.2049 24.6025C49.2049 38.19 38.19 49.2049 24.6025 49.2049C11.0149 49.2049 0 38.19 0 24.6025C0 11.0149 11.0149 0 24.6025 0C38.19 0 49.2049 11.0149 49.2049 24.6025Z", fill: "url(#beacon-grad-1)", fillOpacity: "0.85" }),
+          /* @__PURE__ */ o("path", { d: "M49.2049 24.6025C49.2049 38.19 38.19 49.2049 24.6025 49.2049C11.0149 49.2049 0 38.19 0 24.6025C0 11.0149 11.0149 0 24.6025 0C38.19 0 49.2049 11.0149 49.2049 24.6025Z", fill: "url(#beacon-grad-2)", fillOpacity: "0.8" }),
+          /* @__PURE__ */ o("path", { d: "M49.2049 24.6025C49.2049 38.19 38.19 49.2049 24.6025 49.2049C11.0149 49.2049 0 38.19 0 24.6025C0 11.0149 11.0149 0 24.6025 0C38.19 0 49.2049 11.0149 49.2049 24.6025Z", fill: "url(#beacon-grad-3)", fillOpacity: "0.88" })
+        ] }),
+        /* @__PURE__ */ g("defs", { children: [
+          /* @__PURE__ */ g("radialGradient", { id: "beacon-grad-0", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(16.5958 8.07961) rotate(63.1327) scale(18.5222 21.9723)", children: [
+            /* @__PURE__ */ o("stop", { stopColor: "#7D7194" }),
+            /* @__PURE__ */ o("stop", { offset: "1", stopColor: "#7D7194", stopOpacity: "0" })
+          ] }),
+          /* @__PURE__ */ g("radialGradient", { id: "beacon-grad-1", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(47.8949 16.6687) rotate(161.19) scale(24.6066)", children: [
+            /* @__PURE__ */ o("stop", { stopColor: "#4A8F9F" }),
+            /* @__PURE__ */ o("stop", { offset: "1", stopColor: "#4A8F9F", stopOpacity: "0" })
+          ] }),
+          /* @__PURE__ */ g("radialGradient", { id: "beacon-grad-2", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(32.7549 47.895) rotate(-108.939) scale(15.6987)", children: [
+            /* @__PURE__ */ o("stop", { stopColor: "#5C4763" }),
+            /* @__PURE__ */ o("stop", { offset: "1", stopColor: "#5C4763", stopOpacity: "0" })
+          ] }),
+          /* @__PURE__ */ g("radialGradient", { id: "beacon-grad-3", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(-2.18364 33.4828) rotate(-18.3418) scale(28.2198 39.2263)", children: [
+            /* @__PURE__ */ o("stop", { stopColor: "#3D3041" }),
+            /* @__PURE__ */ o("stop", { offset: "1", stopColor: "#3D3041", stopOpacity: "0" })
+          ] })
+        ] })
+      ]
+    }
+  );
+}
+const nr = [
+  "radial-gradient(ellipse at -4% 68%, rgba(61,48,65,0.22) 0%, transparent 60%)",
+  "radial-gradient(ellipse at 67% 97%, rgba(92,71,99,0.20) 0%, transparent 55%)",
+  "radial-gradient(ellipse at 97% 34%, rgba(74,143,159,0.21) 0%, transparent 60%)",
+  "radial-gradient(ellipse at 34% 16%, rgba(125,113,148,0.22) 0%, transparent 50%)",
+  "linear-gradient(90deg, #0E0E0E 0%, #0E0E0E 100%)"
+].join(", "), rr = "0px 6px 14px rgba(176,103,222,0.22)", Et = "0.8s cubic-bezier(0.22, 1, 0.36, 1)", Mt = "0.45s cubic-bezier(0.4, 0, 1, 1)";
+function or({ id: e }) {
+  return /* @__PURE__ */ o("svg", { "aria-hidden": "true", style: { position: "absolute", width: 0, height: 0, overflow: "hidden" }, children: /* @__PURE__ */ o("defs", { children: /* @__PURE__ */ g("filter", { id: e, x: "-20%", y: "-20%", width: "140%", height: "140%", children: [
+    /* @__PURE__ */ o("feGaussianBlur", { in: "SourceGraphic", stdDeviation: "7", result: "blur" }),
+    /* @__PURE__ */ o(
+      "feColorMatrix",
+      {
+        in: "blur",
+        type: "matrix",
+        values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 8 -4",
+        result: "goo"
+      }
+    ),
+    /* @__PURE__ */ o("feComposite", { in: "SourceGraphic", in2: "goo", operator: "atop" })
+  ] }) }) });
+}
+let ar = 0;
+function Ns({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-states" }) {
+  const [r, i] = w(!1), [a, l] = w(!1), [c, s] = w(!1), [d, p] = w(!1), [u, m] = w(""), b = k(null), f = k(null), M = k(`goo-section-${++ar}`).current, R = a || c;
+  I(() => {
+    if (R && !c) {
+      const v = setTimeout(() => p(!0), 150);
+      return () => clearTimeout(v);
+    }
+    p(!1);
+  }, [R, c]), I(() => {
+    if (c) {
+      const v = setTimeout(() => {
+        var E;
+        return (E = b.current) == null ? void 0 : E.focus();
+      }, 80);
+      return () => clearTimeout(v);
+    }
+  }, [c]), I(() => {
+    if (!c) return;
+    function v(D) {
+      f.current && !f.current.contains(D.target) && (s(!1), m(""));
+    }
+    function E(D) {
+      D.key === "Escape" && (s(!1), m(""));
+    }
+    return document.addEventListener("mousedown", v), document.addEventListener("keydown", E), () => {
+      document.removeEventListener("mousedown", v), document.removeEventListener("keydown", E);
+    };
+  }, [c]);
+  const L = F((v) => {
+    v.stopPropagation(), s(!0);
+  }, []), A = F((v) => {
+    v.stopPropagation(), t ? t(u) : e == null || e(v), s(!1), m("");
+  }, [e, t, u]), x = F((v) => {
+    v.key === "Enter" && u.trim() && (v.preventDefault(), t && t(u), s(!1), m(""));
+  }, [t, u]), S = d && !c;
+  return /* @__PURE__ */ g(
     "div",
     {
-      onMouseEnter: () => i(!0),
-      onMouseLeave: () => i(!1),
+      onMouseEnter: () => l(!0),
+      onMouseLeave: () => l(!1),
       style: {
         position: "relative",
         height: 0,
-        zIndex: 10,
-        cursor: "pointer"
+        zIndex: 10
       },
       children: [
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o(or, { id: M }),
+        /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           left: 0,
           right: 0,
-          top: -16,
-          bottom: -16
+          top: -24,
+          bottom: -24
         } }),
-        /* @__PURE__ */ e("div", { style: {
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: -1,
-          height: 2,
-          background: "#027AFF",
-          opacity: o ? 1 : 0,
-          transition: "opacity 0.15s ease"
-        } }),
-        /* @__PURE__ */ e("div", { style: {
+        /* @__PURE__ */ o("div", { style: {
           position: "absolute",
           left: "50%",
           top: "50%",
-          transform: "translate(-50%, -50%)",
-          opacity: o ? 1 : 0,
-          transition: "opacity 0.15s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
-          pointerEvents: o ? "auto" : "none"
-        }, children: /* @__PURE__ */ e(
-          "button",
+          transform: "translate(-50%, -50%)"
+        }, children: /* @__PURE__ */ g(
+          "div",
           {
-            onClick: (n) => {
-              n.stopPropagation(), t == null || t(n);
-            },
+            ref: f,
             style: {
-              background: "#027AFF",
-              border: "1px solid #027AFF",
-              borderRadius: 8,
-              height: 34,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "0 14px",
-              cursor: "pointer",
-              whiteSpace: "nowrap"
+              opacity: R ? 1 : 0,
+              pointerEvents: R ? "auto" : "none",
+              transition: "opacity 0.15s ease"
             },
-            children: /* @__PURE__ */ e("span", { style: {
-              fontFamily: "Clarkson, Helvetica, sans-serif",
-              fontWeight: 500,
-              fontSize: 12,
-              lineHeight: "22px",
-              letterSpacing: 0.5,
-              textTransform: "uppercase",
-              color: "#FFFFFF"
-            }, children: "Add Section" })
+            children: [
+              !c && /* @__PURE__ */ g(
+                "div",
+                {
+                  className: R ? "section-divider-enter" : void 0,
+                  style: {
+                    display: "flex",
+                    alignItems: "center",
+                    filter: `url(#${M})`
+                  },
+                  children: [
+                    /* @__PURE__ */ o(
+                      "button",
+                      {
+                        onClick: (v) => {
+                          v.stopPropagation(), e == null || e(v);
+                        },
+                        style: {
+                          position: "relative",
+                          width: 132,
+                          height: 40,
+                          borderRadius: 88,
+                          background: "#0E0E0E",
+                          backgroundImage: nr,
+                          border: "none",
+                          cursor: "pointer",
+                          padding: 0,
+                          flexShrink: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        },
+                        children: /* @__PURE__ */ o("span", { style: {
+                          fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                          fontWeight: 600,
+                          fontSize: 12,
+                          lineHeight: "22px",
+                          letterSpacing: 0.5,
+                          textTransform: "uppercase",
+                          color: "#FFFFFF",
+                          mixBlendMode: "difference",
+                          whiteSpace: "nowrap"
+                        }, children: "Add Section" })
+                      }
+                    ),
+                    /* @__PURE__ */ g(
+                      "div",
+                      {
+                        onClick: L,
+                        onMouseEnter: () => i(!0),
+                        onMouseLeave: () => i(!1),
+                        style: {
+                          width: 42,
+                          height: 42,
+                          borderRadius: 30,
+                          background: "#0E0E0E",
+                          flexShrink: 0,
+                          position: "relative",
+                          cursor: "pointer",
+                          overflow: "hidden",
+                          marginLeft: S ? 11 : -30,
+                          transform: S ? "scale(1)" : "scale(0.857)",
+                          transition: S ? `margin-left ${Et}, transform ${Et}` : `margin-left ${Mt}, transform ${Mt}`
+                        },
+                        children: [
+                          /* @__PURE__ */ o("div", { style: {
+                            position: "absolute",
+                            width: 54,
+                            height: 54,
+                            left: "50%",
+                            top: "50%",
+                            transform: "translate(-50%, -50%)",
+                            pointerEvents: "none",
+                            opacity: S ? 1 : 0,
+                            transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)"
+                          }, children: /* @__PURE__ */ o(Ct, {}) }),
+                          /* @__PURE__ */ o("div", { style: {
+                            position: "absolute",
+                            inset: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            mixBlendMode: "difference",
+                            opacity: S ? 1 : 0,
+                            transition: "opacity 0.15s ease"
+                          }, children: /* @__PURE__ */ g("div", { style: {
+                            width: 27,
+                            height: 27,
+                            borderRadius: 34,
+                            background: "transparent",
+                            overflow: "hidden",
+                            transform: "rotate(45deg)",
+                            position: "relative",
+                            marginTop: -1
+                          }, children: [
+                            /* @__PURE__ */ o(
+                              "video",
+                              {
+                                autoPlay: !0,
+                                loop: !0,
+                                muted: !0,
+                                playsInline: !0,
+                                src: `${n}/${r ? "big_error" : "big_awake"}.mp4`,
+                                style: {
+                                  position: "absolute",
+                                  inset: 0,
+                                  width: "100%",
+                                  height: "100%",
+                                  objectFit: "cover"
+                                }
+                              },
+                              r ? "error" : "awake"
+                            ),
+                            /* @__PURE__ */ o("div", { style: {
+                              position: "absolute",
+                              inset: 0,
+                              background: "#fff",
+                              mixBlendMode: "difference",
+                              pointerEvents: "none"
+                            } })
+                          ] }) })
+                        ]
+                      }
+                    )
+                  ]
+                }
+              ),
+              c && /* @__PURE__ */ o("div", { style: {
+                width: 330,
+                height: 45,
+                borderRadius: 33,
+                background: "linear-gradient(90deg, rgba(250,250,250,0.88), rgba(250,250,250,0.88)), radial-gradient(ellipse at 97% 34%, rgba(74,143,159,0.85) 0%, transparent 60%), linear-gradient(#f0f0f0, #f0f0f0)",
+                border: "1px solid #3d3041",
+                boxShadow: rr,
+                overflow: "hidden",
+                animation: "sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards"
+              }, children: /* @__PURE__ */ g("div", { style: {
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                padding: "6px 6px 6px 11px",
+                height: "100%"
+              }, children: [
+                /* @__PURE__ */ o(
+                  "button",
+                  {
+                    onClick: (v) => {
+                      v.stopPropagation(), e == null || e(v);
+                    },
+                    style: {
+                      width: 33,
+                      height: 33,
+                      borderRadius: "50%",
+                      border: "none",
+                      background: "transparent",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      flexShrink: 0,
+                      padding: 0,
+                      color: "#666"
+                    },
+                    children: /* @__PURE__ */ o("div", { style: { width: 12, height: 12 }, children: /* @__PURE__ */ o(Jt, {}) })
+                  }
+                ),
+                /* @__PURE__ */ o(
+                  "input",
+                  {
+                    ref: b,
+                    type: "text",
+                    value: u,
+                    onChange: (v) => m(v.target.value),
+                    onKeyDown: x,
+                    placeholder: "Make it real",
+                    style: {
+                      flex: 1,
+                      border: "none",
+                      background: "transparent",
+                      outline: "none",
+                      fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                      fontWeight: 400,
+                      fontSize: 13,
+                      lineHeight: "18px",
+                      color: "#0E0E0E",
+                      minWidth: 0
+                    }
+                  }
+                ),
+                /* @__PURE__ */ o(
+                  "button",
+                  {
+                    onClick: (v) => {
+                      v.stopPropagation(), e == null || e(v);
+                    },
+                    style: {
+                      width: 33,
+                      height: 33,
+                      borderRadius: "50%",
+                      border: "none",
+                      background: "transparent",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      flexShrink: 0,
+                      padding: 0,
+                      color: "#666"
+                    },
+                    children: /* @__PURE__ */ o("div", { style: { width: 9, height: 16 }, children: /* @__PURE__ */ o(er, {}) })
+                  }
+                ),
+                /* @__PURE__ */ g(
+                  "button",
+                  {
+                    onClick: A,
+                    style: {
+                      width: 33,
+                      height: 33,
+                      borderRadius: "50%",
+                      border: "none",
+                      background: "transparent",
+                      padding: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      flexShrink: 0,
+                      position: "relative",
+                      overflow: "hidden"
+                    },
+                    children: [
+                      /* @__PURE__ */ o("div", { style: {
+                        position: "absolute",
+                        width: 39,
+                        height: 39,
+                        left: "50%",
+                        top: "50%",
+                        transform: "translate(-50%, -50%)",
+                        pointerEvents: "none"
+                      }, children: /* @__PURE__ */ o(Ct, {}) }),
+                      /* @__PURE__ */ o("div", { style: { position: "relative", zIndex: 1, mixBlendMode: "difference", color: "#fff", width: 10, height: 13 }, children: /* @__PURE__ */ o(tr, {}) })
+                    ]
+                  }
+                )
+              ] }) })
+            ]
           }
         ) })
       ]
     }
   );
 }
-function Ft() {
-  return /* @__PURE__ */ e("div", { style: {
+function Is() {
+  return /* @__PURE__ */ o("div", { style: {
     position: "fixed",
     inset: 0,
     pointerEvents: "none",
@@ -1738,113 +2098,113 @@ function Ft() {
     padding: "0 33px",
     display: "flex",
     gap: 33
-  }, children: Array.from({ length: 12 }).map((t, o) => /* @__PURE__ */ e("div", { style: {
+  }, children: Array.from({ length: 12 }).map((e, t) => /* @__PURE__ */ o("div", { style: {
     flex: 1,
     background: "rgba(255, 0, 0, 0.05)",
     borderLeft: "1px solid rgba(255, 0, 0, 0.15)",
     borderRight: "1px solid rgba(255, 0, 0, 0.15)"
-  } }, o)) });
+  } }, t)) });
 }
-const Ee = 2, me = 0.15, _ = 575, ce = 11, pt = 0.07;
-function At({
-  panelRef: t,
-  containerSize: o,
-  panelState: i,
-  basePosition: n,
-  onSnap: s,
-  onUnsnap: d,
-  enabled: a = !0
+const Lt = 2, dt = 0.15, ce = 575, qe = 11, ir = 0.07;
+function Ts({
+  panelRef: e,
+  containerSize: t,
+  panelState: n,
+  basePosition: r,
+  onSnap: i,
+  onUnsnap: a,
+  enabled: l = !0
 }) {
-  const [l, r] = p(!1), [f, g] = p(!1), [b, w] = p({ x: 0, y: 0 }), [L, c] = p(null), [V, S] = p(!1), [M, R] = p(0), m = h(null), E = h({ x: 0, y: 0 }), v = h(!1), k = h(!1), P = h(!1), D = h(s);
-  D.current = s;
-  const Y = h(d);
-  Y.current = d;
-  const H = h(i);
-  H.current = i;
-  const I = h(o);
-  I.current = o;
-  const B = h(n);
-  B.current = n;
-  const z = h(() => {
-  }), C = h(() => {
+  const [c, s] = w(!1), [d, p] = w(!1), [u, m] = w({ x: 0, y: 0 }), [b, f] = w(null), [M, R] = w(!1), [L, A] = w(0), x = k(null), S = k({ x: 0, y: 0 }), v = k(!1), E = k(!1), D = k(!1), X = k(i);
+  X.current = i;
+  const ae = k(a);
+  ae.current = a;
+  const P = k(n);
+  P.current = n;
+  const $ = k(t);
+  $.current = t;
+  const ne = k(r);
+  ne.current = r;
+  const ie = k(() => {
+  }), z = k(() => {
   });
-  z.current = (x) => {
-    var be;
-    if (!m.current) return;
-    const N = x.clientX - m.current.x, $ = x.clientY - m.current.y;
+  ie.current = (H) => {
+    var wt;
+    if (!x.current) return;
+    const pe = H.clientX - x.current.x, be = H.clientY - x.current.y;
     if (!v.current) {
-      if (Math.abs(N) < Ee && Math.abs($) < Ee) return;
-      if (v.current = !0, r(!0), c(null), P.current) {
-        const Te = H.current, Be = I.current.w;
-        let le, ae;
-        Te === "snapped-left" ? (le = ce, ae = ce) : (le = Be - _ - ce, ae = ce), E.current = { x: le, y: ae }, B.current.current = { x: le, y: ae }, g(!0), Y.current(), setTimeout(() => g(!1), 450);
+      if (Math.abs(pe) < Lt && Math.abs(be) < Lt) return;
+      if (v.current = !0, s(!0), f(null), D.current) {
+        const yn = P.current, xn = $.current.w;
+        let Ge, Ze;
+        yn === "snapped-left" ? (Ge = qe, Ze = qe) : (Ge = xn - ce - qe, Ze = qe), S.current = { x: Ge, y: Ze }, ne.current.current = { x: Ge, y: Ze }, p(!0), ae.current(), setTimeout(() => p(!1), 450);
       }
     }
-    const K = E.current.x + N, O = E.current.y + $, W = I.current.w, q = I.current.h, Z = Math.max(0, Math.min(W - _, K)), ie = Math.max(0, Math.min(q - 100, O));
-    w({ x: Z, y: ie });
-    const J = (be = t.current) == null ? void 0 : be.parentElement, he = (J == null ? void 0 : J.getBoundingClientRect().left) ?? 0, ee = x.clientX - he;
-    ee < W * me ? c("left") : ee > W * (1 - me) ? c("right") : c(null);
-    const pe = Z + _ / 2, se = Math.max(-1, Math.min(1, (ee - pe) / (_ / 2)));
-    R(se);
-  }, C.current = (x) => {
-    var N, $, K;
-    if (k.current = !1, document.removeEventListener("mousemove", F), document.removeEventListener("mouseup", T), v.current) {
-      const O = (N = t.current) == null ? void 0 : N.parentElement, W = (O == null ? void 0 : O.getBoundingClientRect().left) ?? 0, q = x.clientX - W, Z = I.current.w, ie = Z * me;
-      if (q < ie)
-        D.current("left");
-      else if (q > Z - ie)
-        D.current("right");
+    const Re = S.current.x + pe, se = S.current.y + be, me = $.current.w, Se = $.current.h, le = Math.max(0, Math.min(me - ce, Re)), We = Math.max(0, Math.min(Se - 100, se));
+    m({ x: le, y: We });
+    const Le = (wt = e.current) == null ? void 0 : wt.parentElement, it = (Le == null ? void 0 : Le.getBoundingClientRect().left) ?? 0, Ae = H.clientX - it;
+    Ae < me * dt ? f("left") : Ae > me * (1 - dt) ? f("right") : f(null);
+    const st = le + ce / 2, Ve = Math.max(-1, Math.min(1, (Ae - st) / (ce / 2)));
+    A(Ve);
+  }, z.current = (H) => {
+    var pe, be, Re;
+    if (E.current = !1, document.removeEventListener("mousemove", K), document.removeEventListener("mouseup", J), v.current) {
+      const se = (pe = e.current) == null ? void 0 : pe.parentElement, me = (se == null ? void 0 : se.getBoundingClientRect().left) ?? 0, Se = H.clientX - me, le = $.current.w, We = le * dt;
+      if (Se < We)
+        X.current("left");
+      else if (Se > le - We)
+        X.current("right");
       else {
-        const J = x.clientX - ((($ = m.current) == null ? void 0 : $.x) ?? x.clientX), he = x.clientY - (((K = m.current) == null ? void 0 : K.y) ?? x.clientY), ee = E.current.x + J, pe = E.current.y + he, se = {
-          x: Math.max(0, Math.min(Z - _, ee)),
-          y: Math.max(0, Math.min(I.current.h - 100, pe))
+        const Le = H.clientX - (((be = x.current) == null ? void 0 : be.x) ?? H.clientX), it = H.clientY - (((Re = x.current) == null ? void 0 : Re.y) ?? H.clientY), Ae = S.current.x + Le, st = S.current.y + it, Ve = {
+          x: Math.max(0, Math.min(le - ce, Ae)),
+          y: Math.max(0, Math.min($.current.h - 100, st))
         };
-        B.current.current = se, w(se);
+        ne.current.current = Ve, m(Ve);
       }
     }
-    r(!1), c(null), m.current = null, v.current = !1, P.current = !1;
+    s(!1), f(null), x.current = null, v.current = !1, D.current = !1;
   };
-  const F = h((x) => z.current(x)).current, T = h((x) => C.current(x)).current, Q = y((x) => {
-    !a || !t.current || (x.preventDefault(), x.stopPropagation(), k.current = !0, m.current = { x: x.clientX, y: x.clientY }, E.current = { ...B.current.current }, v.current = !1, P.current = H.current !== "floating", document.addEventListener("mousemove", F), document.addEventListener("mouseup", T));
-  }, [a, t, F, T]), j = h(null), ne = y(() => {
-    j.current && (clearTimeout(j.current), j.current = null), a && S(!0);
-  }, [a]), oe = y(() => {
-    k.current || (j.current = setTimeout(() => {
-      S(!1), c(null), R(0), j.current = null;
+  const K = k((H) => ie.current(H)).current, J = k((H) => z.current(H)).current, Me = F((H) => {
+    !l || !e.current || (H.preventDefault(), H.stopPropagation(), E.current = !0, x.current = { x: H.clientX, y: H.clientY }, S.current = { ...ne.current.current }, v.current = !1, D.current = P.current !== "floating", document.addEventListener("mousemove", K), document.addEventListener("mouseup", J));
+  }, [l, e, K, J]), ge = k(null), ze = F(() => {
+    ge.current && (clearTimeout(ge.current), ge.current = null), l && R(!0);
+  }, [l]), je = F(() => {
+    E.current || (ge.current = setTimeout(() => {
+      R(!1), f(null), A(0), ge.current = null;
     }, 50));
-  }, []), re = y((x) => {
-    if (!a || l) return;
-    const N = t.current;
-    if (!N) return;
-    const $ = x.currentTarget.getBoundingClientRect();
-    if (x.clientY > $.bottom) return;
-    const K = N.getBoundingClientRect(), O = x.clientX - K.left, W = _ * pt, q = Math.max(-1, Math.min(1, (O - _ / 2) / (_ / 2)));
-    R(q);
-    const Z = H.current;
-    O < W && Z !== "snapped-left" ? c("left") : O > _ - W && Z !== "snapped-right" ? c("right") : c(null);
-  }, [a, l, t]);
-  return A(() => {
-    l || w(n.current);
-  }, [n.current.x, n.current.y, l]), A(() => () => {
-    document.removeEventListener("mousemove", F), document.removeEventListener("mouseup", T);
-  }, [F, T]), A(() => {
-    a || (r(!1), c(null), S(!1), R(0));
-  }, [a]), {
-    position: b,
-    isDragging: l,
-    isUnsnapping: f,
-    snapHint: L,
-    isExpanded: V,
-    snapBarPosition: M,
-    dragRegionProps: { onMouseDown: Q },
+  }, []), Ue = F((H) => {
+    if (!l || c) return;
+    const pe = e.current;
+    if (!pe) return;
+    const be = H.currentTarget.getBoundingClientRect();
+    if (H.clientY > be.bottom) return;
+    const Re = pe.getBoundingClientRect(), se = H.clientX - Re.left, me = ce * ir, Se = Math.max(-1, Math.min(1, (se - ce / 2) / (ce / 2)));
+    A(Se);
+    const le = P.current;
+    se < me && le !== "snapped-left" ? f("left") : se > ce - me && le !== "snapped-right" ? f("right") : f(null);
+  }, [l, c, e]);
+  return I(() => {
+    c || m(r.current);
+  }, [r.current.x, r.current.y, c]), I(() => () => {
+    document.removeEventListener("mousemove", K), document.removeEventListener("mouseup", J);
+  }, [K, J]), I(() => {
+    l || (s(!1), f(null), R(!1), A(0));
+  }, [l]), {
+    position: u,
+    isDragging: c,
+    isUnsnapping: d,
+    snapHint: b,
+    isExpanded: M,
+    snapBarPosition: L,
+    dragRegionProps: { onMouseDown: Me },
     hoverZoneProps: {
-      onMouseEnter: ne,
-      onMouseLeave: oe,
-      onMouseMove: re
+      onMouseEnter: ze,
+      onMouseLeave: je,
+      onMouseMove: Ue
     }
   };
 }
-const Ae = {
+const nn = {
   fg: {
     default: "#0E0E0E",
     muted: "#666666",
@@ -1870,7 +2230,7 @@ const Ae = {
     dangerDefault: "#FEF3F2",
     dangerStrong: "#DB3642"
   }
-}, gt = {
+}, sr = {
   fg: {
     default: "#FFFFFF",
     muted: "#9B9B9B",
@@ -1897,14 +2257,14 @@ const Ae = {
     dangerStrong: "#D8484D"
   }
 };
-function Tt() {
-  return typeof window < "u" && window.matchMedia("(prefers-color-scheme: dark)").matches ? gt : Ae;
+function Bs() {
+  return typeof window < "u" && window.matchMedia("(prefers-color-scheme: dark)").matches ? sr : nn;
 }
-const Bt = Ae;
-function Vt(t) {
-  return t.replace("#", "");
+const Hs = nn;
+function Ds(e) {
+  return e.replace("#", "");
 }
-const Dt = [
+const Os = [
   { key: "tl", style: { top: -4, left: -4 } },
   { key: "tc", style: { top: -5, left: "calc(50% - 5px)" } },
   { key: "tr", style: { top: -4, right: -4 } },
@@ -1914,54 +2274,4573 @@ const Dt = [
   { key: "bc", style: { bottom: -5, left: "calc(50% - 5px)" } },
   { key: "br", style: { bottom: -4, right: -4 } }
 ];
+function rt(e, t = 0, n = 0) {
+  const [r, i] = w(e);
+  return I(() => {
+    const a = e ? t : n;
+    if (a <= 0) {
+      i(e);
+      return;
+    }
+    const l = setTimeout(() => i(e), a * 1e3);
+    return () => clearTimeout(l);
+  }, [e, t, n]), r;
+}
+function lr(e, t) {
+  const [n, r] = w(["site-styles"]), [i, a] = w(0);
+  I(() => {
+    const c = e.current;
+    if (!c) return;
+    const s = (d) => {
+      const p = d.target;
+      if (p.tagName === "A" && p.getAttribute("href")) {
+        const u = p.getAttribute("href");
+        if (u.startsWith("/")) {
+          const m = u.replace("/config/", "").split("/");
+          r((b) => {
+            const f = [...b];
+            return m.forEach((M, R) => {
+              f[R] = M;
+            }), f;
+          }), a(m.length - 1), d.preventDefault();
+        }
+      }
+    };
+    return c.addEventListener("click", s), () => c.removeEventListener("click", s);
+  }, [e]);
+  const l = F(() => {
+    a((c) => Math.max(0, c - 1));
+  }, []);
+  return I(() => {
+    t && (r(["site-styles"]), a(0));
+  }, [t]), _(() => ({ route: n, depth: i, onBack: l }), [n, i, l]);
+}
+const cr = "_container_j1ni1_1", dr = "_active_j1ni1_25", ur = "_current_j1ni1_29", pr = "_header_j1ni1_33", Ye = {
+  container: cr,
+  active: dr,
+  current: ur,
+  header: pr
+}, mr = (...e) => e.filter(Boolean).join(" ");
+function hr({ children: e, title: t, description: n, depth: r = 0, isActive: i = !1 }) {
+  const a = _(
+    () => mr(Ye.container, i && Ye.active, i && Ye.current),
+    [i]
+  );
+  return /* @__PURE__ */ o("div", { className: a, style: { "--depth": r }, children: i && /* @__PURE__ */ g(Oe, { children: [
+    (t || n) && /* @__PURE__ */ g("div", { className: Ye.header, children: [
+      t && /* @__PURE__ */ o("h1", { children: t }),
+      n && /* @__PURE__ */ o("h2", { children: n })
+    ] }),
+    e
+  ] }) });
+}
+const fr = N(hr), gr = "_container_1sjap_1", br = "_wrap_1sjap_7", vr = "_content_1sjap_7", yr = "_fadeup_1sjap_13", xr = "_fadeoutdown_1sjap_19", wr = "_label_1sjap_46", _r = "_buttonBox_1sjap_66", kr = "_active_1sjap_109", Fr = "_disclosure_1sjap_119", Rr = "_disclosureWrapper_1sjap_133", ee = {
+  container: gr,
+  wrap: br,
+  content: vr,
+  fadeup: yr,
+  fadeoutdown: xr,
+  label: wr,
+  buttonBox: _r,
+  active: kr,
+  disclosure: Fr,
+  disclosureWrapper: Rr
+}, gt = (...e) => e.filter(Boolean).join(" ");
+function At({
+  active: e = !1,
+  children: t,
+  className: n,
+  onClick: r,
+  tag: i = "button",
+  ...a
+}) {
+  const [l, c] = w(!1), s = _(
+    () => gt(n, ee.buttonBox, l && "hover", e && ee.active),
+    [n, l, e]
+  ), d = F(() => c(!0), []), p = F(() => c(!1), []);
+  return /* @__PURE__ */ o(
+    i,
+    {
+      className: s,
+      onMouseEnter: d,
+      onMouseLeave: p,
+      onClick: (m) => {
+        c(!1), r == null || r(m);
+      },
+      tabIndex: 0,
+      ...a,
+      children: t
+    }
+  );
+}
+function Sr() {
+  return /* @__PURE__ */ o("svg", { viewBox: "0 0 8 14", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ o("path", { d: "M1 1l6 6-6 6", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) });
+}
+function Cr({
+  active: e = !1,
+  onClick: t,
+  children: n,
+  disclosure: r,
+  wrap: i = !1,
+  label: a,
+  delayShow: l = 0,
+  animateReveal: c = !1,
+  isShown: s = !0
+}) {
+  const d = _(
+    () => gt(
+      ee.container,
+      i && ee.wrap,
+      c && s && ee.fadeup,
+      c && !s && ee.fadeoutdown
+    ),
+    [i, s, c]
+  );
+  return /* @__PURE__ */ g(
+    "div",
+    {
+      className: d,
+      style: { "--animation-delay": `${l}s` },
+      children: [
+        /* @__PURE__ */ g(At, { active: e, onClick: t, children: [
+          /* @__PURE__ */ o("div", { className: ee.label, children: a }),
+          /* @__PURE__ */ o("div", { className: ee.content, children: n })
+        ] }),
+        r && /* @__PURE__ */ o("div", { className: ee.disclosureWrapper, children: /* @__PURE__ */ o(
+          At,
+          {
+            tag: "a",
+            className: gt(ee.buttonBox, ee.disclosure),
+            href: r,
+            children: /* @__PURE__ */ o(Sr, {})
+          }
+        ) })
+      ]
+    }
+  );
+}
+const Ie = N(Cr), Er = "_container_1bxjx_1", Mr = "_label_1bxjx_20", Lr = "_suffix_1bxjx_25", Ar = "_chevron_1bxjx_30", Xe = {
+  container: Er,
+  label: Mr,
+  suffix: Lr,
+  chevron: Ar
+};
+function Nr() {
+  return /* @__PURE__ */ o("svg", { viewBox: "0 0 8 14", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ o(
+    "path",
+    {
+      d: "M1 1l6 6-6 6",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }
+  ) });
+}
+function Ir({ label: e, suffix: t, href: n, ...r }) {
+  return /* @__PURE__ */ g("a", { className: Xe.container, href: n, ...r, children: [
+    /* @__PURE__ */ o("div", { className: Xe.label, children: e }),
+    t && /* @__PURE__ */ o("div", { className: Xe.suffix, children: t }),
+    /* @__PURE__ */ o("div", { className: Xe.chevron, children: /* @__PURE__ */ o(Nr, {}) })
+  ] });
+}
+const Nt = N(Ir), Tr = "_container_19xa4_3", Br = "_item_19xa4_17", Hr = "_directionInUp_19xa4_31", Dr = "_directionInDown_19xa4_35", Or = "_directionInLeft_19xa4_39", Pr = "_directionInRight_19xa4_43", $r = "_directionOutUp_19xa4_49", zr = "_directionOutDown_19xa4_53", jr = "_directionOutLeft_19xa4_57", Ur = "_directionOutRight_19xa4_61", Wr = "_visible_19xa4_67", Vr = "_animateIn_19xa4_76", Gr = "_hidden_19xa4_85", Zr = "_useOpacity_19xa4_99", W = {
+  container: Tr,
+  item: Br,
+  directionInUp: Hr,
+  directionInDown: Dr,
+  directionInLeft: Or,
+  directionInRight: Pr,
+  directionOutUp: $r,
+  directionOutDown: zr,
+  directionOutLeft: jr,
+  directionOutRight: Ur,
+  visible: Wr,
+  animateIn: Vr,
+  hidden: Gr,
+  useOpacity: Zr
+};
+function rn(...e) {
+  return e.filter(Boolean).join(" ");
+}
+const qr = {
+  up: W.directionInUp,
+  down: W.directionInDown,
+  left: W.directionInLeft,
+  right: W.directionInRight
+}, Yr = {
+  up: W.directionOutUp,
+  down: W.directionOutDown,
+  left: W.directionOutLeft,
+  right: W.directionOutRight
+}, Xr = Xt({
+  isHidden: !1
+}), Kr = N(function(t) {
+  const {
+    child: n,
+    className: r,
+    delayHide: i = 0,
+    delayShow: a = 0,
+    duration: l = 0.25,
+    distance: c = 0.25,
+    animateIn: s = !0,
+    directionIn: d = "up",
+    directionOut: p = "up",
+    useOpacity: u = !0,
+    isShown: m,
+    onRemoved: b
+  } = t, [f, M] = w(!1), [R, L] = w(!1), A = k(null), x = k(), S = k(), v = k(!1), E = k(!1), D = F(() => {
+    if (clearTimeout(x.current), clearTimeout(S.current), !s) {
+      M(!0);
+      return;
+    }
+    S.current = setTimeout(() => {
+      L(!1), M(!0);
+    }, 30 + (i + a) * 1e3);
+  }, [s, i, a]), X = F(() => {
+    clearTimeout(x.current), clearTimeout(S.current), L(!0), x.current = setTimeout(() => {
+      b();
+    }, (i + l) * 1e3);
+  }, [b, i, l]);
+  I(() => {
+    if (m) {
+      if (v.current)
+        return;
+      E.current = !1, v.current = !0, D();
+      return;
+    }
+    E.current || (v.current = !1, E.current = !0, X());
+  }, [m, D, X]);
+  const ae = _(
+    () => rn(
+      r,
+      W.item,
+      f && W.visible,
+      R && W.hidden,
+      u && W.useOpacity,
+      s && W.animateIn,
+      qr[d],
+      Yr[p]
+    ),
+    [r, f, R, d, p, s, u]
+  ), P = _(
+    () => ({
+      "--swap-duration": `${l}s`,
+      "--swap-distance": `${c}rem`
+    }),
+    [l, c]
+  ), $ = _(
+    () => ({
+      isHidden: !f || R
+    }),
+    [f, R]
+  );
+  return /* @__PURE__ */ o(Xr.Provider, { value: $, children: /* @__PURE__ */ o("div", { ref: A, style: P, className: ae, children: n }) });
+});
+function Jr(e) {
+  const {
+    Tag: t = "div",
+    animateFirst: n = !1,
+    children: r,
+    className: i,
+    classNameContent: a,
+    delayHide: l = 0,
+    duration: c = 0.35,
+    delayShow: s = 0.2,
+    distance: d = 0.25,
+    directionIn: p = "up",
+    directionOut: u = "up",
+    useOpacity: m = !0,
+    ...b
+  } = e, f = k(!0), [M, R] = w([]), L = F((A) => {
+    R((x) => x.filter((S) => S.child !== A));
+  }, []);
+  return I(() => {
+    f.current = !0;
+  }, []), I(() => {
+    if (!r) {
+      R(
+        (x) => x.map((S) => ({
+          ...S,
+          isShown: !1,
+          animateIn: !1
+        }))
+      );
+      return;
+    }
+    const A = n ? !0 : !f.current;
+    R((x) => {
+      const S = wn.map(r, (E, D) => ({
+        child: E,
+        key: E.key || D.toString(),
+        animateIn: A,
+        isShown: !0,
+        delayShow: s,
+        directionIn: p,
+        directionOut: u
+      }));
+      return [...x.filter((E) => S.every((D) => D.key !== E.key)).map((E) => ({
+        ...E,
+        isShown: !1,
+        delayShow: s,
+        animateIn: !1
+      })), ...S];
+    }), f.current = !1;
+  }, [n, r, p, u, s]), /* @__PURE__ */ o(t, { className: rn(i, W.container), ...b, children: M.map(({ animateIn: A, child: x, isShown: S, delayShow: v }) => /* @__PURE__ */ o(
+    Kr,
+    {
+      className: a,
+      child: x,
+      animateIn: A,
+      isShown: S,
+      directionIn: p,
+      directionOut: u,
+      duration: c,
+      distance: d,
+      onRemoved: () => L(x),
+      delayShow: v,
+      delayHide: l,
+      useOpacity: m
+    },
+    x.key || "defaultKey"
+  )) });
+}
+const oe = N(Jr), we = [
+  "white-hsl",
+  "lightaccent-hsl",
+  "accent-hsl",
+  "darkaccent-hsl",
+  "black-hsl"
+];
+function tt(e) {
+  "@babel/helpers - typeof";
+  return tt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+    return typeof t;
+  } : function(t) {
+    return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
+  }, tt(e);
+}
+var Qr = /^\s+/, eo = /\s+$/;
+function y(e, t) {
+  if (e = e || "", t = t || {}, e instanceof y)
+    return e;
+  if (!(this instanceof y))
+    return new y(e, t);
+  var n = to(e);
+  this._originalInput = e, this._r = n.r, this._g = n.g, this._b = n.b, this._a = n.a, this._roundA = Math.round(100 * this._a) / 100, this._format = t.format || n.format, this._gradientType = t.gradientType, this._r < 1 && (this._r = Math.round(this._r)), this._g < 1 && (this._g = Math.round(this._g)), this._b < 1 && (this._b = Math.round(this._b)), this._ok = n.ok;
+}
+y.prototype = {
+  isDark: function() {
+    return this.getBrightness() < 128;
+  },
+  isLight: function() {
+    return !this.isDark();
+  },
+  isValid: function() {
+    return this._ok;
+  },
+  getOriginalInput: function() {
+    return this._originalInput;
+  },
+  getFormat: function() {
+    return this._format;
+  },
+  getAlpha: function() {
+    return this._a;
+  },
+  getBrightness: function() {
+    var t = this.toRgb();
+    return (t.r * 299 + t.g * 587 + t.b * 114) / 1e3;
+  },
+  getLuminance: function() {
+    var t = this.toRgb(), n, r, i, a, l, c;
+    return n = t.r / 255, r = t.g / 255, i = t.b / 255, n <= 0.03928 ? a = n / 12.92 : a = Math.pow((n + 0.055) / 1.055, 2.4), r <= 0.03928 ? l = r / 12.92 : l = Math.pow((r + 0.055) / 1.055, 2.4), i <= 0.03928 ? c = i / 12.92 : c = Math.pow((i + 0.055) / 1.055, 2.4), 0.2126 * a + 0.7152 * l + 0.0722 * c;
+  },
+  setAlpha: function(t) {
+    return this._a = on(t), this._roundA = Math.round(100 * this._a) / 100, this;
+  },
+  toHsv: function() {
+    var t = Tt(this._r, this._g, this._b);
+    return {
+      h: t.h * 360,
+      s: t.s,
+      v: t.v,
+      a: this._a
+    };
+  },
+  toHsvString: function() {
+    var t = Tt(this._r, this._g, this._b), n = Math.round(t.h * 360), r = Math.round(t.s * 100), i = Math.round(t.v * 100);
+    return this._a == 1 ? "hsv(" + n + ", " + r + "%, " + i + "%)" : "hsva(" + n + ", " + r + "%, " + i + "%, " + this._roundA + ")";
+  },
+  toHsl: function() {
+    var t = It(this._r, this._g, this._b);
+    return {
+      h: t.h * 360,
+      s: t.s,
+      l: t.l,
+      a: this._a
+    };
+  },
+  toHslString: function() {
+    var t = It(this._r, this._g, this._b), n = Math.round(t.h * 360), r = Math.round(t.s * 100), i = Math.round(t.l * 100);
+    return this._a == 1 ? "hsl(" + n + ", " + r + "%, " + i + "%)" : "hsla(" + n + ", " + r + "%, " + i + "%, " + this._roundA + ")";
+  },
+  toHex: function(t) {
+    return Bt(this._r, this._g, this._b, t);
+  },
+  toHexString: function(t) {
+    return "#" + this.toHex(t);
+  },
+  toHex8: function(t) {
+    return ao(this._r, this._g, this._b, this._a, t);
+  },
+  toHex8String: function(t) {
+    return "#" + this.toHex8(t);
+  },
+  toRgb: function() {
+    return {
+      r: Math.round(this._r),
+      g: Math.round(this._g),
+      b: Math.round(this._b),
+      a: this._a
+    };
+  },
+  toRgbString: function() {
+    return this._a == 1 ? "rgb(" + Math.round(this._r) + ", " + Math.round(this._g) + ", " + Math.round(this._b) + ")" : "rgba(" + Math.round(this._r) + ", " + Math.round(this._g) + ", " + Math.round(this._b) + ", " + this._roundA + ")";
+  },
+  toPercentageRgb: function() {
+    return {
+      r: Math.round(T(this._r, 255) * 100) + "%",
+      g: Math.round(T(this._g, 255) * 100) + "%",
+      b: Math.round(T(this._b, 255) * 100) + "%",
+      a: this._a
+    };
+  },
+  toPercentageRgbString: function() {
+    return this._a == 1 ? "rgb(" + Math.round(T(this._r, 255) * 100) + "%, " + Math.round(T(this._g, 255) * 100) + "%, " + Math.round(T(this._b, 255) * 100) + "%)" : "rgba(" + Math.round(T(this._r, 255) * 100) + "%, " + Math.round(T(this._g, 255) * 100) + "%, " + Math.round(T(this._b, 255) * 100) + "%, " + this._roundA + ")";
+  },
+  toName: function() {
+    return this._a === 0 ? "transparent" : this._a < 1 ? !1 : vo[Bt(this._r, this._g, this._b, !0)] || !1;
+  },
+  toFilter: function(t) {
+    var n = "#" + Ht(this._r, this._g, this._b, this._a), r = n, i = this._gradientType ? "GradientType = 1, " : "";
+    if (t) {
+      var a = y(t);
+      r = "#" + Ht(a._r, a._g, a._b, a._a);
+    }
+    return "progid:DXImageTransform.Microsoft.gradient(" + i + "startColorstr=" + n + ",endColorstr=" + r + ")";
+  },
+  toString: function(t) {
+    var n = !!t;
+    t = t || this._format;
+    var r = !1, i = this._a < 1 && this._a >= 0, a = !n && i && (t === "hex" || t === "hex6" || t === "hex3" || t === "hex4" || t === "hex8" || t === "name");
+    return a ? t === "name" && this._a === 0 ? this.toName() : this.toRgbString() : (t === "rgb" && (r = this.toRgbString()), t === "prgb" && (r = this.toPercentageRgbString()), (t === "hex" || t === "hex6") && (r = this.toHexString()), t === "hex3" && (r = this.toHexString(!0)), t === "hex4" && (r = this.toHex8String(!0)), t === "hex8" && (r = this.toHex8String()), t === "name" && (r = this.toName()), t === "hsl" && (r = this.toHslString()), t === "hsv" && (r = this.toHsvString()), r || this.toHexString());
+  },
+  clone: function() {
+    return y(this.toString());
+  },
+  _applyModification: function(t, n) {
+    var r = t.apply(null, [this].concat([].slice.call(n)));
+    return this._r = r._r, this._g = r._g, this._b = r._b, this.setAlpha(r._a), this;
+  },
+  lighten: function() {
+    return this._applyModification(co, arguments);
+  },
+  brighten: function() {
+    return this._applyModification(uo, arguments);
+  },
+  darken: function() {
+    return this._applyModification(po, arguments);
+  },
+  desaturate: function() {
+    return this._applyModification(io, arguments);
+  },
+  saturate: function() {
+    return this._applyModification(so, arguments);
+  },
+  greyscale: function() {
+    return this._applyModification(lo, arguments);
+  },
+  spin: function() {
+    return this._applyModification(mo, arguments);
+  },
+  _applyCombination: function(t, n) {
+    return t.apply(null, [this].concat([].slice.call(n)));
+  },
+  analogous: function() {
+    return this._applyCombination(go, arguments);
+  },
+  complement: function() {
+    return this._applyCombination(ho, arguments);
+  },
+  monochromatic: function() {
+    return this._applyCombination(bo, arguments);
+  },
+  splitcomplement: function() {
+    return this._applyCombination(fo, arguments);
+  },
+  // Disabled until https://github.com/bgrins/TinyColor/issues/254
+  // polyad: function (number) {
+  //   return this._applyCombination(polyad, [number]);
+  // },
+  triad: function() {
+    return this._applyCombination(Dt, [3]);
+  },
+  tetrad: function() {
+    return this._applyCombination(Dt, [4]);
+  }
+};
+y.fromRatio = function(e, t) {
+  if (tt(e) == "object") {
+    var n = {};
+    for (var r in e)
+      e.hasOwnProperty(r) && (r === "a" ? n[r] = e[r] : n[r] = De(e[r]));
+    e = n;
+  }
+  return y(e, t);
+};
+function to(e) {
+  var t = {
+    r: 0,
+    g: 0,
+    b: 0
+  }, n = 1, r = null, i = null, a = null, l = !1, c = !1;
+  return typeof e == "string" && (e = _o(e)), tt(e) == "object" && (de(e.r) && de(e.g) && de(e.b) ? (t = no(e.r, e.g, e.b), l = !0, c = String(e.r).substr(-1) === "%" ? "prgb" : "rgb") : de(e.h) && de(e.s) && de(e.v) ? (r = De(e.s), i = De(e.v), t = oo(e.h, r, i), l = !0, c = "hsv") : de(e.h) && de(e.s) && de(e.l) && (r = De(e.s), a = De(e.l), t = ro(e.h, r, a), l = !0, c = "hsl"), e.hasOwnProperty("a") && (n = e.a)), n = on(n), {
+    ok: l,
+    format: e.format || c,
+    r: Math.min(255, Math.max(t.r, 0)),
+    g: Math.min(255, Math.max(t.g, 0)),
+    b: Math.min(255, Math.max(t.b, 0)),
+    a: n
+  };
+}
+function no(e, t, n) {
+  return {
+    r: T(e, 255) * 255,
+    g: T(t, 255) * 255,
+    b: T(n, 255) * 255
+  };
+}
+function It(e, t, n) {
+  e = T(e, 255), t = T(t, 255), n = T(n, 255);
+  var r = Math.max(e, t, n), i = Math.min(e, t, n), a, l, c = (r + i) / 2;
+  if (r == i)
+    a = l = 0;
+  else {
+    var s = r - i;
+    switch (l = c > 0.5 ? s / (2 - r - i) : s / (r + i), r) {
+      case e:
+        a = (t - n) / s + (t < n ? 6 : 0);
+        break;
+      case t:
+        a = (n - e) / s + 2;
+        break;
+      case n:
+        a = (e - t) / s + 4;
+        break;
+    }
+    a /= 6;
+  }
+  return {
+    h: a,
+    s: l,
+    l: c
+  };
+}
+function ro(e, t, n) {
+  var r, i, a;
+  e = T(e, 360), t = T(t, 100), n = T(n, 100);
+  function l(d, p, u) {
+    return u < 0 && (u += 1), u > 1 && (u -= 1), u < 1 / 6 ? d + (p - d) * 6 * u : u < 1 / 2 ? p : u < 2 / 3 ? d + (p - d) * (2 / 3 - u) * 6 : d;
+  }
+  if (t === 0)
+    r = i = a = n;
+  else {
+    var c = n < 0.5 ? n * (1 + t) : n + t - n * t, s = 2 * n - c;
+    r = l(s, c, e + 1 / 3), i = l(s, c, e), a = l(s, c, e - 1 / 3);
+  }
+  return {
+    r: r * 255,
+    g: i * 255,
+    b: a * 255
+  };
+}
+function Tt(e, t, n) {
+  e = T(e, 255), t = T(t, 255), n = T(n, 255);
+  var r = Math.max(e, t, n), i = Math.min(e, t, n), a, l, c = r, s = r - i;
+  if (l = r === 0 ? 0 : s / r, r == i)
+    a = 0;
+  else {
+    switch (r) {
+      case e:
+        a = (t - n) / s + (t < n ? 6 : 0);
+        break;
+      case t:
+        a = (n - e) / s + 2;
+        break;
+      case n:
+        a = (e - t) / s + 4;
+        break;
+    }
+    a /= 6;
+  }
+  return {
+    h: a,
+    s: l,
+    v: c
+  };
+}
+function oo(e, t, n) {
+  e = T(e, 360) * 6, t = T(t, 100), n = T(n, 100);
+  var r = Math.floor(e), i = e - r, a = n * (1 - t), l = n * (1 - i * t), c = n * (1 - (1 - i) * t), s = r % 6, d = [n, l, a, a, c, n][s], p = [c, n, n, l, a, a][s], u = [a, a, c, n, n, l][s];
+  return {
+    r: d * 255,
+    g: p * 255,
+    b: u * 255
+  };
+}
+function Bt(e, t, n, r) {
+  var i = [te(Math.round(e).toString(16)), te(Math.round(t).toString(16)), te(Math.round(n).toString(16))];
+  return r && i[0].charAt(0) == i[0].charAt(1) && i[1].charAt(0) == i[1].charAt(1) && i[2].charAt(0) == i[2].charAt(1) ? i[0].charAt(0) + i[1].charAt(0) + i[2].charAt(0) : i.join("");
+}
+function ao(e, t, n, r, i) {
+  var a = [te(Math.round(e).toString(16)), te(Math.round(t).toString(16)), te(Math.round(n).toString(16)), te(an(r))];
+  return i && a[0].charAt(0) == a[0].charAt(1) && a[1].charAt(0) == a[1].charAt(1) && a[2].charAt(0) == a[2].charAt(1) && a[3].charAt(0) == a[3].charAt(1) ? a[0].charAt(0) + a[1].charAt(0) + a[2].charAt(0) + a[3].charAt(0) : a.join("");
+}
+function Ht(e, t, n, r) {
+  var i = [te(an(r)), te(Math.round(e).toString(16)), te(Math.round(t).toString(16)), te(Math.round(n).toString(16))];
+  return i.join("");
+}
+y.equals = function(e, t) {
+  return !e || !t ? !1 : y(e).toRgbString() == y(t).toRgbString();
+};
+y.random = function() {
+  return y.fromRatio({
+    r: Math.random(),
+    g: Math.random(),
+    b: Math.random()
+  });
+};
+function io(e, t) {
+  t = t === 0 ? 0 : t || 10;
+  var n = y(e).toHsl();
+  return n.s -= t / 100, n.s = ot(n.s), y(n);
+}
+function so(e, t) {
+  t = t === 0 ? 0 : t || 10;
+  var n = y(e).toHsl();
+  return n.s += t / 100, n.s = ot(n.s), y(n);
+}
+function lo(e) {
+  return y(e).desaturate(100);
+}
+function co(e, t) {
+  t = t === 0 ? 0 : t || 10;
+  var n = y(e).toHsl();
+  return n.l += t / 100, n.l = ot(n.l), y(n);
+}
+function uo(e, t) {
+  t = t === 0 ? 0 : t || 10;
+  var n = y(e).toRgb();
+  return n.r = Math.max(0, Math.min(255, n.r - Math.round(255 * -(t / 100)))), n.g = Math.max(0, Math.min(255, n.g - Math.round(255 * -(t / 100)))), n.b = Math.max(0, Math.min(255, n.b - Math.round(255 * -(t / 100)))), y(n);
+}
+function po(e, t) {
+  t = t === 0 ? 0 : t || 10;
+  var n = y(e).toHsl();
+  return n.l -= t / 100, n.l = ot(n.l), y(n);
+}
+function mo(e, t) {
+  var n = y(e).toHsl(), r = (n.h + t) % 360;
+  return n.h = r < 0 ? 360 + r : r, y(n);
+}
+function ho(e) {
+  var t = y(e).toHsl();
+  return t.h = (t.h + 180) % 360, y(t);
+}
+function Dt(e, t) {
+  if (isNaN(t) || t <= 0)
+    throw new Error("Argument to polyad must be a positive number");
+  for (var n = y(e).toHsl(), r = [y(e)], i = 360 / t, a = 1; a < t; a++)
+    r.push(y({
+      h: (n.h + a * i) % 360,
+      s: n.s,
+      l: n.l
+    }));
+  return r;
+}
+function fo(e) {
+  var t = y(e).toHsl(), n = t.h;
+  return [y(e), y({
+    h: (n + 72) % 360,
+    s: t.s,
+    l: t.l
+  }), y({
+    h: (n + 216) % 360,
+    s: t.s,
+    l: t.l
+  })];
+}
+function go(e, t, n) {
+  t = t || 6, n = n || 30;
+  var r = y(e).toHsl(), i = 360 / n, a = [y(e)];
+  for (r.h = (r.h - (i * t >> 1) + 720) % 360; --t; )
+    r.h = (r.h + i) % 360, a.push(y(r));
+  return a;
+}
+function bo(e, t) {
+  t = t || 6;
+  for (var n = y(e).toHsv(), r = n.h, i = n.s, a = n.v, l = [], c = 1 / t; t--; )
+    l.push(y({
+      h: r,
+      s: i,
+      v: a
+    })), a = (a + c) % 1;
+  return l;
+}
+y.mix = function(e, t, n) {
+  n = n === 0 ? 0 : n || 50;
+  var r = y(e).toRgb(), i = y(t).toRgb(), a = n / 100, l = {
+    r: (i.r - r.r) * a + r.r,
+    g: (i.g - r.g) * a + r.g,
+    b: (i.b - r.b) * a + r.b,
+    a: (i.a - r.a) * a + r.a
+  };
+  return y(l);
+};
+y.readability = function(e, t) {
+  var n = y(e), r = y(t);
+  return (Math.max(n.getLuminance(), r.getLuminance()) + 0.05) / (Math.min(n.getLuminance(), r.getLuminance()) + 0.05);
+};
+y.isReadable = function(e, t, n) {
+  var r = y.readability(e, t), i, a;
+  switch (a = !1, i = ko(n), i.level + i.size) {
+    case "AAsmall":
+    case "AAAlarge":
+      a = r >= 4.5;
+      break;
+    case "AAlarge":
+      a = r >= 3;
+      break;
+    case "AAAsmall":
+      a = r >= 7;
+      break;
+  }
+  return a;
+};
+y.mostReadable = function(e, t, n) {
+  var r = null, i = 0, a, l, c, s;
+  n = n || {}, l = n.includeFallbackColors, c = n.level, s = n.size;
+  for (var d = 0; d < t.length; d++)
+    a = y.readability(e, t[d]), a > i && (i = a, r = y(t[d]));
+  return y.isReadable(e, r, {
+    level: c,
+    size: s
+  }) || !l ? r : (n.includeFallbackColors = !1, y.mostReadable(e, ["#fff", "#000"], n));
+};
+var bt = y.names = {
+  aliceblue: "f0f8ff",
+  antiquewhite: "faebd7",
+  aqua: "0ff",
+  aquamarine: "7fffd4",
+  azure: "f0ffff",
+  beige: "f5f5dc",
+  bisque: "ffe4c4",
+  black: "000",
+  blanchedalmond: "ffebcd",
+  blue: "00f",
+  blueviolet: "8a2be2",
+  brown: "a52a2a",
+  burlywood: "deb887",
+  burntsienna: "ea7e5d",
+  cadetblue: "5f9ea0",
+  chartreuse: "7fff00",
+  chocolate: "d2691e",
+  coral: "ff7f50",
+  cornflowerblue: "6495ed",
+  cornsilk: "fff8dc",
+  crimson: "dc143c",
+  cyan: "0ff",
+  darkblue: "00008b",
+  darkcyan: "008b8b",
+  darkgoldenrod: "b8860b",
+  darkgray: "a9a9a9",
+  darkgreen: "006400",
+  darkgrey: "a9a9a9",
+  darkkhaki: "bdb76b",
+  darkmagenta: "8b008b",
+  darkolivegreen: "556b2f",
+  darkorange: "ff8c00",
+  darkorchid: "9932cc",
+  darkred: "8b0000",
+  darksalmon: "e9967a",
+  darkseagreen: "8fbc8f",
+  darkslateblue: "483d8b",
+  darkslategray: "2f4f4f",
+  darkslategrey: "2f4f4f",
+  darkturquoise: "00ced1",
+  darkviolet: "9400d3",
+  deeppink: "ff1493",
+  deepskyblue: "00bfff",
+  dimgray: "696969",
+  dimgrey: "696969",
+  dodgerblue: "1e90ff",
+  firebrick: "b22222",
+  floralwhite: "fffaf0",
+  forestgreen: "228b22",
+  fuchsia: "f0f",
+  gainsboro: "dcdcdc",
+  ghostwhite: "f8f8ff",
+  gold: "ffd700",
+  goldenrod: "daa520",
+  gray: "808080",
+  green: "008000",
+  greenyellow: "adff2f",
+  grey: "808080",
+  honeydew: "f0fff0",
+  hotpink: "ff69b4",
+  indianred: "cd5c5c",
+  indigo: "4b0082",
+  ivory: "fffff0",
+  khaki: "f0e68c",
+  lavender: "e6e6fa",
+  lavenderblush: "fff0f5",
+  lawngreen: "7cfc00",
+  lemonchiffon: "fffacd",
+  lightblue: "add8e6",
+  lightcoral: "f08080",
+  lightcyan: "e0ffff",
+  lightgoldenrodyellow: "fafad2",
+  lightgray: "d3d3d3",
+  lightgreen: "90ee90",
+  lightgrey: "d3d3d3",
+  lightpink: "ffb6c1",
+  lightsalmon: "ffa07a",
+  lightseagreen: "20b2aa",
+  lightskyblue: "87cefa",
+  lightslategray: "789",
+  lightslategrey: "789",
+  lightsteelblue: "b0c4de",
+  lightyellow: "ffffe0",
+  lime: "0f0",
+  limegreen: "32cd32",
+  linen: "faf0e6",
+  magenta: "f0f",
+  maroon: "800000",
+  mediumaquamarine: "66cdaa",
+  mediumblue: "0000cd",
+  mediumorchid: "ba55d3",
+  mediumpurple: "9370db",
+  mediumseagreen: "3cb371",
+  mediumslateblue: "7b68ee",
+  mediumspringgreen: "00fa9a",
+  mediumturquoise: "48d1cc",
+  mediumvioletred: "c71585",
+  midnightblue: "191970",
+  mintcream: "f5fffa",
+  mistyrose: "ffe4e1",
+  moccasin: "ffe4b5",
+  navajowhite: "ffdead",
+  navy: "000080",
+  oldlace: "fdf5e6",
+  olive: "808000",
+  olivedrab: "6b8e23",
+  orange: "ffa500",
+  orangered: "ff4500",
+  orchid: "da70d6",
+  palegoldenrod: "eee8aa",
+  palegreen: "98fb98",
+  paleturquoise: "afeeee",
+  palevioletred: "db7093",
+  papayawhip: "ffefd5",
+  peachpuff: "ffdab9",
+  peru: "cd853f",
+  pink: "ffc0cb",
+  plum: "dda0dd",
+  powderblue: "b0e0e6",
+  purple: "800080",
+  rebeccapurple: "663399",
+  red: "f00",
+  rosybrown: "bc8f8f",
+  royalblue: "4169e1",
+  saddlebrown: "8b4513",
+  salmon: "fa8072",
+  sandybrown: "f4a460",
+  seagreen: "2e8b57",
+  seashell: "fff5ee",
+  sienna: "a0522d",
+  silver: "c0c0c0",
+  skyblue: "87ceeb",
+  slateblue: "6a5acd",
+  slategray: "708090",
+  slategrey: "708090",
+  snow: "fffafa",
+  springgreen: "00ff7f",
+  steelblue: "4682b4",
+  tan: "d2b48c",
+  teal: "008080",
+  thistle: "d8bfd8",
+  tomato: "ff6347",
+  turquoise: "40e0d0",
+  violet: "ee82ee",
+  wheat: "f5deb3",
+  white: "fff",
+  whitesmoke: "f5f5f5",
+  yellow: "ff0",
+  yellowgreen: "9acd32"
+}, vo = y.hexNames = yo(bt);
+function yo(e) {
+  var t = {};
+  for (var n in e)
+    e.hasOwnProperty(n) && (t[e[n]] = n);
+  return t;
+}
+function on(e) {
+  return e = parseFloat(e), (isNaN(e) || e < 0 || e > 1) && (e = 1), e;
+}
+function T(e, t) {
+  xo(e) && (e = "100%");
+  var n = wo(e);
+  return e = Math.min(t, Math.max(0, parseFloat(e))), n && (e = parseInt(e * t, 10) / 100), Math.abs(e - t) < 1e-6 ? 1 : e % t / parseFloat(t);
+}
+function ot(e) {
+  return Math.min(1, Math.max(0, e));
+}
+function Y(e) {
+  return parseInt(e, 16);
+}
+function xo(e) {
+  return typeof e == "string" && e.indexOf(".") != -1 && parseFloat(e) === 1;
+}
+function wo(e) {
+  return typeof e == "string" && e.indexOf("%") != -1;
+}
+function te(e) {
+  return e.length == 1 ? "0" + e : "" + e;
+}
+function De(e) {
+  return e <= 1 && (e = e * 100 + "%"), e;
+}
+function an(e) {
+  return Math.round(parseFloat(e) * 255).toString(16);
+}
+function Ot(e) {
+  return Y(e) / 255;
+}
+var Q = (function() {
+  var e = "[-\\+]?\\d+%?", t = "[-\\+]?\\d*\\.\\d+%?", n = "(?:" + t + ")|(?:" + e + ")", r = "[\\s|\\(]+(" + n + ")[,|\\s]+(" + n + ")[,|\\s]+(" + n + ")\\s*\\)?", i = "[\\s|\\(]+(" + n + ")[,|\\s]+(" + n + ")[,|\\s]+(" + n + ")[,|\\s]+(" + n + ")\\s*\\)?";
+  return {
+    CSS_UNIT: new RegExp(n),
+    rgb: new RegExp("rgb" + r),
+    rgba: new RegExp("rgba" + i),
+    hsl: new RegExp("hsl" + r),
+    hsla: new RegExp("hsla" + i),
+    hsv: new RegExp("hsv" + r),
+    hsva: new RegExp("hsva" + i),
+    hex3: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+    hex6: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
+    hex4: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+    hex8: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/
+  };
+})();
+function de(e) {
+  return !!Q.CSS_UNIT.exec(e);
+}
+function _o(e) {
+  e = e.replace(Qr, "").replace(eo, "").toLowerCase();
+  var t = !1;
+  if (bt[e])
+    e = bt[e], t = !0;
+  else if (e == "transparent")
+    return {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 0,
+      format: "name"
+    };
+  var n;
+  return (n = Q.rgb.exec(e)) ? {
+    r: n[1],
+    g: n[2],
+    b: n[3]
+  } : (n = Q.rgba.exec(e)) ? {
+    r: n[1],
+    g: n[2],
+    b: n[3],
+    a: n[4]
+  } : (n = Q.hsl.exec(e)) ? {
+    h: n[1],
+    s: n[2],
+    l: n[3]
+  } : (n = Q.hsla.exec(e)) ? {
+    h: n[1],
+    s: n[2],
+    l: n[3],
+    a: n[4]
+  } : (n = Q.hsv.exec(e)) ? {
+    h: n[1],
+    s: n[2],
+    v: n[3]
+  } : (n = Q.hsva.exec(e)) ? {
+    h: n[1],
+    s: n[2],
+    v: n[3],
+    a: n[4]
+  } : (n = Q.hex8.exec(e)) ? {
+    r: Y(n[1]),
+    g: Y(n[2]),
+    b: Y(n[3]),
+    a: Ot(n[4]),
+    format: t ? "name" : "hex8"
+  } : (n = Q.hex6.exec(e)) ? {
+    r: Y(n[1]),
+    g: Y(n[2]),
+    b: Y(n[3]),
+    format: t ? "name" : "hex"
+  } : (n = Q.hex4.exec(e)) ? {
+    r: Y(n[1] + "" + n[1]),
+    g: Y(n[2] + "" + n[2]),
+    b: Y(n[3] + "" + n[3]),
+    a: Ot(n[4] + "" + n[4]),
+    format: t ? "name" : "hex8"
+  } : (n = Q.hex3.exec(e)) ? {
+    r: Y(n[1] + "" + n[1]),
+    g: Y(n[2] + "" + n[2]),
+    b: Y(n[3] + "" + n[3]),
+    format: t ? "name" : "hex"
+  } : !1;
+}
+function ko(e) {
+  var t, n;
+  return e = e || {
+    level: "AA",
+    size: "small"
+  }, t = (e.level || "AA").toUpperCase(), n = (e.size || "small").toLowerCase(), t !== "AA" && t !== "AAA" && (t = "AA"), n !== "small" && n !== "large" && (n = "small"), {
+    level: t,
+    size: n
+  };
+}
+function at(e) {
+  return e.reduce((t, n, r) => {
+    const i = y(n).toHsl(), a = `${i.h}deg, ${Math.round(i.s * 100)}%, ${Math.round(i.l * 100)}%`;
+    return t[`--${we[r] || "default"}`] = a, t;
+  }, {});
+}
+function Ee(e, t = 1) {
+  const [n, r] = w(!1);
+  return I(() => {
+    if (e) {
+      r(!0);
+      const i = setTimeout(() => r(!1), t * 1e3);
+      return () => clearTimeout(i);
+    }
+  }, [e, t]), n;
+}
+const Fo = "_container_62cx0_1", Ro = "_measure_62cx0_6", So = "_wrapper_62cx0_13", Co = "_virtual_62cx0_19", Eo = "_scale_62cx0_25", Te = {
+  container: Fo,
+  measure: Ro,
+  wrapper: So,
+  virtual: Co,
+  scale: Eo
+};
+function Mo(...e) {
+  return e.filter(Boolean).join(" ");
+}
+function Lo(e) {
+  const {
+    className: t,
+    Tag: n = "div",
+    input: r,
+    children: i,
+    upscale: a = !1,
+    contain: l = !1,
+    style: c = {},
+    ...s
+  } = e, d = _(() => Mo(t, Te.container), [t]), p = k(null), u = k(null), m = k(null), b = k(null), [f, M] = w(1), [R, L] = w(1), A = F(() => {
+    if (!u.current || !b.current || !m.current)
+      return;
+    const x = u.current.clientWidth / b.current.clientWidth, S = Number(
+      (m.current.clientHeight / b.current.clientHeight).toFixed(3)
+    ), v = l ? Math.min(x, S) : x;
+    M(l ? 1 + Math.max(0, x - v) : x), !a && v >= 1 ? L(1) : L(Math.max(0.1, v));
+  }, [l, a]);
+  return _n(() => {
+    if (!m.current || !u.current || !b.current)
+      return;
+    const x = new ResizeObserver(A);
+    return x.observe(m.current), x.observe(u.current), x.observe(b.current), window.addEventListener("resize", A), A(), () => {
+      x.disconnect(), window.removeEventListener("resize", A);
+    };
+  }, [A]), I(() => {
+    var x;
+    (x = p.current) != null && x.parentNode && p.current.parentNode.style.setProperty("--max-scale", String(f));
+  }, [f]), /* @__PURE__ */ o(
+    n,
+    {
+      ref: p,
+      className: d,
+      style: {
+        "--scale": R,
+        "--max-scale": f,
+        ...c
+      },
+      ...s,
+      children: /* @__PURE__ */ g("div", { ref: u, className: Te.measure, children: [
+        /* @__PURE__ */ o("div", { ref: m, className: Te.wrapper, children: /* @__PURE__ */ o("div", { ref: b, className: Te.virtual, children: r || i }) }),
+        /* @__PURE__ */ o("div", { className: Te.scale, children: i })
+      ] })
+    }
+  );
+}
+const ke = N(Lo), Ao = "_container_1rv8h_3", No = "_active_1rv8h_36", Io = "_contracted_1rv8h_40", Be = {
+  container: Ao,
+  active: No,
+  contracted: Io
+}, To = 0.2;
+function Bo(e) {
+  const { colors: t = [], isInteractive: n = !1 } = e, r = k(null), i = _(
+    () => /* @__PURE__ */ o(Oe, { children: t.map((a, l) => /* @__PURE__ */ o(
+      "div",
+      {
+        style: { "--color": a, zIndex: -l }
+      },
+      l
+    )) }),
+    [t]
+  );
+  return I(() => {
+    const a = r.current ? Array.from(r.current.children) : [];
+    let l = null;
+    const c = () => {
+      a.forEach((s) => {
+        s.classList.remove(Be.active), s.classList.remove(Be.contracted);
+      });
+    };
+    if (c(), n) {
+      let s = 1;
+      const d = () => {
+        a.forEach((p, u) => {
+          p.classList.toggle(Be.active, u === s), p.classList.toggle(Be.contracted, u < s);
+        }), s >= a.length ? (l && clearInterval(l), c()) : s += 1;
+      };
+      d(), l = setInterval(d, To * 1e3);
+    }
+    return () => {
+      l && clearInterval(l);
+    };
+  }, [n, t.length]), /* @__PURE__ */ o("div", { ref: r, className: Be.container, children: i });
+}
+const sn = N(Bo), Ho = "_container_1mm99_3", Do = "_shapePill_1mm99_26", Oo = "_shapeOval_1mm99_30", Po = "_shapeSquare_1mm99_34", $o = "_shapeUnderline_1mm99_38", zo = "_fill_1mm99_47", jo = "_cardBackgroundMatch_1mm99_64", Uo = "_hover_1mm99_73", Wo = "_outer_1mm99_83", Vo = "_inner_1mm99_87", re = {
+  container: Ho,
+  shapePill: Do,
+  shapeOval: Oo,
+  shapeSquare: Po,
+  shapeUnderline: $o,
+  fill: zo,
+  cardBackgroundMatch: jo,
+  hover: Uo,
+  outer: Wo,
+  inner: Vo
+};
+function Go(...e) {
+  return e.filter(Boolean).join(" ");
+}
+const Zo = {
+  pill: re.shapePill,
+  oval: re.shapeOval,
+  square: re.shapeSquare,
+  underline: re.shapeUnderline
+};
+function qo(e) {
+  const {
+    children: t,
+    className: n,
+    fill: r,
+    invert: i,
+    outline: a,
+    shape: l,
+    primaryColor: c,
+    primaryColorNoFill: s,
+    borderRadius: d = ["0", "0", "0", "0"],
+    fontWeight: p = 500,
+    secondaryColor: u,
+    secondaryColorNoFill: m,
+    textTransform: b = "none",
+    isHover: f = !1,
+    ...M
+  } = e, R = _(
+    () => Go(
+      re.container,
+      r && re.fill,
+      l ? Zo[l] : void 0,
+      f && re.hover
+    ),
+    [r, l, f]
+  ), L = _(
+    () => ({
+      "--color-primary-hsl": r ? i ? u : c : s,
+      "--color-secondary-hsl": r ? i ? c : u : m,
+      "--border-width": a,
+      "--border-radius": d.join(" ")
+    }),
+    [
+      d,
+      r,
+      i,
+      a,
+      c,
+      s,
+      u,
+      m
+    ]
+  ), A = _(
+    () => `${n}_${b}_${p}`,
+    [n, b, p]
+  );
+  return /* @__PURE__ */ g(
+    "div",
+    {
+      className: R,
+      style: L,
+      tabIndex: -1,
+      ...M,
+      children: [
+        /* @__PURE__ */ o("div", { className: re.cardBackgroundMatch }),
+        /* @__PURE__ */ o(oe, { className: re.outer, classNameContent: re.inner, children: /* @__PURE__ */ o(
+          "span",
+          {
+            className: n,
+            style: {
+              textTransform: b,
+              fontWeight: p
+            },
+            children: t
+          },
+          A
+        ) })
+      ]
+    }
+  );
+}
+const Je = N(qo), Yo = "_container_bx5fz_3", Xo = "_heading_bx5fz_18", Ko = "_text_bx5fz_33", Jo = "_swatch_bx5fz_38", Qo = "_button_bx5fz_43", ea = "_swap_bx5fz_55", ve = {
+  container: Yo,
+  heading: Xo,
+  text: Ko,
+  swatch: Jo,
+  button: Qo,
+  swap: ea
+}, ta = 1.15, na = 1.2, Pt = 0.04;
+function ra(e) {
+  const { color: t, fonts: n, buttons: r } = e, [i, a] = w(!1), l = rt(i, ta), c = Ee(l, na), s = _(() => {
+    const m = (b, f) => `var(--${we[(b || t.buttons)[f]]})`;
+    return {
+      primaryColor: m(t.buttons, 0),
+      secondaryColor: m(t.buttons, 1),
+      ...t.buttonsNoFill ? {
+        primaryColorNoFill: m(t.buttonsNoFill, 0),
+        secondaryColorNoFill: m(t.buttonsNoFill, 1)
+      } : {
+        primaryColorNoFill: m(t.buttons, 1),
+        secondaryColorNoFill: m(t.buttons, 0)
+      }
+    };
+  }, [t]), d = _(
+    () => ({
+      "--color-background": t.palette[t.background],
+      "--color-heading": t.palette[t.headings]
+    }),
+    [t]
+  ), p = _(
+    () => at(t.palette),
+    [t]
+  ), u = _(
+    () => ({
+      heading: n.headingFont.className,
+      swatch: JSON.stringify(t.palette),
+      button: JSON.stringify({ ...r.primary, fonts: n })
+    }),
+    [t.palette, r.primary, n]
+  );
+  return /* @__PURE__ */ g(
+    "div",
+    {
+      className: ve.container,
+      style: d,
+      onMouseEnter: () => a(!0),
+      onMouseLeave: () => a(!1),
+      children: [
+        /* @__PURE__ */ o("div", { className: ve.heading, children: /* @__PURE__ */ o(ke, { children: /* @__PURE__ */ o(oe, { classNameContent: ve.text, children: /* @__PURE__ */ o("div", { className: n.headingFont.className, children: "Aa" }, u.heading) }) }) }),
+        /* @__PURE__ */ o("div", { className: ve.swatch, children: /* @__PURE__ */ o(oe, { className: ve.swap, delayHide: Pt, children: /* @__PURE__ */ o(
+          sn,
+          {
+            colors: t.palette,
+            isInteractive: i
+          },
+          u.swatch
+        ) }) }),
+        /* @__PURE__ */ o("div", { className: ve.button, style: p, children: /* @__PURE__ */ o(
+          oe,
+          {
+            className: ve.swap,
+            delayHide: Pt * 2,
+            children: /* @__PURE__ */ o(ke, { children: /* @__PURE__ */ o(
+              Je,
+              {
+                className: n.paragraphFont.className,
+                ...r.primary,
+                ...s,
+                isHover: c,
+                children: "Button"
+              }
+            ) }, u.button)
+          }
+        ) })
+      ]
+    }
+  );
+}
+const ln = N(ra), oa = "_container_1brv3_3", aa = "_hoverHeading_1brv3_16", ia = "_heading_1brv3_16", sa = "_paragraph_1brv3_21", la = "_hoverParagraph_1brv3_26", ca = "_swap_1brv3_36", da = "_text_1brv3_69", fe = {
+  container: oa,
+  hoverHeading: aa,
+  heading: ia,
+  paragraph: sa,
+  hoverParagraph: la,
+  swap: ca,
+  text: da
+}, ua = 0.2, pa = 0.75, ut = ua + pa;
+function pt(...e) {
+  return e.filter(Boolean).join(" ");
+}
+function ma(e) {
+  const { color: t, fonts: n } = e, [r, i] = w(!1), a = rt(r, ut), l = Ee(r, ut), c = Ee(a, ut), s = _(
+    () => pt(
+      fe.container,
+      l && fe.hoverHeading,
+      c && fe.hoverParagraph
+    ),
+    [l, c]
+  ), d = _(
+    () => ({
+      "--color": t.palette[4]
+    }),
+    [t.palette]
+  ), [p, u] = _(
+    () => [
+      pt(n.headingFont.className, fe.text),
+      pt(n.paragraphFont.className, fe.text)
+    ],
+    [n.headingFont.className, n.paragraphFont.className]
+  ), m = _(
+    () => `${p}_${u}`,
+    [p, u]
+  );
+  return /* @__PURE__ */ o(
+    oe,
+    {
+      className: s,
+      style: d,
+      onMouseEnter: () => i(!0),
+      onMouseLeave: () => i(!1),
+      children: /* @__PURE__ */ g("div", { className: fe.swap, children: [
+        /* @__PURE__ */ o("div", { className: fe.heading, children: /* @__PURE__ */ o(ke, { upscale: !0, contain: !0, children: /* @__PURE__ */ o("div", { className: p, children: "Heading" }) }) }),
+        /* @__PURE__ */ o("div", { className: fe.paragraph, children: /* @__PURE__ */ o(ke, { children: /* @__PURE__ */ o("div", { className: u, children: "This is your paragraph." }) }) })
+      ] }, m)
+    }
+  );
+}
+const cn = N(ma), ha = "_container_1pxtn_3", fa = {
+  container: ha
+};
+function ga(e) {
+  const { color: t } = e, { palette: n } = t, [r, i] = w(!1), a = _(() => JSON.stringify(n), [n]);
+  return /* @__PURE__ */ o(
+    "div",
+    {
+      className: fa.container,
+      onMouseEnter: () => i(!0),
+      onMouseLeave: () => i(!1),
+      children: /* @__PURE__ */ o(oe, { children: /* @__PURE__ */ o(sn, { colors: n, isInteractive: r }, a) })
+    }
+  );
+}
+const dn = N(ga), ba = "_container_1j81e_3", va = "_interactive_1j81e_19", ya = "_button_1j81e_19", xa = "_primary_1j81e_23", wa = "_secondary_1j81e_27", _a = "_tertiary_1j81e_32", ka = "_buttons_1j81e_39", ue = {
+  container: ba,
+  interactive: va,
+  button: ya,
+  primary: xa,
+  secondary: wa,
+  tertiary: _a,
+  buttons: ka
+}, Fa = 0.2, Ra = 1.5;
+function Ke(...e) {
+  return e.filter(Boolean).join(" ");
+}
+function Sa(e) {
+  const { buttons: t, color: n, fonts: r } = e, [i, a] = w(!1), l = Ee(
+    i,
+    Fa + Ra
+  ), c = _(
+    () => JSON.stringify({ ...t, fonts: r }),
+    [t, r]
+  ), s = _(
+    () => Ke(ue.container, l && ue.interactive),
+    [l]
+  ), d = _(
+    () => at(n.palette),
+    [n.palette]
+  ), p = _(() => {
+    const u = l ? "Primary" : "Button", m = (f, M) => `var(--${we[(f || n.buttons)[M]]})`, b = {
+      primaryColor: m(n.buttonsPreview, 0),
+      secondaryColor: m(n.buttonsPreview, 1),
+      primaryColorNoFill: m(n.buttonsNoFillPreview, 0),
+      secondaryColorNoFill: m(n.buttonsNoFillPreview, 1)
+    };
+    return /* @__PURE__ */ g(Oe, { children: [
+      /* @__PURE__ */ o(ke, { className: Ke(ue.button, ue.tertiary), children: /* @__PURE__ */ o(
+        Je,
+        {
+          className: r.paragraphFont.className,
+          ...t.tertiary,
+          ...b,
+          children: "Tertiary"
+        }
+      ) }),
+      /* @__PURE__ */ o(ke, { className: Ke(ue.button, ue.secondary), children: /* @__PURE__ */ o(
+        Je,
+        {
+          className: r.paragraphFont.className,
+          ...t.secondary,
+          ...b,
+          children: "Secondary"
+        }
+      ) }),
+      /* @__PURE__ */ o(ke, { className: Ke(ue.button, ue.primary), children: /* @__PURE__ */ o(
+        Je,
+        {
+          className: r.paragraphFont.className,
+          ...t.primary,
+          ...b,
+          children: u
+        }
+      ) })
+    ] });
+  }, [t, n, r.paragraphFont.className, l]);
+  return /* @__PURE__ */ o(
+    "div",
+    {
+      className: s,
+      style: d,
+      onMouseEnter: () => a(!0),
+      onMouseLeave: () => a(!1),
+      children: /* @__PURE__ */ o(oe, { children: /* @__PURE__ */ o("div", { className: ue.buttons, children: p }, c) })
+    }
+  );
+}
+const un = N(Sa), Ca = "_container_1i7v7_3", Ea = "_sizeSmall_1i7v7_20", Ma = "_inputFill_1i7v7_27", La = "_input_1i7v7_27", Aa = "_optionFill_1i7v7_40", Na = "_option_1i7v7_40", Ia = "_inputShapePill_1i7v7_51", Ta = "_inputShapeSquare_1i7v7_55", Ba = "_inputShapeUnderline_1i7v7_59", Ha = "_optionShapePill_1i7v7_67", Da = "_optionShapeSquare_1i7v7_71", Oa = "_optionShapeCircle_1i7v7_75", Pa = "_optionButton_1i7v7_81", $a = "_optionInvert_1i7v7_82", za = "_hoverInput_1i7v7_88", ja = "_hoverOption_1i7v7_93", Ua = "_label_1i7v7_152", O = {
+  container: Ca,
+  sizeSmall: Ea,
+  inputFill: Ma,
+  input: La,
+  optionFill: Aa,
+  option: Na,
+  inputShapePill: Ia,
+  inputShapeSquare: Ta,
+  inputShapeUnderline: Ba,
+  optionShapePill: Ha,
+  optionShapeSquare: Da,
+  optionShapeCircle: Oa,
+  optionButton: Pa,
+  optionInvert: $a,
+  hoverInput: za,
+  hoverOption: ja,
+  label: Ua
+}, $t = "Field";
+function Wa(e) {
+  const { isInteractive: t, inputRate: n = 100 } = e, [r, i] = w(""), [a, l] = w(!1);
+  return I(() => {
+    if (t) {
+      const c = $t;
+      let s = 0;
+      const d = setInterval(() => {
+        s <= c.length ? (i(c.substring(0, s)), l(!0), s++) : (l(!1), clearInterval(d));
+      }, n);
+      return () => clearInterval(d);
+    } else
+      i($t), l(!1);
+  }, [t, n]), /* @__PURE__ */ g("span", { children: [
+    r,
+    a && "|"
+  ] });
+}
+const Va = N(Wa), mt = 1;
+function zt(...e) {
+  return e.filter(Boolean).join(" ");
+}
+const Ga = {
+  pill: O.inputShapePill,
+  square: O.inputShapeSquare,
+  underline: O.inputShapeUnderline
+}, Za = {
+  pill: O.optionShapePill,
+  square: O.optionShapeSquare,
+  circle: O.optionShapeCircle
+};
+function qa() {
+  return /* @__PURE__ */ o("svg", { viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ o("path", { d: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" }) });
+}
+function Ya(e) {
+  const {
+    className: t,
+    input: n,
+    option: r,
+    isInteractive: i = !1,
+    size: a = "standard",
+    primaryColor: l,
+    secondaryColor: c,
+    buttonPrimaryColor: s,
+    buttonSecondaryColor: d
+  } = e, p = rt(i, mt), u = Ee(i, mt), m = Ee(p, mt), b = _(
+    () => zt(
+      t,
+      O.container,
+      n.fill && O.inputFill,
+      u && O.hoverInput,
+      m && O.hoverOption,
+      r.button && O.optionButton,
+      r.fill && O.optionFill,
+      r.inverted && O.optionInvert,
+      Ga[n.shape],
+      Za[r.shape],
+      a === "small" && O.sizeSmall
+    ),
+    [t, n, r, a, u, m]
+  ), f = _(
+    () => zt(O.option, r.button && O.label),
+    [r.button]
+  ), M = _(
+    () => ({
+      "--input-border-width": n.outline,
+      "--input-border-radius": n.borderRadius.join(" "),
+      "--option-border-width": r.outline,
+      "--option-border-radius": r.borderRadius.join(" ")
+    }),
+    [n.borderRadius, n.outline, r.borderRadius, r.outline]
+  ), R = _(
+    () => ({
+      "--color-primary-hsl": l,
+      "--color-secondary-hsl": c
+    }),
+    [l, c]
+  ), L = _(
+    () => ({
+      "--color-primary-hsl": s,
+      "--color-secondary-hsl": d
+    }),
+    [s, d]
+  );
+  return /* @__PURE__ */ g("div", { className: b, style: M, children: [
+    /* @__PURE__ */ o("div", { className: O.input, style: R, children: /* @__PURE__ */ o(Va, { isInteractive: i }) }),
+    /* @__PURE__ */ o("div", { className: f, style: L, children: r.button ? "Option" : /* @__PURE__ */ o(qa, {}) })
+  ] });
+}
+const Xa = N(Ya), Ka = "_container_8tn8q_3", Ja = "_swap_8tn8q_12", Qa = "_form_8tn8q_16", ht = {
+  container: Ka,
+  swap: Ja,
+  form: Qa
+};
+function ei(e) {
+  const { form: t, color: n, fonts: r, previewSize: i = "standard" } = e, [a, l] = w(!1), c = _(
+    () => JSON.stringify({ ...t, fonts: r }),
+    [t, r]
+  ), s = _(
+    () => at(n.palette),
+    [n.palette]
+  ), d = _(
+    () => /* @__PURE__ */ o(
+      Xa,
+      {
+        className: r.paragraphFont.className,
+        ...t,
+        size: i,
+        primaryColor: `var(--${we[n.form[0]]})`,
+        secondaryColor: `var(--${we[n.form[1]]})`,
+        buttonPrimaryColor: `var(--${we[n.form[2]]})`,
+        buttonSecondaryColor: `var(--${we[n.form[3]]})`,
+        isInteractive: a
+      }
+    ),
+    [a, n.form, r.paragraphFont.className, t, i]
+  );
+  return /* @__PURE__ */ o(
+    "div",
+    {
+      className: ht.container,
+      style: s,
+      onMouseEnter: () => l(!0),
+      onMouseLeave: () => l(!1),
+      children: /* @__PURE__ */ o(oe, { className: ht.swap, children: /* @__PURE__ */ o("div", { className: ht.form, children: d }, c) })
+    }
+  );
+}
+const pn = N(ei), ti = "_container_pfdmi_3", ni = "_undocked_pfdmi_17", ri = "_hidden_pfdmi_21", oi = "_wrapper_pfdmi_27", ai = "_background_pfdmi_35", ii = "_backgroundBox_pfdmi_47", si = "_box_pfdmi_55", li = "_panel_pfdmi_68", ci = "_header_pfdmi_80", di = "_body_pfdmi_98", ui = "_padding_pfdmi_113", pi = "_padBottom_pfdmi_118", mi = "_padTop_pfdmi_122", U = {
+  container: ti,
+  undocked: ni,
+  hidden: ri,
+  wrapper: oi,
+  background: ai,
+  backgroundBox: ii,
+  box: si,
+  panel: li,
+  header: ci,
+  body: di,
+  padding: ui,
+  padBottom: pi,
+  padTop: mi
+}, mn = (...e) => e.filter(Boolean).join(" ");
+function hi({ children: e }) {
+  return /* @__PURE__ */ o("div", { className: U.panel, children: e });
+}
+function fi({ children: e }) {
+  return /* @__PURE__ */ o("div", { className: U.header, children: e });
+}
+function gi({
+  children: e,
+  padding: t = !1,
+  padTop: n = !1,
+  padBottom: r = !0
+}) {
+  const i = _(
+    () => mn(
+      U.body,
+      t && U.padding,
+      n && U.padTop,
+      r && U.padBottom
+    ),
+    [t, n, r]
+  );
+  return /* @__PURE__ */ o("div", { className: i, children: e });
+}
+function bi({
+  children: e,
+  attachment: t,
+  undocked: n = !1,
+  isHidden: r = !1,
+  mode: i = "light"
+}) {
+  const a = k(null);
+  I(() => {
+    if (!(t != null && t.current) || !a.current) return;
+    const s = () => {
+      const d = t.current, p = a.current;
+      if (!d || !p) return;
+      const u = d.getBoundingClientRect();
+      p.style.transform = `translate3d(${Math.round(u.right + 8)}px, ${Math.round(u.top)}px, 0)`;
+    };
+    return s(), window.addEventListener("resize", s), window.addEventListener("scroll", s, !0), () => {
+      window.removeEventListener("resize", s), window.removeEventListener("scroll", s, !0);
+    };
+  }, [t]);
+  const l = _(
+    () => mn(
+      U.container,
+      n && U.undocked,
+      r && U.hidden,
+      U[`mode-${i}`]
+    ),
+    [n, r, i]
+  ), c = /* @__PURE__ */ o("dialog", { ref: a, className: l, open: !0, children: /* @__PURE__ */ g("div", { className: U.wrapper, children: [
+    /* @__PURE__ */ o("div", { className: U.background, children: /* @__PURE__ */ o("div", { className: U.backgroundBox }) }),
+    /* @__PURE__ */ o("div", { className: U.box, children: e })
+  ] }) });
+  return vt(c, document.body);
+}
+const B = N(bi);
+B.Panel = N(hi);
+B.Header = N(fi);
+B.Body = N(gi);
+const vi = "_container_17wzg_1", yi = "_shimmer_17wzg_44", xi = "_hover_17wzg_49", wi = "_active_17wzg_53", _i = "_fadeup_17wzg_62", ki = "_content_17wzg_129", Fi = "_wrap_17wzg_138", ye = {
+  container: vi,
+  shimmer: yi,
+  hover: xi,
+  active: wi,
+  fadeup: _i,
+  content: ki,
+  wrap: Fi
+}, Ri = (...e) => e.filter(Boolean).join(" ");
+function Si({
+  className: e,
+  children: t,
+  active: n = !1,
+  shimmer: r = !0,
+  wrap: i = !1,
+  onClick: a,
+  delayShow: l = 0,
+  animateReveal: c = !1,
+  ...s
+}) {
+  const [d, p] = w(!1), u = _(
+    () => Ri(
+      e,
+      ye.container,
+      d && ye.hover,
+      n && ye.active,
+      c && ye.fadeup
+    ),
+    [e, d, n, c]
+  ), m = F(() => {
+    p(!0);
+  }, []), b = F(() => {
+    p(!1);
+  }, []);
+  return /* @__PURE__ */ g(
+    "button",
+    {
+      className: u,
+      onMouseEnter: m,
+      onMouseLeave: b,
+      onClick: (M) => {
+        p(!1), a == null || a(M);
+      },
+      style: { "--animation-delay": `${l}s` },
+      ...s,
+      children: [
+        /* @__PURE__ */ o("div", { className: ye.content, children: i ? /* @__PURE__ */ o("div", { className: ye.wrap, children: t }) : t }),
+        r && /* @__PURE__ */ o("div", { className: ye.shimmer, "aria-hidden": "true" })
+      ]
+    }
+  );
+}
+const Pe = N(Si), Ci = {
+  display: "grid",
+  gap: "11px"
+}, Ei = {
+  display: "flex",
+  width: "100%",
+  height: "55px",
+  alignItems: "center",
+  alignSelf: "stretch",
+  justifyContent: "center",
+  padding: "16.5px 22px",
+  border: "solid 1px var(--c-border)",
+  borderRadius: "4px",
+  background: "var(--c-bg)",
+  cursor: "pointer",
+  fontSize: "var(--s-font-sm)",
+  fontWeight: 500,
+  letterSpacing: "0.5px",
+  lineHeight: "22px",
+  textTransform: "uppercase"
+};
+function Mi({
+  items: e,
+  getItem: t,
+  columns: n = 1,
+  max: r = 8
+}) {
+  const [i, a] = w(!1), l = _(
+    () => e.slice(0, r).map((u, m) => t(u, m)),
+    [e, t, r]
+  ), c = _(
+    () => e.slice(r).map((u, m) => t(u, m + r)),
+    [e, t, r]
+  ), s = c.length > 0, d = F(
+    (u) => {
+      u.stopPropagation(), a((m) => !m);
+    },
+    []
+  ), p = _(
+    () => ({
+      display: "grid",
+      gap: "inherit",
+      gridTemplateColumns: `repeat(${n}, 1fr)`
+    }),
+    [n]
+  );
+  return /* @__PURE__ */ g("div", { style: Ci, children: [
+    /* @__PURE__ */ g("div", { style: p, children: [
+      l,
+      i && c
+    ] }),
+    s && /* @__PURE__ */ o("button", { style: Ei, onClick: d, children: i ? "Show Less" : "Show All" })
+  ] });
+}
+const $e = N(Mi), jt = 1, Li = 0.04;
+function Ai({ attachment: e, undocked: t, onClose: n }) {
+  const { userTheme: r, themePacks: i, setPack: a } = Fe(), l = _(() => r.name, [r]), c = F(
+    (s, d) => {
+      const p = s.name, u = Math.floor(d / jt);
+      return /* @__PURE__ */ o(
+        Pe,
+        {
+          active: l === p,
+          onClick: () => a(s),
+          wrap: !0,
+          delayShow: (u + 1) * Li,
+          animateReveal: !0,
+          children: /* @__PURE__ */ o(
+            ln,
+            {
+              color: s.color,
+              fonts: s.fonts,
+              buttons: s.buttons
+            }
+          )
+        },
+        `${p}_${d}`
+      );
+    },
+    [l, a]
+  );
+  return /* @__PURE__ */ o(B, { attachment: e, undocked: t, children: /* @__PURE__ */ g(B.Panel, { children: [
+    /* @__PURE__ */ o(B.Header, { children: "Themes" }),
+    /* @__PURE__ */ o(B.Body, { padding: !0, children: /* @__PURE__ */ o(
+      $e,
+      {
+        items: i,
+        getItem: c,
+        columns: jt,
+        max: 8
+      }
+    ) })
+  ] }) });
+}
+const Ni = N(Ai), Ut = 2, Ii = 0.04;
+function Ti({ attachment: e, undocked: t, onClose: n }) {
+  const { userTheme: r, fontPacks: i, setPack: a } = Fe(), l = _(
+    () => `${r.fonts.headingFont.name}_${r.fonts.paragraphFont.name}`,
+    [r]
+  ), c = F(
+    (s, d) => {
+      const p = `${s.headingFont.name}_${s.paragraphFont.name}`, u = {
+        ...r,
+        fonts: { ...s }
+      }, m = Math.floor(d / Ut);
+      return /* @__PURE__ */ o(
+        Pe,
+        {
+          active: l === p,
+          onClick: () => a(u),
+          delayShow: (m + 1) * Ii,
+          animateReveal: !0,
+          children: /* @__PURE__ */ o(cn, { color: u.color, fonts: s })
+        },
+        `${p}_${d}`
+      );
+    },
+    [l, r, a]
+  );
+  return /* @__PURE__ */ o(B, { attachment: e, undocked: t, children: /* @__PURE__ */ g(B.Panel, { children: [
+    /* @__PURE__ */ o(B.Header, { children: "Recommended Font Packs" }),
+    /* @__PURE__ */ o(B.Body, { padding: !0, children: /* @__PURE__ */ o(
+      $e,
+      {
+        items: i,
+        getItem: c,
+        columns: Ut,
+        max: 8
+      }
+    ) })
+  ] }) });
+}
+const Bi = N(Ti), Wt = 2, Hi = 0.04;
+function Di({ attachment: e, undocked: t, onClose: n }) {
+  const { userTheme: r, colorPacks: i, setPack: a } = Fe(), l = _(
+    () => JSON.stringify(r.color),
+    [r]
+  ), c = F(
+    (s, d) => {
+      const p = JSON.stringify(s), u = {
+        ...r,
+        color: { ...s }
+      }, m = Math.floor(d / Wt);
+      return /* @__PURE__ */ o(
+        Pe,
+        {
+          active: l === p,
+          onClick: () => a(u),
+          delayShow: (m + 1) * Hi,
+          animateReveal: !0,
+          children: /* @__PURE__ */ o(dn, { color: s })
+        },
+        `${p}_${d}`
+      );
+    },
+    [l, r, a]
+  );
+  return /* @__PURE__ */ o(B, { attachment: e, undocked: t, children: /* @__PURE__ */ g(B.Panel, { children: [
+    /* @__PURE__ */ o(B.Header, { children: "Recommended Color Packs" }),
+    /* @__PURE__ */ o(B.Body, { padding: !0, children: /* @__PURE__ */ o(
+      $e,
+      {
+        items: i,
+        getItem: c,
+        columns: Wt,
+        max: 8
+      }
+    ) })
+  ] }) });
+}
+const Oi = N(Di), Vt = 2, Pi = 0.04;
+function $i({ attachment: e, undocked: t, onClose: n }) {
+  const { userTheme: r, buttonPacks: i, setPack: a } = Fe(), l = _(
+    () => JSON.stringify(r.buttons),
+    [r]
+  ), c = F(
+    (s, d) => {
+      const p = JSON.stringify(s), u = {
+        ...r,
+        buttons: { ...s }
+      }, m = Math.floor(d / Vt);
+      return /* @__PURE__ */ o(
+        Pe,
+        {
+          active: l === p,
+          onClick: () => a(u),
+          delayShow: (m + 1) * Pi,
+          animateReveal: !0,
+          children: /* @__PURE__ */ o(
+            un,
+            {
+              buttons: s,
+              color: u.color,
+              fonts: u.fonts
+            }
+          )
+        },
+        `${p}_${d}`
+      );
+    },
+    [l, r, a]
+  );
+  return /* @__PURE__ */ o(B, { attachment: e, undocked: t, children: /* @__PURE__ */ g(B.Panel, { children: [
+    /* @__PURE__ */ o(B.Header, { children: "Recommended Button Packs" }),
+    /* @__PURE__ */ o(B.Body, { padding: !0, children: /* @__PURE__ */ o(
+      $e,
+      {
+        items: i,
+        getItem: c,
+        columns: Vt,
+        max: 8
+      }
+    ) })
+  ] }) });
+}
+const zi = N($i), Gt = 2, ji = 0.04;
+function Ui({ attachment: e, undocked: t, onClose: n }) {
+  const { userTheme: r, formPacks: i, setPack: a } = Fe(), l = _(
+    () => JSON.stringify(r.form),
+    [r]
+  ), c = F(
+    (s, d) => {
+      const p = JSON.stringify(s), u = {
+        ...r,
+        form: { ...s }
+      }, m = Math.floor(d / Gt);
+      return /* @__PURE__ */ o(
+        Pe,
+        {
+          active: l === p,
+          onClick: () => a(u),
+          delayShow: (m + 1) * ji,
+          animateReveal: !0,
+          children: /* @__PURE__ */ o(
+            pn,
+            {
+              form: s,
+              color: u.color,
+              fonts: u.fonts,
+              previewSize: "small"
+            }
+          )
+        },
+        `${p}_${d}`
+      );
+    },
+    [l, r, a]
+  );
+  return /* @__PURE__ */ o(B, { attachment: e, undocked: t, children: /* @__PURE__ */ g(B.Panel, { children: [
+    /* @__PURE__ */ o(B.Header, { children: "Recommended Form Packs" }),
+    /* @__PURE__ */ o(B.Body, { padding: !0, children: /* @__PURE__ */ o(
+      $e,
+      {
+        items: i,
+        getItem: c,
+        columns: Gt,
+        max: 8
+      }
+    ) })
+  ] }) });
+}
+const Wi = N(Ui), Vi = "_fadeup_1my1f_31", Gi = "_fadeoutdown_1my1f_36", Zt = {
+  fadeup: Vi,
+  fadeoutdown: Gi
+}, He = !0, Zi = 0.35, qi = 0.04;
+function Yi({ depth: e = 0, isActive: t = !1 }) {
+  const { userTheme: n } = Fe(), [r, i] = w(null), [a, l] = w(null), c = k(), s = k(null), d = F(
+    (b, f) => {
+      b.preventDefault(), b.stopPropagation();
+      const R = { current: b.currentTarget };
+      i(R), l((L) => (clearTimeout(c.current), s.current = L === f ? null : f, s.current)), clearTimeout(c.current);
+    },
+    []
+  );
+  I(() => {
+    t || (l(null), i(null));
+  }, [t]);
+  const p = F(
+    (b, f) => t ? b * 0.04 : (f - b) * 0.04,
+    [t]
+  ), u = F((b) => (c.current = setTimeout(() => {
+    s.current === b && l(null);
+  }, 0), () => {
+    clearTimeout(c.current);
+  }), []), m = _(() => r ? a === "themes" ? /* @__PURE__ */ o(
+    Ni,
+    {
+      attachment: r,
+      undocked: !0,
+      onClose: () => u("themes")
+    },
+    "themes"
+  ) : a === "fonts" ? /* @__PURE__ */ o(
+    Bi,
+    {
+      attachment: r,
+      undocked: !0,
+      onClose: () => u("fonts")
+    },
+    "fonts"
+  ) : a === "colors" ? /* @__PURE__ */ o(
+    Oi,
+    {
+      attachment: r,
+      undocked: !0,
+      onClose: () => u("colors")
+    },
+    "colors"
+  ) : a === "buttons" ? /* @__PURE__ */ o(
+    zi,
+    {
+      attachment: r,
+      undocked: !0,
+      onClose: () => u("buttons")
+    },
+    "buttons"
+  ) : a === "forms" ? /* @__PURE__ */ o(
+    Wi,
+    {
+      attachment: r,
+      undocked: !0,
+      onClose: () => u("forms")
+    },
+    "forms"
+  ) : null : null, [a, r, u]);
+  return /* @__PURE__ */ g(fr, { title: "Styles", depth: e, isActive: t, children: [
+    /* @__PURE__ */ o(
+      Ie,
+      {
+        label: "Themes",
+        isShown: t,
+        onClick: (b) => d(b, "themes"),
+        active: a === "themes",
+        wrap: !0,
+        delayShow: p(0, 5),
+        animateReveal: He,
+        children: /* @__PURE__ */ o(
+          ln,
+          {
+            color: n.color,
+            fonts: n.fonts,
+            buttons: n.buttons
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ o(
+      Ie,
+      {
+        disclosure: "/config/site-styles/fonts",
+        label: "Fonts",
+        isShown: t,
+        onClick: (b) => d(b, "fonts"),
+        active: a === "fonts",
+        delayShow: p(1, 5),
+        animateReveal: He,
+        children: /* @__PURE__ */ o(cn, { color: n.color, fonts: n.fonts })
+      }
+    ),
+    /* @__PURE__ */ o(
+      Ie,
+      {
+        disclosure: "/config/site-styles/colors",
+        label: "Colors",
+        isShown: t,
+        onClick: (b) => d(b, "colors"),
+        active: a === "colors",
+        delayShow: p(2, 5),
+        animateReveal: He,
+        children: /* @__PURE__ */ o(dn, { color: n.color })
+      }
+    ),
+    /* @__PURE__ */ o(
+      Ie,
+      {
+        disclosure: "/config/site-styles/buttons",
+        label: "Buttons",
+        isShown: t,
+        onClick: (b) => d(b, "buttons"),
+        active: a === "buttons",
+        delayShow: p(3, 5),
+        animateReveal: He,
+        children: /* @__PURE__ */ o(
+          un,
+          {
+            buttons: n.buttons,
+            color: n.color,
+            fonts: n.fonts
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ o(
+      Ie,
+      {
+        disclosure: "/config/site-styles/forms",
+        label: "Forms",
+        isShown: t,
+        onClick: (b) => d(b, "forms"),
+        active: a === "forms",
+        delayShow: p(4, 5),
+        animateReveal: He,
+        children: /* @__PURE__ */ o(
+          pn,
+          {
+            form: n.form,
+            color: n.color,
+            fonts: n.fonts
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ g(
+      "div",
+      {
+        className: t ? Zt.fadeup : Zt.fadeoutdown,
+        style: { "--animation-delay": `${p(4, 5)}s` },
+        children: [
+          /* @__PURE__ */ o(Nt, { label: "Animations", href: "/config/site-styles/animations" }),
+          /* @__PURE__ */ o(Nt, { label: "Spacing", href: "/config/site-styles/spacing" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ o(
+      oe,
+      {
+        animateFirst: !0,
+        directionOut: "down",
+        delayShow: qi,
+        distance: 0,
+        duration: Zi,
+        useOpacity: !1,
+        children: m
+      }
+    )
+  ] });
+}
+const Xi = N(Yi), Ki = "_container_goi2l_3", Ji = "_backButton_goi2l_7", Qi = "_title_goi2l_32", ft = {
+  container: Ki,
+  backButton: Ji,
+  title: Qi
+};
+function es() {
+  return /* @__PURE__ */ o("svg", { viewBox: "0 0 8 14", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ o(
+    "path",
+    {
+      d: "M1 1l6 6-6 6",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }
+  ) });
+}
+function ts(e) {
+  return e.split("-").map((t) => t.charAt(0).toUpperCase() + t.slice(1)).join(" ");
+}
+function ns() {
+  const { route: e, depth: t, onBack: n } = Fe(), r = _(() => {
+    if (t === 0)
+      return /* @__PURE__ */ o("span", { className: ft.title, children: "Site Styles" }, "title");
+    const i = ts(e[t] ?? "Back");
+    return /* @__PURE__ */ g("button", { className: ft.backButton, onClick: n, children: [
+      /* @__PURE__ */ o(es, {}),
+      i
+    ] }, "back");
+  }, [e, t, n]);
+  return /* @__PURE__ */ o("div", { className: ft.container, children: /* @__PURE__ */ o(oe, { directionIn: "left", directionOut: "left", children: r }) });
+}
+const rs = N(ns), os = "_container_w9dg2_3", as = "_open_w9dg2_16", is = "_header_w9dg2_20", ss = "_bar_w9dg2_27", ls = "_body_w9dg2_33", cs = "_panels_w9dg2_41", Ce = {
+  container: os,
+  open: as,
+  header: is,
+  bar: ss,
+  body: ls,
+  panels: cs
+}, ds = (...e) => e.filter(Boolean).join(" "), hn = Xt(
+  {}
+), Fe = () => kn(hn);
+function us({ isOpen: e, themeState: t, className: n }) {
+  const r = k(null), i = rt(e, 0.01, 0.5), { route: a, depth: l, onBack: c } = lr(r, e), s = _(
+    () => ds(n, Ce.container, e && Ce.open),
+    [n, e]
+  ), d = _(
+    () => ({
+      ...t,
+      route: a,
+      depth: l,
+      onBack: c
+    }),
+    [t, a, l, c]
+  ), p = _(() => a.map((u, m) => /* @__PURE__ */ o(Xi, { depth: m, isActive: l === m && e }, m)), [a, l, e]);
+  return /* @__PURE__ */ o(hn.Provider, { value: d, children: /* @__PURE__ */ o("div", { ref: r, className: s, children: i && /* @__PURE__ */ g(Oe, { children: [
+    /* @__PURE__ */ o("div", { className: Ce.header, children: /* @__PURE__ */ o("div", { className: Ce.bar, children: /* @__PURE__ */ o(rs, {}) }) }),
+    /* @__PURE__ */ o("div", { className: Ce.body, children: /* @__PURE__ */ o(
+      "div",
+      {
+        className: Ce.panels,
+        style: { "--depth": l },
+        children: p
+      }
+    ) })
+  ] }) }) });
+}
+const Ps = N(us), fn = {
+  vibrant: [
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "square",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "square",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["1em", "0em", "1em", "0em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["1em", "0em", "1em", "0em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["1em", "1em", "0em", "0em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["1em", "1em", "0em", "0em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      primary: {
+        fill: !0,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.25em", y: "0.75em" },
+        outline: "2px",
+        fontWeight: 500
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "0.75em" },
+        outline: "2px",
+        fontWeight: 500
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "2px"
+      }
+    }
+  ],
+  neutral: [
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !0,
+        shape: "pill",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["neutral"],
+      primary: {
+        fill: !0,
+        invert: !0,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      }
+    }
+  ],
+  modern: [
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !0,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !0,
+        shape: "underline",
+        borderRadius: ["1em", "1em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        fontWeight: 600,
+        textTransform: "uppercase"
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.2em", "0.2em", "0.2em", "0.2em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    },
+    {
+      packs: ["modern"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.75em", "0.75em", "0.75em", "0.75em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px",
+        textTransform: "uppercase",
+        fontWeight: 600
+      }
+    }
+  ],
+  minimal: [
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !1,
+        shape: "square",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !0,
+        invert: !0,
+        shape: "square",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !0,
+        shape: "custom",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "custom",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !0,
+        shape: "square",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "square",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    },
+    {
+      packs: ["minimal"],
+      primary: {
+        fill: !0,
+        invert: !0,
+        shape: "pill",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "pill",
+        borderRadius: ["0.25em", "0.25em", "0.25em", "0.25em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.5em", y: "1em" },
+        outline: "1px"
+      }
+    }
+  ],
+  adventurous: [
+    {
+      packs: ["adventurous"],
+      primary: {
+        fill: !0,
+        shape: "oval",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "0px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "oval",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "0px"
+      }
+    },
+    {
+      packs: ["adventurous"],
+      primary: {
+        fill: !1,
+        shape: "oval",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      secondary: {
+        fill: !1,
+        shape: "oval",
+        borderRadius: ["1em", "1em", "1em", "1em"],
+        padding: { x: "1em", y: "0.75em" },
+        outline: "1px"
+      },
+      tertiary: {
+        fill: !1,
+        shape: "underline",
+        borderRadius: ["0em", "0em", "0em", "0em"],
+        padding: { x: "1.25em", y: "1em" },
+        outline: "1px"
+      }
+    }
+  ]
+}, ps = Object.values(fn).flatMap((e) => e), V = (e, t) => fn[e][t], gn = {
+  minimal: [
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#F5F5F5", "#D9D9D9", "#797979", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#EAEAEE", "#96B6D9", "#3270AA", "#303136"]
+    },
+    {
+      packs: ["minimal"],
+      background: 3,
+      headings: 0,
+      buttons: [0, 4],
+      buttonsPreview: [4, 0],
+      buttonsNoFill: [4, 0],
+      buttonsNoFillPreview: [0, 4],
+      form: [0, 2, 0, 2],
+      palette: ["#FFFFFF", "#E1DFD9", "#209D50", "#1D231C", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 3,
+      headings: 0,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 2],
+      form: [0, 2, 0, 2],
+      palette: ["#FFFFFF", "#F8DFDB", "#FC221C", "#40140F", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#EBEAEB", "#BDB2C3", "#5C5751", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#F5F5F5", "#8DD9BF", "#28211E", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#E0E0DB", "#253551", "#2A2829", "#000000"]
+    },
+    {
+      packs: ["minimal"],
+      background: 1,
+      headings: 4,
+      buttons: [0, 4],
+      buttonsNoFill: [0, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#DAD9D9", "#FF5E1A", "#282828", "#000000"]
+    }
+  ],
+  vibrant: [
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FCF0F0", "#D1C8F4", "#AE9DEF", "#9B2929", "#531A4A"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#EAE6DD", "#EDD286", "#7BB5B2", "#34659B", "#2D2D2A"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#E5E9FD", "#BEE7E7", "#7FE8FF", "#149B9B", "#4C2929"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#B3C3CF", "#EAEC78", "#8D4E2F", "#000000"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      buttonsNoFill: [4, 1],
+      form: [0, 4, 0, 4],
+      palette: ["#EAE6DD", "#F0CD5F", "#DA5B37", "#4277B0", "#2D2D2A"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      buttonsNoFill: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#E5E9FD", "#F598FF", "#94ABF9", "#171D3A"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#E1DFD9", "#209D50", "#1D231C", "#000000"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#EBEAEB", "#BDB2C3", "#5C5751", "#000000"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [0, 2],
+      buttonsNoFill: [0, 2],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#FFDD03", "#FA4238", "#F4F1E0", "#000000"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 3,
+      headings: 2,
+      buttons: [0, 2],
+      buttonsNoFill: [0, 2],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#F6E08B", "#1E5BD3", "#FBF5F1", "#000000"]
+    },
+    {
+      packs: ["vibrant"],
+      background: 4,
+      headings: 1,
+      body: 0,
+      buttons: [1, 3],
+      buttonsNoFill: [0, 2],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#00FFFF", "#FF00FF", "#1a1a24", "#050508"]
+    }
+  ],
+  neutral: [
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [3, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#F6F3EC", "#ECE4DA", "#BBA893", "#574C3F", "#36302A"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#DCD9D0", "#D4967D", "#495A58", "#3F4A49"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 4],
+      buttonsNoFillPreview: [3, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FEFFE9", "#FFFDC1", "#DFE777", "#B8BC7F", "#2E3105"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#F3EDE5", "#E5DCCE", "#D9B783", "#9A5151", "#714B4B"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FBFBFB", "#E8E8E8", "#D0CDC8", "#817A7A", "#5E5858"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#EAE6E1", "#E5E0DA", "#C2BFCB", "#7E7B46", "#583B1F"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 0],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#E7D9CB", "#C2C8CC", "#3D4435", "#000000"]
+    },
+    {
+      packs: ["neutral"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 3],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#E7E4D6", "#E7A6D4", "#ECF250", "#665E30", "#2B2C29"]
+    }
+  ],
+  modern: [
+    {
+      packs: ["modern"],
+      background: 1,
+      headings: 4,
+      buttons: [2, 4],
+      buttonsNoFill: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#F4F3E8", "#F5F374", "#7F9FEB", "#404D67"]
+    },
+    {
+      packs: ["modern"],
+      background: 3,
+      headings: 4,
+      buttons: [2, 4],
+      buttonsNoFill: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#F4F3E8", "#E6DCC8", "#EBFC72", "#AEC0AB", "#212E21"]
+    }
+  ],
+  adventurous: [
+    {
+      packs: ["adventurous"],
+      background: 1,
+      headings: 4,
+      buttons: [3, 0],
+      buttonsNoFill: [2, 3],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#F4F2EA", "#EFF483", "#DFEFFF", "#E24A39", "#184027"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 1,
+      headings: 4,
+      buttons: [3, 0],
+      buttonsNoFill: [2, 3],
+      buttonsNoFillPreview: [2, 3],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#B3C3CF", "#EAEC78", "#8D4E30", "#000000"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#F4F4F3", "#7877E6", "#4F4F4F", "#000000"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 2,
+      headings: 4,
+      buttons: [1, 4],
+      buttonsNoFill: [1, 4],
+      buttonsNoFillPreview: [1, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#FFCF5A", "#F2B8B4", "#B564F7", "#000000"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#EBEAEB", "#BDB2C3", "#5C5751", "#000000"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#E1DFD9", "#CFFF81", "#081F34", "#000000"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#FFFFFF", "#D291F1", "#AEDF1A", "#DD733F", "#121211"]
+    },
+    {
+      packs: ["adventurous"],
+      background: 3,
+      headings: 2,
+      buttons: [2, 4],
+      form: [0, 4, 0, 4],
+      palette: ["#F7F6F3", "#FFE974", "#E55937", "#BD005B", "#121211"]
+    }
+  ]
+}, ms = Object.values(gn).flatMap((e) => e), G = (e, t) => gn[e][t];
+function C(e, t, n = 400, r) {
+  return {
+    name: e,
+    style: {
+      fontFamily: `'${t}', sans-serif`,
+      fontWeight: n,
+      fontStyle: "normal"
+    },
+    className: e.toLowerCase().replace(/\s+/g, "-"),
+    googleFontsQuery: r
+  };
+}
+function j(e, t, n = 400, r) {
+  return {
+    name: e,
+    style: {
+      fontFamily: `'${t}', serif`,
+      fontWeight: n,
+      fontStyle: "normal"
+    },
+    className: e.toLowerCase().replace(/\s+/g, "-"),
+    googleFontsQuery: r
+  };
+}
+const h = {
+  // Vibrant heading fonts
+  shrikhand: C("Shrikhand", "Shrikhand", 400, "Shrikhand:wght@400"),
+  concertone: C("Concert One", "Concert One", 400, "Concert+One:wght@400"),
+  youngserif: j("Young Serif", "Young Serif", 400, "Young+Serif:wght@400"),
+  capriola: C("Capriola", "Capriola", 400, "Capriola:wght@400"),
+  lilitaone: C("Lilita One", "Lilita One", 400, "Lilita+One:wght@400"),
+  trocchi: j("Trocchi", "Trocchi", 400, "Trocchi:wght@400"),
+  averiaseriflibre: j("Averia Serif Libre", "Averia Serif Libre", 400, "Averia+Serif+Libre:wght@400"),
+  agbalumo: C("Agbalumo", "Agbalumo", 400, "Agbalumo:wght@400"),
+  bungee: C("Bungee", "Bungee", 400, "Bungee:wght@400"),
+  bebasneue: C("Bebas Neue", "Bebas Neue", 400, "Bebas+Neue:wght@400"),
+  // Vibrant body fonts
+  bitter: j("Bitter", "Bitter", 400, "Bitter:wght@400"),
+  syne: C("Syne", "Syne", 400, "Syne:wght@400;800"),
+  ibmplexmono: C("IBM Plex Mono", "IBM Plex Mono", 400, "IBM+Plex+Mono:wght@400"),
+  spacegrotesk: C("Space Grotesk", "Space Grotesk", 400, "Space+Grotesk:wght@400"),
+  spacemono: C("Space Mono", "Space Mono", 400, "Space+Mono:wght@400"),
+  silkscreen: C("Silkscreen", "Silkscreen", 400, "Silkscreen:wght@400"),
+  // Neutral heading fonts
+  librebaskerville: j("Libre Baskerville", "Libre Baskerville", 400, "Libre+Baskerville:wght@400"),
+  tenorsans: C("Tenor Sans", "Tenor Sans", 400, "Tenor+Sans:wght@400"),
+  marcellus: j("Marcellus", "Marcellus", 400, "Marcellus:wght@400"),
+  alice: j("Alice", "Alice", 400, "Alice:wght@400"),
+  neuton: j("Neuton", "Neuton", 400, "Neuton:wght@400"),
+  newsreader: j("Newsreader", "Newsreader", 400, "Newsreader:wght@400"),
+  ovo: j("Ovo", "Ovo", 400, "Ovo:wght@400"),
+  // Neutral body fonts
+  almarai: C("Almarai", "Almarai", 400, "Almarai:wght@400"),
+  pontanosans: C("Pontano Sans", "Pontano Sans", 400, "Pontano+Sans:wght@400"),
+  ptserif: j("PT Serif", "PT Serif", 400, "PT+Serif:wght@400"),
+  // Modern fonts
+  asap: C("Asap", "Asap", 400, "Asap:wght@400;600"),
+  sansita: C("Sansita", "Sansita", 400, "Sansita:wght@400"),
+  nunitosans: C("Nunito Sans", "Nunito Sans", 400, "Nunito+Sans:wght@400;600"),
+  comfortaa: C("Comfortaa", "Comfortaa", 400, "Comfortaa:wght@400"),
+  worksans: C("Work Sans", "Work Sans", 400, "Work+Sans:wght@400"),
+  rubik: C("Rubik", "Rubik", 400, "Rubik:wght@400"),
+  // Minimal fonts
+  manrope: C("Manrope", "Manrope", 400, "Manrope:wght@400;700"),
+  poppins: C("Poppins", "Poppins", 400, "Poppins:wght@400;600"),
+  urbanist: C("Urbanist", "Urbanist", 400, "Urbanist:wght@400;700"),
+  instrumentserif: j("Instrument Serif", "Instrument Serif", 400, "Instrument+Serif:wght@400"),
+  familjengrotesk: C("Familjen Grotesk", "Familjen Grotesk", 400, "Familjen+Grotesk:wght@400"),
+  arimo: C("Arimo", "Arimo", 400, "Arimo:wght@400"),
+  archivo: C("Archivo", "Archivo", 400, "Archivo:wght@400;700"),
+  gildadisplay: j("Gilda Display", "Gilda Display", 400, "Gilda+Display:wght@400"),
+  oswald: C("Oswald", "Oswald", 400, "Oswald:wght@400;700"),
+  epilogue: C("Epilogue", "Epilogue", 400, "Epilogue:wght@400;700"),
+  // Adventurous fonts
+  climatecrisis: C("Climate Crisis", "Climate Crisis", 400, "Climate+Crisis:wght@400"),
+  ultra: j("Ultra", "Ultra", 400, "Ultra:wght@400"),
+  modak: C("Modak", "Modak", 400, "Modak:wght@400"),
+  goblinone: C("Goblin One", "Goblin One", 400, "Goblin+One:wght@400"),
+  delagothicone: C("Dela Gothic One", "Dela Gothic One", 400, "Dela+Gothic+One:wght@400"),
+  archivoblack: C("Archivo Black", "Archivo Black", 400, "Archivo+Black:wght@400"),
+  coiny: C("Coiny", "Coiny", 400, "Coiny:wght@400")
+}, bn = {
+  minimal: [
+    {
+      packs: ["minimal"],
+      headingFont: h.manrope,
+      paragraphFont: h.poppins
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.urbanist,
+      paragraphFont: h.poppins
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.instrumentserif,
+      paragraphFont: h.newsreader
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.familjengrotesk,
+      paragraphFont: h.arimo
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.archivo,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.gildadisplay,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.oswald,
+      paragraphFont: h.arimo
+    },
+    {
+      packs: ["minimal"],
+      headingFont: h.epilogue,
+      paragraphFont: h.poppins
+    }
+  ],
+  vibrant: [
+    {
+      packs: ["vibrant"],
+      headingFont: h.shrikhand,
+      paragraphFont: h.bitter
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.concertone,
+      paragraphFont: h.syne
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.youngserif,
+      paragraphFont: h.bitter
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.capriola,
+      paragraphFont: h.syne
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.lilitaone,
+      paragraphFont: h.ibmplexmono
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.trocchi,
+      paragraphFont: h.syne
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.averiaseriflibre,
+      paragraphFont: h.bitter
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.agbalumo,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.bungee,
+      paragraphFont: h.spacegrotesk
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: h.bebasneue,
+      paragraphFont: h.familjengrotesk
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: {
+        name: "neue-haas-grotesk-display",
+        style: {
+          fontFamily: "'neue-haas-grotesk-display'",
+          fontWeight: 700,
+          fontStyle: "normal"
+        },
+        className: "neue-haas-grotesk-display"
+      },
+      paragraphFont: {
+        name: "neue-haas-grotesk-text",
+        style: {
+          fontFamily: "'neue-haas-grotesk-text'",
+          fontWeight: 700,
+          fontStyle: "normal"
+        },
+        className: "neue-haas-grotesk-text"
+      }
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: {
+        name: "AlkalineCaps",
+        style: {
+          fontFamily: "'AlkalineCaps'",
+          fontWeight: 700,
+          fontStyle: "normal"
+        },
+        className: "AlkalineCaps"
+      },
+      paragraphFont: h.poppins
+    },
+    {
+      packs: ["vibrant"],
+      headingFont: {
+        ...h.syne,
+        style: {
+          ...h.syne.style,
+          fontWeight: 800
+        }
+      },
+      paragraphFont: h.spacemono,
+      headerFont: h.silkscreen
+    }
+  ],
+  neutral: [
+    {
+      packs: ["neutral"],
+      headingFont: h.librebaskerville,
+      paragraphFont: h.almarai
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.tenorsans,
+      paragraphFont: h.pontanosans
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.marcellus,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.alice,
+      paragraphFont: h.almarai
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.neuton,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.newsreader,
+      paragraphFont: h.ptserif
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.ovo,
+      paragraphFont: h.almarai
+    },
+    {
+      packs: ["neutral"],
+      headingFont: h.epilogue,
+      paragraphFont: h.pontanosans
+    }
+  ],
+  modern: [
+    {
+      packs: ["modern"],
+      headingFont: h.asap,
+      paragraphFont: h.nunitosans
+    },
+    {
+      packs: ["modern"],
+      headingFont: h.comfortaa,
+      paragraphFont: h.worksans
+    },
+    {
+      packs: ["modern"],
+      headingFont: h.sansita,
+      paragraphFont: h.nunitosans
+    },
+    {
+      packs: ["modern"],
+      headingFont: h.rubik,
+      paragraphFont: h.nunitosans
+    }
+  ],
+  adventurous: [
+    {
+      packs: ["adventurous"],
+      headingFont: h.climatecrisis,
+      paragraphFont: h.archivo
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.ultra,
+      paragraphFont: h.worksans
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.modak,
+      paragraphFont: h.archivo
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.modak,
+      paragraphFont: h.familjengrotesk
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.goblinone,
+      paragraphFont: h.archivo
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.delagothicone,
+      paragraphFont: h.worksans
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.archivoblack,
+      paragraphFont: h.archivo
+    },
+    {
+      packs: ["adventurous"],
+      headingFont: h.coiny,
+      paragraphFont: h.familjengrotesk
+    }
+  ]
+}, hs = Object.values(bn).flatMap((e) => e), Z = (e, t) => bn[e][t], vn = {
+  vibrant: [
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "square",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "circle",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["1em", "0em", "1em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "underline",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["vibrant"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    }
+  ],
+  neutral: [
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !1,
+        inverted: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !1,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["neutral"],
+      input: {
+        fill: !0,
+        shape: "underline",
+        outline: "0px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    }
+  ],
+  modern: [
+    {
+      packs: ["modern"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "0px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["modern"],
+      input: {
+        fill: !1,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !1,
+        inverted: !1,
+        shape: "circle",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["modern"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["modern"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["modern"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["modern"],
+      input: {
+        fill: !0,
+        shape: "underline",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    }
+  ],
+  minimal: [
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !1,
+        shape: "underline",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !0,
+        shape: "square",
+        outline: "0px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !1,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !1,
+        inverted: !1,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !0,
+        shape: "underline",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["minimal"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "0px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        inverted: !1,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    }
+  ],
+  adventurous: [
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        shape: "pill",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "square",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      },
+      option: {
+        button: !0,
+        fill: !0,
+        shape: "square",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "circle",
+        outline: "1px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    },
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["1em", "0em", "1em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        shape: "custom",
+        outline: "1px",
+        borderRadius: ["0.5em", "0.5em", "0.5em", "0.5em"]
+      }
+    },
+    {
+      packs: ["adventurous"],
+      input: {
+        fill: !0,
+        shape: "underline",
+        outline: "1px",
+        borderRadius: ["0em", "0em", "0em", "0em"]
+      },
+      option: {
+        button: !1,
+        fill: !0,
+        inverted: !0,
+        shape: "circle",
+        outline: "0px",
+        borderRadius: ["1em", "1em", "1em", "1em"]
+      }
+    }
+  ]
+}, fs = Object.values(vn).flatMap((e) => e), q = (e, t) => vn[e][t], qt = [
+  {
+    pack: "vibrant",
+    name: "vibrant_04",
+    color: G("vibrant", 9),
+    buttons: V("vibrant", 8),
+    form: q("vibrant", 6),
+    fonts: Z("vibrant", 11)
+  },
+  {
+    pack: "vibrant",
+    name: "vibrant_04",
+    color: G("vibrant", 10),
+    buttons: V("vibrant", 8),
+    form: q("vibrant", 6),
+    fonts: Z("vibrant", 12)
+  },
+  {
+    pack: "vibrant",
+    name: "vibrant_03",
+    color: G("vibrant", 8),
+    buttons: V("vibrant", 8),
+    form: q("vibrant", 6),
+    fonts: Z("vibrant", 10)
+  },
+  {
+    pack: "vibrant",
+    name: "vibrant_01",
+    color: G("vibrant", 0),
+    buttons: V("vibrant", 0),
+    form: q("vibrant", 0),
+    fonts: Z("vibrant", 0)
+  },
+  {
+    pack: "vibrant",
+    name: "vibrant_02",
+    color: G("vibrant", 1),
+    buttons: V("vibrant", 1),
+    form: q("vibrant", 4),
+    fonts: Z("vibrant", 2)
+  },
+  {
+    pack: "neutral",
+    name: "neutral_01",
+    color: G("neutral", 0),
+    buttons: V("neutral", 0),
+    form: q("neutral", 0),
+    fonts: Z("neutral", 0)
+  },
+  {
+    pack: "neutral",
+    name: "neutral_02",
+    color: G("neutral", 1),
+    buttons: V("neutral", 1),
+    form: q("neutral", 3),
+    fonts: Z("neutral", 2)
+  },
+  {
+    pack: "modern",
+    name: "modern_01",
+    color: G("modern", 0),
+    buttons: V("modern", 0),
+    form: q("modern", 0),
+    fonts: Z("modern", 0)
+  },
+  {
+    pack: "modern",
+    name: "modern_02",
+    color: G("modern", 1),
+    buttons: V("modern", 1),
+    form: q("modern", 3),
+    fonts: Z("modern", 2)
+  },
+  {
+    pack: "minimal",
+    name: "minimal_01",
+    color: G("minimal", 0),
+    buttons: V("minimal", 0),
+    form: q("minimal", 0),
+    fonts: Z("minimal", 0)
+  },
+  {
+    pack: "minimal",
+    name: "minimal_01",
+    color: G("minimal", 2),
+    buttons: V("minimal", 0),
+    form: q("minimal", 4),
+    fonts: Z("minimal", 2)
+  },
+  {
+    pack: "adventurous",
+    name: "adventurous_01",
+    color: G("adventurous", 0),
+    buttons: V("adventurous", 0),
+    form: q("adventurous", 0),
+    fonts: Z("adventurous", 0)
+  },
+  {
+    pack: "adventurous",
+    name: "adventurous_02",
+    color: G("adventurous", 3),
+    buttons: V("adventurous", 1),
+    form: q("adventurous", 3),
+    fonts: Z("adventurous", 4)
+  }
+], Yt = /* @__PURE__ */ new Set();
+function gs(e) {
+  if (!e || Yt.has(e)) return;
+  Yt.add(e);
+  const t = document.createElement("link");
+  t.rel = "stylesheet", t.href = `https://fonts.googleapis.com/css2?family=${e}&display=swap`, document.head.appendChild(t);
+}
+function bs(e) {
+  e.forEach((t) => {
+    t.googleFontsQuery && gs(t.googleFontsQuery);
+  });
+}
+function $s() {
+  const [e, t] = w({ ...qt[0] }), { themePacks: n, fontPacks: r, colorPacks: i, buttonPacks: a, formPacks: l } = _(() => {
+    const s = e.pack;
+    return {
+      themePacks: qt,
+      fontPacks: hs.filter((d) => d.packs.includes(s)),
+      colorPacks: ms.filter((d) => d.packs.includes(s)),
+      buttonPacks: ps.filter((d) => d.packs.includes(s)),
+      formPacks: fs.filter((d) => d.packs.includes(s))
+    };
+  }, [e]), c = F((s) => {
+    t({ ...s });
+  }, []);
+  return I(() => {
+    const { color: s, fonts: d } = e, p = document.body;
+    p.style.setProperty("--background-color", s.palette[s.background]), p.style.setProperty("--color-heading", s.palette[s.headings]), p.style.setProperty(
+      "--color-paragraph",
+      s.palette[s.body !== void 0 ? s.body : s.headings]
+    ), p.style.setProperty("--font-family-heading", d.headingFont.style.fontFamily), p.style.setProperty("--font-family-body", d.paragraphFont.style.fontFamily), p.style.setProperty(
+      "--font-family-header",
+      d.headerFont ? d.headerFont.style.fontFamily : d.paragraphFont.style.fontFamily
+    );
+    const u = at(s.palette);
+    Object.entries(u).forEach(([b, f]) => {
+      p.style.setProperty(b, f);
+    });
+    const m = [d.headingFont, d.paragraphFont];
+    d.headerFont && m.push(d.headerFont), bs(m);
+  }, [e]), _(
+    () => ({
+      userTheme: e,
+      setPack: c,
+      themePacks: n,
+      fontPacks: r,
+      colorPacks: i,
+      buttonPacks: a,
+      formPacks: l
+    }),
+    [e, c, n, r, i, a, l]
+  );
+}
 export {
-  et as AddBlockToolbar,
-  Rt as AddSectionDivider,
-  _e as AlignTopIcon,
-  ze as AnimatedSearchIcon,
-  kt as BlockAnnotationBar,
-  It as BlockHover,
-  Qe as BlockPicker,
-  xt as ChevronDownIcon,
-  Oe as CodeIcon,
-  Xe as DesktopIcon,
-  Pe as DuplicateIcon,
-  tt as EditHeaderButton,
-  Ie as EditIcon,
-  de as FE_COLUMNS,
-  we as FE_COL_GAP,
-  ue as FE_MARGIN,
-  U as FE_ROW_GAP,
-  Mt as FluidEngineGrid,
-  $e as GlobalContentGlyphIcon,
-  Ft as GridOverlay,
-  Dt as HANDLE_POSITIONS,
-  Lt as HeaderSectionWrapper,
-  Ye as MobileIcon,
-  Ze as PinIcon,
-  je as PlayIcon,
-  Ge as PlusIcon,
-  St as PortaledAnnotationBar,
-  We as RedoIcon,
-  bt as SearchGlyphIcon,
-  yt as SectionWrapper,
-  Et as SiteToolbar,
-  Ht as ThemeProvider,
-  Re as Tooltip,
-  Ne as UndoIcon,
-  fe as feBrickHeight,
-  xe as feBrickWidth,
-  lt as feRowsHeight,
-  Ct as feSnapHeight,
-  ct as feSnapLeft,
-  at as feSnapTop,
-  Tt as getRosettaTheme,
-  Vt as hex,
-  Bt as rosetta,
-  gt as rosettaDark,
-  Ae as rosettaLight,
-  ht as useBlockDrag,
-  At as usePanelDrag,
-  Fe as useTooltip
+  $n as AddBlockToolbar,
+  Ns as AddSectionDivider,
+  Cn as AlignTopIcon,
+  Fn as AnimatedSearchIcon,
+  Rs as BlockAnnotationBar,
+  Ls as BlockHover,
+  On as BlockPicker,
+  we as COLOR_KEYS,
+  ws as ChevronDownIcon,
+  Rn as CodeIcon,
+  An as DesktopIcon,
+  En as DuplicateIcon,
+  zn as EditHeaderButton,
+  Kt as EditIcon,
+  Qe as FE_COLUMNS,
+  yt as FE_COL_GAP,
+  et as FE_MARGIN,
+  _e as FE_ROW_GAP,
+  Cs as FluidEngineGrid,
+  Tn as GlobalContentGlyphIcon,
+  Is as GridOverlay,
+  Os as HANDLE_POSITIONS,
+  Fs as HeaderSectionWrapper,
+  Nn as MobileIcon,
+  Sn as PinIcon,
+  In as PlayIcon,
+  Jt as PlusIcon,
+  As as PortaledAnnotationBar,
+  Ln as RedoIcon,
+  _s as SearchGlyphIcon,
+  ks as SectionWrapper,
+  Ps as SiteThemes,
+  hn as SiteThemesContext,
+  Es as SiteToolbar,
+  Ms as ThemeProvider,
+  en as Tooltip,
+  Mn as UndoIcon,
+  nt as feBrickHeight,
+  xt as feBrickWidth,
+  Zn as feRowsHeight,
+  Ss as feSnapHeight,
+  Yn as feSnapLeft,
+  qn as feSnapTop,
+  V as getButtonPack,
+  G as getColorPack,
+  Z as getFontPack,
+  q as getFormPack,
+  Bs as getRosettaTheme,
+  h as googleFonts,
+  Ds as hex,
+  bs as loadFontsForTheme,
+  gs as loadGoogleFont,
+  at as makeColorVariables,
+  Hs as rosetta,
+  sr as rosettaDark,
+  nn as rosettaLight,
+  ps as themeButtons,
+  ms as themeColors,
+  hs as themeFonts,
+  fs as themeForms,
+  qt as themePacks,
+  Qn as useBlockDrag,
+  rt as useDelayedActiveState,
+  Ts as usePanelDrag,
+  $s as useSiteThemes,
+  Fe as useSiteThemesContext,
+  Ee as useTemporaryActiveState,
+  tn as useTooltip
 };
 //# sourceMappingURL=index.js.map
