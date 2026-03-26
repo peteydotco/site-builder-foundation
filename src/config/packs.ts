@@ -5,6 +5,44 @@ import { getFontPack } from './fonts'
 import { getFormPack } from './forms'
 
 const packs: ThemePack[] = [
+  // Default: matches the current Clarkson/pink site design
+  {
+    pack: 'custom',
+    name: 'clarkson_pink',
+    color: {
+      packs: ['custom'],
+      palette: ['#FFFFFF', '#e8b4b3', '#c48988', '#8b5e5d', '#000000'],
+      background: 2,
+      headings: 0,
+      buttons: [0, 2],
+      buttonsNoFill: [0, 2],
+      form: [0, 4, 0, 4],
+    },
+    fonts: {
+      packs: ['custom'],
+      headingFont: {
+        name: 'Clarkson',
+        style: { fontFamily: "'Clarkson', Helvetica, sans-serif", fontWeight: 500, fontStyle: 'normal' },
+        className: 'clarkson',
+      },
+      paragraphFont: {
+        name: 'Clarkson',
+        style: { fontFamily: "'Clarkson', Helvetica, sans-serif", fontWeight: 400, fontStyle: 'normal' },
+        className: 'clarkson',
+      },
+    },
+    buttons: {
+      packs: ['custom'],
+      primary: { fill: false, shape: 'pill', borderRadius: ['1em', '1em', '1em', '1em'], padding: { x: '1.5em', y: '1em' }, outline: '1px' },
+      secondary: { fill: false, shape: 'pill', borderRadius: ['1em', '1em', '1em', '1em'], padding: { x: '1.5em', y: '1em' }, outline: '1px' },
+      tertiary: { fill: false, shape: 'underline', borderRadius: ['0em', '0em', '0em', '0em'], padding: { x: '1.5em', y: '1em' }, outline: '1px' },
+    },
+    form: {
+      packs: ['custom'],
+      input: { fill: false, shape: 'underline', outline: '1px', borderRadius: ['0em', '0em', '0em', '0em'] },
+      option: { button: false, fill: false, shape: 'circle', outline: '1px', borderRadius: ['1em', '1em', '1em', '1em'] },
+    },
+  },
   {
     pack: 'vibrant',
     name: 'vibrant_04',
