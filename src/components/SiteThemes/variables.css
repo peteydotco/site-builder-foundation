@@ -1,0 +1,37 @@
+/* ── Bridge: Adam's CSS variables → Rosetta tokens ─────────────────────── */
+/* Applied to the SiteThemes panel scope so they don't leak globally */
+
+:root {
+  /* Colors */
+  --c-bg: var(--rosetta-bg-base);
+  --c-bg-muted: var(--rosetta-bg-default);
+  --c-bg-active: var(--rosetta-bg-inset);
+  --c-text: var(--rosetta-fg-default);
+  --c-text-secondary: var(--rosetta-fg-muted);
+  --c-text-tertiary: var(--rosetta-fg-disabled);
+  --c-border: var(--rosetta-bg-default);
+  --c-border-strong: var(--rosetta-fg-default);
+  --c-divider: rgba(0, 0, 0, 0.06);
+  --c-shadow: rgba(0, 0, 0, 0.08);
+  --c-shadow-subtle: rgba(0, 0, 0, 0.04);
+  --c-shadow-highlight: rgba(0, 0, 0, 0.04);
+  --c-scrollbar: var(--rosetta-bg-muted);
+
+  /* Sizing */
+  --s-header-height: 48px;
+  --s-sidebar-width: 320px;
+  --s-dialog-width: 320px;
+  --s-font-sm: 12px;
+  --s-font-base: 14px;
+  --s-scrollbar: thin;
+  --space-3: 12px;
+  --space-6: 24px;
+  --editor-inset: 16px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Card animation */
+  --card-background-color-transition-duration: 0.25s;
+}

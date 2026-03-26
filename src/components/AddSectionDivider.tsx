@@ -144,6 +144,24 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     >
       <GooeyFilter id={filterId} />
 
+      {/* Glowing line — activates when prompt is open */}
+      <div
+        className={expanded ? 'section-glow-line' : undefined}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: -1,
+          height: 2,
+          background: expanded
+            ? 'linear-gradient(90deg, transparent, #3D3041 20%, #4A8F9F 50%, #7D7194 80%, transparent)'
+            : 'transparent',
+          opacity: expanded ? 1 : 0,
+          transition: 'opacity 0.4s ease',
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Hit area */}
       <div style={{
         position: 'absolute',

@@ -2,6 +2,7 @@
 import './styles/rosetta-tokens.css'
 import './styles/animations.css'
 import './styles/fonts.css'
+import './components/SiteThemes/variables.css'
 import './components/SiteThemes/animations.css'
 
 // ── Components ───────────────────────────────────────────────────────────────

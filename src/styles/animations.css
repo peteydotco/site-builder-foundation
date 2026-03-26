@@ -164,3 +164,42 @@
 .section-divider-enter {
   animation: sectionDividerEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ── Section divider — glowing line when AI prompt is open ─────────────────── */
+@keyframes sectionGlowPulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+.section-glow-line {
+  animation: sectionGlowPulse 3s ease-in-out infinite;
+}
+.section-glow-line::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #3D3041 15%,
+    #4A8F9F 40%,
+    #7D7194 60%,
+    #5C4763 85%,
+    transparent 100%
+  );
+  filter: blur(6px);
+}
+.section-glow-line::after {
+  content: '';
+  position: absolute;
+  inset: -8px -20px;
+  border-radius: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(61, 48, 65, 0.4) 15%,
+    rgba(74, 143, 159, 0.5) 40%,
+    rgba(125, 113, 148, 0.4) 60%,
+    rgba(92, 71, 99, 0.3) 85%,
+    transparent 100%
+  );
+  filter: blur(16px);
+}
