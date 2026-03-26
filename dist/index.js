@@ -4501,7 +4501,7 @@ function ts() {
   }, [e, t, n]);
   return /* @__PURE__ */ o("div", { className: Zt.container, children: /* @__PURE__ */ o(oe, { directionIn: "left", directionOut: "left", children: r }) });
 }
-const ns = N(ts), rs = "_container_52vmo_3", os = "_open_52vmo_14", as = "_header_52vmo_18", is = "_bar_52vmo_25", ss = "_body_52vmo_31", ls = "_panels_52vmo_39", Se = {
+const ns = N(ts), rs = "_container_1sxz2_3", os = "_open_1sxz2_14", as = "_header_1sxz2_18", is = "_bar_1sxz2_30", ss = "_body_1sxz2_37", ls = "_panels_1sxz2_47", Se = {
   container: rs,
   open: os,
   header: as,
