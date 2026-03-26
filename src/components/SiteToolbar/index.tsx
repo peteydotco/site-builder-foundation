@@ -180,7 +180,7 @@ export default function SiteToolbar({
         </div>
 
         <IconBtn onClick={onStyles} title="Site Styles" active={isSiteStylesOpen}>
-          <PaintbrushIcon style={{ width: 18, height: 18 }} />
+          <PlayIcon style={{ width: 20, height: 20 }} />
         </IconBtn>
       </div>
     </header>
