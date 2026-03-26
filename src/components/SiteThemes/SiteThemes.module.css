@@ -1,0 +1,48 @@
+/* ── SiteThemes panel container ─────────────────────────────────────────── */
+
+.container {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  bottom: 0;
+  display: flex;
+  width: 320px;
+  flex-direction: column;
+  border-left: solid 1px var(--c-border);
+  background: var(--c-bg);
+  transition: right 0.5s var(--ease-in-out);
+}
+
+.container.open {
+  right: 0;
+}
+
+.header {
+  height: var(--s-header-height, 48px);
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0 var(--space-3, 12px);
+}
+
+.bar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.body {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 1;
+  mask-image: linear-gradient(to right, transparent, black calc(var(--space-6, 24px) * 0.5));
+}
+
+.panels {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(calc(-100% * var(--depth)), 0);
+  transition: transform 0.55s var(--ease-in-out);
+}

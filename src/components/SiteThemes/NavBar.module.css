@@ -1,0 +1,39 @@
+/* ── NavBar ─────────────────────────────────────────────────────────────── */
+
+.container {
+  position: relative;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  color: var(--c-text-secondary, #888);
+  cursor: pointer;
+  font-size: var(--s-font-sm, 12px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.backButton:hover {
+  color: var(--c-text);
+}
+
+.backButton svg {
+  width: 6px;
+  height: 10px;
+  transform: rotate(180deg);
+}
+
+.title {
+  color: var(--c-text);
+  font-size: var(--s-font-sm, 12px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  line-height: 22px;
+  text-transform: uppercase;
+}

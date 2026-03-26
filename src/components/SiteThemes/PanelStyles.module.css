@@ -1,0 +1,39 @@
+/* ── PanelStyles ────────────────────────────────────────────────────────── */
+
+.disclosures {
+  /* Wrapper for disclosure items at the bottom of the panel */
+}
+
+/* Animation classes (inline keyframes for the panel scope) */
+
+@keyframes panel-fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-fadeoutdown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+.fadeup {
+  animation: panel-fadeup 0.4s var(--animation-delay, 0.1s) var(--ease-out) forwards;
+  opacity: 0;
+}
+
+.fadeoutdown {
+  animation: panel-fadeoutdown 0.2s calc(var(--animation-delay, 0.1s) * 0.5) var(--ease-out) forwards;
+  opacity: 1;
+}
