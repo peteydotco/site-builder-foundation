@@ -18,8 +18,10 @@ interface SiteToolbarProps {
     onRun?: (e: React.MouseEvent) => void;
     onStyles?: () => void;
     isSiteStylesOpen?: boolean;
+    apiKey?: string;
+    onApiKeySave?: (key: string) => void;
     /** When provided, shows the component dropdown overlay (docked mode) */
     componentName?: string;
 }
-export default function SiteToolbar({ onSave, onExit, onUndo, onRedo, activeBreakpoint, onBreakpointChange, onRun, onStyles, isSiteStylesOpen, componentName, }: SiteToolbarProps): import("react/jsx-runtime").JSX.Element;
+export default function SiteToolbar({ onSave, onExit, onUndo, onRedo, activeBreakpoint, onBreakpointChange, onRun, onStyles, isSiteStylesOpen, apiKey, onApiKeySave, componentName, }: SiteToolbarProps): import("react/jsx-runtime").JSX.Element;
 export {};
