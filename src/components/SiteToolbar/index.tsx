@@ -20,8 +20,21 @@ interface SiteToolbarProps {
   activeBreakpoint?: 'desktop' | 'mobile'
   onBreakpointChange?: (bp: 'desktop' | 'mobile') => void
   onRun?: (e: React.MouseEvent) => void
+  onStyles?: () => void
+  isSiteStylesOpen?: boolean
   /** When provided, shows the component dropdown overlay (docked mode) */
   componentName?: string
+}
+
+function PaintbrushIcon({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg style={style} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 19l7-7 3 3-7 7-3-3z" />
+      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="M2 2l7.586 7.586" />
+      <circle cx="11" cy="11" r="2" />
+    </svg>
+  )
 }
 
 export default function SiteToolbar({
@@ -32,6 +45,8 @@ export default function SiteToolbar({
   activeBreakpoint = 'desktop',
   onBreakpointChange,
   onRun,
+  onStyles,
+  isSiteStylesOpen,
   componentName,
 }: SiteToolbarProps) {
   return (
@@ -164,8 +179,8 @@ export default function SiteToolbar({
           ))}
         </div>
 
-        <IconBtn onClick={onRun} title="Preview" disabled={!!componentName}>
-          <PlayIcon style={{ width: 20, height: 20, opacity: componentName ? 0.28 : 1, transition: 'opacity 0.3s ease' }} />
+        <IconBtn onClick={onStyles} title="Site Styles" active={isSiteStylesOpen}>
+          <PaintbrushIcon style={{ width: 18, height: 18 }} />
         </IconBtn>
       </div>
     </header>
@@ -177,11 +192,13 @@ function IconBtn({
   onClick,
   title,
   disabled,
+  active,
 }: {
   children: React.ReactNode
   onClick?: (e: React.MouseEvent) => void
   title?: string
   disabled?: boolean
+  active?: boolean
 }) {
   const { ref, hovered, showTooltip, onMouseEnter, onMouseLeave } = useTooltip()
   return (
@@ -195,7 +212,8 @@ function IconBtn({
         position: 'relative',
         width: 36,
         height: 36,
-        background: 'var(--rosetta-bg-base)',
+        background: active ? 'var(--rosetta-bg-strong)' : 'var(--rosetta-bg-base)',
+        color: active ? 'var(--rosetta-fg-onStrong)' : undefined,
         border: 'none',
         borderRadius: 4,
         cursor: disabled ? 'default' : 'pointer',
@@ -204,9 +222,10 @@ function IconBtn({
         justifyContent: 'center',
         flexShrink: 0,
         pointerEvents: disabled ? 'none' : undefined,
+        transition: 'background 0.2s ease, color 0.2s ease',
       }}
     >
-      {hovered && !disabled && (
+      {hovered && !disabled && !active && (
         <div style={{
           position: 'absolute',
           inset: 0,

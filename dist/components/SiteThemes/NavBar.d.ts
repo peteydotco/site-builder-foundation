@@ -1,0 +1,3 @@
+declare function NavBar(): import("react/jsx-runtime").JSX.Element;
+declare const _default: import("react").MemoExoticComponent<typeof NavBar>;
+export default _default;
