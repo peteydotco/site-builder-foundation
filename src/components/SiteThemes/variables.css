@@ -4,7 +4,7 @@
 :root {
   /* Colors */
   --c-bg: var(--rosetta-bg-base);
-  --c-bg-muted: var(--rosetta-bg-default);
+  --c-bg-muted: var(--rosetta-bg-muted);
   --c-bg-active: var(--rosetta-bg-inset);
   --c-text: var(--rosetta-fg-default);
   --c-text-secondary: var(--rosetta-fg-muted);
