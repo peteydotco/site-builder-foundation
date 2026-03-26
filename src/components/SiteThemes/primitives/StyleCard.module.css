@@ -46,11 +46,11 @@
 .label {
   position: relative;
   color: var(--c-text-tertiary);
-  font-size: 10px;
+  font-family: Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.75px;
-  line-height: 16px;
-  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  line-height: 18px;
 }
 
 .content {
