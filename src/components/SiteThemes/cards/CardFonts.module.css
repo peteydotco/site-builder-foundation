@@ -1,0 +1,71 @@
+/* ── CardFonts ────────────────────────────────────────────────────────────── */
+
+.container {
+  --duration: 0.2s;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --shrink-opacity: 0.3;
+  --shrink-scale: 0.8;
+  --heading-top: calc(50% - 0.8em);
+  --paragraph-top: calc(50% + 0.8em);
+
+  position: absolute;
+  color: var(--color);
+  inset: 0;
+}
+
+.container.hoverHeading .heading {
+  top: 50%;
+  transform: scale(max(1, min(var(--max-scale), 1.1))) translate(0, calc(-52% + 1.5px));
+}
+
+.container.hoverHeading .paragraph {
+  opacity: var(--shrink-opacity);
+  transform: translate(0, 90%) scale(var(--shrink-scale));
+}
+
+.container.hoverParagraph .heading {
+  opacity: var(--shrink-opacity);
+  transform: translate(0, -35%) scale(var(--shrink-scale));
+}
+
+.container.hoverParagraph .paragraph {
+  top: 50%;
+  transform: scale(max(1, min(var(--max-scale), 1.1))) translate(0, calc(-52% + 1.5px));
+}
+
+.swap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heading,
+.paragraph {
+  position: absolute;
+  width: 100%;
+  height: 1em;
+  line-height: 1;
+  transform-origin: 0% 0%;
+  transition: max-width var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out),
+    top var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.heading {
+  top: var(--heading-top);
+  max-width: 135px;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.paragraph {
+  top: var(--paragraph-top);
+  max-width: 170px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.text {
+  /* Shared class applied alongside font className */
+}

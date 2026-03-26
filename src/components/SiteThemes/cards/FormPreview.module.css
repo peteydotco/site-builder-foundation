@@ -1,0 +1,164 @@
+/* ── FormPreview ──────────────────────────────────────────────────────────── */
+
+.container {
+  --local-input-border-radius: var(--input-border-radius);
+  --local-input-background-color: transparent;
+  --local-input-background-color-hover: transparent;
+  --local-option-border-radius: var(--option-border-radius);
+  --local-option-background-color: transparent;
+  --local-option-background-color-hover: transparent;
+  --local-font-size: 11px;
+  --local-height: 30px;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 5px;
+}
+
+.container.sizeSmall {
+  --local-font-size: 9.5px;
+  --local-height: 26px;
+}
+
+/* ── Input fill states ───────────────────────────────────────────────────── */
+
+.container:not(.inputFill) .input {
+  --local-input-background-color-hover: hsla(var(--color-secondary-hsl), 0.2);
+}
+
+.container.inputFill .input {
+  --local-input-background-color: hsl(var(--color-primary-hsl));
+  --local-input-background-color-hover: hsla(var(--color-primary-hsl), 0.5);
+  box-shadow: 2px 2px 24px 0 var(--c-shadow-highlight, rgba(0, 0, 0, 0.04)),
+    0 0 1px 0 var(--c-shadow-subtle, rgba(0, 0, 0, 0.08));
+}
+
+/* ── Option fill states ──────────────────────────────────────────────────── */
+
+.container:not(.optionFill) .option {
+  --local-option-background-color-hover: hsla(var(--color-secondary-hsl), 0.5);
+}
+
+.container.optionFill .option {
+  --local-option-background-color: hsl(var(--color-primary-hsl));
+  --local-option-background-color-hover: hsla(var(--color-primary-hsl), 0.5);
+}
+
+/* ── Input shape variants ────────────────────────────────────────────────── */
+
+.container.inputShapePill {
+  --local-input-border-radius: 14px;
+}
+
+.container.inputShapeSquare {
+  --local-input-border-radius: 0px;
+}
+
+.container.inputShapeUnderline .input {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+}
+
+/* ── Option shape variants ───────────────────────────────────────────────── */
+
+.container.optionShapePill {
+  --local-option-border-radius: 15px;
+}
+
+.container.optionShapeSquare {
+  --local-option-border-radius: 0px;
+}
+
+.container.optionShapeCircle {
+  --local-option-border-radius: 50%;
+}
+
+/* ── Option button / inverted states ─────────────────────────────────────── */
+
+.container.optionButton .option,
+.container:not(.optionButton).optionInvert .option {
+  --local-option-color: hsl(var(--color-primary-hsl));
+  --local-option-background-color: hsl(var(--color-secondary-hsl));
+  --local-option-background-color-hover: hsla(var(--color-secondary-hsl), 0.55);
+}
+
+.container.optionButton.hoverInput .input,
+.container:not(.optionButton).optionInvert.hoverInput .input {
+  --local-input-background-color: var(--local-input-background-color-hover);
+}
+
+.container.optionButton.hoverOption .option,
+.container:not(.optionButton).optionInvert.hoverOption .option {
+  --local-option-background-color: var(--local-option-background-color-hover);
+}
+
+/* ── Hover states ────────────────────────────────────────────────────────── */
+
+.container.hoverInput .input {
+  --local-input-background-color: var(--local-input-background-color-hover);
+}
+
+.container.hoverOption .option {
+  --local-option-background-color: var(--local-option-background-color-hover);
+}
+
+/* ── Input / Option shared ───────────────────────────────────────────────── */
+
+.input,
+.option {
+  display: flex;
+  height: var(--local-height);
+  align-items: center;
+  align-self: stretch;
+  font-size: var(--local-font-size);
+  transition: background-color 0.25s var(--ease-out),
+    border-radius 0.25s var(--ease-out),
+    color 0.25s var(--ease-out);
+}
+
+.input {
+  --local-input-color: hsl(var(--color-secondary-hsl));
+
+  position: relative;
+  z-index: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 1em;
+  border: solid var(--input-border-width) hsla(var(--color-secondary-hsl));
+  border-radius: var(--local-input-border-radius);
+  background: var(--local-input-background-color);
+  color: var(--local-input-color);
+}
+
+.option {
+  --local-option-color: hsl(var(--color-secondary-hsl));
+
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: solid var(--option-border-width) hsla(var(--color-secondary-hsl));
+  border-radius: var(--local-option-border-radius);
+  background: var(--local-option-background-color);
+  box-shadow: 2px 2px 24px 0 var(--c-shadow-highlight, rgba(0, 0, 0, 0.04)),
+    0 0 1px 0 var(--c-shadow-subtle, rgba(0, 0, 0, 0.08));
+  color: var(--local-option-color);
+}
+
+.option.label {
+  padding: 0 0.5em;
+}
+
+.option:not(.label) {
+  aspect-ratio: 1;
+}
+
+.option svg {
+  width: 1em;
+  height: auto;
+  fill: currentcolor;
+}

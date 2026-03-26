@@ -1,0 +1,94 @@
+/* ── ButtonPreview ────────────────────────────────────────────────────────── */
+
+.container {
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 2.8em;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border: solid var(--border-width) hsla(var(--color-secondary-hsl));
+  border-radius: var(--border-radius);
+  color: hsl(var(--color-secondary-hsl));
+  font-size: 1.2em;
+  text-align: center;
+  transition: background-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    border-radius 0.25s var(--ease-out),
+    padding 0.25s var(--ease-out);
+}
+
+.container.shapePill {
+  border-radius: 2em;
+}
+
+.container.shapeOval {
+  border-radius: 50%;
+}
+
+.container.shapeSquare {
+  border-radius: 0;
+}
+
+.container.shapeUnderline {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin: 0 auto;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.container.shapeUnderline:not(.fill) {
+  display: flex;
+  width: max-content;
+}
+
+.container .content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container.fill {
+  background: hsl(var(--color-primary-hsl));
+}
+
+.container:not(.fill) .cardBackgroundMatch {
+  position: absolute;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--card-background-color);
+  inset: 0;
+  transition: background-color var(--card-background-color-transition-duration) var(--ease-out);
+}
+
+.container.hover {
+  border-color: hsl(var(--color-primary-hsl));
+  background: hsl(var(--color-secondary-hsl));
+  color: hsl(var(--color-primary-hsl));
+}
+
+.swap {
+  width: 100%;
+}
+
+.outer {
+  width: 100%;
+}
+
+.inner {
+  width: 100%;
+  text-align: center;
+}
+
+.inner span {
+  width: 100%;
+}

@@ -1,0 +1,55 @@
+/* ── CardButtons ──────────────────────────────────────────────────────────── */
+
+.container {
+  --duration: 0.2s;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 115px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 0.9em;
+}
+
+/* ── Interactive (hovered) state ─────────────────────────────────────────── */
+
+.container.interactive .button {
+  transform: skewY(-10deg);
+}
+
+.container.interactive .button.primary {
+  transform: translate(-35%, -20%) scale(0.8) skewY(-15deg);
+}
+
+.container.interactive .button.secondary {
+  opacity: 1;
+  transform: translate(0%, 0) scale(0.8) skewY(-15deg);
+}
+
+.container.interactive .button.tertiary {
+  opacity: 1;
+  transform: translate(35%, 20%) scale(0.8) skewY(-15deg);
+}
+
+/* ── Buttons grid ────────────────────────────────────────────────────────── */
+
+.buttons {
+  display: grid;
+  width: 100%;
+  grid: minmax(0, 1fr) / minmax(0, 1fr);
+  grid-template-areas: "content";
+}
+
+.button {
+  grid-area: content;
+  transition: transform var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
+}
+
+.button.secondary,
+.button.tertiary {
+  opacity: 0;
+}
