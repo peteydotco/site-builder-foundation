@@ -301,14 +301,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         transition: 'opacity 0.4s ease',
       }} />
 
-      {/* Bottom stroke — inside top edge of lower section */}
+      {/* Bottom stroke — faint white for light direction / depth */}
       <div style={{
         position: 'absolute',
         bottom: -1,
         left: 0,
         right: 0,
         height: 1,
-        background: 'rgba(14,14,14,0.08)',
+        background: 'rgba(255,255,255,0.18)',
         pointerEvents: 'none',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',

@@ -803,7 +803,7 @@ function $n({ onClick: e }) {
     }
   );
 }
-const zn = "#4894FF", dt = 3, Ft = 11;
+const zn = "#0072f0", dt = 3, Ft = 11;
 function ws({
   sectionId: e,
   sectionLabel: t,
@@ -2059,7 +2059,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
           left: 0,
           right: 0,
           height: 1,
-          background: "rgba(14,14,14,0.08)",
+          background: "rgba(255,255,255,0.18)",
           pointerEvents: "none",
           opacity: u ? 1 : 0,
           transition: "opacity 0.4s ease"

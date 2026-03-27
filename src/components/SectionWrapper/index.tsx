@@ -3,7 +3,7 @@ import BlockPicker, { AddBlockToolbar, EditHeaderButton } from '../BlockPicker'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-const SECTION_OUTLINE_COLOR = '#4894FF'
+const SECTION_OUTLINE_COLOR = '#0072f0'
 const SECTION_OUTLINE_WIDTH = 3
 const TOOLBAR_INSET = 11 // distance from section border to toolbar
 
