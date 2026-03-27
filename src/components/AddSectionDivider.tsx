@@ -287,6 +287,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
+        overflow: 'visible',
       }}
     >
       {/* Shader removed */}
@@ -302,6 +303,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         pointerEvents: 'none',
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.15s ease',
+        zIndex: 200,
       }} />
 
       {/* Bottom stroke — faint white for light direction / depth */}

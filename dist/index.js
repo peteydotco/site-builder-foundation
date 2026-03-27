@@ -2016,7 +2016,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         height: u ? f + 175 : 0,
         zIndex: 10,
         background: u ? "#E7E7E7" : "transparent",
-        transition: "height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease"
+        transition: "height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease",
+        overflow: "visible"
       },
       children: [
         /* @__PURE__ */ o("div", { style: {
@@ -2028,7 +2029,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
           background: "linear-gradient(to right, #0072f0 0%, #0072f0 30%, #182224 50%, #0072f0 70%, #0072f0 100%)",
           pointerEvents: "none",
           opacity: v ? 1 : 0,
-          transition: "opacity 0.15s ease"
+          transition: "opacity 0.15s ease",
+          zIndex: 200
         } }),
         /* @__PURE__ */ o("div", { style: {
           position: "absolute",
