@@ -2038,7 +2038,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         children: [
           /* @__PURE__ */ o("div", { style: {
             position: "absolute",
-            top: 0,
+            top: -1,
             left: 0,
             right: 0,
             height: 1,

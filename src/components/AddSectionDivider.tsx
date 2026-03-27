@@ -312,10 +312,10 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     >
       {/* Shader removed */}
 
-      {/* Top inner stroke — bottom edge of upper section, faint white for light/depth */}
+      {/* Top inner stroke — inside upper section's bottom edge, faint white for light/depth */}
       <div style={{
         position: 'absolute',
-        top: 0,
+        top: -1,
         left: 0,
         right: 0,
         height: 1,
