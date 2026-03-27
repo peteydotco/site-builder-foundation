@@ -18,6 +18,6 @@ interface ButtonPreviewProps {
     shape?: string;
     textTransform?: string;
 }
-declare function ButtonPreview(props: ButtonPreviewProps): import("react/jsx-runtime").JSX.Element;
+declare function ButtonPreview(props: ButtonPreviewProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof ButtonPreview>;
 export default _default;

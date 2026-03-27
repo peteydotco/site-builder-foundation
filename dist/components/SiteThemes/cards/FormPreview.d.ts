@@ -10,6 +10,6 @@ interface FormPreviewProps {
     buttonPrimaryColor?: string;
     buttonSecondaryColor?: string;
 }
-declare function FormPreview(props: FormPreviewProps): import("react/jsx-runtime").JSX.Element;
+declare function FormPreview(props: FormPreviewProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof FormPreview>;
 export default _default;

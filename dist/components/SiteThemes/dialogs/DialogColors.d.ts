@@ -4,6 +4,6 @@ interface DialogColorsProps {
     undocked?: boolean;
     onClose?: () => void;
 }
-declare function DialogColors({ attachment, undocked, onClose: _onClose }: DialogColorsProps): import("react/jsx-runtime").JSX.Element;
+declare function DialogColors({ attachment, undocked, onClose: _onClose }: DialogColorsProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof DialogColors>;
 export default _default;

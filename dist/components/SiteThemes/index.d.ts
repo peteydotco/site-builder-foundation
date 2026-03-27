@@ -12,6 +12,6 @@ interface SiteThemesProps {
     className?: string;
     onClose?: () => void;
 }
-declare function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps): import("react/jsx-runtime").JSX.Element;
+declare function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof SiteThemes>;
 export default _default;

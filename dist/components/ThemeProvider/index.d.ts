@@ -16,5 +16,5 @@ interface ThemeProviderProps {
     cssString: string;
     children: React.ReactNode;
 }
-export default function ThemeProvider({ cssString, children }: ThemeProviderProps): import("react/jsx-runtime").JSX.Element;
+export default function ThemeProvider({ cssString, children }: ThemeProviderProps): React.JSX.Element;
 export {};

@@ -4,6 +4,6 @@ interface CardButtonsProps {
     color: ColorPack;
     fonts: FontPack;
 }
-declare function CardButtons(props: CardButtonsProps): import("react/jsx-runtime").JSX.Element;
+declare function CardButtons(props: CardButtonsProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof CardButtons>;
 export default _default;

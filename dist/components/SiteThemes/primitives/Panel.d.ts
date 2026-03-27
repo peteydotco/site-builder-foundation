@@ -6,6 +6,6 @@ interface PanelProps {
     depth?: number;
     isActive?: boolean;
 }
-declare function Panel({ children, title, description, depth, isActive: isPanelActive }: PanelProps): import("react/jsx-runtime").JSX.Element;
+declare function Panel({ children, title, description, depth, isActive: isPanelActive }: PanelProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof Panel>;
 export default _default;

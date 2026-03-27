@@ -4,5 +4,5 @@ interface AddSectionDividerProps {
     onPromptSubmit?: (prompt: string) => void;
     aiStatesPath?: string;
 }
-declare function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath }: AddSectionDividerProps): import("react/jsx-runtime").JSX.Element;
+declare function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath }: AddSectionDividerProps): React.JSX.Element;
 export default AddSectionDivider;

@@ -13,11 +13,11 @@ interface SectionWrapperProps {
     /** Additional inline styles for the outer wrapper */
     style?: React.CSSProperties;
 }
-export default function SectionWrapper({ sectionId, sectionLabel, children, onBlockPicked, disabled, style, }: SectionWrapperProps): import("react/jsx-runtime").JSX.Element;
+export default function SectionWrapper({ sectionId, sectionLabel, children, onBlockPicked, disabled, style, }: SectionWrapperProps): React.JSX.Element;
 interface HeaderSectionWrapperProps {
     children: React.ReactNode;
     disabled?: boolean;
     style?: React.CSSProperties;
 }
-export declare function HeaderSectionWrapper({ children, disabled, style, }: HeaderSectionWrapperProps): import("react/jsx-runtime").JSX.Element;
+export declare function HeaderSectionWrapper({ children, disabled, style, }: HeaderSectionWrapperProps): React.JSX.Element;
 export {};

@@ -5,5 +5,5 @@ interface BlockAnnotationBarProps {
     onDelete?: (e: React.MouseEvent) => void;
     isExiting?: boolean;
 }
-export default function BlockAnnotationBar({ onOpenIDE, onOpenDesignPanel, onDelete, isExiting, }: BlockAnnotationBarProps): import("react/jsx-runtime").JSX.Element;
+export default function BlockAnnotationBar({ onOpenIDE, onOpenDesignPanel, onDelete, isExiting, }: BlockAnnotationBarProps): React.JSX.Element;
 export {};

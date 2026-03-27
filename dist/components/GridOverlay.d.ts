@@ -1,2 +1,3 @@
-declare function GridOverlay(): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+declare function GridOverlay(): React.JSX.Element;
 export default GridOverlay;

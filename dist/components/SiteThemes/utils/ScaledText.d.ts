@@ -18,6 +18,6 @@ interface ScaledTextProps extends Omit<React.HTMLAttributes<HTMLElement>, 'child
  * Internally, a visually-hidden copy of the content is measured against the
  * container to compute the correct scale factor.
  */
-declare function ScaledText(props: ScaledTextProps): import("react/jsx-runtime").JSX.Element;
+declare function ScaledText(props: ScaledTextProps): React.JSX.Element;
 declare const _default: React.MemoExoticComponent<typeof ScaledText>;
 export default _default;

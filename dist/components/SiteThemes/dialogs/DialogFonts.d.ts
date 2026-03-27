@@ -4,6 +4,6 @@ interface DialogFontsProps {
     undocked?: boolean;
     onClose?: () => void;
 }
-declare function DialogFonts({ attachment, undocked, onClose: _onClose }: DialogFontsProps): import("react/jsx-runtime").JSX.Element;
+declare function DialogFonts({ attachment, undocked, onClose: _onClose }: DialogFontsProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof DialogFonts>;
 export default _default;

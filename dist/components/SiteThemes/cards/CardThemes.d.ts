@@ -4,6 +4,6 @@ interface CardThemesProps {
     fonts: FontPack;
     buttons: ButtonPack;
 }
-declare function CardThemes(props: CardThemesProps): import("react/jsx-runtime").JSX.Element;
+declare function CardThemes(props: CardThemesProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof CardThemes>;
 export default _default;

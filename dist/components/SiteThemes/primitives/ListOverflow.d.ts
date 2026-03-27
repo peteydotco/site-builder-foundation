@@ -5,6 +5,6 @@ interface ListOverflowProps<T = unknown> {
     columns?: number;
     max?: number;
 }
-declare function ListOverflow<T = unknown>({ items, getItem, columns, max, }: ListOverflowProps<T>): import("react/jsx-runtime").JSX.Element;
+declare function ListOverflow<T = unknown>({ items, getItem, columns, max, }: ListOverflowProps<T>): import("react").JSX.Element;
 declare const _default: typeof ListOverflow;
 export default _default;

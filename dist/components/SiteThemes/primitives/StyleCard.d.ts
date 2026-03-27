@@ -10,6 +10,6 @@ interface StyleCardProps {
     animateReveal?: boolean;
     isShown?: boolean;
 }
-declare function StyleCard({ active, onClick, children, disclosure, wrap, label, delayShow, animateReveal, isShown, }: StyleCardProps): import("react/jsx-runtime").JSX.Element;
+declare function StyleCard({ active, onClick, children, disclosure, wrap, label, delayShow, animateReveal, isShown, }: StyleCardProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof StyleCard>;
 export default _default;

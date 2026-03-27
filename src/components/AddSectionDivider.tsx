@@ -229,23 +229,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [expanded])
 
-  // Cursor-follow: document-level listener when lockup is visible
-  useEffect(() => {
-    if (!visible) {
-      const el = lockupRef.current
-      if (el) el.style.transform = ''
-      return
-    }
-    const onMove = (e: MouseEvent) => {
-      const el = lockupRef.current
-      if (!el) return
-      const normalized = ((e.clientX / window.innerWidth) - 0.5) * 2
-      el.style.transform = `translateX(${normalized * 3}px)`
-    }
-    document.addEventListener('mousemove', onMove)
-    return () => document.removeEventListener('mousemove', onMove)
-  }, [visible])
-
   const handleExpand = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
     setExpanded(true)
@@ -421,78 +404,80 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 </span>
               </button>
 
-              {/* AI circle */}
-              <div
-                onClick={handleExpand}
-                onMouseEnter={() => setIconHovered(true)}
-                onMouseLeave={() => setIconHovered(false)}
-                style={{
-                  width: 42,
-                  height: 42,
-                  borderRadius: 30,
-                  background: '#0E0E0E',
-                  border: '1px solid #000',
-                  boxShadow: PILL_SHADOW,
-                  flexShrink: 0,
-                  position: 'relative',
-                  cursor: 'pointer',
-                  overflow: 'hidden',
-                  transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
-                  transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  width: 49,
-                  height: 49,
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  pointerEvents: 'none',
-                }}>
-                  <BeaconBgIcon />
-                </div>
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mixBlendMode: 'difference',
-                }}>
-                  <div style={{
-                    width: 27,
-                    height: 27,
-                    borderRadius: 34,
-                    overflow: 'hidden',
-                    transform: 'rotate(45deg)',
+              {/* AI circle — only shown when onPromptSubmit is provided */}
+              {onPromptSubmit && (
+                <div
+                  onClick={handleExpand}
+                  onMouseEnter={() => setIconHovered(true)}
+                  onMouseLeave={() => setIconHovered(false)}
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 30,
+                    background: '#0E0E0E',
+                    border: '1px solid #000',
+                    boxShadow: PILL_SHADOW,
+                    flexShrink: 0,
                     position: 'relative',
+                    cursor: 'pointer',
+                    overflow: 'hidden',
+                    transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
+                    transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                  }}
+                >
+                  <div style={{
+                    position: 'absolute',
+                    width: 49,
+                    height: 49,
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    pointerEvents: 'none',
                   }}>
-                    <video
-                      key={iconHovered ? 'error' : 'awake'}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      src={`${aiStatesPath}/${iconHovered ? 'big_error' : 'big_awake'}.mp4`}
-                      style={{
+                    <BeaconBgIcon />
+                  </div>
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mixBlendMode: 'difference',
+                  }}>
+                    <div style={{
+                      width: 27,
+                      height: 27,
+                      borderRadius: 34,
+                      overflow: 'hidden',
+                      transform: 'rotate(45deg)',
+                      position: 'relative',
+                    }}>
+                      <video
+                        key={iconHovered ? 'error' : 'awake'}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        src={`${aiStatesPath}/${iconHovered ? 'big_error' : 'big_awake'}.mp4`}
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
+                      <div style={{
                         position: 'absolute',
                         inset: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: '#fff',
-                      mixBlendMode: 'difference',
-                      pointerEvents: 'none',
-                    }} />
+                        background: '#fff',
+                        mixBlendMode: 'difference',
+                        pointerEvents: 'none',
+                      }} />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
 

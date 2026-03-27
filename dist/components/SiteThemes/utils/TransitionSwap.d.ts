@@ -22,6 +22,6 @@ interface TransitionSwapProps extends Omit<React.HTMLAttributes<HTMLElement>, 'c
  * When children change (by key), the old content animates out and the new
  * content animates in using configurable direction and timing.
  */
-declare function TransitionSwap(props: TransitionSwapProps): import("react/jsx-runtime").JSX.Element;
+declare function TransitionSwap(props: TransitionSwapProps): React.JSX.Element;
 declare const _default: React.MemoExoticComponent<typeof TransitionSwap>;
 export default _default;

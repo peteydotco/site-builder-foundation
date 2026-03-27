@@ -22,9 +22,9 @@ interface DialogBodyProps {
     padTop?: boolean;
     padBottom?: boolean;
 }
-declare function DialogPanel({ children }: DialogPanelProps): import("react/jsx-runtime").JSX.Element;
-declare function DialogHeader({ children }: DialogHeaderProps): import("react/jsx-runtime").JSX.Element;
-declare function DialogBody({ children, padding, padTop, padBottom, }: DialogBodyProps): import("react/jsx-runtime").JSX.Element;
+declare function DialogPanel({ children }: DialogPanelProps): import("react").JSX.Element;
+declare function DialogHeader({ children }: DialogHeaderProps): import("react").JSX.Element;
+declare function DialogBody({ children, padding, padTop, padBottom, }: DialogBodyProps): import("react").JSX.Element;
 declare function DialogComponent({ children, attachment, undocked, isHidden, mode, }: DialogProps): import("react").ReactPortal;
 declare const Dialog: ReturnType<typeof memo<typeof DialogComponent>> & {
     Panel: typeof DialogPanel;

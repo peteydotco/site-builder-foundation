@@ -1,3 +1,4 @@
+import React from 'react';
 export declare const FE_COLUMNS = 12;
 export declare const FE_COL_GAP = 33;
 export declare const FE_ROW_GAP = 16;
@@ -20,4 +21,4 @@ export declare function feSnapLeft(px: number, containerWidth: number): number;
  */
 export default function FluidEngineGrid({ fadeIn }: {
     fadeIn?: boolean;
-}): import("react/jsx-runtime").JSX.Element;
+}): React.JSX.Element;

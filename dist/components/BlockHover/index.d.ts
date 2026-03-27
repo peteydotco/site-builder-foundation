@@ -14,5 +14,5 @@ interface BlockHoverProps {
     onBlockDrop?: (id: string, left: number, top: number) => void;
     onDragStateChange?: (dragging: boolean) => void;
 }
-declare function BlockHover({ label, disabled, children, style, canvasWidth, sectionHeight, blockId, draggedPosition, onBlockDrop, onDragStateChange, }: BlockHoverProps): import("react/jsx-runtime").JSX.Element;
+declare function BlockHover({ label, disabled, children, style, canvasWidth, sectionHeight, blockId, draggedPosition, onBlockDrop, onDragStateChange, }: BlockHoverProps): React.JSX.Element;
 export default BlockHover;

@@ -195,31 +195,35 @@ export default function SiteToolbar({
           ))}
         </div>
 
-        <div ref={aiBtnRef} style={{ position: 'relative' }}>
-          <IconBtn onClick={() => setAiOpen(prev => !prev)} title="AI" active={aiOpen}>
-            <ClaudeIcon style={{ width: 20, height: 20 }} />
-          </IconBtn>
-          {!!apiKey && (
-            <div style={{
-              position: 'absolute',
-              top: 2,
-              right: 2,
-              width: 7,
-              height: 7,
-              borderRadius: '50%',
-              background: '#22c55e',
-              border: '2px solid var(--rosetta-bg-base)',
-              pointerEvents: 'none',
-            }} />
-          )}
-        </div>
-        <ApiKeyDropdown
-          open={aiOpen}
-          anchorRef={aiBtnRef}
-          apiKey={apiKey}
-          onSave={(key) => { onApiKeySave?.(key); setAiOpen(false) }}
-          onClose={() => setAiOpen(false)}
-        />
+        {onApiKeySave && (
+          <>
+            <div ref={aiBtnRef} style={{ position: 'relative' }}>
+              <IconBtn onClick={() => setAiOpen(prev => !prev)} title="AI" active={aiOpen}>
+                <ClaudeIcon style={{ width: 20, height: 20 }} />
+              </IconBtn>
+              {!!apiKey && (
+                <div style={{
+                  position: 'absolute',
+                  top: 2,
+                  right: 2,
+                  width: 7,
+                  height: 7,
+                  borderRadius: '50%',
+                  background: '#22c55e',
+                  border: '2px solid var(--rosetta-bg-base)',
+                  pointerEvents: 'none',
+                }} />
+              )}
+            </div>
+            <ApiKeyDropdown
+              open={aiOpen}
+              anchorRef={aiBtnRef}
+              apiKey={apiKey}
+              onSave={(key) => { onApiKeySave?.(key); setAiOpen(false) }}
+              onClose={() => setAiOpen(false)}
+            />
+          </>
+        )}
 
         <IconBtn onClick={onStyles} title="Site Styles" active={isSiteStylesOpen}>
           <PlayIcon style={{ width: 20, height: 20 }} />

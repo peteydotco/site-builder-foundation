@@ -4,6 +4,6 @@ interface DialogThemesProps {
     undocked?: boolean;
     onClose?: () => void;
 }
-declare function DialogThemes({ attachment, undocked, onClose: _onClose }: DialogThemesProps): import("react/jsx-runtime").JSX.Element;
+declare function DialogThemes({ attachment, undocked, onClose: _onClose }: DialogThemesProps): import("react").JSX.Element;
 declare const _default: import("react").MemoExoticComponent<typeof DialogThemes>;
 export default _default;

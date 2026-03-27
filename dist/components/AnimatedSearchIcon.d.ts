@@ -1,3 +1,4 @@
+import React from 'react';
 /**
  * Animated menu-search icon based on RiMenuSearchLine.
  *
@@ -10,4 +11,4 @@ export default function AnimatedSearchIcon({ expanded, size, color, }: {
     expanded?: boolean;
     size?: number;
     color?: string;
-}): import("react/jsx-runtime").JSX.Element;
+}): React.JSX.Element;
