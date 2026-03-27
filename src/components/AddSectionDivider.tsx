@@ -287,7 +287,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
-        overflow: 'visible',
       }}
     >
       {/* Shader removed */}
@@ -295,15 +294,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       {/* Top gradient line — blue edges, dark shadow behind lockup */}
       <div style={{
         position: 'absolute',
-        top: -2,
+        top: 0,
         left: 0,
         right: 0,
         height: 3,
         background: 'linear-gradient(to right, #0072f0 0%, #0072f0 30%, #182224 50%, #0072f0 70%, #0072f0 100%)',
         pointerEvents: 'none',
-        opacity: visible ? 1 : 0,
-        transition: 'opacity 0.15s ease',
-        zIndex: 200,
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
       }} />
 
       {/* Bottom stroke — faint white for light direction / depth */}
