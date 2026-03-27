@@ -183,7 +183,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [expanded])
 
-  // Scroll parent by half the gap, synced to the same easing as the height transition
+  // Scroll parent by half the gap so the split expands from center
+  const lastScrollAdjust = useRef(0)
   useEffect(() => {
     if (!dividerRef.current) return
     const el = dividerRef.current
@@ -194,19 +195,20 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       scrollParent = scrollParent.parentElement
     }
     if (!scrollParent) return
-    const distance = expanded ? 110 : -110
+    const totalHeight = expanded ? (composerHeight + 175) : 0
+    const targetAdjust = totalHeight / 2
+    const distance = targetAdjust - lastScrollAdjust.current
+    lastScrollAdjust.current = targetAdjust
     const duration = 400
     const start = scrollParent.scrollTop
-    // Start on the same frame as the CSS transition (no rAF delay)
     const startTime = performance.now()
     function step(now: number) {
       const elapsed = Math.min((now - startTime) / duration, 1)
       scrollParent!.scrollTop = start + distance * SPLIT_EASE(elapsed)
       if (elapsed < 1) requestAnimationFrame(step)
     }
-    // Kick off immediately — first rAF fires on the same frame as the CSS transition
     requestAnimationFrame(step)
-  }, [expanded])
+  }, [expanded, composerHeight])
 
   useEffect(() => {
     if (!expanded) return
