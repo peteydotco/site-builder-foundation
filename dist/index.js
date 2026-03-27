@@ -2316,7 +2316,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         placeholder: "Make it real",
                         rows: 1,
                         style: {
-                          flex: 1,
+                          flex: h > 54 ? void 0 : 1,
+                          width: h > 54 ? "100%" : void 0,
                           border: "none",
                           background: "transparent",
                           outline: "none",
@@ -2326,10 +2327,10 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           fontSize: 15,
                           lineHeight: "20px",
                           color: "#0E0E0E",
-                          overflow: "hidden",
+                          overflow: "visible",
                           padding: h > 54 ? "0 0 8px" : 0,
                           margin: 0,
-                          display: "block"
+                          boxSizing: "border-box"
                         }
                       }
                     ),

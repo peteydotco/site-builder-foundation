@@ -590,14 +590,15 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   placeholder="Make it real"
                   rows={1}
                   style={{
-                    flex: 1,
+                    flex: composerHeight > 54 ? undefined : 1,
+                    width: composerHeight > 54 ? '100%' : undefined,
                     border: 'none', background: 'transparent', outline: 'none', resize: 'none',
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                     fontWeight: 400, fontSize: 15, lineHeight: '20px', color: '#0E0E0E',
-                    overflow: 'hidden',
+                    overflow: 'visible',
                     padding: composerHeight > 54 ? '0 0 8px' : 0,
                     margin: 0,
-                    display: 'block',
+                    boxSizing: 'border-box',
                   }}
                 />
 
