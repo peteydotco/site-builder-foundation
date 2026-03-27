@@ -2015,7 +2015,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
       const M = d.current;
       if (!M) return;
       const O = (k.clientX / window.innerWidth - 0.5) * 2;
-      M.style.transform = `translateX(${O * 3}px)`;
+      M.style.transform = `translateX(${O * (t ? 6 : 3)}px)`;
     };
     return document.addEventListener("mousemove", v), () => document.removeEventListener("mousemove", v);
   }, [L]);

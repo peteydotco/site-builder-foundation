@@ -240,7 +240,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       const el = lockupRef.current
       if (!el) return
       const normalized = ((e.clientX / window.innerWidth) - 0.5) * 2
-      el.style.transform = `translateX(${normalized * 3}px)`
+      el.style.transform = `translateX(${normalized * (onPromptSubmit ? 6 : 3)}px)`
     }
     document.addEventListener('mousemove', onMove)
     return () => document.removeEventListener('mousemove', onMove)
