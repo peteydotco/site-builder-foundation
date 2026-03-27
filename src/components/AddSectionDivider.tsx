@@ -216,13 +216,17 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     function handleMouseDown(e: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setExpanded(false)
+        setHovered(false)
         setPromptValue('')
+        setComposerHeight(54)
       }
     }
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         setExpanded(false)
+        setHovered(false)
         setPromptValue('')
+        setComposerHeight(54)
       }
     }
     document.addEventListener('mousedown', handleMouseDown)
