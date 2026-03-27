@@ -169,7 +169,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
   const [promptValue, setPromptValue] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [composerHeight, setComposerHeight] = useState(45)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const dividerRef = useRef<HTMLDivElement>(null)
 
@@ -260,16 +261,18 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
     setExpanded(false)
     setPromptValue('')
+    setComposerHeight(45)
   }, [onClick, onPromptSubmit, promptValue])
 
   const handleInputKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && promptValue.trim()) {
+    if (e.key === 'Enter' && !e.shiftKey && promptValue.trim()) {
       e.preventDefault()
       if (onPromptSubmit) {
         onPromptSubmit(promptValue)
       }
       setExpanded(false)
       setPromptValue('')
+      setComposerHeight(45)
     }
   }, [onPromptSubmit, promptValue])
 
@@ -280,7 +283,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       ref={dividerRef}
       style={{
         position: 'relative',
-        height: expanded ? 220 : 0,
+        height: expanded ? (composerHeight + 175) : 0,
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
@@ -502,13 +505,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           {expanded && (
             <div style={{
               width: 495,
-              height: 45,
-              borderRadius: 33,
+              minHeight: 45,
+              borderRadius: composerHeight > 45 ? 22 : 33,
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
               overflow: 'hidden',
               animation: 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
+              transition: 'border-radius 0.25s ease',
             }}>
               <style>{`
                 @keyframes promptUnfurl {
@@ -519,68 +523,80 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               `}</style>
               <div style={{
                 display: 'flex',
-                alignItems: 'center',
-                gap: 6,
-                padding: '6px 6px 6px 11px',
-                height: '100%',
+                flexDirection: composerHeight > 45 ? 'column' : 'row',
+                alignItems: composerHeight > 45 ? 'stretch' : 'center',
+                gap: composerHeight > 45 ? 0 : 6,
+                padding: composerHeight > 45 ? '12px 14px 6px' : '6px 6px 6px 11px',
+                transition: 'padding 0.2s ease',
               }}>
-                <button
-                  onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
-                  style={{
-                    width: 33, height: 33, borderRadius: '50%', border: 'none',
-                    background: 'transparent',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                  }}
-                >
-                  <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
-                </button>
-
-                <input
+                {/* Text area — top region when multiline */}
+                <textarea
                   ref={inputRef}
-                  type="text"
                   value={promptValue}
-                  onChange={(e) => setPromptValue(e.target.value)}
+                  onChange={(e) => {
+                    setPromptValue(e.target.value)
+                    // Auto-grow
+                    const el = e.target
+                    el.style.height = 'auto'
+                    const scrollH = el.scrollHeight
+                    el.style.height = scrollH + 'px'
+                    setComposerHeight(Math.max(45, scrollH + (scrollH > 18 ? 52 : 12)))
+                  }}
                   onKeyDown={handleInputKeyDown}
                   placeholder="Make it real"
+                  rows={1}
                   style={{
-                    flex: 1, border: 'none', background: 'transparent', outline: 'none',
+                    flex: composerHeight > 45 ? undefined : 1,
+                    border: 'none', background: 'transparent', outline: 'none', resize: 'none',
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                     fontWeight: 400, fontSize: 13, lineHeight: '18px', color: '#0E0E0E', minWidth: 0,
+                    height: composerHeight > 45 ? undefined : 33,
+                    overflow: 'hidden',
+                    padding: composerHeight > 45 ? '0 0 8px' : '0',
                   }}
                 />
 
-                <button
-                  onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
-                  style={{
-                    width: 33, height: 33, borderRadius: '50%', border: 'none',
-                    background: 'transparent',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                  }}
-                >
-                  <div style={{ width: 9, height: 16 }}><FlashGlyphIcon /></div>
-                </button>
+                {/* Action buttons row — bottom when multiline */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  ...(composerHeight > 45 ? { justifyContent: 'space-between' } : {}),
+                }}>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                    style={{
+                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      background: 'transparent',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
+                    }}
+                  >
+                    <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
+                  </button>
 
-                <button
-                  onClick={handleSubmit}
-                  style={{
-                    width: 33, height: 33, borderRadius: '50%', border: 'none',
-                    background: 'transparent', padding: 0,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
-                  }}
-                >
-                  <div style={{
-                    position: 'absolute', width: 39, height: 39,
-                    left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
-                  }}>
-                    <BeaconBgIcon />
-                  </div>
-                  <div style={{ position: 'relative', zIndex: 1, mixBlendMode: 'difference', color: '#fff', width: 10, height: 13 }}>
-                    <ArrowUpGlyphIcon />
-                  </div>
-                </button>
+                  <div style={{ flex: composerHeight > 45 ? 1 : undefined }} />
+
+                  <button
+                    onClick={handleSubmit}
+                    style={{
+                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      background: 'transparent', padding: 0,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
+                    }}
+                  >
+                    <div style={{
+                      position: 'absolute', width: 39, height: 39,
+                      left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
+                    }}>
+                      <BeaconBgIcon />
+                    </div>
+                    <div style={{ position: 'relative', zIndex: 1, mixBlendMode: 'difference', color: '#fff', width: 10, height: 13 }}>
+                      <ArrowUpGlyphIcon />
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           )}
