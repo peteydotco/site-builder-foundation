@@ -296,6 +296,17 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         opacity: (visible && !expanded) ? 1 : 0,
         transition: 'opacity 0.15s ease',
       }} />
+      {/* Inner white stroke — inside upper section's bottom edge */}
+      <div style={{
+        position: 'absolute',
+        top: -2,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: 'rgba(255,255,255,0.11)',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
     </div>
 
     <div
@@ -311,19 +322,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       }}
     >
       {/* Shader removed */}
-
-      {/* Top inner stroke — inside upper section's bottom edge, faint white for light/depth */}
-      <div style={{
-        position: 'absolute',
-        top: -1,
-        left: 0,
-        right: 0,
-        height: 1,
-        background: 'rgba(255,255,255,0.11)',
-        pointerEvents: 'none',
-        opacity: expanded ? 1 : 0,
-        transition: 'opacity 0.4s ease',
-      }} />
 
       {/* Bottom stroke — faint white for light direction / depth */}
       <div style={{
@@ -531,7 +529,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
-              overflow: 'hidden',
               animation: 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
               transition: 'border-radius 0.25s ease',
             }}>

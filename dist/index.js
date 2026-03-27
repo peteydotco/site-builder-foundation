@@ -2004,22 +2004,34 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
     w.key === "Enter" && !w.shiftKey && m.trim() && (w.preventDefault(), t && t(m), p(!1), f(""), F(45));
   }, [t, m]);
   return /* @__PURE__ */ g(_e, { children: [
-    /* @__PURE__ */ o("div", { style: {
+    /* @__PURE__ */ g("div", { style: {
       position: "relative",
       height: 0,
       zIndex: 9,
       overflow: "visible",
       pointerEvents: "none"
-    }, children: /* @__PURE__ */ o("div", { style: {
-      position: "absolute",
-      top: -1,
-      left: 0,
-      right: 0,
-      height: 3,
-      background: "linear-gradient(to right, #0072f0 0%, #0072f0 40%, #182224 50%, #0072f0 60%, #0072f0 100%)",
-      opacity: v && !u ? 1 : 0,
-      transition: "opacity 0.15s ease"
-    } }) }),
+    }, children: [
+      /* @__PURE__ */ o("div", { style: {
+        position: "absolute",
+        top: -1,
+        left: 0,
+        right: 0,
+        height: 3,
+        background: "linear-gradient(to right, #0072f0 0%, #0072f0 40%, #182224 50%, #0072f0 60%, #0072f0 100%)",
+        opacity: v && !u ? 1 : 0,
+        transition: "opacity 0.15s ease"
+      } }),
+      /* @__PURE__ */ o("div", { style: {
+        position: "absolute",
+        top: -2,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: "rgba(255,255,255,0.11)",
+        opacity: u ? 1 : 0,
+        transition: "opacity 0.4s ease"
+      } })
+    ] }),
     /* @__PURE__ */ g(
       "div",
       {
@@ -2036,17 +2048,6 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
           transition: "height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease"
         },
         children: [
-          /* @__PURE__ */ o("div", { style: {
-            position: "absolute",
-            top: -1,
-            left: 0,
-            right: 0,
-            height: 1,
-            background: "rgba(255,255,255,0.11)",
-            pointerEvents: "none",
-            opacity: u ? 1 : 0,
-            transition: "opacity 0.4s ease"
-          } }),
           /* @__PURE__ */ o("div", { style: {
             position: "absolute",
             bottom: -1,
@@ -2245,7 +2246,6 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   background: "#FAFAFA",
                   border: "1px solid rgba(0,0,0,0.11)",
                   boxShadow: "0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)",
-                  overflow: "hidden",
                   animation: "promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards",
                   transition: "border-radius 0.25s ease"
                 }, children: [
