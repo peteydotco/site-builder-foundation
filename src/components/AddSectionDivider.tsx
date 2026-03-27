@@ -338,27 +338,27 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         transition: 'opacity 0.4s ease',
       }} />
 
-      {/* Top shadow — sections cast down onto the gray layer */}
+      {/* Top shadow — upper section casts down onto the gray layer */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
-        height: 40,
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)',
+        height: 60,
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.06) 30%, transparent 100%)',
         pointerEvents: 'none',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',
       }} />
 
-      {/* Bottom shadow — sections cast up onto the gray layer */}
+      {/* Bottom shadow — lower section casts up onto the gray layer */}
       <div style={{
         position: 'absolute',
         bottom: 0,
         left: 0,
         right: 0,
-        height: 40,
-        background: 'linear-gradient(to top, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)',
+        height: 60,
+        background: 'linear-gradient(to top, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.06) 30%, transparent 100%)',
         pointerEvents: 'none',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',

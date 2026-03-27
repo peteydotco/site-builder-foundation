@@ -2068,8 +2068,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
             top: 0,
             left: 0,
             right: 0,
-            height: 40,
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)",
+            height: 60,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.06) 30%, transparent 100%)",
             pointerEvents: "none",
             opacity: u ? 1 : 0,
             transition: "opacity 0.4s ease"
@@ -2079,8 +2079,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
             bottom: 0,
             left: 0,
             right: 0,
-            height: 40,
-            background: "linear-gradient(to top, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 30%, transparent 100%)",
+            height: 60,
+            background: "linear-gradient(to top, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.06) 30%, transparent 100%)",
             pointerEvents: "none",
             opacity: u ? 1 : 0,
             transition: "opacity 0.4s ease"
