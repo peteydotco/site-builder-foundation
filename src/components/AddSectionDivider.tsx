@@ -506,7 +506,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             <div style={{
               width: 495,
               minHeight: 45,
-              borderRadius: composerHeight > 45 ? 22 : 33,
+              borderRadius: 22,
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
@@ -523,11 +523,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               `}</style>
               <div style={{
                 display: 'flex',
-                flexDirection: composerHeight > 45 ? 'column' : 'row',
-                alignItems: composerHeight > 45 ? 'stretch' : 'center',
-                gap: composerHeight > 45 ? 0 : 6,
-                padding: composerHeight > 45 ? '12px 14px 6px' : '6px 6px 6px 11px',
-                transition: 'padding 0.2s ease',
+                flexDirection: 'column',
+                padding: '12px 14px 6px',
               }}>
                 {/* Text area — top region when multiline */}
                 <textarea
@@ -535,24 +532,24 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   value={promptValue}
                   onChange={(e) => {
                     setPromptValue(e.target.value)
-                    // Auto-grow
                     const el = e.target
-                    el.style.height = 'auto'
+                    el.style.height = '0'
                     const scrollH = el.scrollHeight
                     el.style.height = scrollH + 'px'
-                    setComposerHeight(Math.max(45, scrollH + (scrollH > 18 ? 52 : 12)))
+                    setComposerHeight(scrollH > 20 ? scrollH + 52 : 45)
                   }}
                   onKeyDown={handleInputKeyDown}
                   placeholder="Make it real"
                   rows={1}
                   style={{
-                    flex: composerHeight > 45 ? undefined : 1,
+                    width: '100%',
                     border: 'none', background: 'transparent', outline: 'none', resize: 'none',
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                    fontWeight: 400, fontSize: 13, lineHeight: '18px', color: '#0E0E0E', minWidth: 0,
-                    height: composerHeight > 45 ? undefined : 33,
+                    fontWeight: 400, fontSize: 13, lineHeight: '18px', color: '#0E0E0E',
                     overflow: 'hidden',
-                    padding: composerHeight > 45 ? '0 0 8px' : '0',
+                    padding: 0,
+                    margin: 0,
+                    display: 'block',
                   }}
                 />
 
@@ -560,8 +557,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 6,
-                  ...(composerHeight > 45 ? { justifyContent: 'space-between' } : {}),
+                  justifyContent: 'space-between',
                 }}>
                   <button
                     onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
@@ -574,8 +570,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   >
                     <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
                   </button>
-
-                  <div style={{ flex: composerHeight > 45 ? 1 : undefined }} />
 
                   <button
                     onClick={handleSubmit}
