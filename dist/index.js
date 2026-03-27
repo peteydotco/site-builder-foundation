@@ -838,11 +838,11 @@ function xs({
       if (P === "auto" || P === "scroll" || j === "auto" || j === "scroll") break;
       C = C.parentElement;
     }
-    const B = C || window, O = () => {
+    const D = C || window, B = () => {
       const P = S.getBoundingClientRect(), G = P.height * 0.1, $ = P.bottom - 16 - 40;
       $ < G ? w.style.opacity = `${Math.max(0, $ / G)}` : w.style.opacity = "1";
     };
-    return B.addEventListener("scroll", O, { passive: !0 }), O(), () => B.removeEventListener("scroll", O);
+    return D.addEventListener("scroll", B, { passive: !0 }), B(), () => D.removeEventListener("scroll", B);
   }, [M]), /* @__PURE__ */ g(
     "div",
     {
@@ -1677,8 +1677,8 @@ function tr({
     if (!l || T.button !== 0) return;
     T.preventDefault(), L.current = { x: T.clientX, y: T.clientY }, N.current = { left: e, top: t }, I.current = { x: 0, y: 0 }, v.current = { left: e, top: t };
     let S = !1;
-    const w = 4, C = (O) => {
-      const P = O.clientX - L.current.x, j = O.clientY - L.current.y;
+    const w = 4, C = (B) => {
+      const P = B.clientX - L.current.x, j = B.clientY - L.current.y;
       if (!S) {
         if (Math.abs(P) < w && Math.abs(j) < w) return;
         S = !0, d(!0), p(!1), f({ x: 0, y: 0 }), F({ left: e, top: t });
@@ -1691,14 +1691,14 @@ function tr({
       I.current = { x: P, y: G }, f({ x: P, y: G });
       const $ = N.current.left + P, U = N.current.top + G, te = Yn($, i), Me = Zn(U, i);
       v.current = { left: te, top: Me }, F({ left: te, top: Me });
-    }, B = () => {
-      if (document.removeEventListener("mousemove", C), document.removeEventListener("mouseup", B), !S) return;
-      const O = v.current;
-      c == null || c(O.left, O.top), d(!1), p(!0), f({ x: 0, y: 0 }), setTimeout(() => {
+    }, D = () => {
+      if (document.removeEventListener("mousemove", C), document.removeEventListener("mouseup", D), !S) return;
+      const B = v.current;
+      c == null || c(B.left, B.top), d(!1), p(!0), f({ x: 0, y: 0 }), setTimeout(() => {
         p(!1);
       }, 300);
     };
-    document.addEventListener("mousemove", C), document.addEventListener("mouseup", B);
+    document.addEventListener("mousemove", C), document.addEventListener("mouseup", D);
   }, [l, e, t, n, r, i, a, c]);
   return {
     isDragging: s,
@@ -1757,8 +1757,8 @@ function Ss({
   A(() => {
     v !== f.current && (f.current = v, d == null || d(v));
   }, [v, d]);
-  const C = (u || v) && !t, B = C && !v, O = c ? { ...r, left: c.left, top: c.top } : { ...r }, P = v ? {
-    ...O,
+  const C = (u || v) && !t, D = C && !v, B = c ? { ...r, left: c.left, top: c.top } : { ...r }, P = v ? {
+    ...B,
     position: "absolute",
     left: T.left,
     top: T.top,
@@ -1768,7 +1768,7 @@ function Ss({
     cursor: "grabbing",
     right: void 0,
     bottom: void 0
-  } : { position: "relative", cursor: N ? "grab" : "default", zIndex: 2, ...O }, j = v ? `translate(${M.x - (T.left - ((h == null ? void 0 : h.left) ?? 0))}px, ${M.y - (T.top - ((h == null ? void 0 : h.top) ?? 0))}px)` : void 0;
+  } : { position: "relative", cursor: N ? "grab" : "default", zIndex: 2, ...B }, j = v ? `translate(${M.x - (T.left - ((h == null ? void 0 : h.left) ?? 0))}px, ${M.y - (T.top - ((h == null ? void 0 : h.top) ?? 0))}px)` : void 0;
   return /* @__PURE__ */ g(
     "div",
     {
@@ -1810,7 +1810,7 @@ function Ss({
             zIndex: 2,
             pointerEvents: "none"
           } }),
-          B && /* @__PURE__ */ o("div", { style: {
+          D && /* @__PURE__ */ o("div", { style: {
             position: "absolute",
             left: 0,
             top: -22,
@@ -1965,19 +1965,19 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
       C = C.parentElement;
     }
     if (!C) return;
-    const B = u ? 110 : -110, O = 400, P = C.scrollTop, j = performance.now();
+    const D = u ? 110 : -110, B = 400, P = C.scrollTop, j = performance.now();
     function G($) {
-      const U = Math.min(($ - j) / O, 1);
-      C.scrollTop = P + B * rr(U), U < 1 && requestAnimationFrame(G);
+      const U = Math.min(($ - j) / B, 1);
+      C.scrollTop = P + D * rr(U), U < 1 && requestAnimationFrame(G);
     }
     requestAnimationFrame(G);
   }, [u]), A(() => {
     if (!u) return;
-    function w(B) {
-      N.current && !N.current.contains(B.target) && (p(!1), f(""));
+    function w(D) {
+      N.current && !N.current.contains(D.target) && (p(!1), f(""));
     }
-    function C(B) {
-      B.key === "Escape" && (p(!1), f(""));
+    function C(D) {
+      D.key === "Escape" && (p(!1), f(""));
     }
     return document.addEventListener("mousedown", w), document.addEventListener("keydown", C), () => {
       document.removeEventListener("mousedown", w), document.removeEventListener("keydown", C);
@@ -1989,10 +1989,10 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
       return;
     }
     const w = (C) => {
-      const B = d.current;
-      if (!B) return;
-      const O = (C.clientX / window.innerWidth - 0.5) * 2;
-      B.style.transform = `translateX(${O * (t ? 6 : 3)}px)`;
+      const D = d.current;
+      if (!D) return;
+      const B = (C.clientX / window.innerWidth - 0.5) * 2;
+      D.style.transform = `translateX(${B * (t ? 6 : 3)}px)`;
     };
     return document.addEventListener("mousemove", w), () => document.removeEventListener("mousemove", w);
   }, [v]);
@@ -2260,7 +2260,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                     display: "flex",
                     flexDirection: h > 54 ? "column" : "row",
                     alignItems: h > 54 ? "stretch" : "center",
-                    padding: h > 54 ? "14px 16px 8px" : "6px 6px 6px 16px",
+                    padding: h > 54 ? "16px 16px 8px" : "6px 6px 6px 16px",
                     gap: h > 54 ? 0 : 6
                   }, children: [
                     h <= 54 && /* @__PURE__ */ o(
@@ -2294,9 +2294,9 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         onChange: (w) => {
                           f(w.target.value);
                           const C = w.target;
-                          C.style.height = "0";
-                          const B = C.scrollHeight;
-                          C.style.height = B + "px", F(B > 20 ? B + 60 : 54);
+                          C.style.height = "auto";
+                          const D = C.scrollHeight, B = D > 22;
+                          C.style.height = B ? D + "px" : "", F(B ? D + 68 : 54);
                         },
                         onKeyDown: S,
                         placeholder: "Make it real",
@@ -2454,10 +2454,10 @@ function As({
 }) {
   const [c, s] = y(!1), [d, u] = y(!1), [p, m] = y({ x: 0, y: 0 }), [f, h] = y(null), [F, L] = y(!1), [N, I] = y(0), v = k(null), M = k({ x: 0, y: 0 }), T = k(!1), S = k(!1), w = k(!1), C = k(i);
   C.current = i;
-  const B = k(a);
-  B.current = a;
-  const O = k(n);
-  O.current = n;
+  const D = k(a);
+  D.current = a;
+  const B = k(n);
+  B.current = n;
   const P = k(t);
   P.current = t;
   const j = k(r);
@@ -2472,9 +2472,9 @@ function As({
     if (!T.current) {
       if (Math.abs(pe) < Mt && Math.abs(be) < Mt) return;
       if (T.current = !0, s(!0), h(null), w.current) {
-        const vn = O.current, yn = P.current.w;
+        const vn = B.current, yn = P.current.w;
         let Ge, qe;
-        vn === "snapped-left" ? (Ge = Ye, qe = Ye) : (Ge = yn - ce - Ye, qe = Ye), M.current = { x: Ge, y: qe }, j.current.current = { x: Ge, y: qe }, u(!0), B.current(), setTimeout(() => u(!1), 450);
+        vn === "snapped-left" ? (Ge = Ye, qe = Ye) : (Ge = yn - ce - Ye, qe = Ye), M.current = { x: Ge, y: qe }, j.current.current = { x: Ge, y: qe }, u(!0), D.current(), setTimeout(() => u(!1), 450);
       }
     }
     const Ce = M.current.x + pe, se = M.current.y + be, me = P.current.w, Re = P.current.h, le = Math.max(0, Math.min(me - ce, Ce)), Ve = Math.max(0, Math.min(Re - 100, se));
@@ -2502,7 +2502,7 @@ function As({
     s(!1), h(null), v.current = null, T.current = !1, w.current = !1;
   };
   const U = k((W) => G.current(W)).current, te = k((W) => $.current(W)).current, Me = R((W) => {
-    !l || !e.current || (W.preventDefault(), W.stopPropagation(), S.current = !0, v.current = { x: W.clientX, y: W.clientY }, M.current = { ...j.current.current }, T.current = !1, w.current = O.current !== "floating", document.addEventListener("mousemove", U), document.addEventListener("mouseup", te));
+    !l || !e.current || (W.preventDefault(), W.stopPropagation(), S.current = !0, v.current = { x: W.clientX, y: W.clientY }, M.current = { ...j.current.current }, T.current = !1, w.current = B.current !== "floating", document.addEventListener("mousemove", U), document.addEventListener("mouseup", te));
   }, [l, e, U, te]), ge = k(null), ze = R(() => {
     ge.current && (clearTimeout(ge.current), ge.current = null), l && L(!0);
   }, [l]), We = R(() => {
@@ -2517,7 +2517,7 @@ function As({
     if (W.clientY > be.bottom) return;
     const Ce = pe.getBoundingClientRect(), se = W.clientX - Ce.left, me = ce * or, Re = Math.max(-1, Math.min(1, (se - ce / 2) / (ce / 2)));
     I(Re);
-    const le = O.current;
+    const le = B.current;
     se < me && le !== "snapped-left" ? h("left") : se > ce - me && le !== "snapped-right" ? h("right") : h(null);
   }, [l, c, e]);
   return A(() => {
@@ -2849,7 +2849,7 @@ const Gr = {
     }
     S.current || (T.current = !1, S.current = !0, C());
   }, [m, w, C]);
-  const B = _(
+  const D = _(
     () => nn(
       r,
       Y.item,
@@ -2861,7 +2861,7 @@ const Gr = {
       qr[u]
     ),
     [r, h, L, d, u, s, p]
-  ), O = _(
+  ), B = _(
     () => ({
       "--swap-duration": `${l}s`,
       "--swap-distance": `${c}rem`
@@ -2873,7 +2873,7 @@ const Gr = {
     }),
     [h, L]
   );
-  return /* @__PURE__ */ o(Zr.Provider, { value: P, children: /* @__PURE__ */ o("div", { ref: I, style: O, className: B, children: n }) });
+  return /* @__PURE__ */ o(Zr.Provider, { value: P, children: /* @__PURE__ */ o("div", { ref: I, style: B, className: D, children: n }) });
 });
 function Xr(e) {
   const {
@@ -3048,14 +3048,14 @@ x.prototype = {
   },
   toPercentageRgb: function() {
     return {
-      r: Math.round(D(this._r, 255) * 100) + "%",
-      g: Math.round(D(this._g, 255) * 100) + "%",
-      b: Math.round(D(this._b, 255) * 100) + "%",
+      r: Math.round(O(this._r, 255) * 100) + "%",
+      g: Math.round(O(this._g, 255) * 100) + "%",
+      b: Math.round(O(this._b, 255) * 100) + "%",
       a: this._a
     };
   },
   toPercentageRgbString: function() {
-    return this._a == 1 ? "rgb(" + Math.round(D(this._r, 255) * 100) + "%, " + Math.round(D(this._g, 255) * 100) + "%, " + Math.round(D(this._b, 255) * 100) + "%)" : "rgba(" + Math.round(D(this._r, 255) * 100) + "%, " + Math.round(D(this._g, 255) * 100) + "%, " + Math.round(D(this._b, 255) * 100) + "%, " + this._roundA + ")";
+    return this._a == 1 ? "rgb(" + Math.round(O(this._r, 255) * 100) + "%, " + Math.round(O(this._g, 255) * 100) + "%, " + Math.round(O(this._b, 255) * 100) + "%)" : "rgba(" + Math.round(O(this._r, 255) * 100) + "%, " + Math.round(O(this._g, 255) * 100) + "%, " + Math.round(O(this._b, 255) * 100) + "%, " + this._roundA + ")";
   },
   toName: function() {
     return this._a === 0 ? "transparent" : this._a < 1 ? !1 : go[Ht(this._r, this._g, this._b, !0)] || !1;
@@ -3154,13 +3154,13 @@ function Qr(e) {
 }
 function eo(e, t, n) {
   return {
-    r: D(e, 255) * 255,
-    g: D(t, 255) * 255,
-    b: D(n, 255) * 255
+    r: O(e, 255) * 255,
+    g: O(t, 255) * 255,
+    b: O(n, 255) * 255
   };
 }
 function It(e, t, n) {
-  e = D(e, 255), t = D(t, 255), n = D(n, 255);
+  e = O(e, 255), t = O(t, 255), n = O(n, 255);
   var r = Math.max(e, t, n), i = Math.min(e, t, n), a, l, c = (r + i) / 2;
   if (r == i)
     a = l = 0;
@@ -3187,7 +3187,7 @@ function It(e, t, n) {
 }
 function to(e, t, n) {
   var r, i, a;
-  e = D(e, 360), t = D(t, 100), n = D(n, 100);
+  e = O(e, 360), t = O(t, 100), n = O(n, 100);
   function l(d, u, p) {
     return p < 0 && (p += 1), p > 1 && (p -= 1), p < 1 / 6 ? d + (u - d) * 6 * p : p < 1 / 2 ? u : p < 2 / 3 ? d + (u - d) * (2 / 3 - p) * 6 : d;
   }
@@ -3204,7 +3204,7 @@ function to(e, t, n) {
   };
 }
 function Tt(e, t, n) {
-  e = D(e, 255), t = D(t, 255), n = D(n, 255);
+  e = O(e, 255), t = O(t, 255), n = O(n, 255);
   var r = Math.max(e, t, n), i = Math.min(e, t, n), a, l, c = r, s = r - i;
   if (l = r === 0 ? 0 : s / r, r == i)
     a = 0;
@@ -3229,7 +3229,7 @@ function Tt(e, t, n) {
   };
 }
 function no(e, t, n) {
-  e = D(e, 360) * 6, t = D(t, 100), n = D(n, 100);
+  e = O(e, 360) * 6, t = O(t, 100), n = O(n, 100);
   var r = Math.floor(e), i = e - r, a = n * (1 - t), l = n * (1 - i * t), c = n * (1 - (1 - i) * t), s = r % 6, d = [n, l, a, a, c, n][s], u = [c, n, n, l, a, a][s], p = [a, a, c, n, n, l][s];
   return {
     r: d * 255,
@@ -3535,7 +3535,7 @@ function bo(e) {
 function rn(e) {
   return e = parseFloat(e), (isNaN(e) || e < 0 || e > 1) && (e = 1), e;
 }
-function D(e, t) {
+function O(e, t) {
   vo(e) && (e = "100%");
   var n = yo(e);
   return e = Math.min(t, Math.max(0, parseFloat(e))), n && (e = parseInt(e * t, 10) / 100), Math.abs(e - t) < 1e-6 ? 1 : e % t / parseFloat(t);

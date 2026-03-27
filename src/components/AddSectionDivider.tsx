@@ -543,7 +543,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 display: 'flex',
                 flexDirection: composerHeight > 54 ? 'column' : 'row',
                 alignItems: composerHeight > 54 ? 'stretch' : 'center',
-                padding: composerHeight > 54 ? '14px 16px 8px' : '6px 6px 6px 16px',
+                padding: composerHeight > 54 ? '16px 16px 8px' : '6px 6px 6px 16px',
                 gap: composerHeight > 54 ? 0 : 6,
               }}>
                 {/* Plus button — inline left when single line, bottom-left when multiline */}
@@ -567,10 +567,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   onChange={(e) => {
                     setPromptValue(e.target.value)
                     const el = e.target
-                    el.style.height = '0'
+                    el.style.height = 'auto'
                     const scrollH = el.scrollHeight
-                    el.style.height = scrollH + 'px'
-                    setComposerHeight(scrollH > 20 ? scrollH + 60 : 54)
+                    const isMultiline = scrollH > 22
+                    el.style.height = isMultiline ? scrollH + 'px' : ''
+                    setComposerHeight(isMultiline ? scrollH + 68 : 54)
                   }}
                   onKeyDown={handleInputKeyDown}
                   placeholder="Make it real"
