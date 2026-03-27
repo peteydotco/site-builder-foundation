@@ -169,6 +169,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const [hovered, setHovered] = useState(false)
   const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
+  const [dismissing, setDismissing] = useState(false)
   const [promptValue, setPromptValue] = useState('')
   const [composerHeight, setComposerHeight] = useState(54)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -215,18 +216,22 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     if (!expanded) return
     function handleMouseDown(e: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setDismissing(true)
         setExpanded(false)
         setHovered(false)
         setPromptValue('')
         setComposerHeight(54)
+        requestAnimationFrame(() => setDismissing(false))
       }
     }
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
+        setDismissing(true)
         setExpanded(false)
         setHovered(false)
         setPromptValue('')
         setComposerHeight(54)
+        requestAnimationFrame(() => setDismissing(false))
       }
     }
     document.addEventListener('mousedown', handleMouseDown)
@@ -388,9 +393,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         <div
           ref={wrapperRef}
           style={{
-            opacity: visible ? 1 : 0,
-            pointerEvents: visible ? 'auto' : 'none',
-            transition: 'opacity 0.15s ease',
+            opacity: (visible && !dismissing) ? 1 : 0,
+            pointerEvents: (visible && !dismissing) ? 'auto' : 'none',
+            transition: dismissing ? 'none' : 'opacity 0.15s ease',
           }}
         >
           {/* ── Collapsed state — pill + standalone AI circle ── */}
