@@ -312,6 +312,19 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     >
       {/* Shader removed */}
 
+      {/* Top inner stroke — bottom edge of upper section, faint white for light/depth */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: 'rgba(255,255,255,0.11)',
+        pointerEvents: 'none',
+        opacity: expanded ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+      }} />
+
       {/* Bottom stroke — faint white for light direction / depth */}
       <div style={{
         position: 'absolute',
@@ -319,7 +332,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         left: 0,
         right: 0,
         height: 1,
-        background: 'rgba(255,255,255,0.18)',
+        background: 'rgba(255,255,255,0.11)',
         pointerEvents: 'none',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',

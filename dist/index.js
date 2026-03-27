@@ -2038,11 +2038,22 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         children: [
           /* @__PURE__ */ o("div", { style: {
             position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 1,
+            background: "rgba(255,255,255,0.11)",
+            pointerEvents: "none",
+            opacity: u ? 1 : 0,
+            transition: "opacity 0.4s ease"
+          } }),
+          /* @__PURE__ */ o("div", { style: {
+            position: "absolute",
             bottom: -1,
             left: 0,
             right: 0,
             height: 1,
-            background: "rgba(255,255,255,0.18)",
+            background: "rgba(255,255,255,0.11)",
             pointerEvents: "none",
             opacity: u ? 1 : 0,
             transition: "opacity 0.4s ease"
