@@ -183,8 +183,13 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   useEffect(() => {
     const el = dividerRef.current
     if (!el) return
-    const prevSection = el.previousElementSibling
-    const outline = prevSection?.querySelector('.section-outline') as HTMLElement | null
+    // Walk backward through siblings to find the closest section outline
+    let sibling = el.previousElementSibling
+    let outline: HTMLElement | null = null
+    while (sibling && !outline) {
+      outline = sibling.querySelector('.section-outline') as HTMLElement | null
+      sibling = sibling.previousElementSibling
+    }
     if (!outline) return
     if (visible) {
       outline.style.borderTopColor = 'transparent'
@@ -198,10 +203,10 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       outline.style.borderBottomColor = ''
     }
     return () => {
-      outline.style.borderTopColor = ''
-      outline.style.borderLeftColor = ''
-      outline.style.borderRightColor = ''
-      outline.style.borderBottomColor = ''
+      outline!.style.borderTopColor = ''
+      outline!.style.borderLeftColor = ''
+      outline!.style.borderRightColor = ''
+      outline!.style.borderBottomColor = ''
     }
   }, [visible])
 

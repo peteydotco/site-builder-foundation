@@ -1956,7 +1956,9 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
   N(() => {
     const w = I.current;
     if (!w) return;
-    const C = w.previousElementSibling, R = C == null ? void 0 : C.querySelector(".section-outline");
+    let C = w.previousElementSibling, R = null;
+    for (; C && !R; )
+      R = C.querySelector(".section-outline"), C = C.previousElementSibling;
     if (R)
       return v ? (R.style.borderTopColor = "transparent", R.style.borderLeftColor = "transparent", R.style.borderRightColor = "transparent", R.style.borderBottomColor = nr) : (R.style.borderTopColor = "", R.style.borderLeftColor = "", R.style.borderRightColor = "", R.style.borderBottomColor = ""), () => {
         R.style.borderTopColor = "", R.style.borderLeftColor = "", R.style.borderRightColor = "", R.style.borderBottomColor = "";
