@@ -513,7 +513,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             <div style={{
               width: 495,
               minHeight: 45,
-              borderRadius: 22,
+              borderRadius: composerHeight > 45 ? 22 : 33,
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
@@ -530,10 +530,26 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               `}</style>
               <div style={{
                 display: 'flex',
-                flexDirection: 'column',
-                padding: '12px 14px 6px',
+                flexDirection: composerHeight > 45 ? 'column' : 'row',
+                alignItems: composerHeight > 45 ? 'stretch' : 'center',
+                padding: composerHeight > 45 ? '12px 14px 6px' : '6px 6px 6px 14px',
+                gap: composerHeight > 45 ? 0 : 6,
               }}>
-                {/* Text area — top region when multiline */}
+                {/* Plus button — inline left when single line, bottom-left when multiline */}
+                {composerHeight <= 45 && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                    style={{
+                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      background: 'transparent',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
+                    }}
+                  >
+                    <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
+                  </button>
+                )}
+
                 <textarea
                   ref={inputRef}
                   value={promptValue}
@@ -549,18 +565,19 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   placeholder="Make it real"
                   rows={1}
                   style={{
-                    width: '100%',
+                    flex: 1,
                     border: 'none', background: 'transparent', outline: 'none', resize: 'none',
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                     fontWeight: 400, fontSize: 13, lineHeight: '18px', color: '#0E0E0E',
                     overflow: 'hidden',
-                    padding: 0,
+                    padding: composerHeight > 45 ? '0 0 8px' : 0,
                     margin: 0,
                     display: 'block',
                   }}
                 />
 
-                {/* Action buttons row — bottom when multiline */}
+                {/* Bottom row — only when multiline */}
+                {composerHeight > 45 ? (
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -598,6 +615,28 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     </div>
                   </button>
                 </div>
+                ) : (
+                  /* Submit button inline — single line mode */
+                  <button
+                    onClick={handleSubmit}
+                    style={{
+                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      background: 'transparent', padding: 0,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
+                    }}
+                  >
+                    <div style={{
+                      position: 'absolute', width: 39, height: 39,
+                      left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
+                    }}>
+                      <BeaconBgIcon />
+                    </div>
+                    <div style={{ position: 'relative', zIndex: 1, mixBlendMode: 'difference', color: '#fff', width: 10, height: 13 }}>
+                      <ArrowUpGlyphIcon />
+                    </div>
+                  </button>
+                )}
               </div>
             </div>
           )}
