@@ -169,7 +169,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
   const [promptValue, setPromptValue] = useState('')
-  const [composerHeight, setComposerHeight] = useState(45)
+  const [composerHeight, setComposerHeight] = useState(54)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const dividerRef = useRef<HTMLDivElement>(null)
@@ -261,7 +261,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
     setExpanded(false)
     setPromptValue('')
-    setComposerHeight(45)
+    setComposerHeight(54)
   }, [onClick, onPromptSubmit, promptValue])
 
   const handleInputKeyDown = useCallback((e: React.KeyboardEvent) => {
@@ -272,7 +272,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       }
       setExpanded(false)
       setPromptValue('')
-      setComposerHeight(45)
+      setComposerHeight(54)
     }
   }, [onPromptSubmit, promptValue])
 
@@ -299,7 +299,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       {/* Inner white stroke — inside upper section's bottom edge */}
       <div style={{
         position: 'absolute',
-        top: -2,
+        top: -1,
         left: 0,
         right: 0,
         height: 1,
@@ -523,9 +523,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           {/* ── Expanded prompt ── */}
           {expanded && (
             <div style={{
-              width: 495,
-              minHeight: 45,
-              borderRadius: composerHeight > 45 ? 22 : 33,
+              width: 560,
+              minHeight: 54,
+              borderRadius: composerHeight > 54 ? 24 : 33,
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
@@ -534,24 +534,24 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             }}>
               <style>{`
                 @keyframes promptUnfurl {
-                  from { width: 50px; opacity: 0; }
+                  from { width: 54px; opacity: 0; }
                   15%  { opacity: 1; }
-                  to   { width: 495px; opacity: 1; }
+                  to   { width: 560px; opacity: 1; }
                 }
               `}</style>
               <div style={{
                 display: 'flex',
-                flexDirection: composerHeight > 45 ? 'column' : 'row',
-                alignItems: composerHeight > 45 ? 'stretch' : 'center',
-                padding: composerHeight > 45 ? '12px 14px 6px' : '6px 6px 6px 14px',
-                gap: composerHeight > 45 ? 0 : 6,
+                flexDirection: composerHeight > 54 ? 'column' : 'row',
+                alignItems: composerHeight > 54 ? 'stretch' : 'center',
+                padding: composerHeight > 54 ? '14px 16px 8px' : '6px 6px 6px 16px',
+                gap: composerHeight > 54 ? 0 : 6,
               }}>
                 {/* Plus button — inline left when single line, bottom-left when multiline */}
-                {composerHeight <= 45 && (
+                {composerHeight <= 54 && (
                   <button
                     onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
                     style={{
-                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
@@ -570,7 +570,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     el.style.height = '0'
                     const scrollH = el.scrollHeight
                     el.style.height = scrollH + 'px'
-                    setComposerHeight(scrollH > 20 ? scrollH + 52 : 45)
+                    setComposerHeight(scrollH > 20 ? scrollH + 60 : 54)
                   }}
                   onKeyDown={handleInputKeyDown}
                   placeholder="Make it real"
@@ -597,7 +597,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   <button
                     onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
                     style={{
-                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
@@ -609,14 +609,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   <button
                     onClick={handleSubmit}
                     style={{
-                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent', padding: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
                     }}
                   >
                     <div style={{
-                      position: 'absolute', width: 39, height: 39,
+                      position: 'absolute', width: 48, height: 48,
                       left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
                     }}>
                       <BeaconBgIcon />
@@ -631,14 +631,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   <button
                     onClick={handleSubmit}
                     style={{
-                      width: 33, height: 33, borderRadius: '50%', border: 'none',
+                      width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent', padding: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
                     }}
                   >
                     <div style={{
-                      position: 'absolute', width: 39, height: 39,
+                      position: 'absolute', width: 48, height: 48,
                       left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
                     }}>
                       <BeaconBgIcon />

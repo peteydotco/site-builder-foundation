@@ -1947,7 +1947,7 @@ function nr(e, t, n, r) {
 }
 const rr = nr(0.25, 0.1, 0.25, 1), Lt = "0px 0px 1px 0px rgba(0,0,0,0.08), 0px 4px 16px 0px rgba(0,0,0,0.12)";
 function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-states" }) {
-  const [r, i] = y(!1), [a, l] = y(!1), [c, s] = y(!1), d = k(null), [u, p] = y(!1), [m, f] = y(""), [h, F] = y(45), L = k(null), N = k(null), I = k(null), v = c || u;
+  const [r, i] = y(!1), [a, l] = y(!1), [c, s] = y(!1), d = k(null), [u, p] = y(!1), [m, f] = y(""), [h, F] = y(54), L = k(null), N = k(null), I = k(null), v = c || u;
   A(() => {
     if (u) {
       const w = setTimeout(() => {
@@ -1999,9 +1999,9 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
   const M = R((w) => {
     w.stopPropagation(), p(!0);
   }, []), T = R((w) => {
-    w.stopPropagation(), t ? t(m) : e == null || e(w), p(!1), f(""), F(45);
+    w.stopPropagation(), t ? t(m) : e == null || e(w), p(!1), f(""), F(54);
   }, [e, t, m]), S = R((w) => {
-    w.key === "Enter" && !w.shiftKey && m.trim() && (w.preventDefault(), t && t(m), p(!1), f(""), F(45));
+    w.key === "Enter" && !w.shiftKey && m.trim() && (w.preventDefault(), t && t(m), p(!1), f(""), F(54));
   }, [t, m]);
   return /* @__PURE__ */ g(_e, { children: [
     /* @__PURE__ */ g("div", { style: {
@@ -2023,7 +2023,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
       } }),
       /* @__PURE__ */ o("div", { style: {
         position: "absolute",
-        top: -2,
+        top: -1,
         left: 0,
         right: 0,
         height: 1,
@@ -2240,9 +2240,9 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   }
                 ),
                 u && /* @__PURE__ */ g("div", { style: {
-                  width: 495,
-                  minHeight: 45,
-                  borderRadius: h > 45 ? 22 : 33,
+                  width: 560,
+                  minHeight: 54,
+                  borderRadius: h > 54 ? 24 : 33,
                   background: "#FAFAFA",
                   border: "1px solid rgba(0,0,0,0.11)",
                   boxShadow: "0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)",
@@ -2251,27 +2251,27 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                 }, children: [
                   /* @__PURE__ */ o("style", { children: `
                 @keyframes promptUnfurl {
-                  from { width: 50px; opacity: 0; }
+                  from { width: 54px; opacity: 0; }
                   15%  { opacity: 1; }
-                  to   { width: 495px; opacity: 1; }
+                  to   { width: 560px; opacity: 1; }
                 }
               ` }),
                   /* @__PURE__ */ g("div", { style: {
                     display: "flex",
-                    flexDirection: h > 45 ? "column" : "row",
-                    alignItems: h > 45 ? "stretch" : "center",
-                    padding: h > 45 ? "12px 14px 6px" : "6px 6px 6px 14px",
-                    gap: h > 45 ? 0 : 6
+                    flexDirection: h > 54 ? "column" : "row",
+                    alignItems: h > 54 ? "stretch" : "center",
+                    padding: h > 54 ? "14px 16px 8px" : "6px 6px 6px 16px",
+                    gap: h > 54 ? 0 : 6
                   }, children: [
-                    h <= 45 && /* @__PURE__ */ o(
+                    h <= 54 && /* @__PURE__ */ o(
                       "button",
                       {
                         onClick: (w) => {
                           w.stopPropagation(), e == null || e(w);
                         },
                         style: {
-                          width: 33,
-                          height: 33,
+                          width: 42,
+                          height: 42,
                           borderRadius: "50%",
                           border: "none",
                           background: "transparent",
@@ -2296,7 +2296,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           const C = w.target;
                           C.style.height = "0";
                           const B = C.scrollHeight;
-                          C.style.height = B + "px", F(B > 20 ? B + 52 : 45);
+                          C.style.height = B + "px", F(B > 20 ? B + 60 : 54);
                         },
                         onKeyDown: S,
                         placeholder: "Make it real",
@@ -2331,8 +2331,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             w.stopPropagation(), e == null || e(w);
                           },
                           style: {
-                            width: 33,
-                            height: 33,
+                            width: 42,
+                            height: 42,
                             borderRadius: "50%",
                             border: "none",
                             background: "transparent",
@@ -2352,8 +2352,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         {
                           onClick: T,
                           style: {
-                            width: 33,
-                            height: 33,
+                            width: 42,
+                            height: 42,
                             borderRadius: "50%",
                             border: "none",
                             background: "transparent",
@@ -2369,8 +2369,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           children: [
                             /* @__PURE__ */ o("div", { style: {
                               position: "absolute",
-                              width: 39,
-                              height: 39,
+                              width: 48,
+                              height: 48,
                               left: "50%",
                               top: "50%",
                               transform: "translate(-50%, -50%)",
@@ -2387,8 +2387,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         {
                           onClick: T,
                           style: {
-                            width: 33,
-                            height: 33,
+                            width: 42,
+                            height: 42,
                             borderRadius: "50%",
                             border: "none",
                             background: "transparent",
@@ -2404,8 +2404,8 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           children: [
                             /* @__PURE__ */ o("div", { style: {
                               position: "absolute",
-                              width: 39,
-                              height: 39,
+                              width: 48,
+                              height: 48,
                               left: "50%",
                               top: "50%",
                               transform: "translate(-50%, -50%)",
