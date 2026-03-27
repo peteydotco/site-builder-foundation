@@ -317,9 +317,20 @@ interface AddBlockToolbarProps {
 
 export function AddBlockToolbar({ onAddBlock }: AddBlockToolbarProps) {
   const [hovered, setHovered] = useState(false)
+  const [offsetX, setOffsetX] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const handleMove = useCallback((e: React.MouseEvent) => {
+    const el = containerRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const normalized = ((e.clientX - rect.left) / rect.width - 0.5) * 2
+    setOffsetX(normalized * 3)
+  }, [])
   return (
     <div
-      onMouseLeave={() => setHovered(false)}
+      ref={containerRef}
+      onMouseMove={handleMove}
+      onMouseLeave={() => { setHovered(false); setOffsetX(0) }}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -342,6 +353,7 @@ export function AddBlockToolbar({ onAddBlock }: AddBlockToolbarProps) {
           boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.08), 0px 4px 16px 0px rgba(0,0,0,0.12)',
           cursor: 'pointer',
           overflow: 'hidden',
+          transform: `translateX(${offsetX}px)`,
           transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >

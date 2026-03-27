@@ -229,6 +229,23 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [expanded])
 
+  // Cursor-follow: document-level listener when lockup is visible
+  useEffect(() => {
+    if (!visible) {
+      const el = lockupRef.current
+      if (el) el.style.transform = ''
+      return
+    }
+    const onMove = (e: MouseEvent) => {
+      const el = lockupRef.current
+      if (!el) return
+      const normalized = ((e.clientX / window.innerWidth) - 0.5) * 2
+      el.style.transform = `translateX(${normalized * 3}px)`
+    }
+    document.addEventListener('mousemove', onMove)
+    return () => document.removeEventListener('mousemove', onMove)
+  }, [visible])
+
   const handleExpand = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
     setExpanded(true)
