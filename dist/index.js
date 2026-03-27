@@ -2007,7 +2007,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
     /* @__PURE__ */ o("div", { style: {
       position: "relative",
       height: 0,
-      zIndex: 11,
+      zIndex: 9,
       overflow: "visible",
       pointerEvents: "none"
     }, children: /* @__PURE__ */ o("div", { style: {

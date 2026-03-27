@@ -282,7 +282,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     <div style={{
       position: 'relative',
       height: 0,
-      zIndex: 11,
+      zIndex: 9,
       overflow: 'visible',
       pointerEvents: 'none',
     }}>
