@@ -4,8 +4,6 @@ import FlashGlyphIcon from '../icons/FlashGlyphIcon'
 import ArrowUpGlyphIcon from '../icons/ArrowUpGlyphIcon'
 import BeaconBgIcon from '../icons/BeaconBgIcon'
 
-const SECTION_BOTTOM_BLUE = '#0072f0'
-
 // ── Cubic-bezier evaluator (matches CSS transition curve exactly) ─────────────
 
 function cubicBezier(p1x: number, p1y: number, p2x: number, p2y: number) {
@@ -178,38 +176,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
 
   const visible = hovered || expanded
 
-  // When divider is visible, keep the previous section's bottom border blue
-  // while turning off top/left/right on the section above
-  useEffect(() => {
-    const el = dividerRef.current
-    if (!el) return
-    // Walk backward through siblings to find the closest section outline
-    let sibling = el.previousElementSibling
-    let outline: HTMLElement | null = null
-    while (sibling && !outline) {
-      outline = sibling.querySelector('.section-outline') as HTMLElement | null
-      sibling = sibling.previousElementSibling
-    }
-    if (!outline) return
-    if (visible) {
-      outline.style.borderTopColor = 'transparent'
-      outline.style.borderLeftColor = 'transparent'
-      outline.style.borderRightColor = 'transparent'
-      outline.style.borderBottomColor = SECTION_BOTTOM_BLUE
-    } else {
-      outline.style.borderTopColor = ''
-      outline.style.borderLeftColor = ''
-      outline.style.borderRightColor = ''
-      outline.style.borderBottomColor = ''
-    }
-    return () => {
-      outline!.style.borderTopColor = ''
-      outline!.style.borderLeftColor = ''
-      outline!.style.borderRightColor = ''
-      outline!.style.borderBottomColor = ''
-    }
-  }, [visible])
-
   useEffect(() => {
     if (expanded) {
       const t = setTimeout(() => inputRef.current?.focus(), 80)
@@ -325,17 +291,17 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     >
       {/* Shader removed */}
 
-      {/* Top stroke — inside bottom edge of upper section */}
+      {/* Top gradient line — blue edges, dark shadow behind lockup */}
       <div style={{
         position: 'absolute',
-        top: -1,
+        top: -2,
         left: 0,
         right: 0,
-        height: 1,
-        background: 'rgba(14,14,14,0.08)',
+        height: 3,
+        background: 'linear-gradient(to right, #0072f0 0%, #0072f0 30%, #182224 50%, #0072f0 70%, #0072f0 100%)',
         pointerEvents: 'none',
-        opacity: expanded ? 1 : 0,
-        transition: 'opacity 0.4s ease',
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.15s ease',
       }} />
 
       {/* Bottom stroke — faint white for light direction / depth */}

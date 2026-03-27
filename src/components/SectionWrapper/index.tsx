@@ -132,14 +132,10 @@ export default function SectionWrapper({
 
       {/* Blue section outline — pointer-events: none */}
       <div
-        className="section-outline"
         style={{
           position: 'absolute',
           inset: 0,
-          borderTop: `${SECTION_OUTLINE_WIDTH}px solid ${showOutline ? SECTION_OUTLINE_COLOR : 'transparent'}`,
-          borderLeft: `${SECTION_OUTLINE_WIDTH}px solid ${showOutline ? SECTION_OUTLINE_COLOR : 'transparent'}`,
-          borderRight: `${SECTION_OUTLINE_WIDTH}px solid ${showOutline ? SECTION_OUTLINE_COLOR : 'transparent'}`,
-          borderBottom: `${SECTION_OUTLINE_WIDTH}px solid ${showOutline ? SECTION_OUTLINE_COLOR : 'transparent'}`,
+          border: `${SECTION_OUTLINE_WIDTH}px solid ${showOutline ? SECTION_OUTLINE_COLOR : 'transparent'}`,
           zIndex: 101,
           pointerEvents: 'none',
           transition: 'border-color 0.15s ease',
