@@ -4,6 +4,8 @@ import FlashGlyphIcon from '../icons/FlashGlyphIcon'
 import ArrowUpGlyphIcon from '../icons/ArrowUpGlyphIcon'
 import BeaconBgIcon from '../icons/BeaconBgIcon'
 
+const SECTION_BOTTOM_BLUE = '#0072f0'
+
 // ── Cubic-bezier evaluator (matches CSS transition curve exactly) ─────────────
 
 function cubicBezier(p1x: number, p1y: number, p2x: number, p2y: number) {
@@ -175,6 +177,33 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const dividerRef = useRef<HTMLDivElement>(null)
 
   const visible = hovered || expanded
+
+  // When divider is visible, keep the previous section's bottom border blue
+  // while turning off top/left/right on the section above
+  useEffect(() => {
+    const el = dividerRef.current
+    if (!el) return
+    const prevSection = el.previousElementSibling
+    const outline = prevSection?.querySelector('.section-outline') as HTMLElement | null
+    if (!outline) return
+    if (visible) {
+      outline.style.borderTopColor = 'transparent'
+      outline.style.borderLeftColor = 'transparent'
+      outline.style.borderRightColor = 'transparent'
+      outline.style.borderBottomColor = SECTION_BOTTOM_BLUE
+    } else {
+      outline.style.borderTopColor = ''
+      outline.style.borderLeftColor = ''
+      outline.style.borderRightColor = ''
+      outline.style.borderBottomColor = ''
+    }
+    return () => {
+      outline.style.borderTopColor = ''
+      outline.style.borderLeftColor = ''
+      outline.style.borderRightColor = ''
+      outline.style.borderBottomColor = ''
+    }
+  }, [visible])
 
   useEffect(() => {
     if (expanded) {
