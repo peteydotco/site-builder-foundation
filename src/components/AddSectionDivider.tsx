@@ -277,6 +277,27 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   }, [onPromptSubmit, promptValue])
 
   return (
+    <>
+    {/* Gradient seam line — independent of divider height */}
+    <div style={{
+      position: 'relative',
+      height: 0,
+      zIndex: 11,
+      overflow: 'visible',
+      pointerEvents: 'none',
+    }}>
+      <div style={{
+        position: 'absolute',
+        top: -1,
+        left: 0,
+        right: 0,
+        height: 3,
+        background: 'linear-gradient(to right, #0072f0 0%, #0072f0 30%, #182224 50%, #0072f0 70%, #0072f0 100%)',
+        opacity: (visible && !expanded) ? 1 : 0,
+        transition: 'opacity 0.15s ease',
+      }} />
+    </div>
+
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => { setHovered(false) }}
@@ -290,19 +311,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       }}
     >
       {/* Shader removed */}
-
-      {/* Top gradient line — blue edges, dark shadow behind lockup */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 3,
-        background: 'linear-gradient(to right, #0072f0 0%, #0072f0 30%, #182224 50%, #0072f0 70%, #0072f0 100%)',
-        pointerEvents: 'none',
-        opacity: expanded ? 1 : 0,
-        transition: 'opacity 0.4s ease',
-      }} />
 
       {/* Bottom stroke — faint white for light direction / depth */}
       <div style={{
@@ -596,6 +604,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         </div>
       </div>
     </div>
+    </>
   )
 }
 
