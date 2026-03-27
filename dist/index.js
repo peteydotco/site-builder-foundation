@@ -2027,16 +2027,6 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
       } }),
       /* @__PURE__ */ o("div", { style: {
         position: "absolute",
-        top: -40,
-        left: 0,
-        right: 0,
-        height: 40,
-        background: "linear-gradient(to top, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 40%, transparent 100%)",
-        opacity: u ? 1 : 0,
-        transition: "opacity 0.4s ease"
-      } }),
-      /* @__PURE__ */ o("div", { style: {
-        position: "absolute",
         top: -1,
         left: 0,
         right: 0,

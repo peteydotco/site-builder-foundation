@@ -298,17 +298,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         opacity: (visible && !expanded) ? 1 : 0,
         transition: 'opacity 0.15s ease',
       }} />
-      {/* Diffuse shadow on upper section's bottom edge — casts upward */}
-      <div style={{
-        position: 'absolute',
-        top: -40,
-        left: 0,
-        right: 0,
-        height: 40,
-        background: 'linear-gradient(to top, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 40%, transparent 100%)',
-        opacity: expanded ? 1 : 0,
-        transition: 'opacity 0.4s ease',
-      }} />
       {/* Inner white stroke — inside upper section's bottom edge */}
       <div style={{
         position: 'absolute',
