@@ -165,6 +165,7 @@ interface AddSectionDividerProps {
 function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states' }: AddSectionDividerProps) {
   const [iconHovered, setIconHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState(false)
+  const [submitHovered, setSubmitHovered] = useState(false)
   const [hovered, setHovered] = useState(false)
   const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
@@ -612,11 +613,15 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
 
                   <button
                     onClick={handleSubmit}
+                    onMouseEnter={() => setSubmitHovered(true)}
+                    onMouseLeave={() => setSubmitHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent', padding: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
+                      transform: submitHovered ? 'scale(1.048)' : 'scale(1)',
+                      transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
                     <div style={{
@@ -634,11 +639,15 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   /* Submit button inline — single line mode */
                   <button
                     onClick={handleSubmit}
+                    onMouseEnter={() => setSubmitHovered(true)}
+                    onMouseLeave={() => setSubmitHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
                       background: 'transparent', padding: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
+                      transform: submitHovered ? 'scale(1.048)' : 'scale(1)',
+                      transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
                     <div style={{
