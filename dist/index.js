@@ -862,12 +862,10 @@ function xs({
             style: {
               position: "absolute",
               inset: 0,
-              borderStyle: "solid",
-              borderColor: M ? zn : "transparent",
-              borderWidth: M ? dt : 0,
+              border: `${dt}px solid ${M ? zn : "transparent"}`,
               zIndex: 101,
               pointerEvents: "none",
-              transition: "border-color 0.15s ease, border-width 0.15s ease"
+              transition: "border-color 0.15s ease"
             }
           }
         ),
