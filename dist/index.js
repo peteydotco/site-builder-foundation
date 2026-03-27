@@ -2309,17 +2309,17 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           resize: "none",
                           fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                           fontWeight: 400,
-                          fontSize: 13,
-                          lineHeight: "18px",
+                          fontSize: 15,
+                          lineHeight: "20px",
                           color: "#0E0E0E",
                           overflow: "hidden",
-                          padding: h > 45 ? "0 0 8px" : 0,
+                          padding: h > 54 ? "0 0 8px" : 0,
                           margin: 0,
                           display: "block"
                         }
                       }
                     ),
-                    h > 45 ? /* @__PURE__ */ g("div", { style: {
+                    h > 54 ? /* @__PURE__ */ g("div", { style: {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between"

@@ -579,16 +579,16 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     flex: 1,
                     border: 'none', background: 'transparent', outline: 'none', resize: 'none',
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                    fontWeight: 400, fontSize: 13, lineHeight: '18px', color: '#0E0E0E',
+                    fontWeight: 400, fontSize: 15, lineHeight: '20px', color: '#0E0E0E',
                     overflow: 'hidden',
-                    padding: composerHeight > 45 ? '0 0 8px' : 0,
+                    padding: composerHeight > 54 ? '0 0 8px' : 0,
                     margin: 0,
                     display: 'block',
                   }}
                 />
 
                 {/* Bottom row — only when multiline */}
-                {composerHeight > 45 ? (
+                {composerHeight > 54 ? (
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
