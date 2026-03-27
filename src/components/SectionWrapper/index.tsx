@@ -135,10 +135,12 @@ export default function SectionWrapper({
         style={{
           position: 'absolute',
           inset: 0,
-          border: showOutline ? `${SECTION_OUTLINE_WIDTH}px solid ${SECTION_OUTLINE_COLOR}` : 'none',
+          borderStyle: 'solid',
+          borderColor: showOutline ? SECTION_OUTLINE_COLOR : 'transparent',
+          borderWidth: showOutline ? SECTION_OUTLINE_WIDTH : 0,
           zIndex: 101,
           pointerEvents: 'none',
-          transition: 'border 0.15s ease',
+          transition: 'border-color 0.15s ease, border-width 0.15s ease',
         }}
       />
 
