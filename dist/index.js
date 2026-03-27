@@ -2179,8 +2179,7 @@ function Ls({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             inset: 0,
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "center",
-                            mixBlendMode: "difference"
+                            justifyContent: "center"
                           }, children: /* @__PURE__ */ b("div", { style: {
                             width: 27,
                             height: 27,

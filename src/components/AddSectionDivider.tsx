@@ -462,7 +462,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    mixBlendMode: 'difference',
                   }}>
                     <div style={{
                       width: 27,
