@@ -2321,14 +2321,14 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   left: -2px;
                   top: -2px;
                   border-radius: inherit;
-                  box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
-                  mix-blend-mode: color-burn;
+                  box-shadow: 0 0 12px 1px rgba(0,0,0,0.15);
+                  mix-blend-mode: multiply;
                   z-index: -1;
-                  background: hsl(0deg 0% 16%) radial-gradient(
+                  background: hsl(0deg 0% 20%) radial-gradient(
                     30% 50% at calc(var(--glow-bg-x) * 1%) calc(var(--glow-bg-y) * 1%),
-                    hsl(calc(var(--glow-hue) * 1deg) 100% 90%) 0%,
-                    hsl(calc(var(--glow-hue) * 1deg) 100% 80%) 20%,
-                    hsl(calc(var(--glow-hue) * 1deg) 100% 60%) 40%,
+                    hsl(0deg 0% 95%) 0%,
+                    hsl(0deg 0% 80%) 20%,
+                    hsl(0deg 0% 55%) 40%,
                     transparent 100%
                   );
                 }
@@ -2354,10 +2354,9 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   top: -30%;
                   filter: blur(40px);
                   border-radius: 50%;
-                  background: hsl(calc(var(--glow-hue) * 1deg) 100% 60%);
-                  animation: chat-hue 4s linear infinite;
+                  background: hsl(0deg 0% 75%);
                   transform: scaleX(1.4) scaleY(1.2) translateY(-60%);
-                  opacity: 0.7;
+                  opacity: 0.6;
                 }
               ` }),
                   /* @__PURE__ */ r("div", { className: "chat-glow-border", style: {
