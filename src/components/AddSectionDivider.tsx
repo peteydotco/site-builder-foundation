@@ -613,54 +613,77 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 }
 
                 .chat-glow-border {
-                  animation: chat-hue 4s linear infinite,
-                             chat-rotate-bg 4s linear infinite;
+                  animation: chat-rotate-bg 4s linear infinite;
+                  background: conic-gradient(
+                    from 0deg,
+                    hsl(0deg 0% 92%) 0deg,
+                    hsl(0deg 0% 100%) 30deg,
+                    hsl(0deg 0% 92%) 60deg,
+                    hsl(0deg 0% 72%) 120deg,
+                    hsl(0deg 0% 92%) 150deg,
+                    hsl(0deg 0% 100%) 210deg,
+                    hsl(0deg 0% 92%) 240deg,
+                    hsl(0deg 0% 72%) 300deg,
+                    hsl(0deg 0% 92%) 360deg
+                  );
                 }
                 .chat-glow-border::before {
                   content: '';
                   display: block;
                   position: absolute;
-                  width: calc(100% + 4px);
-                  height: calc(100% + 4px);
-                  left: -2px;
-                  top: -2px;
+                  inset: 0;
                   border-radius: inherit;
-                  box-shadow: 0 0 12px 1px rgba(0,0,0,0.15);
-                  mix-blend-mode: multiply;
-                  z-index: -1;
-                  background: hsl(0deg 0% 20%) radial-gradient(
-                    30% 50% at calc(var(--glow-bg-x) * 1%) calc(var(--glow-bg-y) * 1%),
-                    hsl(0deg 0% 95%) 0%,
-                    hsl(0deg 0% 80%) 20%,
-                    hsl(0deg 0% 55%) 40%,
-                    transparent 100%
-                  );
+                  background: inherit;
+                  filter: blur(6px);
+                  opacity: 0.5;
                 }
 
-                .chat-glow-orb {
+                .chat-glow-orb, .chat-glow-orb-2 {
                   position: absolute;
-                  width: 80px;
-                  height: 80px;
-                  left: calc(50% - 40px);
-                  top: calc(50% - 40px);
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 50%;
+                  transform-origin: center;
+                }
+                .chat-glow-orb {
+                  left: calc(50% - 50px);
+                  top: calc(50% - 50px);
                   animation: chat-glow-orbit 4s linear infinite;
                   transform: rotateZ(calc(var(--glow-rotate) * 1deg));
-                  transform-origin: center;
-                  border-radius: 50%;
                 }
                 .chat-glow-orb::after {
                   content: '';
                   display: block;
                   position: relative;
-                  width: 160%;
-                  height: 160%;
-                  left: -30%;
-                  top: -30%;
-                  filter: blur(40px);
+                  width: 180%;
+                  height: 180%;
+                  left: -40%;
+                  top: -40%;
+                  filter: blur(20px);
                   border-radius: 50%;
-                  background: hsl(0deg 0% 75%);
-                  transform: scaleX(1.4) scaleY(1.2) translateY(-60%);
-                  opacity: 0.6;
+                  background: white;
+                  transform: scaleX(1.6) scaleY(1) translateY(-55%);
+                  opacity: 0.8;
+                }
+                .chat-glow-orb-2 {
+                  left: calc(50% - 50px);
+                  top: calc(50% - 50px);
+                  animation: chat-glow-orbit 4s linear infinite;
+                  transform: rotateZ(calc(calc(var(--glow-rotate) + 180) * 1deg));
+                }
+                .chat-glow-orb-2::after {
+                  content: '';
+                  display: block;
+                  position: relative;
+                  width: 180%;
+                  height: 180%;
+                  left: -40%;
+                  top: -40%;
+                  filter: blur(20px);
+                  border-radius: 50%;
+                  background: white;
+                  transform: scaleX(1.6) scaleY(1) translateY(-55%);
+                  opacity: 0.8;
                 }
               `}</style>
               {/* Glow — orbiting light + gradient border */}
@@ -672,6 +695,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 overflow: 'hidden',
               }}>
                 <span className="chat-glow-orb" />
+                <span className="chat-glow-orb-2" />
               </div>
               {/* Card */}
               <div style={{
