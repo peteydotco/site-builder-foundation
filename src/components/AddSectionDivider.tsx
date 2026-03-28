@@ -409,8 +409,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             <>
             <style>{`
               @keyframes aiIconEntrance {
-                from { transform: scale(0.8); }
-                to   { transform: scale(1); }
+                from { transform: scale(0.8); opacity: 0; }
+                to   { transform: scale(1); opacity: 1; }
               }
             `}</style>
             <div
@@ -470,6 +470,10 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
 
               {/* AI circle — only shown when onPromptSubmit is provided */}
               {onPromptSubmit && (
+                <div style={{
+                  animation: 'aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both',
+                  flexShrink: 0,
+                }}>
                 <div
                   onClick={handleExpand}
                   onMouseEnter={() => setIconHovered(true)}
@@ -481,11 +485,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     background: '#0E0E0E',
                     border: '1px solid #000',
                     boxShadow: PILL_SHADOW,
-                    flexShrink: 0,
                     position: 'relative',
                     cursor: 'pointer',
                     overflow: 'hidden',
-                    animation: 'aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards',
                     transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
                     transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
@@ -541,6 +543,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                       }} />
                     </div>
                   </div>
+                </div>
                 </div>
               )}
             </div>

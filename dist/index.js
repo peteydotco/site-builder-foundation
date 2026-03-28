@@ -2116,8 +2116,8 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                 !m && /* @__PURE__ */ g(ke, { children: [
                   /* @__PURE__ */ o("style", { children: `
               @keyframes aiIconEntrance {
-                from { transform: scale(0.8); }
-                to   { transform: scale(1); }
+                from { transform: scale(0.8); opacity: 0; }
+                to   { transform: scale(1); opacity: 1; }
               }
             ` }),
                   /* @__PURE__ */ g(
@@ -2179,7 +2179,10 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             ]
                           }
                         ),
-                        t && /* @__PURE__ */ g(
+                        t && /* @__PURE__ */ o("div", { style: {
+                          animation: "aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both",
+                          flexShrink: 0
+                        }, children: /* @__PURE__ */ g(
                           "div",
                           {
                             onClick: U,
@@ -2192,11 +2195,9 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                               background: "#0E0E0E",
                               border: "1px solid #000",
                               boxShadow: Mt,
-                              flexShrink: 0,
                               position: "relative",
                               cursor: "pointer",
                               overflow: "hidden",
-                              animation: "aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards",
                               transform: r ? "scale(1.048)" : "scale(1)",
                               transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
                             },
@@ -2253,7 +2254,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                               ] }) })
                             ]
                           }
-                        )
+                        ) })
                       ]
                     }
                   )
