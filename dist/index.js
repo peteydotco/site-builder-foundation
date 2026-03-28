@@ -1979,7 +1979,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
   const q = C(() => {
     N(!0), setTimeout(() => {
       N(!1), x(!0), _(!1), h(!1), M(""), H(54), requestAnimationFrame(() => x(!1));
-    }, 300);
+    }, 200);
   }, []), U = C((S) => {
     S.stopPropagation(), N(!1), _(!0);
   }, []);
@@ -2189,7 +2189,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             position: "relative",
                             cursor: "pointer",
                             overflow: "hidden",
-                            transform: r ? "scale(1.048)" : B ? "scale(1)" : "scale(0.95)",
+                            transform: r ? "scale(1.048)" : B ? "scale(1)" : "scale(0.8)",
                             transition: "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)"
                           },
                           children: [
@@ -2256,7 +2256,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   background: "#FAFAFA",
                   border: "1px solid rgba(0,0,0,0.11)",
                   boxShadow: "0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)",
-                  animation: L ? "promptCollapse 300ms cubic-bezier(0.55, 0, 1, 0.45) forwards" : "promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards",
+                  animation: L ? "promptCollapse 200ms cubic-bezier(0.55, 0, 1, 0.45) forwards" : "promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards",
                   transition: "border-radius 0.25s ease"
                 }, children: [
                   /* @__PURE__ */ o("style", { children: `
@@ -2275,7 +2275,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                     display: "flex",
                     flexDirection: F > 54 ? "column" : "row",
                     alignItems: F > 54 ? "stretch" : "center",
-                    padding: F > 54 ? "16px 16px 8px" : "6px 6px 6px 16px",
+                    padding: F > 54 ? "16px 16px 8px" : "6px",
                     gap: F > 54 ? 0 : 6
                   }, children: [
                     F <= 54 && /* @__PURE__ */ o(
