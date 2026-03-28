@@ -341,15 +341,12 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
       }}
     >
-      {/* Optional expand effect — rendered behind gap content, full size immediately */}
+      {/* Optional expand effect — clipped to divider gap */}
       {expanded && expandEffect && (
         <div style={{
           position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '100%',
-          height: 500,
+          inset: 0,
+          overflow: 'hidden',
           pointerEvents: 'none',
           zIndex: 0,
         }}>
