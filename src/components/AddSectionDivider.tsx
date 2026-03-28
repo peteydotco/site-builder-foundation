@@ -472,7 +472,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               {onPromptSubmit && (
                 <div style={{
                   flexShrink: 0,
-                  transform: visible ? 'scale(1)' : 'scale(0.92)',
+                  transform: visible ? 'scale(1) rotate(0deg)' : 'scale(0.92) rotate(-45deg)',
                   opacity: visible ? 1 : 0,
                   transition: visible
                     ? 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s'

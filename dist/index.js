@@ -2182,7 +2182,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         ),
                         t && /* @__PURE__ */ o("div", { style: {
                           flexShrink: 0,
-                          transform: H ? "scale(1)" : "scale(0.92)",
+                          transform: H ? "scale(1) rotate(0deg)" : "scale(0.92) rotate(-45deg)",
                           opacity: H ? 1 : 0,
                           transition: H ? "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s" : "transform 0.15s ease, opacity 0.15s ease"
                         }, children: /* @__PURE__ */ f(
