@@ -578,39 +578,62 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 : 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
             }}>
               <style>{`
-                @keyframes glowRotate {
+                @property --glow-hue {
+                  syntax: "<number>";
+                  inherits: false;
+                  initial-value: 0;
+                }
+                @keyframes glowHue {
+                  from { --glow-hue: 0; }
+                  to   { --glow-hue: 360; }
+                }
+                @keyframes glowOrbit {
                   from { transform: rotate(0deg); }
                   to   { transform: rotate(360deg); }
+                }
+                .chat-glow {
+                  animation: glowHue 6s linear infinite;
                 }
                 .chat-glow::before {
                   content: '';
                   position: absolute;
-                  inset: -50%;
+                  inset: -40%;
                   background: conic-gradient(
                     from 0deg,
-                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                    hsl(calc(var(--glow-hue, 0) + 0) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 60) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 120) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 180) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 240) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 300) 80% 65%),
+                    hsl(calc(var(--glow-hue, 0) + 360) 80% 65%)
                   );
-                  animation: glowRotate 4s linear infinite;
-                  opacity: 0.4;
+                  animation: glowOrbit 4s linear infinite;
+                  filter: blur(4px);
+                  opacity: 0.55;
                 }
                 .chat-glow::after {
                   content: '';
                   position: absolute;
-                  inset: -50%;
+                  inset: -60%;
                   background: conic-gradient(
                     from 180deg,
-                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                    hsl(calc(var(--glow-hue, 0) + 0) 90% 60%),
+                    hsl(calc(var(--glow-hue, 0) + 90) 90% 55%),
+                    hsl(calc(var(--glow-hue, 0) + 180) 90% 60%),
+                    hsl(calc(var(--glow-hue, 0) + 270) 90% 55%),
+                    hsl(calc(var(--glow-hue, 0) + 360) 90% 60%)
                   );
-                  animation: glowRotate 4s linear infinite reverse;
-                  opacity: 0.25;
-                  filter: blur(10px);
+                  animation: glowOrbit 6s linear infinite reverse;
+                  filter: blur(16px);
+                  opacity: 0.35;
                 }
               `}</style>
               {/* Glow layer — behind the card */}
               <div className="chat-glow" style={{
                 position: 'absolute',
-                inset: -3,
-                borderRadius: composerHeight > 54 ? 27 : 36,
+                inset: -2,
+                borderRadius: composerHeight > 54 ? 26 : 35,
                 overflow: 'hidden',
                 zIndex: 0,
               }} />
