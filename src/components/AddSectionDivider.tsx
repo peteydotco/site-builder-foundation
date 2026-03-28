@@ -162,9 +162,12 @@ interface AddSectionDividerProps {
   aiStatesPath?: string
   /** Optional React node rendered behind the gap background when expanded */
   expandEffect?: React.ReactNode
+  keepExpandedAfterSubmit?: boolean
+  generationContent?: React.ReactNode
+  generationHeight?: number
 }
 
-function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states', expandEffect }: AddSectionDividerProps) {
+function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states', expandEffect, keepExpandedAfterSubmit, generationContent, generationHeight }: AddSectionDividerProps) {
   const [iconHovered, setIconHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState(false)
   const [submitHovered, setSubmitHovered] = useState(false)
@@ -176,6 +179,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const [dismissing, setDismissing] = useState(false)
   const [promptValue, setPromptValue] = useState('')
   const [composerHeight, setComposerHeight] = useState(54)
+  const [submitted, setSubmitted] = useState(false)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const dividerRef = useRef<HTMLDivElement>(null)
@@ -201,7 +205,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       scrollParent = scrollParent.parentElement
     }
     if (!scrollParent) return
-    const totalHeight = expanded ? (composerHeight + 184) : 0
+    const totalHeight = expanded
+      ? (submitted && generationHeight ? generationHeight : composerHeight + 184)
+      : 0
     const targetAdjust = totalHeight / 2
     const distance = targetAdjust - lastScrollAdjust.current
     lastScrollAdjust.current = targetAdjust
@@ -214,9 +220,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       if (elapsed < 1) requestAnimationFrame(step)
     }
     requestAnimationFrame(step)
-  }, [expanded, composerHeight])
+  }, [expanded, composerHeight, submitted, generationHeight])
 
   const handleDismiss = useCallback(() => {
+    // Don't allow click-outside dismiss when in generation state
+    if (submitted) return
     setClosing(true)
     setTimeout(() => {
       setClosing(false)
@@ -227,7 +235,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       setComposerHeight(54)
       requestAnimationFrame(() => setDismissing(false))
     }, 200)
-  }, [])
+  }, [submitted])
 
   const handleExpand = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
@@ -255,6 +263,13 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [expanded, handleDismiss])
 
+  useEffect(() => {
+    if (!generationContent && submitted) {
+      setSubmitted(false)
+      setExpanded(false)
+    }
+  }, [generationContent, submitted])
+
   // Cursor-follow: document-level listener when lockup/prompt is visible
   useEffect(() => {
     if (!visible) {
@@ -279,10 +294,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     } else {
       onClick?.(e)
     }
-    setExpanded(false)
+    if (keepExpandedAfterSubmit) {
+      setSubmitted(true)
+    } else {
+      setExpanded(false)
+    }
     setPromptValue('')
     setComposerHeight(54)
-  }, [onClick, onPromptSubmit, promptValue])
+  }, [onClick, onPromptSubmit, promptValue, keepExpandedAfterSubmit])
 
   const handleInputKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey && promptValue.trim()) {
@@ -290,11 +309,15 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       if (onPromptSubmit) {
         onPromptSubmit(promptValue)
       }
-      setExpanded(false)
+      if (keepExpandedAfterSubmit) {
+        setSubmitted(true)
+      } else {
+        setExpanded(false)
+      }
       setPromptValue('')
       setComposerHeight(54)
     }
-  }, [onPromptSubmit, promptValue])
+  }, [onPromptSubmit, promptValue, keepExpandedAfterSubmit])
 
   return (
     <>
@@ -335,7 +358,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       ref={dividerRef}
       style={{
         position: 'relative',
-        height: expanded ? (composerHeight + 184) : 0,
+        height: expanded
+          ? (submitted && generationHeight ? generationHeight : composerHeight + 184)
+          : 0,
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
@@ -351,6 +376,16 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           zIndex: 0,
         }}>
           {expandEffect}
+        </div>
+      )}
+
+      {submitted && generationContent && (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+        }}>
+          {generationContent}
         </div>
       )}
 
@@ -576,6 +611,10 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               animation: closing
                 ? 'promptCollapse 200ms cubic-bezier(0.55, 0, 1, 0.45) forwards'
                 : 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
+              opacity: submitted ? 0 : 1,
+              transform: submitted ? 'scale(1.05)' : 'scale(1)',
+              transition: 'opacity 250ms ease-out, transform 250ms ease-out',
+              pointerEvents: submitted ? 'none' as const : 'auto' as const,
             }}>
               <style>{`
                 @property --glow-hue {

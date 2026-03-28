@@ -5,6 +5,9 @@ interface AddSectionDividerProps {
     aiStatesPath?: string;
     /** Optional React node rendered behind the gap background when expanded */
     expandEffect?: React.ReactNode;
+    keepExpandedAfterSubmit?: boolean;
+    generationContent?: React.ReactNode;
+    generationHeight?: number;
 }
-declare function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath, expandEffect }: AddSectionDividerProps): import("react/jsx-runtime").JSX.Element;
+declare function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath, expandEffect, keepExpandedAfterSubmit, generationContent, generationHeight }: AddSectionDividerProps): import("react/jsx-runtime").JSX.Element;
 export default AddSectionDivider;
