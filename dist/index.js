@@ -2362,8 +2362,8 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
               ` }),
                   /* @__PURE__ */ r("div", { className: "chat-glow-border", style: {
                     position: "absolute",
-                    inset: -4,
-                    borderRadius: F > 54 ? 28 : 37,
+                    inset: -1,
+                    borderRadius: F > 54 ? 25 : 34,
                     zIndex: 0,
                     overflow: "hidden"
                   }, children: /* @__PURE__ */ r("span", { className: "chat-glow-orb" }) }),
