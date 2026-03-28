@@ -406,6 +406,13 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         >
           {/* ── Collapsed state — pill + standalone AI circle ── */}
           {!expanded && (
+            <>
+            <style>{`
+              @keyframes aiIconEntrance {
+                from { transform: scale(0.8); }
+                to   { transform: scale(1); }
+              }
+            `}</style>
             <div
               ref={lockupRef}
               className={visible ? 'section-divider-enter' : undefined}
@@ -478,8 +485,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     position: 'relative',
                     cursor: 'pointer',
                     overflow: 'hidden',
-                    transform: iconHovered ? 'scale(1.048)' : visible ? 'scale(1)' : 'scale(0.8)',
-                    transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+                    animation: 'aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                    transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
+                    transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
                 >
                   <div style={{
@@ -536,6 +544,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 </div>
               )}
             </div>
+          </>
           )}
 
           {/* ── Expanded prompt ── */}
