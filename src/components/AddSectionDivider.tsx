@@ -667,8 +667,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               {/* Glow — orbiting light + gradient border */}
               <div className="chat-glow-border" style={{
                 position: 'absolute',
-                inset: 0,
-                borderRadius: composerHeight > 54 ? 24 : 33,
+                inset: -4,
+                borderRadius: composerHeight > 54 ? 28 : 37,
                 zIndex: 0,
                 overflow: 'hidden',
               }}>
