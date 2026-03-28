@@ -2546,7 +2546,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                                 transform: "translate(-50%, -50%)",
                                 pointerEvents: "none"
                               }, children: /* @__PURE__ */ r(pt, {}) }),
-                              /* @__PURE__ */ r("div", { style: { position: "relative", zIndex: 1, mixBlendMode: "difference", color: "#fff", width: 10, height: 13 }, children: /* @__PURE__ */ r(Et, {}) })
+                              /* @__PURE__ */ r("div", { style: { position: "relative", zIndex: 1, color: "var(--rosetta-fg-onStrong, #fff)", width: 10, height: 13 }, children: /* @__PURE__ */ r(Et, {}) })
                             ]
                           }
                         )
@@ -2585,7 +2585,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                                 transform: "translate(-50%, -50%)",
                                 pointerEvents: "none"
                               }, children: /* @__PURE__ */ r(pt, {}) }),
-                              /* @__PURE__ */ r("div", { style: { position: "relative", zIndex: 1, mixBlendMode: "difference", color: "#fff", width: 10, height: 13 }, children: /* @__PURE__ */ r(Et, {}) })
+                              /* @__PURE__ */ r("div", { style: { position: "relative", zIndex: 1, color: "var(--rosetta-fg-onStrong, #fff)", width: 10, height: 13 }, children: /* @__PURE__ */ r(Et, {}) })
                             ]
                           }
                         )

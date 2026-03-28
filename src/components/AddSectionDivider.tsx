@@ -815,7 +815,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     }}>
                       <BeaconBgIcon />
                     </div>
-                    <div style={{ position: 'relative', zIndex: 1, mixBlendMode: 'difference', color: '#fff', width: 10, height: 13 }}>
+                    <div style={{ position: 'relative', zIndex: 1, color: 'var(--rosetta-fg-onStrong, #fff)', width: 10, height: 13 }}>
                       <ArrowUpGlyphIcon />
                     </div>
                   </button>
@@ -841,7 +841,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     }}>
                       <BeaconBgIcon />
                     </div>
-                    <div style={{ position: 'relative', zIndex: 1, mixBlendMode: 'difference', color: '#fff', width: 10, height: 13 }}>
+                    <div style={{ position: 'relative', zIndex: 1, color: 'var(--rosetta-fg-onStrong, #fff)', width: 10, height: 13 }}>
                       <ArrowUpGlyphIcon />
                     </div>
                   </button>
