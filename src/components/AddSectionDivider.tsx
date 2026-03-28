@@ -166,9 +166,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
   const [iconHovered, setIconHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState(false)
   const [submitHovered, setSubmitHovered] = useState(false)
+  const [plusHovered, setPlusHovered] = useState(false)
   const [hovered, setHovered] = useState(false)
   const lockupRef = useRef<HTMLDivElement>(null)
   const [expanded, setExpanded] = useState(false)
+  const [closing, setClosing] = useState(false)
   const [dismissing, setDismissing] = useState(false)
   const [promptValue, setPromptValue] = useState('')
   const [composerHeight, setComposerHeight] = useState(54)
@@ -212,26 +214,35 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     requestAnimationFrame(step)
   }, [expanded, composerHeight])
 
+  const handleDismiss = useCallback(() => {
+    setClosing(true)
+    setTimeout(() => {
+      setClosing(false)
+      setDismissing(true)
+      setExpanded(false)
+      setHovered(false)
+      setPromptValue('')
+      setComposerHeight(54)
+      requestAnimationFrame(() => setDismissing(false))
+    }, 300)
+  }, [])
+
+  const handleExpand = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    setClosing(false)
+    setExpanded(true)
+  }, [])
+
   useEffect(() => {
     if (!expanded) return
     function handleMouseDown(e: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
-        setDismissing(true)
-        setExpanded(false)
-        setHovered(false)
-        setPromptValue('')
-        setComposerHeight(54)
-        requestAnimationFrame(() => setDismissing(false))
+        handleDismiss()
       }
     }
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        setDismissing(true)
-        setExpanded(false)
-        setHovered(false)
-        setPromptValue('')
-        setComposerHeight(54)
-        requestAnimationFrame(() => setDismissing(false))
+        handleDismiss()
       }
     }
     document.addEventListener('mousedown', handleMouseDown)
@@ -240,7 +251,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       document.removeEventListener('mousedown', handleMouseDown)
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [expanded])
+  }, [expanded, handleDismiss])
 
   // Cursor-follow: document-level listener when lockup is visible
   useEffect(() => {
@@ -258,11 +269,6 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     document.addEventListener('mousemove', onMove)
     return () => document.removeEventListener('mousemove', onMove)
   }, [visible])
-
-  const handleExpand = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation()
-    setExpanded(true)
-  }, [])
 
   const handleSubmit = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
@@ -315,7 +321,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         left: 0,
         right: 0,
         height: 1,
-        background: 'rgba(255,255,255,0.11)',
+        background: 'rgba(255,255,255,0.18)',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',
       }} />
@@ -368,7 +374,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         left: 0,
         right: 0,
         height: 60,
-        background: 'linear-gradient(to top, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.06) 30%, transparent 100%)',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.04) 30%, transparent 100%)',
         pointerEvents: 'none',
         opacity: expanded ? 1 : 0,
         transition: 'opacity 0.4s ease',
@@ -472,8 +478,8 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     position: 'relative',
                     cursor: 'pointer',
                     overflow: 'hidden',
-                    transform: iconHovered ? 'scale(1.048)' : 'scale(1)',
-                    transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                    transform: iconHovered ? 'scale(1.048)' : visible ? 'scale(1)' : 'scale(0.95)',
+                    transition: 'transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
                 >
                   <div style={{
@@ -541,7 +547,9 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               background: '#FAFAFA',
               border: '1px solid rgba(0,0,0,0.11)',
               boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
-              animation: 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
+              animation: closing
+                ? 'promptCollapse 300ms cubic-bezier(0.55, 0, 1, 0.45) forwards'
+                : 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
               transition: 'border-radius 0.25s ease',
             }}>
               <style>{`
@@ -549,6 +557,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   from { width: 54px; opacity: 0; }
                   15%  { opacity: 1; }
                   to   { width: 560px; opacity: 1; }
+                }
+                @keyframes promptCollapse {
+                  from { width: 560px; opacity: 1; }
+                  85%  { opacity: 0; }
+                  to   { width: 54px; opacity: 0; }
                 }
               `}</style>
               <div style={{
@@ -562,11 +575,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 {composerHeight <= 54 && (
                   <button
                     onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                    onMouseEnter={() => setPlusHovered(true)}
+                    onMouseLeave={() => setPlusHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: 'transparent',
+                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'transparent',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
+                      transition: 'background 0.15s ease',
                     }}
                   >
                     <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
@@ -610,11 +626,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 }}>
                   <button
                     onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                    onMouseEnter={() => setPlusHovered(true)}
+                    onMouseLeave={() => setPlusHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: 'transparent',
+                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'transparent',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
+                      transition: 'background 0.15s ease',
                     }}
                   >
                     <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
