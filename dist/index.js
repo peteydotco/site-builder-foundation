@@ -2059,8 +2059,11 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         children: [
           v && r && /* @__PURE__ */ o("div", { style: {
             position: "absolute",
-            inset: 0,
-            overflow: "hidden",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "100%",
+            height: 500,
             pointerEvents: "none",
             zIndex: 0
           }, children: r }),
