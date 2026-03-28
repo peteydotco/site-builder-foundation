@@ -318,7 +318,7 @@ function An(e) {
     }
   );
 }
-function In(e) {
+function Nn(e) {
   return /* @__PURE__ */ o(
     "svg",
     {
@@ -368,7 +368,7 @@ function vs(e) {
     }
   );
 }
-function Nn(e) {
+function In(e) {
   return /* @__PURE__ */ o(
     "svg",
     {
@@ -442,7 +442,7 @@ function ys(e) {
     }
   );
 }
-const Ie = 11, Hn = {
+const Ne = 11, Hn = {
   fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
   fontSize: 14,
   fontWeight: 500,
@@ -554,7 +554,7 @@ function On({ onSelect: e, onClose: t, blockIconBasePath: n = Dn }) {
       style: {
         width: 320,
         background: "var(--rosetta-bg-base)",
-        borderRadius: Ie,
+        borderRadius: Ne,
         boxShadow: "var(--shadows-200)",
         overflow: "hidden",
         display: "flex",
@@ -566,7 +566,7 @@ function On({ onSelect: e, onClose: t, blockIconBasePath: n = Dn }) {
           height: 50,
           display: "flex",
           alignItems: "center",
-          gap: Ie,
+          gap: Ne,
           padding: "0 12px",
           borderBottom: "1px solid var(--rosetta-border-default)",
           flexShrink: 0
@@ -599,12 +599,12 @@ function On({ onSelect: e, onClose: t, blockIconBasePath: n = Dn }) {
         /* @__PURE__ */ f("div", { style: {
           overflow: "auto",
           maxHeight: "min(480px, calc(100vh - 200px))",
-          padding: `${Ie}px`
+          padding: `${Ne}px`
         }, children: [
           c.length === 0 && /* @__PURE__ */ f("p", { style: {
             ..._t,
             color: "var(--rosetta-fg-muted)",
-            padding: `${Ie}px 0`,
+            padding: `${Ne}px 0`,
             textAlign: "center"
           }, children: [
             'No blocks matching "',
@@ -641,7 +641,7 @@ function Pn({ block: e, onSelect: t, blockIconBasePath: n }) {
         flexDirection: "row",
         alignItems: "center",
         padding: "0 11px",
-        gap: Ie,
+        gap: Ne,
         background: "var(--rosetta-bg-inset)",
         border: "none",
         borderRadius: 6,
@@ -765,7 +765,7 @@ function zn({ onClick: e }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: Ie,
+        gap: Ne,
         padding: "11px 22px 11px 16px",
         background: "var(--rosetta-bg-base)",
         border: "none",
@@ -820,27 +820,27 @@ function xs({
     d(!0), p(!1);
   }, []), L = C(() => {
     if (d(!1), p(!0), h.current) {
-      const F = h.current.getBoundingClientRect(), H = N.current;
-      H && (H.x < F.left || H.x > F.right || H.y < F.top || H.y > F.bottom) && c(!1);
+      const F = h.current.getBoundingClientRect(), T = I.current;
+      T && (T.x < F.left || T.x > F.right || T.y < F.top || T.y > F.bottom) && c(!1);
     }
-  }, []), I = C((F) => {
+  }, []), N = C((F) => {
     d(!1), c(!1), r(e, F);
-  }, [e, r]), N = w(null), x = C((F) => {
-    N.current = { x: F.clientX, y: F.clientY };
+  }, [e, r]), I = w(null), x = C((F) => {
+    I.current = { x: F.clientX, y: F.clientY };
   }, []), R = (l || s) && !i, M = w(null);
   return A(() => {
     if (!R) return;
-    const F = h.current, H = M.current;
-    if (!F || !H) return;
+    const F = h.current, T = M.current;
+    if (!F || !T) return;
     let W = F.parentElement;
     for (; W; ) {
-      const { overflow: B, overflowY: V } = getComputedStyle(W);
-      if (B === "auto" || B === "scroll" || V === "auto" || V === "scroll") break;
+      const { overflow: H, overflowY: V } = getComputedStyle(W);
+      if (H === "auto" || H === "scroll" || V === "auto" || V === "scroll") break;
       W = W.parentElement;
     }
     const j = W || window, $ = () => {
-      const B = F.getBoundingClientRect(), q = B.height * 0.1, U = B.bottom - 16 - 40;
-      U < q ? H.style.opacity = `${Math.max(0, U / q)}` : H.style.opacity = "1";
+      const H = F.getBoundingClientRect(), q = H.height * 0.1, U = H.bottom - 16 - 40;
+      U < q ? T.style.opacity = `${Math.max(0, U / q)}` : T.style.opacity = "1";
     };
     return j.addEventListener("scroll", $, { passive: !0 }), $(), () => j.removeEventListener("scroll", $);
   }, [R]), /* @__PURE__ */ f(
@@ -913,7 +913,7 @@ function xs({
                   s && /* @__PURE__ */ o(
                     On,
                     {
-                      onSelect: I,
+                      onSelect: N,
                       onClose: L
                     }
                   )
@@ -1362,7 +1362,7 @@ function Cs({
           }
         )
       ] }),
-      /* @__PURE__ */ o(Ze, { onClick: c, title: "Site Styles", active: s, children: /* @__PURE__ */ o(In, { style: { width: 20, height: 20 } }) })
+      /* @__PURE__ */ o(Ze, { onClick: c, title: "Site Styles", active: s, children: /* @__PURE__ */ o(Nn, { style: { width: 20, height: 20 } }) })
     ] })
   ] });
 }
@@ -1669,27 +1669,27 @@ function tr({
   enabled: l = !0,
   onDrop: c
 }) {
-  const [s, d] = v(!1), [u, p] = v(!1), [h, g] = v({ x: 0, y: 0 }), [m, _] = v({ left: e, top: t }), L = w({ x: 0, y: 0 }), I = w({ left: e, top: t }), N = w({ x: 0, y: 0 }), x = w({ left: e, top: t });
+  const [s, d] = v(!1), [u, p] = v(!1), [h, g] = v({ x: 0, y: 0 }), [m, _] = v({ left: e, top: t }), L = w({ x: 0, y: 0 }), N = w({ left: e, top: t }), I = w({ x: 0, y: 0 }), x = w({ left: e, top: t });
   A(() => {
     !s && !u && _({ left: e, top: t });
   }, [e, t, s, u]);
   const R = C((M) => {
     if (!l || M.button !== 0) return;
-    M.preventDefault(), L.current = { x: M.clientX, y: M.clientY }, I.current = { left: e, top: t }, N.current = { x: 0, y: 0 }, x.current = { left: e, top: t };
+    M.preventDefault(), L.current = { x: M.clientX, y: M.clientY }, N.current = { left: e, top: t }, I.current = { x: 0, y: 0 }, x.current = { left: e, top: t };
     let F = !1;
-    const H = 4, W = ($) => {
-      const B = $.clientX - L.current.x, V = $.clientY - L.current.y;
+    const T = 4, W = ($) => {
+      const H = $.clientX - L.current.x, V = $.clientY - L.current.y;
       if (!F) {
-        if (Math.abs(B) < H && Math.abs(V) < H) return;
+        if (Math.abs(H) < T && Math.abs(V) < T) return;
         F = !0, d(!0), p(!1), g({ x: 0, y: 0 }), _({ left: e, top: t });
       }
       let q = V;
       if (a != null && i > 0) {
-        const T = at(i), Z = 0, se = a - T, Me = I.current.top + V;
-        Me < Z && (q = Z - I.current.top), Me > se && (q = se - I.current.top);
+        const B = at(i), Z = 0, se = a - B, Me = N.current.top + V;
+        Me < Z && (q = Z - N.current.top), Me > se && (q = se - N.current.top);
       }
-      N.current = { x: B, y: q }, g({ x: B, y: q });
-      const U = I.current.left + B, Y = I.current.top + q, te = Yn(U, i), S = Zn(Y, i);
+      I.current = { x: H, y: q }, g({ x: H, y: q });
+      const U = N.current.left + H, Y = N.current.top + q, te = Yn(U, i), S = Zn(Y, i);
       x.current = { left: te, top: S }, _({ left: te, top: S });
     }, j = () => {
       if (document.removeEventListener("mousemove", W), document.removeEventListener("mouseup", j), !F) return;
@@ -1736,14 +1736,14 @@ function Ss({
     const te = new ResizeObserver(Y);
     return te.observe(U), () => te.disconnect();
   }, [r, i, c]);
-  const L = i ?? 0, I = !t && L > 0 && m !== null, N = C((U, Y) => {
+  const L = i ?? 0, N = !t && L > 0 && m !== null, I = C((U, Y) => {
     l && s && s(l, U, Y);
   }, [l, s]), {
     isDragging: x,
     naturalOffset: R,
     snappedPosition: M,
     isSettling: F,
-    dragHandleProps: H
+    dragHandleProps: T
   } = tr({
     initialLeft: (m == null ? void 0 : m.left) ?? 0,
     initialTop: (m == null ? void 0 : m.top) ?? 0,
@@ -1751,13 +1751,13 @@ function Ss({
     height: (m == null ? void 0 : m.height) ?? 0,
     containerWidth: L,
     sectionHeight: a,
-    enabled: I,
-    onDrop: N
+    enabled: N,
+    onDrop: I
   });
   A(() => {
     x !== g.current && (g.current = x, d == null || d(x));
   }, [x, d]);
-  const W = (u || x) && !t, j = W && !x, $ = c ? { ...r, left: c.left, top: c.top } : { ...r }, B = x ? {
+  const W = (u || x) && !t, j = W && !x, $ = c ? { ...r, left: c.left, top: c.top } : { ...r }, H = x ? {
     ...$,
     position: "absolute",
     left: M.left,
@@ -1768,7 +1768,7 @@ function Ss({
     cursor: "grabbing",
     right: void 0,
     bottom: void 0
-  } : { position: "relative", cursor: I ? "grab" : "default", zIndex: 2, ...$ }, V = x ? `translate(${R.x - (M.left - ((m == null ? void 0 : m.left) ?? 0))}px, ${R.y - (M.top - ((m == null ? void 0 : m.top) ?? 0))}px)` : void 0;
+  } : { position: "relative", cursor: N ? "grab" : "default", zIndex: 2, ...$ }, V = x ? `translate(${R.x - (M.left - ((m == null ? void 0 : m.left) ?? 0))}px, ${R.y - (M.top - ((m == null ? void 0 : m.top) ?? 0))}px)` : void 0;
   return /* @__PURE__ */ f(
     "div",
     {
@@ -1779,8 +1779,8 @@ function Ss({
       onMouseLeave: () => {
         x || p(!1);
       },
-      ...I ? H : {},
-      style: B,
+      ...N ? T : {},
+      style: H,
       children: [
         /* @__PURE__ */ o("div", { style: {
           transform: V,
@@ -1825,7 +1825,7 @@ function Ss({
             height: 16,
             padding: "0.25px 6px 0.75px"
           }, children: [
-            e !== "Text" && /* @__PURE__ */ o(Nn, { style: { width: 10, height: 10 } }),
+            e !== "Text" && /* @__PURE__ */ o(In, { style: { width: 10, height: 10 } }),
             /* @__PURE__ */ o("span", { style: {
               fontSize: 9.75,
               fontWeight: 500,
@@ -1947,12 +1947,12 @@ function nr(e, t, n, r) {
 }
 const rr = nr(0.25, 0.1, 0.25, 1), Mt = "0px 0px 1px 0px rgba(0,0,0,0.08), 0px 4px 16px 0px rgba(0,0,0,0.12)";
 function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-states" }) {
-  const [r, i] = v(!1), [a, l] = v(!1), [c, s] = v(!1), [d, u] = v(!1), [p, h] = v(!1), g = w(null), [m, _] = v(!1), [L, I] = v(!1), [N, x] = v(!1), [R, M] = v(""), [F, H] = v(54), W = w(null), j = w(null), $ = w(null), B = p || m;
+  const [r, i] = v(!1), [a, l] = v(!1), [c, s] = v(!1), [d, u] = v(!1), [p, h] = v(!1), g = w(null), [m, _] = v(!1), [L, N] = v(!1), [I, x] = v(!1), [R, M] = v(""), [F, T] = v(54), W = w(null), j = w(null), $ = w(null), H = p || m;
   A(() => {
     if (m) {
       const S = setTimeout(() => {
-        var T;
-        return (T = W.current) == null ? void 0 : T.focus();
+        var B;
+        return (B = W.current) == null ? void 0 : B.focus();
       }, 80);
       return () => clearTimeout(S);
     }
@@ -1960,58 +1960,58 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
   const V = w(0);
   A(() => {
     if (!$.current) return;
-    let T = $.current.parentElement;
-    for (; T; ) {
-      const { overflow: X, overflowY: J } = getComputedStyle(T);
+    let B = $.current.parentElement;
+    for (; B; ) {
+      const { overflow: X, overflowY: J } = getComputedStyle(B);
       if (X === "auto" || X === "scroll" || J === "auto" || J === "scroll") break;
-      T = T.parentElement;
+      B = B.parentElement;
     }
-    if (!T) return;
-    const se = (m ? F + 175 : 0) / 2, Me = se - V.current;
+    if (!B) return;
+    const se = (m ? F + 184 : 0) / 2, Me = se - V.current;
     V.current = se;
-    const O = 400, ue = T.scrollTop, he = performance.now();
+    const O = 400, ue = B.scrollTop, he = performance.now();
     function fe(X) {
       const J = Math.min((X - he) / O, 1);
-      T.scrollTop = ue + Me * rr(J), J < 1 && requestAnimationFrame(fe);
+      B.scrollTop = ue + Me * rr(J), J < 1 && requestAnimationFrame(fe);
     }
     requestAnimationFrame(fe);
   }, [m, F]);
   const q = C(() => {
-    I(!0), setTimeout(() => {
-      I(!1), x(!0), _(!1), h(!1), M(""), H(54), requestAnimationFrame(() => x(!1));
+    N(!0), setTimeout(() => {
+      N(!1), x(!0), _(!1), h(!1), M(""), T(54), requestAnimationFrame(() => x(!1));
     }, 200);
   }, []), U = C((S) => {
-    S.stopPropagation(), I(!1), _(!0);
+    S.stopPropagation(), N(!1), _(!0);
   }, []);
   A(() => {
     if (!m) return;
     function S(Z) {
       j.current && !j.current.contains(Z.target) && q();
     }
-    function T(Z) {
+    function B(Z) {
       Z.key === "Escape" && q();
     }
-    return document.addEventListener("mousedown", S), document.addEventListener("keydown", T), () => {
-      document.removeEventListener("mousedown", S), document.removeEventListener("keydown", T);
+    return document.addEventListener("mousedown", S), document.addEventListener("keydown", B), () => {
+      document.removeEventListener("mousedown", S), document.removeEventListener("keydown", B);
     };
   }, [m, q]), A(() => {
-    if (!B) {
-      const T = j.current;
-      T && (T.style.transform = "");
+    if (!H) {
+      const B = j.current;
+      B && (B.style.transform = "");
       return;
     }
-    const S = (T) => {
+    const S = (B) => {
       const Z = j.current;
       if (!Z) return;
-      const se = (T.clientX / window.innerWidth - 0.5) * 2;
+      const se = (B.clientX / window.innerWidth - 0.5) * 2;
       Z.style.transform = `translateX(${se * (t ? 6 : 3)}px)`;
     };
     return document.addEventListener("mousemove", S), () => document.removeEventListener("mousemove", S);
-  }, [B]);
+  }, [H]);
   const Y = C((S) => {
-    S.stopPropagation(), t ? t(R) : e == null || e(S), _(!1), M(""), H(54);
+    S.stopPropagation(), t ? t(R) : e == null || e(S), _(!1), M(""), T(54);
   }, [e, t, R]), te = C((S) => {
-    S.key === "Enter" && !S.shiftKey && R.trim() && (S.preventDefault(), t && t(R), _(!1), M(""), H(54));
+    S.key === "Enter" && !S.shiftKey && R.trim() && (S.preventDefault(), t && t(R), _(!1), M(""), T(54));
   }, [t, R]);
   return /* @__PURE__ */ f(ke, { children: [
     /* @__PURE__ */ f("div", { style: {
@@ -2028,7 +2028,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         right: 0,
         height: 3,
         background: "linear-gradient(to right, #0072f0 0%, #0072f0 40%, #182224 50%, #0072f0 60%, #0072f0 100%)",
-        opacity: B && !m ? 1 : 0,
+        opacity: H && !m ? 1 : 0,
         transition: "opacity 0.15s ease"
       } }),
       /* @__PURE__ */ o("div", { style: {
@@ -2052,7 +2052,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
         ref: $,
         style: {
           position: "relative",
-          height: m ? F + 175 : 0,
+          height: m ? F + 184 : 0,
           zIndex: 10,
           background: m ? "#E7E7E7" : "transparent",
           transition: "height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease"
@@ -2108,9 +2108,9 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
             {
               ref: j,
               style: {
-                opacity: B && !N ? 1 : 0,
-                pointerEvents: B && !N ? "auto" : "none",
-                transition: N ? "none" : "opacity 0.15s ease"
+                opacity: H && !I ? 1 : 0,
+                pointerEvents: H && !I ? "auto" : "none",
+                transition: I ? "none" : "opacity 0.15s ease"
               },
               children: [
                 !m && /* @__PURE__ */ f(ke, { children: [
@@ -2124,7 +2124,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                     "div",
                     {
                       ref: g,
-                      className: B ? "section-divider-enter" : void 0,
+                      className: H ? "section-divider-enter" : void 0,
                       style: {
                         display: "flex",
                         alignItems: "center",
@@ -2179,9 +2179,11 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             ]
                           }
                         ),
-                        t && B && /* @__PURE__ */ o("div", { style: {
-                          animation: "aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both",
-                          flexShrink: 0
+                        t && /* @__PURE__ */ o("div", { style: {
+                          flexShrink: 0,
+                          transform: H ? "scale(1)" : "scale(0.92)",
+                          opacity: H ? 1 : 0,
+                          transition: H ? "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s" : "transform 0.15s ease, opacity 0.15s ease"
                         }, children: /* @__PURE__ */ f(
                           "div",
                           {
@@ -2321,10 +2323,10 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                         value: R,
                         onChange: (S) => {
                           M(S.target.value);
-                          const T = S.target;
-                          T.style.height = "auto";
-                          const Z = T.scrollHeight, se = Z > 22;
-                          T.style.height = se ? Z + "px" : "", H(se ? Z + 68 : 54);
+                          const B = S.target;
+                          B.style.height = "auto";
+                          const Z = B.scrollHeight, se = Z > 22;
+                          B.style.height = se ? Z + "px" : "", T(se ? Z + 76 : 54);
                         },
                         onKeyDown: te,
                         placeholder: "Make it real",
@@ -2342,7 +2344,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                           lineHeight: "20px",
                           color: "#0E0E0E",
                           overflow: "visible",
-                          padding: F > 54 ? "0 0 8px" : 0,
+                          padding: F > 54 ? "0 0 16px" : 0,
                           margin: 0,
                           boxSizing: "border-box"
                         }
@@ -2492,14 +2494,14 @@ function As({
   onUnsnap: a,
   enabled: l = !0
 }) {
-  const [c, s] = v(!1), [d, u] = v(!1), [p, h] = v({ x: 0, y: 0 }), [g, m] = v(null), [_, L] = v(!1), [I, N] = v(0), x = w(null), R = w({ x: 0, y: 0 }), M = w(!1), F = w(!1), H = w(!1), W = w(i);
+  const [c, s] = v(!1), [d, u] = v(!1), [p, h] = v({ x: 0, y: 0 }), [g, m] = v(null), [_, L] = v(!1), [N, I] = v(0), x = w(null), R = w({ x: 0, y: 0 }), M = w(!1), F = w(!1), T = w(!1), W = w(i);
   W.current = i;
   const j = w(a);
   j.current = a;
   const $ = w(n);
   $.current = n;
-  const B = w(t);
-  B.current = t;
+  const H = w(t);
+  H.current = t;
   const V = w(r);
   V.current = r;
   const q = w(() => {
@@ -2511,22 +2513,22 @@ function As({
     const ue = O.clientX - x.current.x, he = O.clientY - x.current.y;
     if (!M.current) {
       if (Math.abs(ue) < Lt && Math.abs(he) < Lt) return;
-      if (M.current = !0, s(!0), m(null), H.current) {
-        const vn = $.current, yn = B.current.w;
+      if (M.current = !0, s(!0), m(null), T.current) {
+        const vn = $.current, yn = H.current.w;
         let Ge, qe;
         vn === "snapped-left" ? (Ge = Ye, qe = Ye) : (Ge = yn - be - Ye, qe = Ye), R.current = { x: Ge, y: qe }, V.current.current = { x: Ge, y: qe }, u(!0), j.current(), setTimeout(() => u(!1), 450);
       }
     }
-    const fe = R.current.x + ue, X = R.current.y + he, J = B.current.w, Le = B.current.h, ge = Math.max(0, Math.min(J - be, fe)), je = Math.max(0, Math.min(Le - 100, X));
+    const fe = R.current.x + ue, X = R.current.y + he, J = H.current.w, Le = H.current.h, ge = Math.max(0, Math.min(J - be, fe)), je = Math.max(0, Math.min(Le - 100, X));
     h({ x: ge, y: je });
     const He = (kt = e.current) == null ? void 0 : kt.parentElement, ct = (He == null ? void 0 : He.getBoundingClientRect().left) ?? 0, Te = O.clientX - ct;
     Te < J * mt ? m("left") : Te > J * (1 - mt) ? m("right") : m(null);
     const dt = ge + be / 2, Ve = Math.max(-1, Math.min(1, (Te - dt) / (be / 2)));
-    N(Ve);
+    I(Ve);
   }, U.current = (O) => {
     var ue, he, fe;
     if (F.current = !1, document.removeEventListener("mousemove", Y), document.removeEventListener("mouseup", te), M.current) {
-      const X = (ue = e.current) == null ? void 0 : ue.parentElement, J = (X == null ? void 0 : X.getBoundingClientRect().left) ?? 0, Le = O.clientX - J, ge = B.current.w, je = ge * mt;
+      const X = (ue = e.current) == null ? void 0 : ue.parentElement, J = (X == null ? void 0 : X.getBoundingClientRect().left) ?? 0, Le = O.clientX - J, ge = H.current.w, je = ge * mt;
       if (Le < je)
         W.current("left");
       else if (Le > ge - je)
@@ -2534,20 +2536,20 @@ function As({
       else {
         const He = O.clientX - (((he = x.current) == null ? void 0 : he.x) ?? O.clientX), ct = O.clientY - (((fe = x.current) == null ? void 0 : fe.y) ?? O.clientY), Te = R.current.x + He, dt = R.current.y + ct, Ve = {
           x: Math.max(0, Math.min(ge - be, Te)),
-          y: Math.max(0, Math.min(B.current.h - 100, dt))
+          y: Math.max(0, Math.min(H.current.h - 100, dt))
         };
         V.current.current = Ve, h(Ve);
       }
     }
-    s(!1), m(null), x.current = null, M.current = !1, H.current = !1;
+    s(!1), m(null), x.current = null, M.current = !1, T.current = !1;
   };
   const Y = w((O) => q.current(O)).current, te = w((O) => U.current(O)).current, S = C((O) => {
-    !l || !e.current || (O.preventDefault(), O.stopPropagation(), F.current = !0, x.current = { x: O.clientX, y: O.clientY }, R.current = { ...V.current.current }, M.current = !1, H.current = $.current !== "floating", document.addEventListener("mousemove", Y), document.addEventListener("mouseup", te));
-  }, [l, e, Y, te]), T = w(null), Z = C(() => {
-    T.current && (clearTimeout(T.current), T.current = null), l && L(!0);
+    !l || !e.current || (O.preventDefault(), O.stopPropagation(), F.current = !0, x.current = { x: O.clientX, y: O.clientY }, R.current = { ...V.current.current }, M.current = !1, T.current = $.current !== "floating", document.addEventListener("mousemove", Y), document.addEventListener("mouseup", te));
+  }, [l, e, Y, te]), B = w(null), Z = C(() => {
+    B.current && (clearTimeout(B.current), B.current = null), l && L(!0);
   }, [l]), se = C(() => {
-    F.current || (T.current = setTimeout(() => {
-      L(!1), m(null), N(0), T.current = null;
+    F.current || (B.current = setTimeout(() => {
+      L(!1), m(null), I(0), B.current = null;
     }, 50));
   }, []), Me = C((O) => {
     if (!l || c) return;
@@ -2556,7 +2558,7 @@ function As({
     const he = O.currentTarget.getBoundingClientRect();
     if (O.clientY > he.bottom) return;
     const fe = ue.getBoundingClientRect(), X = O.clientX - fe.left, J = be * or, Le = Math.max(-1, Math.min(1, (X - be / 2) / (be / 2)));
-    N(Le);
+    I(Le);
     const ge = $.current;
     X < J && ge !== "snapped-left" ? m("left") : X > be - J && ge !== "snapped-right" ? m("right") : m(null);
   }, [l, c, e]);
@@ -2565,14 +2567,14 @@ function As({
   }, [r.current.x, r.current.y, c]), A(() => () => {
     document.removeEventListener("mousemove", Y), document.removeEventListener("mouseup", te);
   }, [Y, te]), A(() => {
-    l || (s(!1), m(null), L(!1), N(0));
+    l || (s(!1), m(null), L(!1), I(0));
   }, [l]), {
     position: p,
     isDragging: c,
     isUnsnapping: d,
     snapHint: g,
     isExpanded: _,
-    snapBarPosition: I,
+    snapBarPosition: N,
     dragRegionProps: { onMouseDown: S },
     hoverZoneProps: {
       onMouseEnter: Z,
@@ -2634,10 +2636,10 @@ const tn = {
     dangerStrong: "#D8484D"
   }
 };
-function Is() {
+function Ns() {
   return typeof window < "u" && window.matchMedia("(prefers-color-scheme: dark)").matches ? ar : tn;
 }
-const Ns = tn;
+const Is = tn;
 function Hs(e) {
   return e.replace("#", "");
 }
@@ -2822,9 +2824,9 @@ function Ar({ label: e, suffix: t, href: n, ...r }) {
     /* @__PURE__ */ o("div", { className: Je.chevron, children: /* @__PURE__ */ o(Lr, {}) })
   ] });
 }
-const It = D(Ar), Ir = "_container_19xa4_3", Nr = "_item_19xa4_17", Hr = "_directionInUp_19xa4_31", Tr = "_directionInDown_19xa4_35", Br = "_directionInLeft_19xa4_39", Dr = "_directionInRight_19xa4_43", Or = "_directionOutUp_19xa4_49", Pr = "_directionOutDown_19xa4_53", $r = "_directionOutLeft_19xa4_57", zr = "_directionOutRight_19xa4_61", Wr = "_visible_19xa4_67", Ur = "_animateIn_19xa4_76", jr = "_hidden_19xa4_85", Vr = "_useOpacity_19xa4_99", ee = {
-  container: Ir,
-  item: Nr,
+const Nt = D(Ar), Nr = "_container_19xa4_3", Ir = "_item_19xa4_17", Hr = "_directionInUp_19xa4_31", Tr = "_directionInDown_19xa4_35", Br = "_directionInLeft_19xa4_39", Dr = "_directionInRight_19xa4_43", Or = "_directionOutUp_19xa4_49", Pr = "_directionOutDown_19xa4_53", $r = "_directionOutLeft_19xa4_57", zr = "_directionOutRight_19xa4_61", Wr = "_visible_19xa4_67", Ur = "_animateIn_19xa4_76", jr = "_hidden_19xa4_85", Vr = "_useOpacity_19xa4_99", ee = {
+  container: Nr,
+  item: Ir,
   directionInUp: Hr,
   directionInDown: Tr,
   directionInLeft: Br,
@@ -2867,16 +2869,16 @@ const Gr = {
     useOpacity: p = !0,
     isShown: h,
     onRemoved: g
-  } = t, [m, _] = v(!1), [L, I] = v(!1), N = w(null), x = w(), R = w(), M = w(!1), F = w(!1), H = C(() => {
+  } = t, [m, _] = v(!1), [L, N] = v(!1), I = w(null), x = w(), R = w(), M = w(!1), F = w(!1), T = C(() => {
     if (clearTimeout(x.current), clearTimeout(R.current), !s) {
       _(!0);
       return;
     }
     R.current = setTimeout(() => {
-      I(!1), _(!0);
+      N(!1), _(!0);
     }, 30 + (i + a) * 1e3);
   }, [s, i, a]), W = C(() => {
-    clearTimeout(x.current), clearTimeout(R.current), I(!0), x.current = setTimeout(() => {
+    clearTimeout(x.current), clearTimeout(R.current), N(!0), x.current = setTimeout(() => {
       g();
     }, (i + l) * 1e3);
   }, [g, i, l]);
@@ -2884,11 +2886,11 @@ const Gr = {
     if (h) {
       if (M.current)
         return;
-      F.current = !1, M.current = !0, H();
+      F.current = !1, M.current = !0, T();
       return;
     }
     F.current || (M.current = !1, F.current = !0, W());
-  }, [h, H, W]);
+  }, [h, T, W]);
   const j = k(
     () => nn(
       r,
@@ -2907,13 +2909,13 @@ const Gr = {
       "--swap-distance": `${c}rem`
     }),
     [l, c]
-  ), B = k(
+  ), H = k(
     () => ({
       isHidden: !m || L
     }),
     [m, L]
   );
-  return /* @__PURE__ */ o(Zr.Provider, { value: B, children: /* @__PURE__ */ o("div", { ref: N, style: $, className: j, children: n }) });
+  return /* @__PURE__ */ o(Zr.Provider, { value: H, children: /* @__PURE__ */ o("div", { ref: I, style: $, className: j, children: n }) });
 });
 function Xr(e) {
   const {
@@ -2930,8 +2932,8 @@ function Xr(e) {
     directionOut: p = "up",
     useOpacity: h = !0,
     ...g
-  } = e, m = w(!0), [_, L] = v([]), I = C((N) => {
-    L((x) => x.filter((R) => R.child !== N));
+  } = e, m = w(!0), [_, L] = v([]), N = C((I) => {
+    L((x) => x.filter((R) => R.child !== I));
   }, []);
   return A(() => {
     m.current = !0;
@@ -2946,36 +2948,36 @@ function Xr(e) {
       );
       return;
     }
-    const N = n ? !0 : !m.current;
+    const I = n ? !0 : !m.current;
     L((x) => {
-      const R = xn.map(r, (F, H) => ({
+      const R = xn.map(r, (F, T) => ({
         child: F,
-        key: F.key || H.toString(),
-        animateIn: N,
+        key: F.key || T.toString(),
+        animateIn: I,
         isShown: !0,
         delayShow: s,
         directionIn: u,
         directionOut: p
       }));
-      return [...x.filter((F) => R.every((H) => H.key !== F.key)).map((F) => ({
+      return [...x.filter((F) => R.every((T) => T.key !== F.key)).map((F) => ({
         ...F,
         isShown: !1,
         delayShow: s,
         animateIn: !1
       })), ...R];
     }), m.current = !1;
-  }, [n, r, u, p, s]), /* @__PURE__ */ o(t, { className: nn(i, ee.container), ...g, children: _.map(({ animateIn: N, child: x, isShown: R, delayShow: M }) => /* @__PURE__ */ o(
+  }, [n, r, u, p, s]), /* @__PURE__ */ o(t, { className: nn(i, ee.container), ...g, children: _.map(({ animateIn: I, child: x, isShown: R, delayShow: M }) => /* @__PURE__ */ o(
     Yr,
     {
       className: a,
       child: x,
-      animateIn: N,
+      animateIn: I,
       isShown: R,
       directionIn: u,
       directionOut: p,
       duration: c,
       distance: d,
-      onRemoved: () => I(x),
+      onRemoved: () => N(x),
       delayShow: M,
       delayHide: l,
       useOpacity: h
@@ -3051,7 +3053,7 @@ y.prototype = {
     return this._a == 1 ? "hsv(" + n + ", " + r + "%, " + i + "%)" : "hsva(" + n + ", " + r + "%, " + i + "%, " + this._roundA + ")";
   },
   toHsl: function() {
-    var t = Nt(this._r, this._g, this._b);
+    var t = It(this._r, this._g, this._b);
     return {
       h: t.h * 360,
       s: t.s,
@@ -3060,7 +3062,7 @@ y.prototype = {
     };
   },
   toHslString: function() {
-    var t = Nt(this._r, this._g, this._b), n = Math.round(t.h * 360), r = Math.round(t.s * 100), i = Math.round(t.l * 100);
+    var t = It(this._r, this._g, this._b), n = Math.round(t.h * 360), r = Math.round(t.s * 100), i = Math.round(t.l * 100);
     return this._a == 1 ? "hsl(" + n + ", " + r + "%, " + i + "%)" : "hsla(" + n + ", " + r + "%, " + i + "%, " + this._roundA + ")";
   },
   toHex: function(t) {
@@ -3199,7 +3201,7 @@ function eo(e, t, n) {
     b: P(n, 255) * 255
   };
 }
-function Nt(e, t, n) {
+function It(e, t, n) {
   e = P(e, 255), t = P(t, 255), n = P(n, 255);
   var r = Math.max(e, t, n), i = Math.min(e, t, n), a, l, c = (r + i) / 2;
   if (r == i)
@@ -3704,7 +3706,7 @@ function lt(e) {
     return t[`--${Ce[r] || "default"}`] = a, t;
   }, {});
 }
-function Ne(e, t = 1) {
+function Ie(e, t = 1) {
   const [n, r] = v(!1);
   return A(() => {
     if (e) {
@@ -3734,22 +3736,22 @@ function Eo(e) {
     contain: l = !1,
     style: c = {},
     ...s
-  } = e, d = k(() => So(t, Oe.container), [t]), u = w(null), p = w(null), h = w(null), g = w(null), [m, _] = v(1), [L, I] = v(1), N = C(() => {
+  } = e, d = k(() => So(t, Oe.container), [t]), u = w(null), p = w(null), h = w(null), g = w(null), [m, _] = v(1), [L, N] = v(1), I = C(() => {
     if (!p.current || !g.current || !h.current)
       return;
     const x = p.current.clientWidth / g.current.clientWidth, R = Number(
       (h.current.clientHeight / g.current.clientHeight).toFixed(3)
     ), M = l ? Math.min(x, R) : x;
-    _(l ? 1 + Math.max(0, x - M) : x), !a && M >= 1 ? I(1) : I(Math.max(0.1, M));
+    _(l ? 1 + Math.max(0, x - M) : x), !a && M >= 1 ? N(1) : N(Math.max(0.1, M));
   }, [l, a]);
   return wn(() => {
     if (!h.current || !p.current || !g.current)
       return;
-    const x = new ResizeObserver(N);
-    return x.observe(h.current), x.observe(p.current), x.observe(g.current), window.addEventListener("resize", N), N(), () => {
-      x.disconnect(), window.removeEventListener("resize", N);
+    const x = new ResizeObserver(I);
+    return x.observe(h.current), x.observe(p.current), x.observe(g.current), window.addEventListener("resize", I), I(), () => {
+      x.disconnect(), window.removeEventListener("resize", I);
     };
-  }, [N]), A(() => {
+  }, [I]), A(() => {
     var x;
     (x = u.current) != null && x.parentNode && u.current.parentNode.style.setProperty("--max-scale", String(m));
   }, [m]), /* @__PURE__ */ o(
@@ -3774,8 +3776,8 @@ const Se = D(Eo), Mo = "_container_1rv8h_3", Lo = "_active_1rv8h_36", Ao = "_con
   container: Mo,
   active: Lo,
   contracted: Ao
-}, Io = 0.2;
-function No(e) {
+}, No = 0.2;
+function Io(e) {
   const { colors: t = [], isInteractive: n = !1 } = e, r = w(null), i = k(
     () => /* @__PURE__ */ o(ke, { children: t.map((a, l) => /* @__PURE__ */ o(
       "div",
@@ -3801,14 +3803,14 @@ function No(e) {
           u.classList.toggle(Pe.active, p === s), u.classList.toggle(Pe.contracted, p < s);
         }), s >= a.length ? (l && clearInterval(l), c()) : s += 1;
       };
-      d(), l = setInterval(d, Io * 1e3);
+      d(), l = setInterval(d, No * 1e3);
     }
     return () => {
       l && clearInterval(l);
     };
   }, [n, t.length]), /* @__PURE__ */ o("div", { ref: r, className: Pe.container, children: i });
 }
-const an = D(No), Ho = "_container_1mm99_3", To = "_shapePill_1mm99_26", Bo = "_shapeOval_1mm99_30", Do = "_shapeSquare_1mm99_34", Oo = "_shapeUnderline_1mm99_38", Po = "_fill_1mm99_47", $o = "_cardBackgroundMatch_1mm99_64", zo = "_hover_1mm99_73", Wo = "_outer_1mm99_83", Uo = "_inner_1mm99_87", pe = {
+const an = D(Io), Ho = "_container_1mm99_3", To = "_shapePill_1mm99_26", Bo = "_shapeOval_1mm99_30", Do = "_shapeSquare_1mm99_34", Oo = "_shapeUnderline_1mm99_38", Po = "_fill_1mm99_47", $o = "_cardBackgroundMatch_1mm99_64", zo = "_hover_1mm99_73", Wo = "_outer_1mm99_83", Uo = "_inner_1mm99_87", pe = {
   container: Ho,
   shapePill: To,
   shapeOval: Bo,
@@ -3854,7 +3856,7 @@ function Go(e) {
       m && pe.hover
     ),
     [r, l, m]
-  ), I = k(
+  ), N = k(
     () => ({
       "--color-primary-hsl": r ? i ? p : c : s,
       "--color-secondary-hsl": r ? i ? c : p : h,
@@ -3871,7 +3873,7 @@ function Go(e) {
       p,
       h
     ]
-  ), N = k(
+  ), I = k(
     () => `${n}_${g}_${u}`,
     [n, g, u]
   );
@@ -3879,7 +3881,7 @@ function Go(e) {
     "div",
     {
       className: L,
-      style: I,
+      style: N,
       tabIndex: -1,
       ..._,
       children: [
@@ -3894,7 +3896,7 @@ function Go(e) {
             },
             children: t
           },
-          N
+          I
         ) })
       ]
     }
@@ -3909,7 +3911,7 @@ const et = D(Go), qo = "_container_bx5fz_3", Zo = "_heading_bx5fz_18", Yo = "_te
   swap: Ko
 }, Qo = 1.15, ea = 1.2, Pt = 0.04;
 function ta(e) {
-  const { color: t, fonts: n, buttons: r } = e, [i, a] = v(!1), l = it(i, Qo), c = Ne(l, ea), s = k(() => {
+  const { color: t, fonts: n, buttons: r } = e, [i, a] = v(!1), l = it(i, Qo), c = Ie(l, ea), s = k(() => {
     const h = (g, m) => `var(--${Ce[(g || t.buttons)[m]]})`;
     return {
       primaryColor: h(t.buttons, 0),
@@ -3990,7 +3992,7 @@ function ft(...e) {
   return e.filter(Boolean).join(" ");
 }
 function ua(e) {
-  const { color: t, fonts: n } = e, [r, i] = v(!1), a = it(r, ht), l = Ne(r, ht), c = Ne(a, ht), s = k(
+  const { color: t, fonts: n } = e, [r, i] = v(!1), a = it(r, ht), l = Ie(r, ht), c = Ie(a, ht), s = k(
     () => ft(
       we.container,
       l && we.hoverHeading,
@@ -4054,7 +4056,7 @@ function Ke(...e) {
   return e.filter(Boolean).join(" ");
 }
 function Fa(e) {
-  const { buttons: t, color: n, fonts: r } = e, [i, a] = v(!1), l = Ne(
+  const { buttons: t, color: n, fonts: r } = e, [i, a] = v(!1), l = Ie(
     i,
     ka + _a
   ), c = k(
@@ -4114,7 +4116,7 @@ function Fa(e) {
     }
   );
 }
-const dn = D(Fa), Ca = "_container_1i7v7_3", Ra = "_sizeSmall_1i7v7_20", Sa = "_inputFill_1i7v7_27", Ea = "_input_1i7v7_27", Ma = "_optionFill_1i7v7_40", La = "_option_1i7v7_40", Aa = "_inputShapePill_1i7v7_51", Ia = "_inputShapeSquare_1i7v7_55", Na = "_inputShapeUnderline_1i7v7_59", Ha = "_optionShapePill_1i7v7_67", Ta = "_optionShapeSquare_1i7v7_71", Ba = "_optionShapeCircle_1i7v7_75", Da = "_optionButton_1i7v7_81", Oa = "_optionInvert_1i7v7_82", Pa = "_hoverInput_1i7v7_88", $a = "_hoverOption_1i7v7_93", za = "_label_1i7v7_152", G = {
+const dn = D(Fa), Ca = "_container_1i7v7_3", Ra = "_sizeSmall_1i7v7_20", Sa = "_inputFill_1i7v7_27", Ea = "_input_1i7v7_27", Ma = "_optionFill_1i7v7_40", La = "_option_1i7v7_40", Aa = "_inputShapePill_1i7v7_51", Na = "_inputShapeSquare_1i7v7_55", Ia = "_inputShapeUnderline_1i7v7_59", Ha = "_optionShapePill_1i7v7_67", Ta = "_optionShapeSquare_1i7v7_71", Ba = "_optionShapeCircle_1i7v7_75", Da = "_optionButton_1i7v7_81", Oa = "_optionInvert_1i7v7_82", Pa = "_hoverInput_1i7v7_88", $a = "_hoverOption_1i7v7_93", za = "_label_1i7v7_152", G = {
   container: Ca,
   sizeSmall: Ra,
   inputFill: Sa,
@@ -4122,8 +4124,8 @@ const dn = D(Fa), Ca = "_container_1i7v7_3", Ra = "_sizeSmall_1i7v7_20", Sa = "_
   optionFill: Ma,
   option: La,
   inputShapePill: Aa,
-  inputShapeSquare: Ia,
-  inputShapeUnderline: Na,
+  inputShapeSquare: Na,
+  inputShapeUnderline: Ia,
   optionShapePill: Ha,
   optionShapeSquare: Ta,
   optionShapeCircle: Ba,
@@ -4177,7 +4179,7 @@ function qa(e) {
     secondaryColor: c,
     buttonPrimaryColor: s,
     buttonSecondaryColor: d
-  } = e, u = it(i, gt), p = Ne(i, gt), h = Ne(u, gt), g = k(
+  } = e, u = it(i, gt), p = Ie(i, gt), h = Ie(u, gt), g = k(
     () => zt(
       t,
       G.container,
@@ -4209,7 +4211,7 @@ function qa(e) {
       "--color-secondary-hsl": c
     }),
     [l, c]
-  ), I = k(
+  ), N = k(
     () => ({
       "--color-primary-hsl": s,
       "--color-secondary-hsl": d
@@ -4218,7 +4220,7 @@ function qa(e) {
   );
   return /* @__PURE__ */ f("div", { className: g, style: _, children: [
     /* @__PURE__ */ o("div", { className: G.input, style: L, children: /* @__PURE__ */ o(Ua, { isInteractive: i }) }),
-    /* @__PURE__ */ o("div", { className: m, style: I, children: r.button ? "Option" : /* @__PURE__ */ o(Ga, {}) })
+    /* @__PURE__ */ o("div", { className: m, style: N, children: r.button ? "Option" : /* @__PURE__ */ o(Ga, {}) })
   ] });
 }
 const Za = D(qa), Ya = "_container_8tn8q_3", Xa = "_swap_8tn8q_12", Ja = "_form_8tn8q_16", bt = {
@@ -4483,7 +4485,7 @@ function Mi({ attachment: e, undocked: t, onClose: n }) {
   ] }) });
 }
 const Li = D(Mi), Ut = 2, Ai = 0.04;
-function Ii({ attachment: e, undocked: t, onClose: n }) {
+function Ni({ attachment: e, undocked: t, onClose: n }) {
   const { userTheme: r, fontPacks: i, setPack: a } = Ee(), l = k(
     () => `${r.fonts.headingFont.name}_${r.fonts.paragraphFont.name}`,
     [r]
@@ -4520,7 +4522,7 @@ function Ii({ attachment: e, undocked: t, onClose: n }) {
     ) })
   ] }) });
 }
-const Ni = D(Ii), jt = 2, Hi = 0.04;
+const Ii = D(Ni), jt = 2, Hi = 0.04;
 function Ti({ attachment: e, undocked: t, onClose: n }) {
   const { userTheme: r, colorPacks: i, setPack: a } = Ee(), l = k(
     () => JSON.stringify(r.color),
@@ -4658,7 +4660,7 @@ function qi({ depth: e = 0, isActive: t = !1 }) {
     (g, m) => {
       g.preventDefault(), g.stopPropagation();
       const L = { current: g.currentTarget };
-      i(L), l((I) => (clearTimeout(c.current), s.current = I === m ? null : m, s.current)), clearTimeout(c.current);
+      i(L), l((N) => (clearTimeout(c.current), s.current = N === m ? null : m, s.current)), clearTimeout(c.current);
     },
     []
   );
@@ -4681,7 +4683,7 @@ function qi({ depth: e = 0, isActive: t = !1 }) {
     },
     "themes"
   ) : a === "fonts" ? /* @__PURE__ */ o(
-    Ni,
+    Ii,
     {
       attachment: r,
       undocked: !0,
@@ -4806,8 +4808,8 @@ function qi({ depth: e = 0, isActive: t = !1 }) {
         className: t ? qt.fadeup : qt.fadeoutdown,
         style: { "--animation-delay": `${u(4, 5)}s` },
         children: [
-          /* @__PURE__ */ o(It, { label: "Animations", href: "/config/site-styles/animations" }),
-          /* @__PURE__ */ o(It, { label: "Spacing", href: "/config/site-styles/spacing" })
+          /* @__PURE__ */ o(Nt, { label: "Animations", href: "/config/site-styles/animations" }),
+          /* @__PURE__ */ o(Nt, { label: "Spacing", href: "/config/site-styles/spacing" })
         ]
       }
     ),
@@ -7228,13 +7230,13 @@ export {
   nt as FE_MARGIN,
   Re as FE_ROW_GAP,
   Fs as FluidEngineGrid,
-  Nn as GlobalContentGlyphIcon,
+  In as GlobalContentGlyphIcon,
   Ls as GridOverlay,
   Ts as HANDLE_POSITIONS,
   ws as HeaderSectionWrapper,
   An as MobileIcon,
   Cn as PinIcon,
-  In as PlayIcon,
+  Nn as PlayIcon,
   Qe as PlusIcon,
   Es as PortaledAnnotationBar,
   Mn as RedoIcon,
@@ -7256,13 +7258,13 @@ export {
   re as getColorPack,
   oe as getFontPack,
   ae as getFormPack,
-  Is as getRosettaTheme,
+  Ns as getRosettaTheme,
   b as googleFonts,
   Hs as hex,
   hs as loadFontsForTheme,
   ms as loadGoogleFont,
   lt as makeColorVariables,
-  Ns as rosetta,
+  Is as rosetta,
   ar as rosettaDark,
   tn as rosettaLight,
   cs as themeButtons,
@@ -7275,7 +7277,7 @@ export {
   As as usePanelDrag,
   Ds as useSiteThemes,
   Ee as useSiteThemesContext,
-  Ne as useTemporaryActiveState,
+  Ie as useTemporaryActiveState,
   en as useTooltip
 };
 //# sourceMappingURL=index.js.map

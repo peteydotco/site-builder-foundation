@@ -199,7 +199,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       scrollParent = scrollParent.parentElement
     }
     if (!scrollParent) return
-    const totalHeight = expanded ? (composerHeight + 175) : 0
+    const totalHeight = expanded ? (composerHeight + 184) : 0
     const targetAdjust = totalHeight / 2
     const distance = targetAdjust - lastScrollAdjust.current
     lastScrollAdjust.current = targetAdjust
@@ -333,7 +333,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
       ref={dividerRef}
       style={{
         position: 'relative',
-        height: expanded ? (composerHeight + 175) : 0,
+        height: expanded ? (composerHeight + 184) : 0,
         zIndex: 10,
         background: expanded ? '#E7E7E7' : 'transparent',
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
@@ -469,10 +469,14 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               </button>
 
               {/* AI circle — only shown when onPromptSubmit is provided */}
-              {onPromptSubmit && visible && (
+              {onPromptSubmit && (
                 <div style={{
-                  animation: 'aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both',
                   flexShrink: 0,
+                  transform: visible ? 'scale(1)' : 'scale(0.92)',
+                  opacity: visible ? 1 : 0,
+                  transition: visible
+                    ? 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s'
+                    : 'transform 0.15s ease, opacity 0.15s ease',
                 }}>
                 <div
                   onClick={handleExpand}
@@ -611,7 +615,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     const scrollH = el.scrollHeight
                     const isMultiline = scrollH > 22
                     el.style.height = isMultiline ? scrollH + 'px' : ''
-                    setComposerHeight(isMultiline ? scrollH + 68 : 54)
+                    setComposerHeight(isMultiline ? scrollH + 76 : 54)
                   }}
                   onKeyDown={handleInputKeyDown}
                   placeholder="Make it real"
@@ -623,7 +627,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
                     fontWeight: 400, fontSize: 15, lineHeight: '20px', color: '#0E0E0E',
                     overflow: 'visible',
-                    padding: composerHeight > 54 ? '0 0 8px' : 0,
+                    padding: composerHeight > 54 ? '0 0 16px' : 0,
                     margin: 0,
                     boxSizing: 'border-box',
                   }}
