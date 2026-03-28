@@ -736,11 +736,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     onMouseLeave={() => setPlusHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'transparent',
+                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(1)',
-                      transition: 'background 0.15s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.85)',
+                      transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
                     <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
@@ -788,11 +788,11 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     onMouseLeave={() => setPlusHovered(false)}
                     style={{
                       width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'transparent',
+                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(1)',
-                      transition: 'background 0.15s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.85)',
+                      transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
                     <div style={{ width: 12, height: 12 }}><PlusIcon /></div>

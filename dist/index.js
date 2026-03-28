@@ -2435,7 +2435,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             height: 42,
                             borderRadius: "50%",
                             border: "none",
-                            background: u ? "rgba(0,0,0,0.06)" : "transparent",
+                            background: u ? "rgba(0,0,0,0.06)" : "rgba(0,0,0,0)",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -2443,8 +2443,8 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             flexShrink: 0,
                             padding: 0,
                             color: "#666",
-                            transform: u ? "scale(1.048)" : "scale(1)",
-                            transition: "background 0.15s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
+                            transform: u ? "scale(1.048)" : "scale(0.85)",
+                            transition: "background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
                           },
                           children: /* @__PURE__ */ r("div", { style: { width: 12, height: 12 }, children: /* @__PURE__ */ r(Qe, {}) })
                         }
@@ -2501,7 +2501,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                               height: 42,
                               borderRadius: "50%",
                               border: "none",
-                              background: u ? "rgba(0,0,0,0.06)" : "transparent",
+                              background: u ? "rgba(0,0,0,0.06)" : "rgba(0,0,0,0)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
@@ -2509,8 +2509,8 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                               flexShrink: 0,
                               padding: 0,
                               color: "#666",
-                              transform: u ? "scale(1.048)" : "scale(1)",
-                              transition: "background 0.15s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
+                              transform: u ? "scale(1.048)" : "scale(0.85)",
+                              transition: "background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
                             },
                             children: /* @__PURE__ */ r("div", { style: { width: 12, height: 12 }, children: /* @__PURE__ */ r(Qe, {}) })
                           }
