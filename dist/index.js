@@ -2276,10 +2276,39 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   minHeight: 54,
                   animation: H ? "promptCollapse 200ms cubic-bezier(0.55, 0, 1, 0.45) forwards" : "promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards"
                 }, children: [
+                  /* @__PURE__ */ r("style", { children: `
+                @keyframes glowRotate {
+                  from { transform: rotate(0deg); }
+                  to   { transform: rotate(360deg); }
+                }
+                .chat-glow::before {
+                  content: '';
+                  position: absolute;
+                  inset: -50%;
+                  background: conic-gradient(
+                    from 0deg,
+                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                  );
+                  animation: glowRotate 4s linear infinite;
+                  opacity: 0.4;
+                }
+                .chat-glow::after {
+                  content: '';
+                  position: absolute;
+                  inset: -50%;
+                  background: conic-gradient(
+                    from 180deg,
+                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                  );
+                  animation: glowRotate 4s linear infinite reverse;
+                  opacity: 0.25;
+                  filter: blur(10px);
+                }
+              ` }),
                   /* @__PURE__ */ r("div", { className: "chat-glow", style: {
                     position: "absolute",
-                    inset: -2,
-                    borderRadius: F > 54 ? 26 : 35,
+                    inset: -3,
+                    borderRadius: F > 54 ? 27 : 36,
                     overflow: "hidden",
                     zIndex: 0
                   } }),
@@ -2304,33 +2333,6 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   from { width: 560px; opacity: 1; }
                   85%  { opacity: 0; }
                   to   { width: 54px; opacity: 0; }
-                }
-                @keyframes glowRotate {
-                  from { transform: rotate(0deg); }
-                  to   { transform: rotate(360deg); }
-                }
-                .chat-glow::before {
-                  content: '';
-                  position: absolute;
-                  inset: -50%;
-                  background: conic-gradient(
-                    from 0deg,
-                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
-                  );
-                  animation: glowRotate 4s linear infinite;
-                  opacity: 0.35;
-                }
-                .chat-glow::after {
-                  content: '';
-                  position: absolute;
-                  inset: -50%;
-                  background: conic-gradient(
-                    from 180deg,
-                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
-                  );
-                  animation: glowRotate 4s linear infinite reverse;
-                  opacity: 0.2;
-                  filter: blur(8px);
                 }
               ` }),
                     /* @__PURE__ */ g("div", { style: {
