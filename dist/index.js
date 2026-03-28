@@ -2276,62 +2276,97 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                   /* @__PURE__ */ r("style", { children: `
                 @property --glow-hue {
                   syntax: "<number>";
-                  inherits: false;
+                  inherits: true;
                   initial-value: 0;
                 }
-                @keyframes glowHue {
-                  from { --glow-hue: 0; }
-                  to   { --glow-hue: 360; }
+                @property --glow-rotate {
+                  syntax: "<number>";
+                  inherits: true;
+                  initial-value: 0;
                 }
-                @keyframes glowOrbit {
-                  from { transform: rotate(0deg); }
-                  to   { transform: rotate(360deg); }
+                @property --glow-bg-x {
+                  syntax: "<number>";
+                  inherits: true;
+                  initial-value: 0;
                 }
-                .chat-glow {
-                  animation: glowHue 6s linear infinite;
+                @property --glow-bg-y {
+                  syntax: "<number>";
+                  inherits: true;
+                  initial-value: 0;
                 }
-                .chat-glow::before {
+
+                @keyframes chat-hue { 0% { --glow-hue: 0; } 100% { --glow-hue: 360; } }
+                @keyframes chat-rotate-bg {
+                  0%   { --glow-bg-x: 0;   --glow-bg-y: 0; }
+                  25%  { --glow-bg-x: 100; --glow-bg-y: 0; }
+                  50%  { --glow-bg-x: 100; --glow-bg-y: 100; }
+                  75%  { --glow-bg-x: 0;   --glow-bg-y: 100; }
+                  100% { --glow-bg-x: 0;   --glow-bg-y: 0; }
+                }
+                @keyframes chat-glow-orbit {
+                  from { --glow-rotate: -70; }
+                  to   { --glow-rotate: 290; }
+                }
+
+                .chat-glow-border {
+                  animation: chat-hue 4s linear infinite,
+                             chat-rotate-bg 4s linear infinite;
+                }
+                .chat-glow-border::before {
                   content: '';
+                  display: block;
                   position: absolute;
-                  inset: -40%;
-                  background: conic-gradient(
-                    from 0deg,
-                    hsl(calc(var(--glow-hue, 0) + 0) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 60) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 120) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 180) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 240) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 300) 80% 65%),
-                    hsl(calc(var(--glow-hue, 0) + 360) 80% 65%)
+                  width: calc(100% + 4px);
+                  height: calc(100% + 4px);
+                  left: -2px;
+                  top: -2px;
+                  border-radius: inherit;
+                  box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
+                  mix-blend-mode: color-burn;
+                  z-index: -1;
+                  background: hsl(0deg 0% 16%) radial-gradient(
+                    30% 50% at calc(var(--glow-bg-x) * 1%) calc(var(--glow-bg-y) * 1%),
+                    hsl(calc(var(--glow-hue) * 1deg) 100% 90%) 0%,
+                    hsl(calc(var(--glow-hue) * 1deg) 100% 80%) 20%,
+                    hsl(calc(var(--glow-hue) * 1deg) 100% 60%) 40%,
+                    transparent 100%
                   );
-                  animation: glowOrbit 4s linear infinite;
-                  filter: blur(4px);
-                  opacity: 0.55;
                 }
-                .chat-glow::after {
-                  content: '';
+
+                .chat-glow-orb {
                   position: absolute;
-                  inset: -60%;
-                  background: conic-gradient(
-                    from 180deg,
-                    hsl(calc(var(--glow-hue, 0) + 0) 90% 60%),
-                    hsl(calc(var(--glow-hue, 0) + 90) 90% 55%),
-                    hsl(calc(var(--glow-hue, 0) + 180) 90% 60%),
-                    hsl(calc(var(--glow-hue, 0) + 270) 90% 55%),
-                    hsl(calc(var(--glow-hue, 0) + 360) 90% 60%)
-                  );
-                  animation: glowOrbit 6s linear infinite reverse;
-                  filter: blur(16px);
-                  opacity: 0.35;
+                  width: 80px;
+                  height: 80px;
+                  left: calc(50% - 40px);
+                  top: calc(50% - 40px);
+                  animation: chat-glow-orbit 4s linear infinite;
+                  transform: rotateZ(calc(var(--glow-rotate) * 1deg));
+                  transform-origin: center;
+                  border-radius: 50%;
+                }
+                .chat-glow-orb::after {
+                  content: '';
+                  display: block;
+                  position: relative;
+                  width: 160%;
+                  height: 160%;
+                  left: -30%;
+                  top: -30%;
+                  filter: blur(40px);
+                  border-radius: 50%;
+                  background: hsl(calc(var(--glow-hue) * 1deg) 100% 60%);
+                  animation: chat-hue 4s linear infinite;
+                  transform: scaleX(1.4) scaleY(1.2) translateY(-60%);
+                  opacity: 0.7;
                 }
               ` }),
-                  /* @__PURE__ */ r("div", { className: "chat-glow", style: {
+                  /* @__PURE__ */ r("div", { className: "chat-glow-border", style: {
                     position: "absolute",
-                    inset: -2,
-                    borderRadius: F > 54 ? 26 : 35,
-                    overflow: "hidden",
-                    zIndex: 0
-                  } }),
+                    inset: 0,
+                    borderRadius: F > 54 ? 24 : 33,
+                    zIndex: 0,
+                    overflow: "hidden"
+                  }, children: /* @__PURE__ */ r("span", { className: "chat-glow-orb" }) }),
                   /* @__PURE__ */ g("div", { style: {
                     position: "relative",
                     zIndex: 1,
