@@ -469,7 +469,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
               </button>
 
               {/* AI circle — only shown when onPromptSubmit is provided */}
-              {onPromptSubmit && (
+              {onPromptSubmit && visible && (
                 <div style={{
                   animation: 'aiIconEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both',
                   flexShrink: 0,
