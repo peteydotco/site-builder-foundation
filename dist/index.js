@@ -1819,6 +1819,7 @@ function Ss({
           }, children: /* @__PURE__ */ f("div", { style: {
             background: "#0072f0",
             borderRadius: 9999,
+            color: "#fff",
             display: "flex",
             alignItems: "center",
             gap: 3,

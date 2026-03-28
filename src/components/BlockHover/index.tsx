@@ -161,7 +161,7 @@ function BlockHover({
             zIndex: 100, pointerEvents: 'none',
           }}>
             <div style={{
-              background: '#0072f0', borderRadius: 9999,
+              background: '#0072f0', borderRadius: 9999, color: '#fff',
               display: 'flex', alignItems: 'center', gap: 3,
               height: 16, padding: '0.25px 6px 0.75px',
             }}>
