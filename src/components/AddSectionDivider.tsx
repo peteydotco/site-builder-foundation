@@ -253,15 +253,15 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
     }
   }, [expanded, handleDismiss])
 
-  // Cursor-follow: document-level listener when lockup is visible
+  // Cursor-follow: document-level listener when lockup/prompt is visible
   useEffect(() => {
     if (!visible) {
-      const el = lockupRef.current
+      const el = wrapperRef.current
       if (el) el.style.transform = ''
       return
     }
     const onMove = (e: MouseEvent) => {
-      const el = lockupRef.current
+      const el = wrapperRef.current
       if (!el) return
       const normalized = ((e.clientX / window.innerWidth) - 0.5) * 2
       el.style.transform = `translateX(${normalized * (onPromptSubmit ? 6 : 3)}px)`
