@@ -2102,7 +2102,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
             position: "absolute",
             left: "50%",
             top: "50%",
-            transform: "translate(-50%, -50%)"
+            transform: "translate(-50%, calc(-50% - 5px))"
           }, children: /* @__PURE__ */ f(
             "div",
             {

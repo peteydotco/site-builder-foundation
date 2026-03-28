@@ -394,7 +394,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         position: 'absolute',
         left: '50%',
         top: '50%',
-        transform: 'translate(-50%, -50%)',
+        transform: 'translate(-50%, calc(-50% - 5px))',
       }}>
         <div
           ref={wrapperRef}
