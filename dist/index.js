@@ -2443,7 +2443,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                             flexShrink: 0,
                             padding: 0,
                             color: "#666",
-                            transform: u ? "scale(1.048)" : "scale(0.85)",
+                            transform: u ? "scale(1.048)" : "scale(0.9)",
                             transition: "background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
                           },
                           children: /* @__PURE__ */ r("div", { style: { width: 12, height: 12 }, children: /* @__PURE__ */ r(Qe, {}) })
@@ -2509,7 +2509,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                               flexShrink: 0,
                               padding: 0,
                               color: "#666",
-                              transform: u ? "scale(1.048)" : "scale(0.85)",
+                              transform: u ? "scale(1.048)" : "scale(0.9)",
                               transition: "background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
                             },
                             children: /* @__PURE__ */ r("div", { style: { width: 12, height: 12 }, children: /* @__PURE__ */ r(Qe, {}) })

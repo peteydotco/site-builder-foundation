@@ -739,7 +739,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                       background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.85)',
+                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.9)',
                       transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
@@ -791,7 +791,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                       background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.85)',
+                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.9)',
                       transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                     }}
                   >
