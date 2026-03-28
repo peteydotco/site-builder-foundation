@@ -409,7 +409,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
             <>
             <style>{`
               @keyframes aiIconEntrance {
-                from { transform: scale(0.8); opacity: 0; }
+                from { transform: scale(0.92); opacity: 0; }
                 to   { transform: scale(1); opacity: 1; }
               }
             `}</style>
