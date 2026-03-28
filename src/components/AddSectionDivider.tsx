@@ -572,18 +572,34 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
 
           {/* ── Expanded prompt ── */}
           {expanded && (
-            <div style={{
+            <div className="chat-glow-wrap" style={{
+              position: 'relative',
               width: 560,
               minHeight: 54,
-              borderRadius: composerHeight > 54 ? 24 : 33,
-              background: '#FAFAFA',
-              border: '1px solid rgba(0,0,0,0.11)',
-              boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
               animation: closing
                 ? 'promptCollapse 200ms cubic-bezier(0.55, 0, 1, 0.45) forwards'
                 : 'promptUnfurl 500ms cubic-bezier(0.22, 1.15, 0.36, 1) forwards',
-              transition: 'border-radius 0.25s ease',
             }}>
+              {/* Glow layer — behind the card */}
+              <div className="chat-glow" style={{
+                position: 'absolute',
+                inset: -2,
+                borderRadius: composerHeight > 54 ? 26 : 35,
+                overflow: 'hidden',
+                zIndex: 0,
+              }} />
+              {/* Card */}
+              <div style={{
+                position: 'relative',
+                zIndex: 1,
+                width: '100%',
+                minHeight: 54,
+                borderRadius: composerHeight > 54 ? 24 : 33,
+                background: '#FAFAFA',
+                border: '1px solid rgba(0,0,0,0.06)',
+                boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
+                transition: 'border-radius 0.25s ease',
+              }}>
               <style>{`
                 @keyframes promptUnfurl {
                   from { width: 54px; opacity: 0; }
@@ -594,6 +610,33 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   from { width: 560px; opacity: 1; }
                   85%  { opacity: 0; }
                   to   { width: 54px; opacity: 0; }
+                }
+                @keyframes glowRotate {
+                  from { transform: rotate(0deg); }
+                  to   { transform: rotate(360deg); }
+                }
+                .chat-glow::before {
+                  content: '';
+                  position: absolute;
+                  inset: -50%;
+                  background: conic-gradient(
+                    from 0deg,
+                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                  );
+                  animation: glowRotate 4s linear infinite;
+                  opacity: 0.35;
+                }
+                .chat-glow::after {
+                  content: '';
+                  position: absolute;
+                  inset: -50%;
+                  background: conic-gradient(
+                    from 180deg,
+                    #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b
+                  );
+                  animation: glowRotate 4s linear infinite reverse;
+                  opacity: 0.2;
+                  filter: blur(8px);
                 }
               `}</style>
               <div style={{
@@ -721,6 +764,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                     </div>
                   </button>
                 )}
+              </div>
               </div>
             </div>
           )}
