@@ -2399,7 +2399,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
                     minHeight: 54,
                     borderRadius: F > 54 ? 24 : 33,
                     background: "#FAFAFA",
-                    border: "1px solid rgba(0,0,0,0.06)",
+                    border: "none",
                     boxShadow: "0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)",
                     transition: "border-radius 0.25s ease"
                   }, children: [
