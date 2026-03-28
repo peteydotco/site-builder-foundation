@@ -401,7 +401,7 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
           style={{
             opacity: (visible && !dismissing) ? 1 : 0,
             pointerEvents: (visible && !dismissing) ? 'auto' : 'none',
-            transition: dismissing ? 'none' : 'opacity 0.15s ease',
+            transition: dismissing ? 'none' : 'opacity 0.15s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         >
           {/* ── Collapsed state — pill + standalone AI circle ── */}

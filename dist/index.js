@@ -2111,7 +2111,7 @@ function Ms({ onClick: e, onPromptSubmit: t, aiStatesPath: n = "/assets/ai-state
               style: {
                 opacity: H && !I ? 1 : 0,
                 pointerEvents: H && !I ? "auto" : "none",
-                transition: I ? "none" : "opacity 0.15s ease"
+                transition: I ? "none" : "opacity 0.15s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)"
               },
               children: [
                 !m && /* @__PURE__ */ f(ke, { children: [
