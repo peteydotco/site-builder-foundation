@@ -160,9 +160,11 @@ interface AddSectionDividerProps {
   onClick?: (e: React.MouseEvent) => void
   onPromptSubmit?: (prompt: string) => void
   aiStatesPath?: string
+  /** Optional React node rendered behind the gap background when expanded */
+  expandEffect?: React.ReactNode
 }
 
-function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states' }: AddSectionDividerProps) {
+function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai-states', expandEffect }: AddSectionDividerProps) {
   const [iconHovered, setIconHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState(false)
   const [submitHovered, setSubmitHovered] = useState(false)
@@ -339,7 +341,18 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
         transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s ease',
       }}
     >
-      {/* Shader removed */}
+      {/* Optional expand effect — rendered behind gap content */}
+      {expanded && expandEffect && (
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}>
+          {expandEffect}
+        </div>
+      )}
 
       {/* Bottom stroke — faint white for light direction / depth */}
       <div style={{
