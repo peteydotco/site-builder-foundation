@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from 'react'
 
 /* ── Config ──────────────────────────────────────────────────────────────── */
 
-const LABEL = 'Field'
+const LABEL = 'Input field'
 
 /* ── Types ───────────────────────────────────────────────────────────────── */
 

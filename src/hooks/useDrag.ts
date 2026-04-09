@@ -8,6 +8,11 @@ interface UsePanelDragOptions {
   onSnap: (side: 'left' | 'right') => void
   onUnsnap: () => void
   enabled?: boolean
+  /** Width of the panel being dragged, in pixels. Affects drag clamping,
+   *  snap-bar normalization, and snap-corner hover zones. Defaults to 575px
+   *  (Canvas view). Narrower values (e.g. 320 for Schema view) widen the
+   *  effective hover zones proportionally. */
+  panelWidth?: number
 }
 
 interface UsePanelDragReturn {
@@ -29,10 +34,11 @@ interface UsePanelDragReturn {
 
 const DRAG_THRESHOLD = 2
 const SNAP_EDGE_ZONE = 0.15
-const PANEL_W = 575
 const PANEL_MARGIN = 11
-// Fraction of panel width at left/right edges that triggers snap hint on hover
-const SNAP_CORNER_FRACTION = 0.07
+// Fraction of panel width at left/right edges that triggers snap hint on hover.
+// 0.12 = 38px at the 320px Schema view — the minimum usable hover target.
+// At 7% (22px) the snap zone was too narrow to trigger reliably.
+const SNAP_CORNER_FRACTION = 0.12
 
 export function usePanelDrag({
   panelRef,
@@ -42,6 +48,7 @@ export function usePanelDrag({
   onSnap,
   onUnsnap,
   enabled = true,
+  panelWidth = 575,
 }: UsePanelDragOptions): UsePanelDragReturn {
   const [isDragging, setIsDragging] = useState(false)
   const [isUnsnapping, setIsUnsnapping] = useState(false)
@@ -96,7 +103,7 @@ export function usePanelDrag({
           snapX = PANEL_MARGIN
           snapY = PANEL_MARGIN
         } else {
-          snapX = cw - PANEL_W - PANEL_MARGIN
+          snapX = cw - panelWidth - PANEL_MARGIN
           snapY = PANEL_MARGIN
         }
         startBase.current = { x: snapX, y: snapY }
@@ -114,7 +121,7 @@ export function usePanelDrag({
     // Clamp within container
     const cw = containerSizeRef.current.w
     const ch = containerSizeRef.current.h
-    const clampedX = Math.max(0, Math.min(cw - PANEL_W, newX))
+    const clampedX = Math.max(0, Math.min(cw - panelWidth, newX))
     const clampedY = Math.max(0, Math.min(ch - 100, newY)) // keep at least 100px visible
 
     setPosition({ x: clampedX, y: clampedY })
@@ -132,8 +139,8 @@ export function usePanelDrag({
     }
 
     // Snap bar position: normalized -1 to 1
-    const panelCenterX = clampedX + PANEL_W / 2
-    const normalized = Math.max(-1, Math.min(1, (cursorInContainer - panelCenterX) / (PANEL_W / 2)))
+    const panelCenterX = clampedX + panelWidth / 2
+    const normalized = Math.max(-1, Math.min(1, (cursorInContainer - panelCenterX) / (panelWidth / 2)))
     setSnapBarPosition(normalized)
   }
 
@@ -160,7 +167,7 @@ export function usePanelDrag({
         const newX = startBase.current.x + dx
         const newY = startBase.current.y + dy
         const clamped = {
-          x: Math.max(0, Math.min(cw - PANEL_W, newX)),
+          x: Math.max(0, Math.min(cw - panelWidth, newX)),
           y: Math.max(0, Math.min(containerSizeRef.current.h - 100, newY)),
         }
         basePositionRef.current.current = clamped
@@ -231,21 +238,21 @@ export function usePanelDrag({
 
     const rect = panelEl.getBoundingClientRect()
     const relX = e.clientX - rect.left
-    const cornerZone = PANEL_W * SNAP_CORNER_FRACTION
+    const cornerZone = panelWidth * SNAP_CORNER_FRACTION
 
     // Normalized position: -1 (left edge) to 1 (right edge)
-    const normalized = Math.max(-1, Math.min(1, (relX - PANEL_W / 2) / (PANEL_W / 2)))
+    const normalized = Math.max(-1, Math.min(1, (relX - panelWidth / 2) / (panelWidth / 2)))
     setSnapBarPosition(normalized)
 
     const state = panelStateRef.current
     if (relX < cornerZone && state !== 'snapped-left') {
       setSnapHint('left')
-    } else if (relX > PANEL_W - cornerZone && state !== 'snapped-right') {
+    } else if (relX > panelWidth - cornerZone && state !== 'snapped-right') {
       setSnapHint('right')
     } else {
       setSnapHint(null)
     }
-  }, [enabled, isDragging, panelRef])
+  }, [enabled, isDragging, panelRef, panelWidth])
 
   // Sync position when not dragging (e.g. on container resize or state change)
   useEffect(() => {

@@ -63,12 +63,13 @@ function ButtonBox({
 }
 
 /**
- * Chevron SVG for the disclosure arrow.
+ * Chevron SVG for the disclosure arrow. Filled angular glyph matching the
+ * rest of the app's icon language (filled gray, not stroked blue).
  */
 function Chevron() {
   return (
     <svg viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M0.44 12L5.44 7L0.44 2H2.561L7.561 7L2.561 12H0.44Z" fill="currentColor" />
     </svg>
   );
 }

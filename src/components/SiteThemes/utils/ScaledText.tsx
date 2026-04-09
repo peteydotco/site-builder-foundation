@@ -63,9 +63,23 @@ function ScaledText(props: ScaledTextProps) {
       return
     }
 
-    const scaleX = measureRef.current.clientWidth / virtualRef.current.clientWidth
+    // Guard against zero-dimension virtual content on first paint. Before the
+    // browser has laid out the hidden measurement node, clientWidth/clientHeight
+    // can be 0 — dividing by it produces NaN and sets --scale: NaN, which
+    // collapses the visible content to nothing (the "invisible Themes card
+    // button" bug). Default to 1 until the next observed resize has real
+    // dimensions.
+    const virtualW = virtualRef.current.clientWidth
+    const virtualH = virtualRef.current.clientHeight
+    if (!virtualW || !virtualH) {
+      setScale(1)
+      setMaxScale(1)
+      return
+    }
+
+    const scaleX = measureRef.current.clientWidth / virtualW
     const scaleY = Number(
-      (containerRef.current.clientHeight / virtualRef.current.clientHeight).toFixed(3),
+      (containerRef.current.clientHeight / virtualH).toFixed(3),
     )
 
     const newScale = contain ? Math.min(scaleX, scaleY) : scaleX
