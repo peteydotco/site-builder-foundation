@@ -1,0 +1,179 @@
+/* ProUI Input — numeric input with scrub + stepper + icon slot.
+ *
+ * Port of ImAdamTM/site-themes Input.module.scss, scoped to the
+ * single-unit case. Multi-unit switching, range slider, and auto mode
+ * are not yet ported.
+ */
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--proui-field-size, 36px);
+  background: var(--rosetta-bg-default, #F2F2F2);
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: var(--proui-field-font-size, 13px);
+  color: var(--rosetta-fg-default, #0E0E0E);
+  box-sizing: border-box;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.container:hover {
+  background: var(--rosetta-bg-muted, #E7E7E7);
+}
+
+.container.focused {
+  background: var(--rosetta-bg-base, #FFFFFF);
+  border-color: var(--rosetta-fg-default, #0E0E0E);
+}
+
+.container.scrubbing {
+  background: var(--rosetta-bg-muted, #E7E7E7);
+}
+
+/* The scrub area covers the whole input horizontally, so clicking anywhere
+ * that isn't the input or stepper buttons initiates a scrub. */
+.scrubArea {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: ns-resize;
+  z-index: 0;
+}
+
+.container.horizontalScrub .scrubArea {
+  cursor: ew-resize;
+}
+
+.iconSlot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 100%;
+  color: var(--rosetta-fg-muted, #666666);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.iconSlot svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.inputEl {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0 8px;
+  font: inherit;
+  color: inherit;
+  text-align: right;
+  cursor: text;
+}
+
+.inputEl::-webkit-outer-spin-button,
+.inputEl::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputEl[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ── Stepper buttons (right side by default) ── */
+
+.stepper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 100%;
+  flex-shrink: 0;
+  margin-right: 4px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.container:hover .stepper,
+.container.focused .stepper,
+.container.scrubbing .stepper {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.stepperBtn {
+  flex: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--rosetta-fg-muted, #666666);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.1s ease;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.stepperBtn:hover {
+  color: var(--rosetta-fg-default, #0E0E0E);
+}
+
+.stepperBtn:disabled {
+  color: var(--rosetta-fg-disabled, #B7B7B7);
+  cursor: default;
+}
+
+.stepperBtn.top {
+  align-items: flex-end;
+  padding-bottom: 1px;
+}
+
+.stepperBtn.bottom {
+  align-items: flex-start;
+  padding-top: 1px;
+}
+
+.stepperBtn svg {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+.stepperBtn.bottom svg {
+  transform: rotate(180deg);
+}
+
+/* Stepper on the left side (rare, but supported via prop). */
+.container.stepperLeft {
+  flex-direction: row-reverse;
+}
+.container.stepperLeft .stepper {
+  margin-right: 0;
+  margin-left: 4px;
+}
+.container.stepperLeft .inputEl {
+  text-align: left;
+}

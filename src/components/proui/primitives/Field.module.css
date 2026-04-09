@@ -1,0 +1,175 @@
+/* ProUI Field grammar — 6-column grid row primitive.
+ *
+ * Port of ImAdamTM/site-themes Field.module.scss. Keeps the original
+ * behavior and class hierarchy so composed cells (PaddingField,
+ * TransformsLayout2, etc.) port cleanly on top of it.
+ *
+ * The grammar:
+ *   <Field>                       // 6-col grid row
+ *     <Field.Object column="1/3"> // label cell (cols 1-2)
+ *       <Field.Label>Name</Field.Label>
+ *     </Field.Object>
+ *     <Field.Object column="3/-1"> // control cell (cols 3-6)
+ *       <Input ... />
+ *     </Field.Object>
+ *   </Field>
+ *
+ * Hover reveals `.options` slot (reset buttons, unlink toggles).
+ * :focus-within keeps options visible after click.
+ */
+
+:root {
+  --proui-field-size:        36px;
+  --proui-field-size-small:  32px;
+  --proui-field-gap:         8px;
+  /* Pull from the Rosetta Body text style (official tokens defined in
+   * rosetta-tokens.css). Override --text-body-* at an ancestor to tune
+   * all ProUI cells without touching each primitive. */
+  --proui-field-font-size:   var(--text-body-font-size, 14px);
+  --proui-field-line-height: var(--text-body-line-height, 22px);
+  --proui-dialog-padding:    14px;
+  --proui-ease-out:          cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.field {
+  display: grid;
+  min-height: var(--proui-field-size-small);
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  font-size: var(--proui-field-font-size);
+  gap: var(--proui-field-gap);
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.field.padding {
+  padding: 0 var(--proui-dialog-padding);
+}
+
+.field.stack {
+  gap: 0 var(--proui-field-gap);
+}
+
+.field:hover .label .options,
+.field:focus-within .label .options {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+}
+
+.options {
+  opacity: 0;
+  transition:
+    opacity 0.2s var(--proui-ease-out),
+    visibility 0.2s var(--proui-ease-out);
+  visibility: hidden;
+}
+
+.label {
+  display: flex;
+  height: 100%;
+  min-height: var(--proui-field-size);
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--text-body-font-weight, 400);
+  color: var(--rosetta-fg-default);
+}
+
+.label.labelPrimary {
+  font-weight: var(--text-body-medium-weight, 500);
+}
+
+.label.indent {
+  margin-left: 12px;
+  color: var(--rosetta-fg-muted);
+}
+
+.label.mini {
+  color: var(--rosetta-fg-muted);
+  font-size: var(--text-label-font-size, 9.75px);
+  font-weight: var(--text-label-font-weight, 500);
+  line-height: var(--text-label-line-height, 16px);
+  letter-spacing: var(--text-label-letter-spacing, 0.75px);
+  text-transform: uppercase;
+}
+
+.label label {
+  display: block;
+  overflow: hidden;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label label[for] {
+  cursor: pointer;
+}
+
+.label label span {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.object {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: flex-end;
+  grid-template-columns: subgrid;
+}
+
+.object > * {
+  grid-column: 1 / -1;
+}
+
+.object.objectFlex {
+  display: flex;
+  gap: var(--proui-field-gap);
+}
+
+/* Collapsible — expand/collapse wrapper with height + scale animation. */
+
+.collapsibleWrapper {
+  display: flex;
+  height: var(--height, 0);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: calc(var(--proui-field-gap) * -1);
+  pointer-events: none;
+  transition: height var(--duration, 350ms) var(--proui-ease-out);
+  overflow: hidden;
+}
+
+.collapsibleWrapper:not(.open) * {
+  pointer-events: none !important;
+}
+
+.collapsibleWrapper.open {
+  pointer-events: all;
+}
+
+.collapsibleWrapper.open .collapsible {
+  opacity: 1;
+  scale: 1;
+  visibility: visible;
+  transition:
+    opacity var(--duration, 350ms) calc(var(--duration, 350ms) * 0.25) var(--proui-ease-out),
+    visibility var(--duration, 350ms) calc(var(--duration, 350ms) * 0.25) var(--proui-ease-out),
+    scale var(--duration, 350ms) calc(var(--duration, 350ms) * 0.25) var(--proui-ease-out);
+}
+
+.collapsible {
+  width: 100%;
+  padding-bottom: var(--proui-field-gap);
+  opacity: 0;
+  scale: 0.9;
+  visibility: hidden;
+  transition:
+    opacity calc(var(--duration, 350ms) * 0.5) var(--proui-ease-out),
+    visibility calc(var(--duration, 350ms) * 0.5) var(--proui-ease-out),
+    scale calc(var(--duration, 350ms) * 0.5) var(--proui-ease-out);
+}

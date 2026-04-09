@@ -1,0 +1,89 @@
+/* ProUI SelectDropdown — portaled popover select for 4+ option enum
+ * fields. The trigger is a ProUI Input-shaped button; the popover is
+ * rendered into document.body via createPortal so it escapes any
+ * overflow: auto ancestors (e.g. the IDE panel scroll container).
+ */
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--proui-field-size, 36px);
+  padding: 0 12px;
+  background: var(--rosetta-bg-default, #F2F2F2);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-size: var(--proui-field-font-size, 13px);
+  color: var(--rosetta-fg-default, #0E0E0E);
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.trigger:hover {
+  background: var(--rosetta-bg-muted, #E7E7E7);
+}
+
+.trigger.open {
+  background: var(--rosetta-bg-base, #FFFFFF);
+  border-color: var(--rosetta-fg-default, #0E0E0E);
+}
+
+.label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  margin-left: 8px;
+  color: var(--rosetta-fg-muted, #666666);
+  transition: transform 0.15s ease;
+}
+
+.trigger.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* Popover — portaled, position: fixed, computed from trigger rect. */
+.popover {
+  position: fixed;
+  background: var(--rosetta-bg-base, #FFFFFF);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 6px;
+  z-index: 10000;
+  max-height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.option {
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--proui-field-font-size, 13px);
+  color: var(--rosetta-fg-default, #0E0E0E);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s ease;
+}
+
+.option:hover {
+  background: var(--rosetta-bg-default, #F2F2F2);
+}
+
+.option.selected {
+  background: var(--rosetta-bg-muted, #E7E7E7);
+  font-weight: 500;
+}

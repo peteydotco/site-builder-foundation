@@ -73,6 +73,29 @@ export {
   SearchGlyphIcon,
 } from './icons'
 
+// ── ProUI — editor cell primitives (block editor grammar) ─────────────────
+export { default as Field, Label as ProUILabel, FieldObject, Collapsible as ProUICollapsible } from './components/proui/primitives/Field'
+export type { FieldProps, LabelProps, ObjectProps, CollapsibleProps } from './components/proui/primitives/Field'
+export { default as ProUIInput } from './components/proui/primitives/Input'
+export type { InputProps, InputChangePayload } from './components/proui/primitives/Input'
+export { default as useProUIStepper } from './components/proui/hooks/useStepper'
+export type { UnitSpec, UnitConfig, UnitConstraints } from './components/proui/primitives/util'
+export { default as TransformOriginInput } from './components/proui/primitives/TransformOriginInput'
+export type { AnchorValue, TransformOriginInputProps } from './components/proui/primitives/TransformOriginInput'
+export { default as FoldableList, FoldableListItem } from './components/proui/primitives/FoldableList'
+export type { FoldableListProps, FoldableListItemProps } from './components/proui/primitives/FoldableList'
+export { default as UnlinkToggle } from './components/proui/primitives/UnlinkToggle'
+export type { UnlinkToggleProps } from './components/proui/primitives/UnlinkToggle'
+export { default as SegmentedControl } from './components/proui/primitives/SegmentedControl'
+export type { SegmentedControlProps } from './components/proui/primitives/SegmentedControl'
+export { default as SelectDropdown } from './components/proui/primitives/SelectDropdown'
+export type { SelectDropdownProps } from './components/proui/primitives/SelectDropdown'
+export { default as PaddingField } from './components/proui/cells/PaddingField'
+export type { PaddingFieldProps, PaddingValue } from './components/proui/cells/PaddingField'
+export { default as TransformsLayout2 } from './components/proui/cells/TransformsLayout2'
+export type { TransformsLayout2Props, TransformsValue } from './components/proui/cells/TransformsLayout2'
+export * as ProUIIcons from './components/proui/icons'
+
 // ── Site Themes ─────────────────────────────────────────────────────────
 export { default as SiteThemes, useSiteThemesContext, SiteThemesContext } from './components/SiteThemes'
 export { default as useSiteThemes } from './hooks/useSiteThemes'

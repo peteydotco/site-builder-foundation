@@ -1,0 +1,61 @@
+/* ProUI TransformOriginInput — 3×3 anchor picker.
+ *
+ * Scoped port of ImAdamTM/site-themes TransformOriginInput. Adam's version
+ * opens a popup with a full drag-to-position control; we build the inline
+ * 3×3 click-to-select variant matching the screenshot's "Anchor" cell.
+ * The full drag control can be layered in later if needed.
+ */
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: var(--rosetta-bg-default, #F2F2F2);
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.container:hover {
+  background: var(--rosetta-bg-muted, #E7E7E7);
+}
+
+.dot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--rosetta-fg-muted, #666666);
+  transition: background 0.1s ease, transform 0.1s ease;
+}
+
+.dot:hover::before {
+  background: var(--rosetta-fg-default, #0E0E0E);
+  transform: scale(1.5);
+}
+
+.dot.active::before {
+  background: var(--rosetta-fg-default, #0E0E0E);
+  width: 5px;
+  height: 5px;
+}
