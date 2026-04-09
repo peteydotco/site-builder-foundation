@@ -39,6 +39,65 @@
   /* ── Border ── */
   --rosetta-border-default:       #E7E7E7;
 
+  /* ── Rosetta Text Styles ──
+   *
+   * Official Squarespace design platform tokens. Source:
+   * https://design-platform.squarespace.net/docs/components/primitives/Text/
+   *
+   * SCOPE — these tokens are for SCHEMA PANELS and SQSP EDITOR CHROME
+   * ONLY. They MUST NOT be forwarded into section iframes (where the
+   * user's page content renders). The IFRAME_BRAND_CSS block in
+   * IdeaCarousel deliberately does not reference these, so the parent
+   * document's :root scope is the only place they exist.
+   *
+   * Desktop variants only for now — the editor is desktop-first. Mobile
+   * variants exist in the spec and can be added per-component behind a
+   * media query when we need responsive chrome. */
+
+  /* Display Title — hero page / modal titles. */
+  --text-display-title-font-size:   32px;
+  --text-display-title-line-height: 40px;
+  --text-display-title-font-weight: 600;
+
+  /* Title — section headers, modal titles. */
+  --text-title-font-size:   22px;
+  --text-title-line-height: 28px;
+  --text-title-font-weight: 600;
+
+  /* Subtitle — secondary headers. */
+  --text-subtitle-font-size:   16px;
+  --text-subtitle-line-height: 22px;
+  --text-subtitle-font-weight: 500;
+
+  /* Body — default editor text, form labels, control values.
+   * Body Medium is the emphasis weight (same size + line-height). */
+  --text-body-font-size:     14px;
+  --text-body-line-height:   22px;
+  --text-body-font-weight:   400;
+  --text-body-medium-weight: 500;
+
+  /* Caption — small helper text, assistive labels. */
+  --text-caption-font-size:   12px;
+  --text-caption-line-height: 16px;
+  --text-caption-font-weight: 400;
+
+  /* Label — uppercase small-caps section dividers and group headers. */
+  --text-label-font-size:      9.75px;
+  --text-label-line-height:    16px;
+  --text-label-font-weight:    500;
+  --text-label-letter-spacing: 0.75px;
+
+  /* Action — button labels, CTAs. */
+  --text-action-font-size:      12px;
+  --text-action-line-height:    22px;
+  --text-action-font-weight:    500;
+  --text-action-letter-spacing: 0.5px;
+
+  /* Figure — oversized numerals, pricing, metrics. */
+  --text-figure-font-size:   48px;
+  --text-figure-line-height: 56px;
+  --text-figure-font-weight: 400;
+
   /* ── Shadows ── */
   --shadows-100: 0px 4px 8px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
   --shadows-200: 0px 4px 16px 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);

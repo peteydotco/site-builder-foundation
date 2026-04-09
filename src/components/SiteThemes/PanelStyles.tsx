@@ -19,8 +19,8 @@ import panelStyles from './PanelStyles.module.css'
 /* ── Hardcoded animation defaults ────────────────────────────────────────── */
 
 const ANIMATE_REVEAL = true
-const POPUP_ANIMATION_SPEED = 0.35
-const POPUP_ANIMATION_CROSS_FADE_DELAY = 0.04
+const POPUP_ANIMATION_SPEED = 0.15
+const POPUP_ANIMATION_CROSS_FADE_DELAY = 0
 
 /* ── Types ───────────────────────────────────────────────────────────────── */
 
@@ -37,8 +37,13 @@ function PanelStyles({ depth = 0, isActive = false }: PanelStylesProps) {
   const { userTheme } = useSiteThemesContext()
   const [dialogAttachment, setDialogAttachment] = useState<React.RefObject<HTMLElement | null> | null>(null)
   const [dialog, setDialog] = useState<DialogName | null>(null)
-  const timeout = useRef<ReturnType<typeof setTimeout>>()
   const lastDialog = useRef<DialogName | null>(null)
+
+  const closeDialog = useCallback(() => {
+    lastDialog.current = null
+    setDialog(null)
+    setDialogAttachment(null)
+  }, [])
 
   const handleClickPanel = useCallback(
     (e: React.MouseEvent, name: DialogName) => {
@@ -49,21 +54,45 @@ function PanelStyles({ depth = 0, isActive = false }: PanelStylesProps) {
       const ref = { current: target } as React.RefObject<HTMLElement>
       setDialogAttachment(ref)
       setDialog(last => {
-        clearTimeout(timeout.current)
-        lastDialog.current = last === name ? null : name
-        return lastDialog.current
+        const next = last === name ? null : name
+        lastDialog.current = next
+        return next
       })
-      clearTimeout(timeout.current)
     },
     [],
   )
 
   useEffect(() => {
     if (!isActive) {
-      setDialog(null)
-      setDialogAttachment(null)
+      closeDialog()
     }
-  }, [isActive])
+  }, [isActive, closeDialog])
+
+  // ── Click-outside dismiss ──
+  // When a dialog is open, any pointer-down outside the dialog element and
+  // outside the attached Style card closes the dialog immediately (no fade
+  // delay, no second-click requirement). The listener is attached in the
+  // capture phase so it fires before any internal handlers can stop it.
+  useEffect(() => {
+    if (!dialog) return
+    const handler = (e: PointerEvent) => {
+      const target = e.target as Node | null
+      if (!target) return
+      // Click inside the dialog — ignore
+      const dialogEl = document.querySelector('dialog[open]')
+      if (dialogEl && dialogEl.contains(target)) return
+      // Click on the attached Style card (the one that opened this dialog) —
+      // let handleClickPanel toggle it off naturally so its active state stays
+      // in sync.
+      const attached = dialogAttachment?.current
+      if (attached && attached.contains(target)) return
+      closeDialog()
+    }
+    document.addEventListener('pointerdown', handler, true)
+    return () => {
+      document.removeEventListener('pointerdown', handler, true)
+    }
+  }, [dialog, dialogAttachment, closeDialog])
 
   const getDelay = useCallback(
     (index: number, len: number) =>
@@ -71,18 +100,9 @@ function PanelStyles({ depth = 0, isActive = false }: PanelStylesProps) {
     [isActive],
   )
 
-  const handleCloseDialog = useCallback((currentDialog: DialogName) => {
-    timeout.current = setTimeout(() => {
-      if (lastDialog.current !== currentDialog) {
-        return
-      }
-      setDialog(null)
-    }, 0)
-
-    return () => {
-      clearTimeout(timeout.current)
-    }
-  }, [])
+  const handleCloseDialog = useCallback((_currentDialog: DialogName) => {
+    closeDialog()
+  }, [closeDialog])
 
   const dialogOutput = useMemo(() => {
     if (!dialogAttachment) return null
@@ -229,13 +249,17 @@ function PanelStyles({ depth = 0, isActive = false }: PanelStylesProps) {
         <Disclosure label="Animations" href="/config/site-styles/animations" />
         <Disclosure label="Spacing" href="/config/site-styles/spacing" />
       </div>
+      {/* Popover show/hide animation. Both directions are mirrored so the
+          dismiss animation is the exact reverse of the appear: fade + 0.5rem
+          slide-up on appear, fade + 0.5rem slide-down on dismiss. */}
       <TransitionSwap
         animateFirst
+        directionIn="up"
         directionOut="down"
         delayShow={POPUP_ANIMATION_CROSS_FADE_DELAY}
-        distance={0}
+        distance={0.5}
         duration={POPUP_ANIMATION_SPEED}
-        useOpacity={false}
+        useOpacity
       >
         {dialogOutput}
       </TransitionSwap>

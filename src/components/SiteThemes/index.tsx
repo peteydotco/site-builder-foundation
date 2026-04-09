@@ -3,8 +3,17 @@ import type { SiteThemesState } from '../../types/siteThemes'
 import useDelayedActiveState from '../../hooks/useDelayedActiveState'
 import { useSiteThemesNavigation } from './useNavigation'
 import PanelStyles from './PanelStyles'
+import PanelColors from './panels/PanelColors'
+import PanelStub from './panels/PanelStub'
 import NavBar from './NavBar'
 import styles from './SiteThemes.module.css'
+
+function capitalize(str: string): string {
+  return str
+    .split('-')
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
 
@@ -55,9 +64,26 @@ function SiteThemes({ isOpen, themeState, className, onClose }: SiteThemesProps)
   )
 
   const panels = useMemo(() => {
-    return route.map((_key, i) => (
-      <PanelStyles key={i} depth={i} isActive={depth === i && isOpen} />
-    ))
+    return route.map((key, i) => {
+      const panelIsActive = depth === i && isOpen
+      // Depth 0 is always the Styles root with all cards
+      if (i === 0) {
+        return <PanelStyles key={i} depth={i} isActive={panelIsActive} />
+      }
+      // Depth 1+ — route key determines which panel to render.
+      // Only 'colors' has a real drill-in; the rest fall back to a stub.
+      if (key === 'colors') {
+        return <PanelColors key={i} depth={i} isActive={panelIsActive} />
+      }
+      return (
+        <PanelStub
+          key={i}
+          title={capitalize(key ?? '')}
+          depth={i}
+          isActive={panelIsActive}
+        />
+      )
+    })
   }, [route, depth, isOpen])
 
   return (

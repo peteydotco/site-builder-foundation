@@ -14,29 +14,48 @@
 
 .container > div {
   position: relative;
+  /* All 5 swatches are equal width in the rest state. The hover sequence
+     temporarily expands individual swatches via .active / .contracted. */
   width: 20%;
   flex-grow: 1;
   flex-shrink: 1;
-  transition: width var(--duration) var(--ease-out);
+  flex-basis: 20%;
+  transition: width var(--duration) var(--ease-out),
+              flex-basis var(--duration) var(--ease-out);
 }
 
 .container > div::before {
   position: absolute;
-  border-radius: 4px;
+  /* No border-radius on individual swatches — the container's
+     overflow:hidden + border-radius clips the outer corners. Inner edges
+     stay flush against their neighbors. */
   border-right: 0.5px solid rgb(0 0 0 / 10%);
   background: var(--color);
   content: "";
   inset: 0 0 0 -10px;
 }
 
-.container > div:nth-child(1) {
-  width: 40%;
-}
-
 .container > div.active {
   width: 40% !important;
+  flex-basis: 40% !important;
 }
 
 .container > div.contracted {
-  width: 20% !important;
+  width: 15% !important;
+  flex-basis: 15% !important;
+}
+
+/* ── Compact variant (Themes card) ────────────────────────────────────────
+   Used inside the Themes card lockup where the palette sits next to the
+   Aa glyph + button preview. The first swatch (white) is intentionally
+   wider so the white→accent transition is the visual centrepiece. */
+
+.container.compact > div:nth-child(1) {
+  width: 40%;
+  flex-basis: 40%;
+}
+
+.container.compact > div:nth-child(n + 2) {
+  width: 15%;
+  flex-basis: 15%;
 }

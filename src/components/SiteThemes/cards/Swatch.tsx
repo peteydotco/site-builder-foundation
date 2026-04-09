@@ -10,12 +10,21 @@ const TRANSITION_DURATION = 0.2
 interface SwatchProps {
   colors?: string[]
   isInteractive?: boolean
+  /**
+   * Layout variant.
+   *  - 'equal' (default): all 5 swatches are 20% width — used when the
+   *    palette is the headline element on a card or in a popover.
+   *  - 'compact': the first swatch is wider (40%) and the rest are 15%
+   *    each — used inside the Themes card where the palette is part of a
+   *    larger lockup with the Aa glyph and button preview.
+   */
+  variant?: 'equal' | 'compact'
 }
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 
 function Swatch(props: SwatchProps) {
-  const { colors = [], isInteractive = false } = props
+  const { colors = [], isInteractive = false, variant = 'equal' } = props
   const ref = useRef<HTMLDivElement>(null)
 
   const colorOutput = useMemo(
@@ -74,8 +83,12 @@ function Swatch(props: SwatchProps) {
     }
   }, [isInteractive, colors.length])
 
+  const className = variant === 'compact'
+    ? `${styles.container} ${styles.compact}`
+    : styles.container
+
   return (
-    <div ref={ref} className={styles.container}>
+    <div ref={ref} className={className}>
       {colorOutput}
     </div>
   )

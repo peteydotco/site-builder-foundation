@@ -100,6 +100,7 @@ function CardThemes(props: CardThemesProps) {
             key={swapKeys.swatch}
             colors={color.palette}
             isInteractive={isHoverIntent}
+            variant="compact"
           />
         </TransitionSwap>
       </div>
