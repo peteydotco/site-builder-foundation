@@ -13,6 +13,11 @@ interface UsePanelDragOptions {
     onSnap: (side: 'left' | 'right') => void;
     onUnsnap: () => void;
     enabled?: boolean;
+    /** Width of the panel being dragged, in pixels. Affects drag clamping,
+     *  snap-bar normalization, and snap-corner hover zones. Defaults to 575px
+     *  (Canvas view). Narrower values (e.g. 320 for Schema view) widen the
+     *  effective hover zones proportionally. */
+    panelWidth?: number;
 }
 interface UsePanelDragReturn {
     position: {
@@ -33,5 +38,5 @@ interface UsePanelDragReturn {
         onMouseMove: (e: React.MouseEvent) => void;
     };
 }
-export declare function usePanelDrag({ panelRef, containerSize, panelState, basePosition, onSnap, onUnsnap, enabled, }: UsePanelDragOptions): UsePanelDragReturn;
+export declare function usePanelDrag({ panelRef, containerSize, panelState, basePosition, onSnap, onUnsnap, enabled, panelWidth, }: UsePanelDragOptions): UsePanelDragReturn;
 export {};
