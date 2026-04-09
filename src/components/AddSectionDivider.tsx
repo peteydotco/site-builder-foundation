@@ -742,11 +742,13 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                 zIndex: 1,
                 width: '100%',
                 minHeight: 54,
+                height: composerHeight,
                 borderRadius: composerHeight > 54 ? 24 : 33,
                 background: '#FAFAFA',
                 border: 'none',
                 boxShadow: '0px 227px 64px 0px rgba(0,0,0,0), 0px 145px 58px 0px rgba(0,0,0,0.01), 0px 82px 49px 0px rgba(0,0,0,0.02), 0px 36px 36px 0px rgba(0,0,0,0.04), 0px 9px 20px 0px rgba(0,0,0,0.05)',
-                transition: 'border-radius 0.25s ease',
+                transition: 'border-radius 0.25s ease, height 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
+                overflow: 'hidden',
               }}>
               <style>{`
                 @keyframes promptUnfurl {
@@ -760,134 +762,89 @@ function AddSectionDivider({ onClick, onPromptSubmit, aiStatesPath = '/assets/ai
                   to   { width: 54px; opacity: 0; }
                 }
               `}</style>
-              <div style={{
-                display: 'flex',
-                flexDirection: composerHeight > 54 ? 'column' : 'row',
-                alignItems: composerHeight > 54 ? 'stretch' : 'center',
-                padding: composerHeight > 54 ? '16px 16px 8px' : '6px',
-                gap: composerHeight > 54 ? 0 : 6,
-              }}>
-                {/* Plus button — inline left when single line, bottom-left when multiline */}
-                {composerHeight <= 54 && (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
-                    onMouseEnter={() => setPlusHovered(true)}
-                    onMouseLeave={() => setPlusHovered(false)}
-                    style={{
-                      width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.9)',
-                      transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
-                    }}
-                  >
-                    <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
-                  </button>
-                )}
+              {/* Textarea fills the pill; padding reserves bottom space for buttons when multi-line */}
+              <textarea
+                ref={inputRef}
+                value={promptValue}
+                onChange={(e) => {
+                  setPromptValue(e.target.value)
+                  const el = e.target
+                  // Measure pure content height (excluding current padding)
+                  el.style.height = 'auto'
+                  const scrollH = el.scrollHeight
+                  const cs = getComputedStyle(el)
+                  const padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)
+                  const contentH = scrollH - padY
+                  el.style.height = '' // restore CSS height: 100%
+                  const isMulti = contentH > 22
+                  // Single-line: pill = 54 (17 top + 20 content + 17 bottom)
+                  // Multi-line:  pill = 17 top + contentH + 54 bottom (button clearance)
+                  setComposerHeight(isMulti ? contentH + 17 + 54 : 54)
+                }}
+                onKeyDown={handleInputKeyDown}
+                placeholder="Make it real"
+                rows={1}
+                style={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0, bottom: 0,
+                  width: '100%', height: '100%',
+                  border: 'none', background: 'transparent', outline: 'none', resize: 'none',
+                  fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                  fontWeight: 400, fontSize: 15, lineHeight: '20px', color: '#0E0E0E',
+                  overflow: 'hidden',
+                  // left/right 54 always keeps text clear of the 42px buttons (42+6+6)
+                  // top 17 gives breathing room; bottom 54 reserves button row when multi-line
+                  padding: composerHeight > 54 ? '17px 54px 54px 54px' : '17px 54px',
+                  margin: 0,
+                  boxSizing: 'border-box',
+                }}
+              />
 
-                <textarea
-                  ref={inputRef}
-                  value={promptValue}
-                  onChange={(e) => {
-                    setPromptValue(e.target.value)
-                    const el = e.target
-                    el.style.height = 'auto'
-                    const scrollH = el.scrollHeight
-                    const isMultiline = scrollH > 22
-                    el.style.height = isMultiline ? scrollH + 'px' : ''
-                    setComposerHeight(isMultiline ? scrollH + 76 : 54)
-                  }}
-                  onKeyDown={handleInputKeyDown}
-                  placeholder="Make it real"
-                  rows={1}
-                  style={{
-                    flex: composerHeight > 54 ? undefined : 1,
-                    width: composerHeight > 54 ? '100%' : undefined,
-                    border: 'none', background: 'transparent', outline: 'none', resize: 'none',
-                    fontFamily: 'Clarkson, "Helvetica Neue", Helvetica, Arial, sans-serif',
-                    fontWeight: 400, fontSize: 15, lineHeight: '20px', color: '#0E0E0E',
-                    overflow: 'visible',
-                    padding: composerHeight > 54 ? '0 0 16px' : 0,
-                    margin: 0,
-                    boxSizing: 'border-box',
-                  }}
-                />
+              {/* Plus button — absolutely pinned bottom-left; x never changes */}
+              <button
+                onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
+                onMouseEnter={() => setPlusHovered(true)}
+                onMouseLeave={() => setPlusHovered(false)}
+                style={{
+                  position: 'absolute', left: 6, bottom: 6,
+                  width: 42, height: 42, borderRadius: '50%', border: 'none',
+                  background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', padding: 0, color: '#666',
+                  transform: plusHovered ? 'scale(1.048)' : 'scale(0.9)',
+                  transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                  zIndex: 2,
+                }}
+              >
+                <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
+              </button>
 
-                {/* Bottom row — only when multiline */}
-                {composerHeight > 54 ? (
+              {/* Submit button — absolutely pinned bottom-right; x never changes */}
+              <button
+                onClick={handleSubmit}
+                onMouseEnter={() => setSubmitHovered(true)}
+                onMouseLeave={() => setSubmitHovered(false)}
+                style={{
+                  position: 'absolute', right: 6, bottom: 6,
+                  width: 42, height: 42, borderRadius: '50%', border: 'none',
+                  background: 'transparent', padding: 0,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', overflow: 'hidden',
+                  transform: submitHovered ? 'scale(1.048)' : 'scale(1)',
+                  transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
+                  zIndex: 2,
+                }}
+              >
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
+                  position: 'absolute', width: 48, height: 48,
+                  left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
                 }}>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); onClick?.(e) }}
-                    onMouseEnter={() => setPlusHovered(true)}
-                    onMouseLeave={() => setPlusHovered(false)}
-                    style={{
-                      width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: plusHovered ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      cursor: 'pointer', flexShrink: 0, padding: 0, color: '#666',
-                      transform: plusHovered ? 'scale(1.048)' : 'scale(0.9)',
-                      transition: 'background 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
-                    }}
-                  >
-                    <div style={{ width: 12, height: 12 }}><PlusIcon /></div>
-                  </button>
-
-                  <button
-                    onClick={handleSubmit}
-                    onMouseEnter={() => setSubmitHovered(true)}
-                    onMouseLeave={() => setSubmitHovered(false)}
-                    style={{
-                      width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: 'transparent', padding: 0,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
-                      transform: submitHovered ? 'scale(1.048)' : 'scale(1)',
-                      transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
-                    }}
-                  >
-                    <div style={{
-                      position: 'absolute', width: 48, height: 48,
-                      left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
-                    }}>
-                      <BeaconBgIcon />
-                    </div>
-                    <div style={{ position: 'relative', zIndex: 1, color: 'var(--rosetta-fg-onStrong, #fff)', width: 10, height: 13 }}>
-                      <ArrowUpGlyphIcon />
-                    </div>
-                  </button>
+                  <BeaconBgIcon />
                 </div>
-                ) : (
-                  /* Submit button inline — single line mode */
-                  <button
-                    onClick={handleSubmit}
-                    onMouseEnter={() => setSubmitHovered(true)}
-                    onMouseLeave={() => setSubmitHovered(false)}
-                    style={{
-                      width: 42, height: 42, borderRadius: '50%', border: 'none',
-                      background: 'transparent', padding: 0,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      cursor: 'pointer', flexShrink: 0, position: 'relative', overflow: 'hidden',
-                      transform: submitHovered ? 'scale(1.048)' : 'scale(1)',
-                      transition: 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
-                    }}
-                  >
-                    <div style={{
-                      position: 'absolute', width: 48, height: 48,
-                      left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
-                    }}>
-                      <BeaconBgIcon />
-                    </div>
-                    <div style={{ position: 'relative', zIndex: 1, color: 'var(--rosetta-fg-onStrong, #fff)', width: 10, height: 13 }}>
-                      <ArrowUpGlyphIcon />
-                    </div>
-                  </button>
-                )}
-              </div>
+                <div style={{ position: 'relative', zIndex: 1, color: 'var(--rosetta-fg-onStrong, #fff)', width: 10, height: 13 }}>
+                  <ArrowUpGlyphIcon />
+                </div>
+              </button>
               </div>
             </div>
           )}

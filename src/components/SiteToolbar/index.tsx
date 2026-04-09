@@ -206,11 +206,10 @@ export default function SiteToolbar({
                   position: 'absolute',
                   top: 2,
                   right: 2,
-                  width: 7,
-                  height: 7,
+                  width: 6,
+                  height: 6,
                   borderRadius: '50%',
                   background: '#22c55e',
-                  border: '2px solid var(--rosetta-bg-base)',
                   pointerEvents: 'none',
                 }} />
               )}
