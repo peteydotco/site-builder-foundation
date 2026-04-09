@@ -77,6 +77,8 @@ export {
 export { default as SiteThemes, useSiteThemesContext, SiteThemesContext } from './components/SiteThemes'
 export { default as useSiteThemes } from './hooks/useSiteThemes'
 export { default as makeColorVariables } from './utils/makeColorVariables'
+export { default as emitSectionThemeCSS, emitSectionThemeStyleTag } from './utils/emitSectionThemeCSS'
+export { default as emitButtonPackCSS, emitButtonPackStyleTag } from './utils/emitButtonPackCSS'
 export { default as loadGoogleFont, loadFontsForTheme } from './utils/loadGoogleFont'
 export { default as useDelayedActiveState } from './hooks/useDelayedActiveState'
 export { default as useTemporaryActiveState } from './hooks/useTemporaryActiveState'
@@ -101,5 +103,18 @@ export type {
   FormElementConfig,
   FormOptionConfig,
   SiteThemesState,
+  // Section color themes
+  SectionTheme,
+  SectionThemeId,
+  SectionThemeGroup,
+  SectionThemeRoles,
+  PaletteIndex,
 } from './types/siteThemes'
-export { COLOR_KEYS } from './types/siteThemes'
+export {
+  COLOR_KEYS,
+  SECTION_THEMES,
+  DEFAULT_SECTION_THEME,
+  DEFAULT_SECTION_THEME_SEQUENCE,
+  PALETTE_INDEX,
+  isSectionThemeId,
+} from './types/siteThemes'
